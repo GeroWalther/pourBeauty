@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGO_DB")
+}
+
+model User {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  email   String   @unique
+  name    String?
+  address Address?
+  isAdmin Boolean  @default(false)
+  orders  Order[]
+}
+
+type Address {
+  street  String
+  city    String
+  state   String
+  zip     String
+  country String
+}
+
+model Order {
+  id               String           @id @default(auto()) @map("_id") @db.ObjectId
+  pricePaidInCents Float
+  customerId       String           @db.ObjectId
+  customer         User             @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  orderedProducts  OrderedProduct[]
+  hasBeenShipped   Boolean          @default(false)
+}
+
+model Product {
+  id                     String           @id @default(auto()) @map("_id") @db.ObjectId
+  name                   String
+  priceInCents           Float
+  imageUrl               String[]
+  quantity               Int
+  description            String
+  isAvailableForPurchase Boolean          @default(true)
+  createdAt              DateTime         @default(now())
+  updatedAt              DateTime         @updatedAt
+  orderedProducts        OrderedProduct[]
+}
+
+model OrderedProduct {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  orderId   String  @db.ObjectId
+  productId String  @db.ObjectId
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantity  Int
+}
