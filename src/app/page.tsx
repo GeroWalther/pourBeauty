@@ -1,18 +1,15 @@
 import db from '@/db';
 
-async function userCreate() {
-  const createdUser = await db.user.create({
-    data: {
-      email: 'the_shoguns@yahoo.com',
+async function searchUser() {
+  const user = await db.user.findFirst({
+    where: {
       isAdmin: true,
-      name: 'Admin',
     },
   });
-  console.log(createdUser);
-  return createdUser;
+  return user;
 }
 export default async function Home() {
-  const user = await userCreate();
+  const user = await searchUser();
 
   return (
     <div>
