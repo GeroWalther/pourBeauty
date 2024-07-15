@@ -1,3 +1,4 @@
+import { Product } from '@/hooks/use-cart-hook';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
@@ -7,17 +8,24 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
 
 async function POST(req: NextRequest): Promise<NextResponse | undefined> {
   try {
-    const { totalAmountinCents } = req.body as any;
+    const { totalAmountinCents, products } = req.body as any;
     const paymentIntent = await stripe.paymentIntents.create({
       amount: totalAmountinCents,
       currency: 'eur',
       description: 'Miss Glow Bestellung',
       metadata: {
-        integration_check: 'accept_a_payment',
+        products,
       },
     });
+    if (paymentIntent.client_secret === null) {
+      throw new Error('Stripe failed to create payment intent.');
+    }
+
     return NextResponse.json(
-      { success: 'PaymentIntent created successfully' },
+      {
+        message: 'PaymentIntent created successfully',
+        client_secret: paymentIntent.client_secret,
+      },
       { status: 200 }
     );
   } catch (error) {

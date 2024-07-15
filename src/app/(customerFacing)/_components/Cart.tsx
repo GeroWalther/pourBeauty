@@ -50,7 +50,10 @@ export default function Cart() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ totalAmountinCents: toPay * 100 }),
+        body: JSON.stringify({
+          totalAmountinCents: toPay * 100,
+          products,
+        }),
       });
       if (response.ok) {
         const data = await response.json();
