@@ -2,16 +2,15 @@
 import { ShoppingCart } from 'lucide-react';
 
 import Link from 'next/link';
-import { buttonVariants } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import Image from 'next/image';
-import { useCart } from '@/hooks/use-cart-hook';
-
+import { Product, useCart } from '@/hooks/use-cart-hook';
 import CartItem from './CartItem';
 import { useEffect, useState } from 'react';
-
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { formatCurrency } from '@/lib/formatters';
+
 import {
   Sheet,
   SheetContent,
@@ -20,23 +19,55 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import { toast } from 'sonner';
 const SHIPPING = 15;
 export default function Cart() {
   const { items } = useCart();
+  const itemsToCheckout = items.map((item) => item.product);
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
+  // console.log('ITEMS: ', items);
 
-  const itemCount = items.length;
-  const subTotal = items.reduce((acc, { product }) => acc + product.price, 0);
+  const itemCount = items.reduce((acc, item) => acc + item.product.quantity, 0);
 
-  const cartItemTotal = items.reduce(
+  const subItemTotal = items.reduce(
     (total: any, { product }: any) => total + product.price,
     0
   );
+  const totalCart = subItemTotal * itemCount;
+  const toPay = totalCart + SHIPPING;
+
+  async function checkout(products: Product[]) {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ totalAmountinCents: toPay * 100 }),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Payment intent created:', data);
+        toast.success('Erfolgreich bezahlt!');
+      } else {
+        const errorData = await response.json();
+        console.error('Error creating payment intent:', errorData.error);
+        toast.message('Ein Fehler bei der Bezahlung ist aufgetreten.');
+      }
+    } catch (error) {
+      console.error('Failed to fetch:', error);
+      toast.message('Ein Fehler bei der Bezahlung ist aufgetreten.');
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   return (
     <Sheet>
@@ -54,7 +85,7 @@ export default function Cart() {
         setOpen={setOpen}
         className='flex w-full flex-col pr-0 sm:max-w-lg'>
         <SheetHeader className='space-y-2.5 pr-6'>
-          <SheetTitle>Cart ({itemCount})</SheetTitle>
+          <SheetTitle>Warenkorb ({itemCount})</SheetTitle>
         </SheetHeader>
         {itemCount > 0 ? (
           <>
@@ -69,27 +100,28 @@ export default function Cart() {
               <Separator />
               <div className='space-y-1-5 text-sm'>
                 <div className='flex'>
+                  <span className='flex-1'>Subtotal</span>
+                  <span>{formatCurrency(totalCart)}</span>
+                </div>
+                <div className='flex'>
                   <span className='flex-1'>Versand</span>
                   <span>{formatCurrency(SHIPPING)}</span>
                 </div>
                 <div className='flex'>
-                  <span className='flex-1'>Transaction Fee</span>
-                  <span>{formatCurrency(subTotal)}</span>
-                </div>
-                <div className='flex'>
                   <span className='flex-1'>Total</span>
-                  <span>{formatCurrency(cartItemTotal + subTotal)}</span>
+                  <span>{formatCurrency(toPay)}</span>
                 </div>
               </div>
               <SheetFooter>
                 <SheetTrigger asChild>
-                  <Link
-                    href='/cart'
+                  <Button
+                    disabled={isLoading}
+                    onClick={() => checkout(itemsToCheckout)}
                     className={buttonVariants({
-                      className: 'w-full',
+                      className: 'w-full bg-orange-500',
                     })}>
-                    Zahlen &rarr;
-                  </Link>
+                    {isLoading ? 'In Bearbeitung...' : 'Zahlen'}
+                  </Button>
                 </SheetTrigger>
               </SheetFooter>
             </div>
@@ -105,16 +137,16 @@ export default function Cart() {
                 alt='empty shopping cart image'
               />
             </div>
-            <div className='text-xl font-semibold'>Your cart is empty.</div>
+            <div className='text-xl font-semibold'>Der Warenkorb ist leer.</div>
             <SheetTrigger asChild>
               <Link
-                href='/products'
+                href='/missGlow'
                 className={buttonVariants({
                   variant: 'link',
                   size: 'sm',
                   className: 'text-sm text-muted-foreground text-stone-600',
                 })}>
-                Add items to your cart to checkout
+                Füge Produkte hinzu.
               </Link>
             </SheetTrigger>
           </div>

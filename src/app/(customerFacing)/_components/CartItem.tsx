@@ -5,18 +5,16 @@ import { ImageIcon, X } from 'lucide-react';
 import Image from 'next/image';
 
 export default function CartItem({ product }: { product: Product }) {
-  const image = '/public/512-1.jpg';
   const { removeItem } = useCart();
-  const label = 'Lippen Booster';
-
+  const label = 'Naturkosmetik';
   return (
     <div className='space-y-3 py-2'>
       <div className='flex items-start justify-between gap-4'>
         <div className='flex items-center space-x-4'>
           <div className='relative aspect-square h-16 w-16 min-w-fit overflow-hidden rounded'>
-            {image ? (
+            {product.image ? (
               <Image
-                src={'/512-1.jpg'}
+                src={product.image}
                 alt={label}
                 fill
                 className='absolute object-cover'
@@ -45,13 +43,16 @@ export default function CartItem({ product }: { product: Product }) {
                 onClick={() => removeItem(product.id)}
                 className='flex items-center gap-0.5'>
                 <X className='w-3 h-4' />
-                Remove
+                Entfernen
               </button>
             </div>
           </div>
         </div>
 
         <div className='flex flex-col space-y-1 font-medium'>
+          <span className='ml-auto line-clamp-1 text-sm'>
+            {product.quantity}x
+          </span>
           <span className='ml-auto line-clamp-1 text-sm'>
             {formatCurrency(product.price)}
           </span>

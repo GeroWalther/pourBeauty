@@ -5,7 +5,7 @@ import MaxWidthWrapper from '../_components/MaxWidthWrapper';
 import { Check, Shield } from 'lucide-react';
 import { formatCurrency } from '@/lib/formatters';
 import { ShareLink } from '../_components/ShareLink';
-import { Button } from '@/components/ui/button';
+import AddToCartButton from '../_components/AddToCartButton';
 
 const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
 
@@ -72,9 +72,15 @@ export default async function MissGlowShopSite() {
             />
             <div className='mt-10'>
               {/* TODO Add to cart */}
-              <Button className=' bg-orange-400 font-semibold w-full'>
-                In den Warenkorb
-              </Button>
+              <AddToCartButton
+                product={{
+                  id: '1',
+                  name: 'Miss Glow Lips',
+                  price: 89,
+                  image: '/512-1.jpg',
+                  quantity: 1,
+                }}
+              />
             </div>
             <div className='mt-6 text-center'>
               <div className='group inline-flex text-lg text-medium'>
