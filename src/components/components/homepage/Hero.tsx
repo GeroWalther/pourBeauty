@@ -45,7 +45,7 @@ export default function HeroComp() {
             </Link>
             <Link
               href='/missGlow'
-              className={buttonVariants({ className: 'bg-orange-400' })}>
+              className={buttonVariants({ className: 'bg-pink-500' })}>
               Shop
             </Link>
           </div>
