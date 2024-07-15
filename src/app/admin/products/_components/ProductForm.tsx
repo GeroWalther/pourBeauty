@@ -10,15 +10,15 @@ import { addProduct } from '../../_actions/products';
 
 export default function ProductForm() {
   const [priceInCents, setPriceInCents] = useState<number>();
-  const [images, setImages] = useState<File[]>([]);
+  // const [images, setImages] = useState<File[]>([]);
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (files) {
-      const fileList = Array.from(files);
-      setImages(fileList);
-    }
-  };
+  // const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const files = e.target.files;
+  //   if (files) {
+  //     const fileList = Array.from(files);
+  //     setImages(fileList);
+  //   }
+  // };
 
   return (
     <form action={addProduct} className='space-y-8'>
@@ -51,8 +51,8 @@ export default function ProductForm() {
           id='images'
           name='images'
           required
-          multiple
-          onChange={handleImageChange}
+          // multiple
+          // onChange={handleImageChange}
         />
       </div>
       <Button type='submit'>Speichern</Button>

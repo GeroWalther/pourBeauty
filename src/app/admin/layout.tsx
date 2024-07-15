@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav, { NavLink } from '@/components/Nav';
+import { Turret_Road } from 'next/font/google';
 
 export const dynamic = 'force-dynamic';
 
@@ -10,9 +11,9 @@ export default function AdminLayout({
 }>) {
   return (
     <>
-      <Nav>
+      <Nav admin>
         <NavLink href='/admin'>Dashboard</NavLink>
-        <NavLink href='/admin/products'>Produkte</NavLink>
+        {/* <NavLink href='/admin/products'>Produkte</NavLink> */}
         <NavLink href='/admin/customers'>Kunden</NavLink>
         <NavLink href='/admin/orders'>Bestellungen</NavLink>
       </Nav>
