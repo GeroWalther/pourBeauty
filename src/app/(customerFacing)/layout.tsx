@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Nav, { NavLink } from '../../components/Nav';
 import { Canvas } from '../../components/components/homepage/Hero';
 import Cart from './_components/Cart';
-import { LanguageProvider, useLanguage } from '@/contexts/LanguageProvider';
+import { LanguageProvider } from '@/contexts/LanguageProvider';
+import LanguageSwitcher from './_components/SwitchLang';
 
 export const dynamic = 'force-dynamic';
 
@@ -29,20 +30,3 @@ export default function Layout({
     </LanguageProvider>
   );
 }
-
-const LanguageSwitcher = () => {
-  const { language } = useLanguage();
-
-  // const toggleLanguage = () => {
-  //   setLanguage(language === 'de' ? 'en' : 'de');
-  // };
-
-  return (
-    <div>
-      <p>{language.toUpperCase()}</p>
-      {/* <button onClick={toggleLanguage}> */}
-      Switch to {language === 'de' ? 'German' : 'English'}
-      {/* </button> */}
-    </div>
-  );
-};
