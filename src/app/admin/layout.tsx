@@ -1,6 +1,5 @@
 import React from 'react';
 import Nav, { NavLink } from '@/components/Nav';
-import { Turret_Road } from 'next/font/google';
 
 export const dynamic = 'force-dynamic';
 

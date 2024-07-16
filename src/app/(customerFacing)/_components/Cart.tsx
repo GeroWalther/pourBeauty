@@ -2,9 +2,9 @@
 import { ShoppingCart } from 'lucide-react';
 
 import Link from 'next/link';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import Image from 'next/image';
-import { Product, useCart } from '@/hooks/use-cart-hook';
+import { useCart } from '@/hooks/use-cart-hook';
 import CartItem from './CartItem';
 import { useEffect, useState } from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -19,58 +19,21 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { toast } from 'sonner';
-const SHIPPING = 15;
+import { useLanguage } from '@/contexts/LanguageProvider';
+import { SHIPPING } from '../../../../consts';
+import useCartTotals from '@/hooks/use-to-pay';
+
 export default function Cart() {
   const { items } = useCart();
-  const itemsToCheckout = items.map((item) => item.product);
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { itemCount, totalCart, toPay } = useCartTotals(items);
+  const { language } = useLanguage();
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
   // console.log('ITEMS: ', items);
-
-  const itemCount = items.reduce((acc, item) => acc + item.product.quantity, 0);
-
-  const subItemTotal = items.reduce(
-    (total: any, { product }: any) => total + product.price,
-    0
-  );
-  const totalCart = subItemTotal * itemCount;
-  const toPay = totalCart + SHIPPING;
-
-  async function checkout(products: Product[]) {
-    setIsLoading(true);
-    try {
-      const response = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          totalAmountinCents: toPay * 100,
-          products,
-        }),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Payment intent created:', data);
-        toast.success('Erfolgreich bezahlt!');
-      } else {
-        const errorData = await response.json();
-        console.error('Error creating payment intent:', errorData.error);
-        toast.message('Ein Fehler bei der Bezahlung ist aufgetreten.');
-      }
-    } catch (error) {
-      console.error('Failed to fetch:', error);
-      toast.message('Ein Fehler bei der Bezahlung ist aufgetreten.');
-    } finally {
-      setIsLoading(false);
-    }
-  }
 
   return (
     <Sheet>
@@ -88,7 +51,10 @@ export default function Cart() {
         setOpen={setOpen}
         className='flex w-full flex-col pr-0 sm:max-w-lg'>
         <SheetHeader className='space-y-2.5 pr-6'>
-          <SheetTitle>Warenkorb ({itemCount})</SheetTitle>
+          <SheetTitle>
+            {language == 'de' && ' Warenkorb'}
+            {language == 'en' && 'Cart'} ({itemCount})
+          </SheetTitle>
         </SheetHeader>
         {itemCount > 0 ? (
           <>
@@ -107,7 +73,10 @@ export default function Cart() {
                   <span>{formatCurrency(totalCart)}</span>
                 </div>
                 <div className='flex'>
-                  <span className='flex-1'>Versand</span>
+                  <span className='flex-1'>
+                    {language == 'de' && ' Versand'}
+                    {language == 'en' && 'Shipping'}
+                  </span>
                   <span>{formatCurrency(SHIPPING)}</span>
                 </div>
                 <div className='flex'>
@@ -117,14 +86,14 @@ export default function Cart() {
               </div>
               <SheetFooter>
                 <SheetTrigger asChild>
-                  <Button
-                    disabled={isLoading}
-                    onClick={() => checkout(itemsToCheckout)}
+                  <Link
+                    href='/checkout'
                     className={buttonVariants({
                       className: 'w-full bg-orange-500',
                     })}>
-                    {isLoading ? 'In Bearbeitung...' : 'Zahlen'}
-                  </Button>
+                    {language == 'de' && 'Zur Kasse'}
+                    {language == 'en' && 'Checkout'}
+                  </Link>
                 </SheetTrigger>
               </SheetFooter>
             </div>
@@ -140,7 +109,10 @@ export default function Cart() {
                 alt='empty shopping cart image'
               />
             </div>
-            <div className='text-xl font-semibold'>Der Warenkorb ist leer.</div>
+            <div className='text-xl font-semibold'>
+              {language == 'de' && 'Der Warenkorb ist leer.'}
+              {language == 'en' && 'Your cart is empty.'}
+            </div>
             <SheetTrigger asChild>
               <Link
                 href='/missGlow'
@@ -149,7 +121,8 @@ export default function Cart() {
                   size: 'sm',
                   className: 'text-sm text-muted-foreground text-stone-600',
                 })}>
-                Füge Produkte hinzu.
+                {language == 'de' && 'Füge Produkte hinzu.'}
+                {language == 'en' && 'Add products to cart.'}
               </Link>
             </SheetTrigger>
           </div>

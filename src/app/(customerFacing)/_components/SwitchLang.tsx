@@ -9,11 +9,9 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div>
-      <p>{language.toUpperCase()}</p>
-      <button onClick={toggleLanguage}>
-        Switch to {language === 'de' ? 'English' : 'Deutsch'}
-      </button>
-    </div>
+    <button onClick={toggleLanguage} className='mt-1'>
+      <span>{language.toUpperCase()}</span>
+      {/* {language === 'de' ? 'English' : 'Deutsch'} */}
+    </button>
   );
 }
