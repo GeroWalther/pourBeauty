@@ -61,9 +61,8 @@ export default function CheckoutForm() {
             <Input type='text' id='email' name='email' required />
             <Label htmlFor='address'>Addresse</Label>
             <Input type='text' id='address' name='address' required />
+            <CheckoutBtn />
           </form>
-
-          <CheckoutBtn />
         </DialogContent>
       </Dialog>
     );
@@ -90,8 +89,8 @@ export default function CheckoutForm() {
             <Input type='text' id='email' name='email' required />
             <Label htmlFor='address'>Addresse</Label>
             <Input type='text' id='address' name='address' required />
+            <CheckoutBtn />
           </form>
-          <CheckoutBtn />
         </DrawerHeader>
         <DrawerFooter className='pt-2'>
           <DrawerClose asChild>
