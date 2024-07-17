@@ -20,6 +20,8 @@ import {
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string
@@ -85,8 +87,23 @@ function Form({ toPay }: any) {
   const stripe = useStripe();
   const elements = useElements();
   return (
-    <form className='mt-5'>
+    <form>
       <Card>
+        <CardHeader>
+          <span className=' font-semibold text-md text-primary -mb-4'>
+            Persönliche Informationen
+          </span>
+        </CardHeader>
+        <CardContent>
+          <Label htmlFor='name'>Name</Label>
+          <Input type='text' id='name' name='name' required />
+          <Label htmlFor='email'>Email</Label>
+          <Input type='text' id='email' name='email' required />
+          <Label htmlFor='address'>Versandadresse</Label>
+          <Input type='text' id='address' name='address' required />
+        </CardContent>
+      </Card>
+      <Card className='mt-5'>
         <CardHeader>
           <span className=' font-semibold text-md text-primary -mb-4'>
             Zahlung

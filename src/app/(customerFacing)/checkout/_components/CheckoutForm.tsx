@@ -26,6 +26,7 @@ import { useMediaQuery } from 'usehooks-ts';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import CheckoutStripe from './CheckoutStripe';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 export default function CheckoutForm() {
   const [open, setOpen] = useState(false);
@@ -71,10 +72,10 @@ export default function CheckoutForm() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button variant='default'>Kasse</Button>
+        <Button variant='default'>Zur Kasse</Button>
       </DrawerTrigger>
-      <DrawerContent className='w-full overflow-y-scroll max-h-screen'>
-        <DrawerHeader className='text-left'>
+      <DrawerContent className='w-full max-h-screen'>
+        <DrawerHeader className='text-left pt-0'>
           <DrawerTitle className='font-bold text-stone-800'>Kasse</DrawerTitle>
           <DrawerDescription className='font-semibold text-stone-700'>
             Bestellformular <br />
@@ -82,15 +83,9 @@ export default function CheckoutForm() {
               Gib deine Addressen und Zahlungsinformationen an um zu bestellen.
             </span>
           </DrawerDescription>
-          <form>
-            <Label htmlFor='name'>Name</Label>
-            <Input type='text' id='name' name='name' required />
-            <Label htmlFor='email'>Email</Label>
-            <Input type='text' id='email' name='email' required />
-            <Label htmlFor='address'>Addresse</Label>
-            <Input type='text' id='address' name='address' required />
+          <ScrollArea className='max-h-[70vh] overflow-auto '>
             <CheckoutStripe />
-          </form>
+          </ScrollArea>
         </DrawerHeader>
         <DrawerFooter className='pt-2'>
           <DrawerClose asChild>
