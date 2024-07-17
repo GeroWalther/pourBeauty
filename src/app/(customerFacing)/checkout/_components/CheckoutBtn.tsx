@@ -4,6 +4,7 @@ import { Product, useCart } from '@/hooks/use-cart-hook';
 import React, { useState } from 'react';
 import { toast } from 'sonner';
 import useCartTotals from '@/hooks/use-to-pay';
+import { formatCurrency } from '@/lib/formatters';
 
 export default function CheckoutBtn() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -41,13 +42,16 @@ export default function CheckoutBtn() {
     }
   }
   return (
-    <Button
-      disabled={isLoading}
-      onClick={() => checkout(itemsToCheckout)}
-      className={buttonVariants({
-        className: 'w-full bg-orange-500',
-      })}>
-      {isLoading ? 'In Bearbeitung...' : 'Zahlen'}
-    </Button>
+    <>
+      <p>Gesamtsumme: {formatCurrency(toPay)}</p>
+      <Button
+        disabled={isLoading}
+        onClick={() => checkout(itemsToCheckout)}
+        className={buttonVariants({
+          className: 'w-full bg-orange-500',
+        })}>
+        {isLoading ? 'In Bearbeitung...' : 'Zahlen'}
+      </Button>
+    </>
   );
 }

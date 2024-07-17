@@ -22,6 +22,7 @@ import {
 import { useLanguage } from '@/contexts/LanguageProvider';
 import { SHIPPING } from '../../../../consts';
 import useCartTotals from '@/hooks/use-to-pay';
+import CheckoutForm from '../checkout/_components/CheckoutForm';
 
 export default function Cart() {
   const { items } = useCart();
@@ -86,14 +87,15 @@ export default function Cart() {
               </div>
               <SheetFooter>
                 <SheetTrigger asChild>
-                  <Link
+                  <CheckoutForm />
+                  {/* <Link
                     href='/checkout'
                     className={buttonVariants({
                       className: 'w-full bg-orange-500',
                     })}>
                     {language == 'de' && 'Zur Kasse'}
                     {language == 'en' && 'Checkout'}
-                  </Link>
+                  </Link> */}
                 </SheetTrigger>
               </SheetFooter>
             </div>
