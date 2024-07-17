@@ -23,9 +23,9 @@ import {
 } from '@/components/ui/drawer';
 
 import { useMediaQuery } from 'usehooks-ts';
-import CheckoutBtn from './CheckoutBtn';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
+import CheckoutStripe from './CheckoutStripe';
 
 export default function CheckoutForm() {
   const [open, setOpen] = useState(false);
@@ -61,7 +61,7 @@ export default function CheckoutForm() {
             <Input type='text' id='email' name='email' required />
             <Label htmlFor='address'>Addresse</Label>
             <Input type='text' id='address' name='address' required />
-            <CheckoutBtn />
+            <CheckoutStripe />
           </form>
         </DialogContent>
       </Dialog>
@@ -89,7 +89,7 @@ export default function CheckoutForm() {
             <Input type='text' id='email' name='email' required />
             <Label htmlFor='address'>Addresse</Label>
             <Input type='text' id='address' name='address' required />
-            <CheckoutBtn />
+            <CheckoutStripe />
           </form>
         </DrawerHeader>
         <DrawerFooter className='pt-2'>

@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckoutBtn from './_components/CheckoutBtn';
+import CheckoutBtn from './_components/CheckoutStripe';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import CheckoutForm from './_components/CheckoutForm';

@@ -10,8 +10,8 @@ async function POST(req: NextRequest): Promise<NextResponse | undefined> {
   try {
     const { totalAmountinCents, products } = req.body as any;
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: totalAmountinCents,
-      currency: 'eur',
+      amount: 1000,
+      currency: 'EUR',
       description: 'Miss Glow Bestellung',
       metadata: {
         products,
@@ -29,7 +29,8 @@ async function POST(req: NextRequest): Promise<NextResponse | undefined> {
       { status: 200 }
     );
   } catch (error) {
-    console.error('Error creating payment intent:', error);
+    console.error('Error creating payment intent on server: ', error);
+
     return NextResponse.json(
       { error: 'Failed to create payment intent' },
       { status: 500 }
