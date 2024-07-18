@@ -11,17 +11,21 @@ export default function HeroComp() {
         <div className='py-8 mx-auto text-center flex flex-col items-center max-w-3xl'>
           <div className='relative'>
             <h1
-              className='sm:mb-8 text-4xl font-bold tracking-tight text-stone-700 sm:text-6xl mt-20'
+              className='sm:mb-8 text-4xl font-bold tracking-tight text-stone-700 sm:text-6xl md:mt-20'
               style={{ mixBlendMode: 'color-burn' }}>
-              Miss Glow Beauty{' '}
-              <span className='text-stone-400'>Die moderne Naturkosmetik</span>.
+              MISS GLOW BEAUTY
+              <span className='text-stone-400 mt-4 block'>
+                Die moderne Naturkosmetik.
+              </span>
             </h1>
             <p
               aria-hidden='true'
-              className='sm:mb-8 text-4xl font-bold tracking-tight text-stone-700 sm:text-6xl mt-20 absolute top-0 left-0 -z-30'
+              className='sm:mb-8 text-4xl font-bold tracking-tight text-stone-700 sm:text-6xl md:mt-20 absolute top-0 left-0 -z-30'
               style={{ mixBlendMode: 'revert' }}>
-              Miss Glow Beauty{' '}
-              <span className='text-stone-400'>Die moderne Naturkosmetik</span>.
+              MISS GLOW BEAUTY
+              <span className='text-stone-400 mt-4 block'>
+                Die moderne Naturkosmetik.
+              </span>
             </p>
           </div>
           <div className='relative'>
@@ -110,8 +114,8 @@ export function Canvas({ className }: any) {
       id='canv'
       className={`w-full ${className}`}
       style={{
-        clipPath: 'polygon(0 0, 100% 0, 100% 30%, 0% 100%)',
-        height: '75vh',
+        clipPath: 'polygon(0 0, 100% 0, 100% 40%, 0% 100%)',
+        height: '85vh',
         background:
           'linear-gradient(45deg, rgb(255, 126, 193), rgb(255, 126, 193))',
       }}

@@ -23,8 +23,6 @@ import {
 } from '@/components/ui/drawer';
 
 import { useMediaQuery } from 'usehooks-ts';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
 import CheckoutStripe from './CheckoutStripe';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
@@ -55,15 +53,8 @@ export default function CheckoutForm() {
               (Gib deine Addressen und Zahlungsinformationen an um zu bestellen)
             </span>
           </DialogDescription>
-          <form>
-            <Label htmlFor='name'>Name</Label>
-            <Input type='text' id='name' name='name' required />
-            <Label htmlFor='email'>Email</Label>
-            <Input type='text' id='email' name='email' required />
-            <Label htmlFor='address'>Addresse</Label>
-            <Input type='text' id='address' name='address' required />
-            <CheckoutStripe />
-          </form>
+
+          <CheckoutStripe />
         </DialogContent>
       </Dialog>
     );

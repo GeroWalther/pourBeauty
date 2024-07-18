@@ -1,7 +1,7 @@
 'use client';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Product, useCart } from '@/hooks/use-cart-hook';
-import React, { useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import useCartTotals from '@/hooks/use-to-pay';
 import { formatCurrency } from '@/lib/formatters';
@@ -83,9 +83,29 @@ export default function CheckoutStripe() {
   );
 }
 
-function Form({ toPay }: any) {
+function Form({ toPay }: { toPay: number }) {
   const stripe = useStripe();
   const elements = useElements();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (stripe == null || elements == null) {
+      return;
+    }
+
+    setIsLoading(true);
+
+    // check for existing order
+
+    stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        return_url: `${process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY}/stripe/purchase-success`,
+      },
+    });
+  }
+
   return (
     <form>
       <Card>
@@ -117,14 +137,13 @@ function Form({ toPay }: any) {
         </CardContent>
         <CardFooter>
           <Button
-            disabled={stripe === null || elements === null}
+            disabled={stripe === null || elements === null || isLoading}
             className={buttonVariants({
               className: 'w-full bg-orange-500 mt-4 font-semibold text-lg',
             })}>
-            {/* {isLoading
+            {isLoading
               ? 'Ladevorgang...'
-              : `Jetzt Zahlen' - ${formatCurrency(toPay)}`} */}
-            {formatCurrency(toPay)} Jetzt Zahlen
+              : `Jetzt Zahlen' - ${formatCurrency(toPay)}`}
           </Button>
         </CardFooter>
       </Card>

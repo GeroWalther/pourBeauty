@@ -1,7 +1,7 @@
 'use client';
 import { useLanguage } from '@/contexts/LanguageProvider';
 
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({ mobile = false }) {
   const { language, setLanguage } = useLanguage();
 
   const toggleLanguage = () => {
@@ -9,7 +9,9 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <button onClick={toggleLanguage} className='mt-1'>
+    <button
+      onClick={toggleLanguage}
+      className={`mt-1 ${mobile ? 'text-white' : ''}`}>
       <span>{language.toUpperCase()}</span>
       {/* {language === 'de' ? 'English' : 'Deutsch'} */}
     </button>
