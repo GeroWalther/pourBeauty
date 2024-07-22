@@ -45,7 +45,7 @@ export default function CheckoutStripe() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            totalAmountinCents: 1000,
+            totalAmountinCents: toPay * 100,
             products,
           }),
         });
