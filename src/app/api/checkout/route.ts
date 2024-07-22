@@ -1,4 +1,3 @@
-import { Product } from '@/hooks/use-cart-hook';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
@@ -10,6 +9,7 @@ async function POST(req: NextRequest): Promise<NextResponse | undefined> {
   try {
     const { totalAmountinCents, products } = req.body as any;
     const paymentIntent = await stripe.paymentIntents.create({
+      // TODO : amount does not work with totalAmountinCents but why?
       amount: 1000,
       currency: 'EUR',
       description: 'Miss Glow Bestellung',

@@ -36,7 +36,7 @@ export default function CheckoutForm() {
         <DialogTrigger asChild>
           <Button
             className={buttonVariants({
-              className: 'w-full bg-orange-500',
+              className: 'w-full bg-pink-500',
             })}>
             Zur Kasse
           </Button>
@@ -53,7 +53,6 @@ export default function CheckoutForm() {
               (Gib deine Addressen und Zahlungsinformationen an um zu bestellen)
             </span>
           </DialogDescription>
-
           <CheckoutStripe />
         </DialogContent>
       </Dialog>
