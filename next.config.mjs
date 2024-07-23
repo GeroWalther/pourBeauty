@@ -1,4 +1,11 @@
-/** @type {import('next').NextConfig} */
+const hostname = process.env.NEXT_PUBLIC_SERVER_URL
+  ? process.env.NEXT_PUBLIC_SERVER_URL.split('https://')[1]
+  : 'utfs.io';
+
+if (!['utfs.io', 'localhost'].includes(hostname)) {
+  throw new Error(`Invalid hostname: ${hostname}`);
+}
+
 const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
@@ -14,8 +21,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname:
-          process.env.NEXT_PUBLIC_SERVER_URL.split('https://')[1] || 'utfs.io',
+        hostname,
         pathname: '/**',
       },
       {
