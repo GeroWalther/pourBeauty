@@ -88,14 +88,6 @@ export default function Cart() {
               <SheetFooter>
                 <SheetTrigger asChild>
                   <CheckoutForm />
-                  {/* <Link
-                    href='/checkout'
-                    className={buttonVariants({
-                      className: 'w-full bg-orange-500',
-                    })}>
-                    {language == 'de' && 'Zur Kasse'}
-                    {language == 'en' && 'Checkout'}
-                  </Link> */}
                 </SheetTrigger>
               </SheetFooter>
             </div>
