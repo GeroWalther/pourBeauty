@@ -79,5 +79,5 @@ model Order {
   orderedProducts  OrderedProduct[]
   address          String
   email            String?
-  stripePaymentIntentId  String
+  // stripePaymentIntentId  String
 }

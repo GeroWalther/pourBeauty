@@ -1,16 +1,17 @@
 'use server';
 
 import db from '@/db';
-import { CartItem, Product } from '@/hooks/use-cart-hook';
+import { Product } from '@/hooks/use-cart-hook';
 import { SHIPPING } from '../../../consts';
 
 export async function saveOrder(
   address: string,
   email: string,
   items: Product[],
-  pricePaidInCents: number,
-  stripePaymentIntentId: string
+  pricePaidInCents: number
+  // stripePaymentIntentId: string
 ) {
+  console.log('ITEMS: ', items);
   // Create the order first
   const order = await db.order.create({
     data: {
@@ -18,7 +19,7 @@ export async function saveOrder(
       email,
       pricePaidInCents,
       shippingCost: SHIPPING,
-      stripePaymentIntentId,
+      // stripePaymentIntentId,
     },
   });
 
