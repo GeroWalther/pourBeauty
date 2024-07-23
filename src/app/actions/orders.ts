@@ -8,7 +8,8 @@ export async function saveOrder(
   address: string,
   email: string,
   items: CartItem[],
-  pricePaidInCents: number
+  pricePaidInCents: number,
+  stripePaymentIntentId: string
 ) {
   // Create the order first
   const order = await db.order.create({
@@ -17,6 +18,7 @@ export async function saveOrder(
       email,
       pricePaidInCents,
       shippingCost: SHIPPING,
+      stripePaymentIntentId,
     },
   });
 

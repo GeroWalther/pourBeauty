@@ -4,7 +4,13 @@ import { formatCurrency } from '@/lib/formatters';
 import { ImageIcon, X } from 'lucide-react';
 import Image from 'next/image';
 
-export default function CartItem({ product }: { product: Product }) {
+export default function CartItem({
+  product,
+  invoice = false,
+}: {
+  product: Product;
+  invoice?: boolean;
+}) {
   const { removeItem } = useCart();
   const label = 'Naturkosmetik';
   return (
@@ -38,14 +44,16 @@ export default function CartItem({ product }: { product: Product }) {
               {label}
             </span>
 
-            <div className='mt-4 text-xs text-muted-foreground'>
-              <button
-                onClick={() => removeItem(product.id)}
-                className='flex items-center gap-0.5'>
-                <X className='w-3 h-4' />
-                Entfernen
-              </button>
-            </div>
+            {!invoice && (
+              <div className='mt-4 text-xs text-muted-foreground'>
+                <button
+                  onClick={() => removeItem(product.id)}
+                  className='flex items-center gap-0.5'>
+                  <X className='w-3 h-4' />
+                  Entfernen
+                </button>
+              </div>
+            )}
           </div>
         </div>
 

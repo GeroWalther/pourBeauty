@@ -1,13 +1,18 @@
 'use client';
 import CartItem from '@/app/(customerFacing)/_components/CartItem';
 import { useLanguage } from '@/contexts/LanguageProvider';
-import { Product } from '@/hooks/use-cart-hook';
+import { Product, useCart } from '@/hooks/use-cart-hook';
 import { formatCurrency } from '@/lib/formatters';
 import { Separator } from '@radix-ui/react-dropdown-menu';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SHIPPING } from '../../../../../../consts';
 export default function ProductOredered({ products }: { products: Product[] }) {
   const { language } = useLanguage();
+  const { clearCart } = useCart();
+
+  useEffect(() => {
+    clearCart();
+  }, []);
 
   const qty = products.map((p) => p.quantity);
   const subTotal = products.reduce(
@@ -21,7 +26,7 @@ export default function ProductOredered({ products }: { products: Product[] }) {
       <>
         <div className='flex w-full flex-col pr-6'>
           {products.map((p) => (
-            <CartItem key={p.id} product={p} />
+            <CartItem key={p.id} product={p} invoice />
           ))}
         </div>
 

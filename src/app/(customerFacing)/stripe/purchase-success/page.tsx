@@ -4,6 +4,7 @@ import Stripe from 'stripe';
 import { notFound } from 'next/navigation';
 import ProductOredered from './_component/ProductOredered';
 import Image from 'next/image';
+import { saveOrder } from '@/app/actions/orders';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
   apiVersion: '2024-06-20',
@@ -18,14 +19,33 @@ export default async function SuccessPage({
     searchParams.payment_intent
   );
   const isSuccess = paymentIntent.status === 'succeeded';
-  // console.log(paymentIntent);
+  console.log(paymentIntent);
 
   if (!paymentIntent.metadata.products || !isSuccess) {
     return notFound();
   }
-
   // Parse the products string to an array
   const products = JSON.parse(paymentIntent.metadata.products);
+  console.log('PRODUCTS: ', products);
+
+  // TODO:  create order in DB
+  if (isSuccess) {
+    const city = paymentIntent.shipping?.address?.city;
+    const country = paymentIntent.shipping?.address?.country;
+    const line1 = paymentIntent.shipping?.address?.line1;
+    const line2 = paymentIntent.shipping?.address?.line2;
+    const postalCode = paymentIntent.shipping?.address?.postal_code;
+    const state = paymentIntent.shipping?.address?.state;
+    const address = `${line1}, ${line2}, ${city}, ${state}, ${postalCode}, ${country}`;
+
+    const email = paymentIntent.receipt_email;
+    console.log('EMAIL from succPAge: ', email);
+
+    const priceInCents = paymentIntent.amount_received;
+    const stripePaymentIntentId = paymentIntent.id;
+
+    saveOrder(address, email!, products, priceInCents, stripePaymentIntentId);
+  }
 
   return (
     <main className='flex justify-around md:mt-14 py-4'>

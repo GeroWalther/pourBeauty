@@ -111,15 +111,15 @@ function Form({ toPay, items }: { toPay: number; items: CartItem[] }) {
     }
 
     setIsLoading(true);
+    console.log('EMAIL from Checkkout: ', email);
+    // const pricePaidInCents = toPay * 100;
+    // const shippingAddress = `${address.line1}, ${
+    //   address.line2 ? address.line2 + ', ' : ''
+    // }${address.city}, ${address.state}, ${address.postal_code}, ${
+    //   address.country
+    // }`;
 
-    const pricePaidInCents = toPay * 100;
-    const shippingAddress = `${address.line1}, ${
-      address.line2 ? address.line2 + ', ' : ''
-    }${address.city}, ${address.state}, ${address.postal_code}, ${
-      address.country
-    }`;
-
-    await saveOrder(shippingAddress, email, items, pricePaidInCents);
+    // await saveOrder(shippingAddress, email, items, pricePaidInCents);
 
     stripe
       .confirmPayment({
