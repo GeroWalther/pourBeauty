@@ -1,13 +1,13 @@
 'use server';
 
 import db from '@/db';
-import { CartItem } from '@/hooks/use-cart-hook';
+import { CartItem, Product } from '@/hooks/use-cart-hook';
 import { SHIPPING } from '../../../consts';
 
 export async function saveOrder(
   address: string,
   email: string,
-  items: CartItem[],
+  items: Product[],
   pricePaidInCents: number,
   stripePaymentIntentId: string
 ) {
@@ -25,8 +25,8 @@ export async function saveOrder(
   // Prepare ordered products data with the created order ID
   const orderedProductsData = items.map((item) => ({
     orderId: order.id,
-    product: item.product.name,
-    quantity: item.product.quantity,
+    product: item.name,
+    quantity: item.quantity,
   }));
 
   // Create ordered products
