@@ -5,18 +5,27 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
   apiVersion: '2024-06-20',
 });
 
-async function POST(req: NextRequest): Promise<NextResponse | undefined> {
+export async function POST(
+  req: NextRequest
+): Promise<NextResponse | undefined> {
   try {
-    const { totalAmountinCents, products } = req.body as any;
+    const body = await req.json();
+    const { totalAmountinCents, products } = body;
+    if (!totalAmountinCents || !products) {
+      throw new Error(
+        'Missing required fields: totalAmountinCents or products'
+      );
+    }
+
     const paymentIntent = await stripe.paymentIntents.create({
-      // TODO : amount does not work with totalAmountinCents but why?
-      amount: 1000,
+      amount: totalAmountinCents,
       currency: 'EUR',
       description: 'Miss Glow Bestellung',
       metadata: {
-        products,
+        products: JSON.stringify(products),
       },
     });
+
     if (paymentIntent.client_secret === null) {
       throw new Error('Stripe failed to create payment intent.');
     }
@@ -37,10 +46,7 @@ async function POST(req: NextRequest): Promise<NextResponse | undefined> {
     );
   }
 }
-// return NextResponse.json({ success: 'implemented' }, { status: 200 });
 
-function GET(): NextResponse {
+export function GET(): NextResponse {
   return NextResponse.json({ error: 'Method Not Allowed' }, { status: 405 });
 }
-
-export { POST, GET };
