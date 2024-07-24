@@ -3,9 +3,10 @@ import { saveOrder } from '@/app/actions/orders';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { Resend } from 'resend';
-import db from '@/db';
+
 import { SHIPPING } from '../../../../consts';
 import { Product } from '@/hooks/use-cart-hook';
+import db from '@/db';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -32,36 +33,39 @@ export async function POST(req: NextRequest) {
     const line2 = charge.shipping?.address?.line2;
     const postalCode = charge.shipping?.address?.postal_code;
     const state = charge.shipping?.address?.state;
-    const address = `${line1}, ${line2}, ${city}, ${state}, ${postalCode}, ${country}`;
+    const address = `${line1}, ${
+      line2 ? line2 + ', ' : ''
+    } ${city}, ${state}, ${postalCode}, ${country}`;
 
     if (email == null || address == null) {
       return new NextResponse('Bad Request', { status: 400 });
     }
 
-    // Save order in DB
-    // await saveOrder(address, email!, products, pricePaidInCents);
+    //  Save order in DB
+    await saveOrder(address, email!, products, pricePaidInCents);
 
-    // Create the order first
-    const order = await db.order.create({
-      data: {
-        address,
-        email,
-        pricePaidInCents,
-        shippingCost: SHIPPING,
-      },
-    });
+    // // Create the order first
+    // const order = await db.order.create({
+    //   data: {
+    //     address,
+    //     email,
+    //     pricePaidInCents,
+    //     shippingCost: SHIPPING,
+    //   },
+    // });
+    // console.log('ORDER: ', order);
 
-    // Prepare ordered products data with the created order ID
-    const orderedProductsData = products.map((item: Product) => ({
-      orderId: order.id,
-      product: item.name,
-      quantity: item.quantity,
-    }));
+    // // Prepare ordered products data with the created order ID
+    // const orderedProductsData = products.map((item: Product) => ({
+    //   orderId: order.id,
+    //   product: item.name,
+    //   quantity: item.quantity,
+    // }));
 
-    // Create ordered products
-    await db.orderedProduct.createMany({
-      data: orderedProductsData,
-    });
+    // // Create ordered products
+    // await db.orderedProduct.createMany({
+    //   data: orderedProductsData,
+    // });
 
     // send email to customer
     // await resend.emails.send({
