@@ -11,7 +11,7 @@ import { NextRequest, NextResponse } from 'next/server';
 // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 // const resend = new Resend(process.env.RESEND_API_KEY);
 
-// export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest) {
 //   const event = stripe.webhooks.constructEvent(
 //     await req.text(),
 //     req.headers.get('stripe-signature') as string,
