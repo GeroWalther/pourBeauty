@@ -8,6 +8,8 @@ import { SHIPPING } from '../../../../consts';
 import { Product } from '@/hooks/use-cart-hook';
 import db from '@/db';
 
+console.log('process.env.RESEND_API_KEY',process.env.RESEND_API_KEY);
+console.log('process.env.STRIPE_SECRET_KEY',process.env.STRIPE_SECRET_KEY);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const resend = new Resend(process.env.RESEND_API_KEY);
 
