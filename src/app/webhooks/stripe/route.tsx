@@ -8,8 +8,8 @@ import { SHIPPING } from '../../../../consts';
 import { Product } from '@/hooks/use-cart-hook';
 import db from '@/db';
 
-console.log('process.env.RESEND_API_KEY',process.env.RESEND_API_KEY);
-console.log('process.env.STRIPE_SECRET_KEY',process.env.STRIPE_SECRET_KEY);
+console.log('process.env.RESEND_API_KEY', process.env.RESEND_API_KEY);
+console.log('process.env.STRIPE_SECRET_KEY', process.env.STRIPE_SECRET_KEY);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
 
   if (event.type === 'charge.succeeded') {
     const charge = event.data.object;
+    console.log(charge);
     const productsAsString = charge.metadata.products;
     const products = JSON.parse(productsAsString);
 
@@ -46,29 +47,6 @@ export async function POST(req: NextRequest) {
     //  Save order in DB
     await saveOrder(address, email!, products, pricePaidInCents);
 
-    // // Create the order first
-    // const order = await db.order.create({
-    //   data: {
-    //     address,
-    //     email,
-    //     pricePaidInCents,
-    //     shippingCost: SHIPPING,
-    //   },
-    // });
-    // console.log('ORDER: ', order);
-
-    // // Prepare ordered products data with the created order ID
-    // const orderedProductsData = products.map((item: Product) => ({
-    //   orderId: order.id,
-    //   product: item.name,
-    //   quantity: item.quantity,
-    // }));
-
-    // // Create ordered products
-    // await db.orderedProduct.createMany({
-    //   data: orderedProductsData,
-    // });
-
     // send email to customer
     // await resend.emails.send({
     //   from: `Support <${process.env.SENDER_EMAIL}>`,
@@ -79,5 +57,3 @@ export async function POST(req: NextRequest) {
   }
   return new NextResponse();
 }
-
-
