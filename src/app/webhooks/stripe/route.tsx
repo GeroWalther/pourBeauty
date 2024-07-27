@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: `BESTELLUNGSEINGANG <${process.env.SENDER_EMAIL}>`,
       to: process.env.SHOP_EMAIL as string,
-      subject: 'Order Confirmation',
+      subject: 'Neue Bestellung eingegangen',
       react: (
         <PurchaseReceiptEmail
           products={products}
