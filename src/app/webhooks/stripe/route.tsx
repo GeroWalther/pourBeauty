@@ -7,6 +7,7 @@ import { Resend } from 'resend';
 import { SHIPPING } from '../../../../consts';
 import { Product } from '@/hooks/use-cart-hook';
 import db from '@/db';
+import PurchaseReceiptEmail from '@/email/PurchaseReceipt';
 
 console.log('process.env.RESEND_API_KEY', process.env.RESEND_API_KEY);
 console.log('process.env.STRIPE_SECRET_KEY', process.env.STRIPE_SECRET_KEY);
@@ -25,10 +26,11 @@ export async function POST(req: NextRequest) {
     console.log(charge);
     const productsAsString = charge.metadata.products;
     const products = JSON.parse(productsAsString);
+    console.log('PRODUCTS:', products);
 
     const email = charge.billing_details.email;
     const pricePaidInCents = charge.amount;
-    // const customerName = charge.billing_details.name;
+    const customerName = charge.billing_details.name;
 
     const city = charge.shipping?.address?.city;
     const country = charge.shipping?.address?.country;
@@ -40,19 +42,46 @@ export async function POST(req: NextRequest) {
       line2 ? line2 + ', ' : ''
     } ${city}, ${state}, ${postalCode}, ${country}`;
 
-    if (email == null || address == null) {
+    if (email == null || address == null || customerName == null) {
       return new NextResponse('Bad Request', { status: 400 });
     }
 
     //  Save order in DB
-    await saveOrder(address, email!, products, pricePaidInCents);
+    const { order } = await saveOrder(
+      address,
+      customerName,
+      email!,
+      products,
+      pricePaidInCents
+    );
+
+    // email to admin
+    await resend.emails.send({
+      from: `BESTELLUNGSEINGANG <${process.env.SENDER_EMAIL}>`,
+      to: process.env.SHOP_EMAIL as string,
+      subject: 'Order Confirmation',
+      react: (
+        <PurchaseReceiptEmail
+          products={products}
+          order={{
+            id: order.id,
+            createdAt: order.createdAt,
+            customerName,
+            address,
+            email,
+            pricePaidInCents,
+            shippingCost: order.shippingCost,
+          }}
+        />
+      ),
+    });
 
     // send email to customer
     // await resend.emails.send({
     //   from: `Support <${process.env.SENDER_EMAIL}>`,
     //   to: email,
     //   subject: 'Order Confirmation',
-    //   react: <h1>Hi</h1>,
+    //   react: <h1>Hi customer</h1>,
     // });
   }
   return new NextResponse();

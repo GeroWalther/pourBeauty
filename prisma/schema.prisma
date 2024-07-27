@@ -78,6 +78,6 @@ model Order {
   shippingCost     Float
   orderedProducts  OrderedProduct[]
   address          String
-  email            String?
-  // stripePaymentIntentId  String
+  email            String
+  customerName     String
 }

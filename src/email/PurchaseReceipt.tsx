@@ -13,33 +13,36 @@ import { OrderInfo } from './component/OrderInfo';
 
 type PurchaseReceiptEmailProps = {
   products: {
+    id?: string;
     name: string;
-    imagePath: string;
+    price: number;
+    image: string;
+    quantity: number;
   }[];
   order: {
     id: string;
     createdAt: Date;
-    customerName: string;
+    customerName?: string;
     address: string;
     email: string;
     pricePaidInCents: number;
+    shippingCost: number;
   };
-  orderedProducts: {
-    product: string;
-    quantity: number;
-    singlePrice?: number;
-  }[];
 };
 
 PurchaseReceiptEmail.PreviewProps = {
   products: [
     {
       name: 'Miss Glow',
-      imagePath: '/512-1.jpg',
+      image: '/512-1.jpg',
+      price: 89,
+      quantity: 2,
     },
     {
       name: 'Miss Glow2',
-      imagePath: '/512-2.jpg',
+      image: '/512-2.jpg',
+      price: 40,
+      quantity: 1,
     },
   ],
   order: {
@@ -48,26 +51,14 @@ PurchaseReceiptEmail.PreviewProps = {
     customerName: 'Sabine Kratz',
     address: '1234 Street, City, State, 12345, Country',
     email: 'sabine@kratz.com',
-    pricePaidInCents: 19400,
+    pricePaidInCents: 22300,
+    shippingCost: 5,
   },
-  orderedProducts: [
-    {
-      product: 'Miss Glow',
-      quantity: 2,
-      singlePrice: 8900,
-    },
-    {
-      product: 'Miss Glow2',
-      quantity: 1,
-      singlePrice: 6900,
-    },
-  ],
 } satisfies PurchaseReceiptEmailProps;
 
 export default function PurchaseReceiptEmail({
   products,
   order,
-  orderedProducts,
 }: PurchaseReceiptEmailProps) {
   return (
     <Html>
@@ -79,11 +70,7 @@ export default function PurchaseReceiptEmail({
             <Heading className=''>
               Neue Bestellung <br /> eingegangen.
             </Heading>
-            <OrderInfo
-              order={order}
-              products={products}
-              orderedProducts={orderedProducts}
-            />
+            <OrderInfo order={order} products={products} />
           </Container>
         </Body>
       </Tailwind>
