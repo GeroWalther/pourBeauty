@@ -1,6 +1,5 @@
 import {
   Body,
-  Button,
   Container,
   Head,
   Heading,
@@ -12,8 +11,6 @@ import {
   Text,
 } from '@react-email/components';
 import { OrderInfo } from './component/OrderInfo';
-
-// has to be default function to make it work in dev mode
 
 type PurchaseReceiptEmailProps = {
   isAdmin?: boolean;
