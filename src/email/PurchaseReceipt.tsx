@@ -1,17 +1,22 @@
 import {
   Body,
+  Button,
   Container,
   Head,
   Heading,
   Html,
+  Img,
   Preview,
+  Section,
   Tailwind,
+  Text,
 } from '@react-email/components';
 import { OrderInfo } from './component/OrderInfo';
 
 // has to be default function to make it work in dev mode
 
 type PurchaseReceiptEmailProps = {
+  isAdmin?: boolean;
   products: {
     id?: string;
     name: string;
@@ -31,6 +36,7 @@ type PurchaseReceiptEmailProps = {
 };
 
 PurchaseReceiptEmail.PreviewProps = {
+  isAdmin: false,
   products: [
     {
       name: 'Miss Glow',
@@ -59,6 +65,7 @@ PurchaseReceiptEmail.PreviewProps = {
 export default function PurchaseReceiptEmail({
   products,
   order,
+  isAdmin = true,
 }: PurchaseReceiptEmailProps) {
   return (
     <Html>
@@ -67,10 +74,38 @@ export default function PurchaseReceiptEmail({
         <Head />
         <Body className='font-sans bg-pink-200'>
           <Container className='max-w-lg'>
-            <Heading className=''>
-              Neue Bestellung <br /> eingegangen.
+            <Heading>
+              <Container>
+                <Img
+                  src={`${process.env.NEXT_PUBLIC_SERVER_URL}/missglowlogo.png`}
+                  alt='Miss Glow Beauty Logo'
+                  className='w-56 h-56 object-cover'
+                />
+                {isAdmin ? (
+                  <Text className='-mt-20 -mb-4'>
+                    Neue Bestellung eingegangen.
+                  </Text>
+                ) : (
+                  <Text className='-mt-20'>
+                    Vielen Dank für deine Bestellung
+                  </Text>
+                )}
+              </Container>
             </Heading>
+            {!isAdmin && (
+              <Text className='-mt-10'>
+                Hier eine zusammenfassung deiner Bestellung.
+              </Text>
+            )}
             <OrderInfo order={order} products={products} />
+            {!isAdmin && (
+              <Section className='p-4'>
+                <Text>
+                  Bei fragen schreibe bitte eine E-Mail an:{' '}
+                  {process.env.ADMINEMAIL}{' '}
+                </Text>
+              </Section>
+            )}
           </Container>
         </Body>
       </Tailwind>

@@ -3,14 +3,10 @@ import { saveOrder } from '@/app/actions/orders';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { Resend } from 'resend';
-
-import { SHIPPING } from '../../../../consts';
-import { Product } from '@/hooks/use-cart-hook';
-import db from '@/db';
 import PurchaseReceiptEmail from '@/email/PurchaseReceipt';
 
-console.log('process.env.RESEND_API_KEY', process.env.RESEND_API_KEY);
-console.log('process.env.STRIPE_SECRET_KEY', process.env.STRIPE_SECRET_KEY);
+// console.log('process.env.RESEND_API_KEY', process.env.RESEND_API_KEY);
+// console.log('process.env.STRIPE_SECRET_KEY', process.env.STRIPE_SECRET_KEY);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -23,10 +19,10 @@ export async function POST(req: NextRequest) {
 
   if (event.type === 'charge.succeeded') {
     const charge = event.data.object;
-    console.log(charge);
+  //  console .log(charge);
     const productsAsString = charge.metadata.products;
     const products = JSON.parse(productsAsString);
-    console.log('PRODUCTS:', products);
+    // console.log('PRODUCTS:', products);
 
     const email = charge.billing_details.email;
     const pricePaidInCents = charge.amount;
@@ -77,12 +73,26 @@ export async function POST(req: NextRequest) {
     });
 
     // send email to customer
-    // await resend.emails.send({
-    //   from: `Support <${process.env.SENDER_EMAIL}>`,
-    //   to: email,
-    //   subject: 'Order Confirmation',
-    //   react: <h1>Hi customer</h1>,
-    // });
+    await resend.emails.send({
+      from: `Bestellung MISS GLOW BEAUTY <${process.env.SENDER_EMAIL}>`,
+      to: email,
+      subject: 'Vielen Dank für deine Bestellung',
+      react: (
+        <PurchaseReceiptEmail
+          isAdmin={false}
+          products={products}
+          order={{
+            id: order.id,
+            createdAt: order.createdAt,
+            customerName,
+            address,
+            email,
+            pricePaidInCents,
+            shippingCost: order.shippingCost,
+          }}
+        />
+      ),
+    });
   }
   return new NextResponse();
 }

@@ -11,7 +11,7 @@ export async function saveOrder(
   items: Product[],
   pricePaidInCents: number
 ) {
-  console.log('ITEMS: ', items);
+//  console.log('ITEMS: ', items);
   // Create the order first
   const order = await db.order.create({
     data: {
