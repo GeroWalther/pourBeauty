@@ -16,15 +16,16 @@ const useCartTotals = (items: CartItem[], discount: number) => {
     [subItemTotal, itemCount]
   );
 
-  const toPay = useMemo(() => totalCart + SHIPPING, [totalCart]);
+  const discountedPrice =
+    totalCart - totalCart * (discount > 0 ? discount / 100 : 1);
+  const toPay = useMemo(() => discountedPrice + SHIPPING, [discountedPrice]);
 
   return {
     itemCount,
     subItemTotal,
     totalCart,
     toPay,
-    discountedPrice:
-      totalCart - totalCart * (discount > 0 ? discount / 100 : 1),
+    discountedPrice,
   };
 };
 

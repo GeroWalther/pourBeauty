@@ -32,8 +32,8 @@ const stripePromise = loadStripe(
 export default function CheckoutStripe() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [clientSecret, setClientSecret] = useState<string>('');
-  const { items } = useCart();
-  const { toPay } = useCartTotals(items);
+  const { items, discount } = useCart();
+  const { toPay } = useCartTotals(items, discount);
   const itemsToCheckout = items.map((item) => item.product);
   useEffect(() => {
     async function checkout(products: Product[]) {

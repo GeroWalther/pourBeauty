@@ -1,12 +1,25 @@
-import db from "@/db";
-import { NextRequest, NextResponse } from "next/server";
+import db from '@/db';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const { code, date, amount } = body;
-  if (!code || !date) {
+  if (!code || !date || !amount) {
     return NextResponse.json(
-      { message: "Please select a date" },
+      { message: 'Please select a date' },
+      { status: 400 }
+    );
+  }
+
+  const checkOffer = await db.discountCode.findFirst({
+    where: {
+      code,
+    },
+  });
+
+  if (checkOffer) {
+    return NextResponse.json(
+      { message: 'Discount code already exists' },
       { status: 400 }
     );
   }
@@ -21,7 +34,7 @@ export async function POST(req: NextRequest) {
 
   if (!discount) {
     return NextResponse.json(
-      { message: "Failed to create discount" },
+      { message: 'Failed to create discount' },
       { status: 500 }
     );
   }
@@ -34,7 +47,7 @@ export async function DELETE(req: NextRequest) {
   const { id } = body;
   if (!id) {
     return NextResponse.json(
-      { message: "Please select a date" },
+      { message: 'Please select a date' },
       { status: 400 }
     );
   }
@@ -47,14 +60,14 @@ export async function DELETE(req: NextRequest) {
 
   if (!discount) {
     return NextResponse.json(
-      { message: "Failed to delete discount" },
+      { message: 'Failed to delete discount' },
       { status: 500 }
     );
   }
 
   return NextResponse.json(
     {
-      message: "Discount deleted successfully",
+      message: 'Discount deleted successfully',
     },
     { status: 200 }
   );
@@ -67,7 +80,7 @@ export async function PU(req: NextRequest) {
 
   if (!code || !date) {
     return NextResponse.json(
-      { message: "Please select a date" },
+      { message: 'Please select a date' },
       { status: 400 }
     );
   }
@@ -85,10 +98,10 @@ export async function PU(req: NextRequest) {
 
   if (!discount) {
     return NextResponse.json(
-      { message: "Failed to update discount" },
+      { message: 'Failed to update discount' },
       { status: 500 }
     );
   }
 
-  return NextResponse.json({ message: "Discount updated" }, { status: 200 });
+  return NextResponse.json({ message: 'Discount updated' }, { status: 200 });
 }
