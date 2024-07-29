@@ -50,19 +50,19 @@ export default function DiscountCodeInput() {
           {language == 'en' ? 'Apply' : 'Anwenden'}
         </Button>
       </form>
-      {code == 0 && message && (
+      {code == '0' && message && (
         <p className='text-red-500'>
           {language == 'en'
             ? message
             : 'Ungültiger Rabattcode oder Rabatt nicht gefunden.'}
         </p>
       )}
-      {code == 1 && message && (
+      {code == '1' && message && (
         <p className='text-pink-600'>
           {language == 'en' ? message : 'Rabattcode ist abgelaufen.'}
         </p>
       )}
-      {code == 2 && message && (
+      {code == '2' && message && (
         <p className='text-green-500'>
           {language == 'en' ? message : 'Rabattcode wurde angewendet!'}
         </p>
