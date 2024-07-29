@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { SHIPPING } from '../../consts';
 import { CartItem } from './use-cart-hook';
 
-const useCartTotals = (items: CartItem[]) => {
+const useCartTotals = (items: CartItem[], discount: number) => {
   const itemCount = useMemo(() => {
     return items.reduce((acc, item) => acc + item.product.quantity, 0);
   }, [items]);
@@ -23,6 +23,8 @@ const useCartTotals = (items: CartItem[]) => {
     subItemTotal,
     totalCart,
     toPay,
+    discountedPrice:
+      totalCart - totalCart * (discount > 0 ? discount / 100 : 1),
   };
 };
 
