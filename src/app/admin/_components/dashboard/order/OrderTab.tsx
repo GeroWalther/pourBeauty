@@ -48,8 +48,14 @@ const OrderTab = () => {
           <TabsContent value={status.value} key={Math.random()}>
             <Card>
               <CardHeader>
-                <CardTitle>Account</CardTitle>
-                <CardDescription>{status.name} Orders.</CardDescription>
+                <CardTitle>
+                  {' '}
+                  {status.name == 'Shipped'
+                    ? 'Versendete Bestellungen'
+                    : 'Unbearbeitet, nicht versendete Bestellungen'}
+                  .
+                </CardTitle>
+                <CardDescription>Zusammenfassung</CardDescription>
               </CardHeader>
               <CardContent className='space-y-2'>
                 {status.value === 'shipped' ? (

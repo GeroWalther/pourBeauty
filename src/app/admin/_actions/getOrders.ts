@@ -1,6 +1,6 @@
-"use server";
+'use server';
 
-import db from "@/db";
+import db from '@/db';
 //import { faker } from "@faker-js/faker";
 
 // const createRandomOrders = (number: number) => {
@@ -39,8 +39,9 @@ const getOrders = async () => {
       address: true,
       email: true,
       createdAt: true,
+      customerName: true,
     },
-    orderBy: { createdAt: "desc" },
+    orderBy: { createdAt: 'desc' },
   });
 
   if (!createdOrders) {
@@ -62,6 +63,7 @@ const getOrders = async () => {
       address: true,
       email: true,
       createdAt: true,
+      customerName: true,
     },
   });
 
@@ -87,17 +89,17 @@ const getOrders = async () => {
 };
 const orderStatus = [
   {
-    name: "Not Shipped",
-    value: "notShipped",
+    name: 'Not Shipped',
+    value: 'notShipped',
   },
   {
-    name: "Shipped",
-    value: "shippedxxx",
+    name: 'Shipped',
+    value: 'shippedxxx',
   },
 ];
 
 export type OrderDataType = Awaited<ReturnType<typeof getOrders>>;
-export type OrderType = OrderDataType["createdOrders"];
+export type OrderType = OrderDataType['createdOrders'];
 export type OrderStatusType = typeof orderStatus;
 
 export default getOrders;
