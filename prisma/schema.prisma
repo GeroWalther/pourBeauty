@@ -88,3 +88,10 @@ model DiscountCode {
   discountInPercent  Float
   expiresAt DateTime
 }
+
+model Newsletter {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  email     String  @unique
+  name      String
+  subscribedAt DateTime @default(now())
+}

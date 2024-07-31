@@ -1,7 +1,10 @@
-import Subscribed from '@/email/Subscribed';
+import db from '@/db';
 import { NextRequest, NextResponse } from 'next/server';
+
 import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
+import Subscribed from '@/email/Subscribed';
+
 export async function POST(
   req: NextRequest
 ): Promise<NextResponse | undefined> {
@@ -29,13 +32,21 @@ export async function POST(
       );
     }
 
-    // email to subscriber
-    await resend.emails.send({
-      from: `Newsletter <${process.env.SENDER_EMAIL}>`,
-      to: process.env.SHOP_EMAIL as string,
-      subject: 'Hier is Ihr Gutscheincode!',
-      react: <Subscribed name={name} />,
+    await db.newsletter.create({
+      data: {
+        email,
+        name,
+        subscribedAt: new Date(),
+      },
     });
+
+    // email to subscriber
+    // await resend.emails.send({
+    //   from: `Newsletter <${process.env.SENDER_EMAIL}>`,
+    //   to: process.env.SHOP_EMAIL as string,
+    //   subject: 'Hier is Ihr Gutscheincode!',
+    //   react: <Subscribed name={name} />,
+    // });
 
     return NextResponse.json(
       {
