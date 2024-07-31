@@ -1,13 +1,9 @@
 'use client';
 import React, { useRef, useState, useEffect } from 'react';
-import Notification from '../UI/Notification';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
 function Subscribe() {
-  const [requestStatus, setRequestStatus] = useState<string | null>(); // 'pending', 'success', 'error'
-  const [requestError, setRequestError] = useState<string | null>();
-  // 1. Create a reference to the input so we can fetch/clear it's value.
   const inputEl = useRef<HTMLInputElement | null>(null);
   const inputElRep = useRef<HTMLInputElement | null>(null);
   const inputName = useRef<HTMLInputElement | null>(null);
@@ -20,20 +16,6 @@ function Subscribe() {
     }
   };
 
-  useEffect(() => {
-    if (requestStatus === 'success' || requestStatus === 'error') {
-      const timer = setTimeout(() => {
-        setRequestStatus(null);
-        setRequestError(null);
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [requestStatus]);
-
-  // 2. Hold a message in state to handle the response from our API.
-  const [message, setMessage] = useState('');
-
   const subscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -41,71 +23,41 @@ function Subscribe() {
       (inputEl.current?.value ?? '') as string,
       (inputElRep.current?.value ?? '') as string
     );
-    setRequestStatus('pending');
-    // 3. Send a request to our API with the user's email address.
-    const res = await fetch('/api/subscribe', {
-      body: JSON.stringify({
-        email: inputEl.current?.value,
-        name: inputName.current?.value,
-        emailIsValid,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    });
+    try {
+      //Send a request to our API with the user's email address.
+      const res = await fetch('/api/subscribe', {
+        body: JSON.stringify({
+          email: inputEl.current?.value,
+          name: inputName.current?.value,
+          emailIsValid,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      });
+      const { msg, error } = await res.json();
+      if (error) {
+        toast.error(error);
+      }
 
-    const { error, code } = await res.json();
-
-    if (error) {
-      // 4. If there was an error, update the message in state.
-      setMessage(error);
-      toast.error(error);
-      return;
+      //  Clear the input value and show a success message.
+      if (inputEl.current) {
+        inputEl.current.value = '';
+      }
+      if (inputElRep.current) {
+        inputElRep.current.value = '';
+      }
+      if (inputName.current) {
+        inputName.current.value = '';
+      }
+      toast.success(
+        'Erfolgreich eingeschrieben!🎉 Wir haben dir eine Email mit deinem Rabattcode gesendet!'
+      );
+    } catch (error) {
+      console.log(error);
     }
-
-    // 5. Clear the input value and show a success message.
-    if (inputEl.current) {
-      inputEl.current.value = '';
-    }
-    if (inputElRep.current) {
-      inputElRep.current.value = '';
-    }
-    if (inputName.current) {
-      inputName.current.value = '';
-    }
-    setRequestStatus('success');
-    setMessage('Erfolgreich eingeschrieben!');
   };
-
-  let notification;
-
-  if (requestStatus === 'pending') {
-    // notification = {
-    //   status: 'pending',
-    //   title: 'Einschreibung...',
-    //   message: 'Einschreibung...',
-    // };
-    toast.success('Einschreibung...');
-  }
-
-  if (requestStatus === 'success') {
-    // notification = {
-    //   status: 'success',
-    //   title: 'Erfolg!',
-    //   message: 'Erfolgreich eingeschrieben!🎉',
-    // };
-    toast.success('Erfolgreich eingeschrieben!🎉');
-  }
-
-  if (requestStatus === 'error') {
-    // notification = {
-    //   status: 'error',
-    //   title: 'Fehler',
-    //   message: requestError,
-    // };
-    toast.error('Fehler');
-  }
 
   return (
     <>
@@ -175,16 +127,12 @@ function Subscribe() {
                 </label>
               </div>
               <div className='mt-4 mb-8 text-pink-100 text-sm'>
-                {message ? (
-                  <p>{message}</p>
-                ) : (
-                  <p>
-                    *Kein Spam. Durch Klicken auf &quot; Einschreiben &quot;
-                    erklären Sie sich mit den Datenschutzbestimmungen,
-                    Haftungsausschlüssen und Nutzungsbedingungen von Miss Glow
-                    Beauty einverstanden und gelesen haben.
-                  </p>
-                )}
+                <p>
+                  *Kein Spam. Durch Klicken auf &quot; Einschreiben &quot;
+                  erklären Sie sich mit den Datenschutzbestimmungen,
+                  Haftungsausschlüssen und Nutzungsbedingungen von Miss Glow
+                  Beauty einverstanden und gelesen haben.
+                </p>
               </div>
               <Button type='submit' className='bg-pink-600 w-full md:w-96'>
                 Einschreiben

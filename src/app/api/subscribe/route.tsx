@@ -6,22 +6,33 @@ export async function POST(
   try {
     const body = await req.json();
     const { email, name, emailIsValid } = body;
+    console.log('EMAIL:', email, 'NAME:', name, 'EMAILISVALID:', emailIsValid);
 
-    if (!email || !emailIsValid || !name) {
+    if (!email || !emailIsValid) {
       return NextResponse.json(
         {
-          error: 'Email is required and must match the confirmed email.',
+          error:
+            'E-Mail ist erforderlich und muss mit der bestätigten E-Mail übereinstimmen.',
+
           code: 0,
         },
         { status: 400 }
       );
     }
+    if (!name) {
+      return NextResponse.json(
+        {
+          error: 'Name ist erforderlich.',
+          code: 1,
+        },
+        { status: 400 }
+      );
+    }
 
-    console.log('success', email, name, emailIsValid);
     return NextResponse.json(
       {
         error: '',
-        code: 1,
+        code: 2,
       },
       { status: 201 }
     );
