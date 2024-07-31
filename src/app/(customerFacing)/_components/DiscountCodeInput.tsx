@@ -3,13 +3,17 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import { useCart } from '@/hooks/use-cart-hook';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function DiscountCodeInput() {
   const { language } = useLanguage();
   const { setDiscount } = useCart();
   const [message, setMessage] = useState();
   const [code, setCode] = useState();
+
+  useEffect(() => {
+    setDiscount(0);
+  }, []);
 
   async function submitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
