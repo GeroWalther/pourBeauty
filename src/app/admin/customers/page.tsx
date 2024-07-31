@@ -8,10 +8,14 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Fragment } from 'react';
-import getEmails from '../_actions/getEmails';
+import {
+  getEmailsOfOrderedCustomers,
+  getEmailsNewsletter,
+} from '../_actions/getEmails';
 import DownloadCsv from '../_components/DownloadCsv';
 export default async function CustomerAdminPage() {
-  const emails = await getEmails();
+  const emails = await getEmailsOfOrderedCustomers();
+  const newsletterEmailList = await getEmailsNewsletter();
   return (
     <section>
       <Card>
@@ -19,7 +23,9 @@ export default async function CustomerAdminPage() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className='w-[100px]'>Emails aller Kunden</TableHead>
+              <TableHead className='w-[100px]'>
+                Emails aller Kunden die schon einmal bestellt haben.
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -28,6 +34,32 @@ export default async function CustomerAdminPage() {
                 {email && (
                   <TableRow>
                     <TableCell className='font-medium'>{email}</TableCell>
+                  </TableRow>
+                )}
+              </Fragment>
+            ))}
+          </TableBody>
+        </Table>
+      </Card>
+      <Card className='mt-5'>
+        <DownloadCsv
+          email={newsletterEmailList.map((e) => e.email)}
+          newsletter
+        />
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className='w-[100px]'>
+                Emails aller Kunden die Newsletter abonniert haben.
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {newsletterEmailList.map((email, index) => (
+              <Fragment key={index}>
+                {newsletterEmailList && (
+                  <TableRow>
+                    <TableCell className='font-medium'>{email.email}</TableCell>
                   </TableRow>
                 )}
               </Fragment>

@@ -1,7 +1,7 @@
-"use server";
-import db from "@/db";
+'use server';
+import db from '@/db';
 
-const getEmails = async () => {
+const getEmailsOfOrderedCustomers = async () => {
   const emails = await db.order.findMany({
     select: {
       email: true,
@@ -20,4 +20,19 @@ const getEmails = async () => {
   return filteredEmails;
 };
 
-export default getEmails;
+const getEmailsNewsletter = async () => {
+  const emails = await db.newsletter.findMany({
+    select: {
+      email: true,
+      name: true,
+    },
+  });
+
+  if (!emails || emails.length === 0) {
+    return [];
+  }
+
+  return emails;
+};
+
+export { getEmailsOfOrderedCustomers, getEmailsNewsletter };
