@@ -6,7 +6,7 @@ import React, { useEffect, useRef } from 'react';
 export default function HeroComp() {
   return (
     <>
-      <div className='relative'>
+      <section className='relative h-[90vh]'>
         {/* <Canvas className='absolute top-0 left-0 -z-10' /> */}
         <div className='py-8 mx-auto text-center flex flex-col items-center max-w-3xl'>
           <div className='relative'>
@@ -49,12 +49,12 @@ export default function HeroComp() {
             </Link>
             <Link
               href='/missGlow'
-              className={buttonVariants({ className: ' bg-pink-700' })}>
+              className={buttonVariants({ className: ' bg-pink-600' })}>
               Shop
             </Link>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
