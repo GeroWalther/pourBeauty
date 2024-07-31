@@ -17,7 +17,7 @@ export default async function CustomerAdminPage() {
   const emails = await getEmailsOfOrderedCustomers();
   const newsletterEmailList = await getEmailsNewsletter();
   return (
-    <section>
+    <section className='pb-10'>
       <Card>
         <DownloadCsv email={emails} />
         <Table>
