@@ -8,7 +8,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
     <footer className='border-t flex justify-center md:justify-start bg-pink-200'>
-      <div className='p-4 grid grid-cols-2 md:grid-cols-3 md:gap-14'>
+      <div className='px-4 pt-2 grid grid-cols-2 md:grid-cols-3 md:gap-14'>
         <div className='mb-5'>
           {/* <a href='#' className='mb-0'>
             <Image
