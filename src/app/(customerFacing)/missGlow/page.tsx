@@ -6,13 +6,37 @@ import { Check, Shield } from 'lucide-react';
 import { formatCurrency } from '@/lib/formatters';
 import { ShareLink } from '../_components/ShareLink';
 import AddToCartButton from '../_components/AddToCartButton';
+import FAQComponent from '@/components/components/UI/FAQComp';
 
 const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
+const questions = [
+  {
+    id: 1,
+    question: 'How long is shipping?',
+    answer: 'Shipping is between 5-10 business days',
+  },
+  {
+    id: 2,
+    question: 'What if I want a refund?',
+    answer: 'We do not refund if you are not satisfied',
+  },
+  {
+    id: 3,
+    question: 'Can I just purchase the stand?',
+    answer:
+      'Unfortunatley, we are only selling the bundle which includes the stand',
+  },
+  {
+    id: 4,
+    question: 'How many years does this lamp last?',
+    answer: 'We would hope a lifetime, but you never know what could happen. ',
+  },
+];
 
 export default async function MissGlowShopSite() {
   return (
     <MaxWidthWrapper>
-      <div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:grid-cols-2 lg:max-w-7xl lg:gap-x-8 lg:px-8'>
+      <div className='mx-auto max-w-2xl px-4 py-8 sm:px-6 -mt-20 md:mt-0 lg:grid lg:grid-cols-2 lg:max-w-7xl lg:gap-x-8 lg:px-8'>
         {/* product details */}
         <div className='lg:max-w-lg lg:self-end'>
           <div className='mt-4'>
@@ -20,7 +44,7 @@ export default async function MissGlowShopSite() {
               Miss Glow Lips
             </h1>
             <div className='flex gap-3 mt-6 items-center'>
-              <p className='text-lg text-muted-foreground'>Sold by: </p>
+              <p className='text-lg text-muted-foreground'>Hersteller </p>
               <span className='text-xl text-muted-foreground font-semibold'>
                 Miss Glow Beauty GMBH.
               </span>
@@ -35,6 +59,7 @@ export default async function MissGlowShopSite() {
 
               <div className='ml-4 border-l text-muted-foreground border-stone-300 pl-4'>
                 <p className='text-lg font-medium'>Auf Lager</p>
+                <p className='text-lg font-medium'>30ml</p>
                 <p className='text-lg font-medium'>
                   Wird in 1-2 Wochen versendet.
                 </p>
@@ -97,6 +122,7 @@ export default async function MissGlowShopSite() {
           </div>
         </div>
       </div>
+      <FAQComponent questions={questions} />
 
       {/* More images and Product description */}
     </MaxWidthWrapper>
