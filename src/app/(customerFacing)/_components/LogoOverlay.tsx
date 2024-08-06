@@ -6,15 +6,15 @@ import { useMediaQuery } from 'usehooks-ts';
 const LogoOverlay: React.FC = () => {
   const [showLogo, setShowLogo] = useState(true);
   const isDesktop = useMediaQuery('(min-width: 768px)');
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowLogo(false);
-  //   }, 3000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLogo(false);
+    }, 3000);
 
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, []);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <div>
