@@ -6,7 +6,6 @@ import { useMediaQuery } from 'usehooks-ts';
 const LogoOverlay: React.FC = () => {
   const [showLogo, setShowLogo] = useState(true);
   const isDesktop = useMediaQuery('(min-width: 768px)');
-
   // useEffect(() => {
   //   const timer = setTimeout(() => {
   //     setShowLogo(false);
@@ -20,11 +19,11 @@ const LogoOverlay: React.FC = () => {
   return (
     <div>
       {showLogo ? (
-        <div className='fixed top-0 left-0 h-screen flex justify-center items-center z-50 bg-gradient-to-r from-[#ad00ad] to-white'>
+        <div className='fixed top-0 left-0 w-screen h-screen flex justify-center items-center z-50 bg-gradient-to-r from-[#ad00ad] to-white'>
           <div className='flex-col items-center justify-center'>
             <Image
               src='/lippe.png'
-              width={isDesktop ? 500 : 350}
+              width={isDesktop ? '500' : '350'}
               height={100}
               alt='logo'
               className='-mt-36'
