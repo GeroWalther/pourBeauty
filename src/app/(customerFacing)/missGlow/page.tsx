@@ -11,25 +11,25 @@ import FAQComponent from '@/components/components/UI/FAQComp';
 const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
 const questions = [
   {
-    id: 1,
-    question: 'How long is shipping?',
-    answer: 'Shipping is between 5-10 business days',
+    id: 5,
+    question: 'Wie lange hält das Produkt?',
+    answer: 'Die Haltbarkeit des Produkts beträgt 12 Monate nach dem Öffnen.',
   },
   {
-    id: 2,
-    question: 'What if I want a refund?',
-    answer: 'We do not refund if you are not satisfied',
+    id: 6,
+    question: 'Ist das Produkt tierversuchsfrei?',
+    answer: 'Ja, das Produkt ist tierversuchsfrei und vegan.',
   },
   {
-    id: 3,
-    question: 'Can I just purchase the stand?',
+    id: 7,
+    question: 'Gibt es eine Geld-zurück-Garantie?',
+    answer: 'Ja, wir bieten eine 30-tägige Geld-zurück-Garantie.',
+  },
+  {
+    id: 8,
+    question: 'Kann das Produkt allergische Reaktionen verursachen?',
     answer:
-      'Unfortunatley, we are only selling the bundle which includes the stand',
-  },
-  {
-    id: 4,
-    question: 'How many years does this lamp last?',
-    answer: 'We would hope a lifetime, but you never know what could happen. ',
+      'Das Produkt wurde dermatologisch getestet und ist für die meisten Hauttypen geeignet. Es kann jedoch bei empfindlicher Haut allergische Reaktionen hervorrufen. Wir empfehlen einen Patch-Test vor der Anwendung.',
   },
 ];
 
