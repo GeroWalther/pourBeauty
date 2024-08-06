@@ -5,17 +5,19 @@ import { useMediaQuery } from 'usehooks-ts';
 
 const LogoOverlay: React.FC = () => {
   const [showLogo, setShowLogo] = useState(true);
-  const isDesktop = useMediaQuery('(min-width: 768px)');
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowLogo(false);
-    }, 3000);
+  const isDesktop = useMediaQuery('(min-width: 688px)');
+  console.log(isDesktop);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowLogo(false);
+  //   }, 3000);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, []);
+  const glowLogoWidth = isDesktop ? '500' : '400';
+  const glowLogoheight = isDesktop ? '100' : '80';
   return (
     <div>
       {showLogo ? (
@@ -23,13 +25,13 @@ const LogoOverlay: React.FC = () => {
           <div className='flex-col items-center justify-center'>
             <Image
               src='/lippe.png'
-              width={isDesktop ? '500' : '350'}
-              height={100}
+              width={glowLogoWidth}
+              height={glowLogoheight}
               alt='logo'
               className='-mt-36'
             />
 
-            <p className='text-stone-700 md:text-4xl text-xl md:-ml-8 md:-mt-44 -mt-36 font-semibold ml-4'>
+            <p className='text-stone-700 md:text-4xl text-xl md:-ml-8 md:-mt-44 -mt-40 font-semibold ml-6'>
               Willkommen - Welcome - Bienvenue
             </p>
           </div>
