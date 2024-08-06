@@ -6,16 +6,15 @@ import { useMediaQuery } from 'usehooks-ts';
 const LogoOverlay: React.FC = () => {
   const [showLogo, setShowLogo] = useState(true);
   const isDesktop = useMediaQuery('(min-width: 688px)');
-  console.log(isDesktop);
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowLogo(false);
-  //   }, 3000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLogo(false);
+    }, 3000);
 
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, []);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
   const glowLogoWidth = isDesktop ? '500' : '400';
   const glowLogoheight = isDesktop ? '100' : '80';
   return (
@@ -31,7 +30,7 @@ const LogoOverlay: React.FC = () => {
               className='-mt-36'
             />
 
-            <p className='text-stone-700 md:text-4xl text-xl md:-ml-8 md:-mt-44 -mt-40 font-semibold ml-6'>
+            <p className='text-stone-700 ml-6 md:text-4xl text-xl md:-ml-8 md:-mt-36 -mt-40 font-semibold '>
               Willkommen - Welcome - Bienvenue
             </p>
           </div>
