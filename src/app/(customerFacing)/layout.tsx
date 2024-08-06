@@ -9,6 +9,7 @@ import Image from 'next/image';
 import MobilNav from '@/components/MobileNav';
 import { Toaster } from 'sonner';
 import Footer from './_components/Footer';
+import LogoOverlay from './_components/LogoOverlay';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,6 +20,8 @@ export default function Layout({
 }>) {
   return (
     <LanguageProvider>
+      <main className='relative'>
+      <LogoOverlay />
       <div className='flex items-center justify-around md:-mt-12 md:-mb-20 gap-10'>
         <div className='mt-10 mr-5 flex-shrink-0 md:mr-0 w-44 lg:w-60'>
           <Image src='/missglowlogo.png' width={250} height={50} alt='logo' />
@@ -40,6 +43,7 @@ export default function Layout({
       <div className=''>{children}</div>
       <Footer />
       <Toaster position='top-center' richColors />
+      </main>
     </LanguageProvider>
   );
 }
