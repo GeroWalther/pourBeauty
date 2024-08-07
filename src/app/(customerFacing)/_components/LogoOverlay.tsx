@@ -25,6 +25,7 @@ const LogoOverlay: React.FC = () => {
               width={500}
               height={100}
               alt='logo'
+              priority={true}
               className='-mt-36'
             />
 
