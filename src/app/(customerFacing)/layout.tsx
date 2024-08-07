@@ -21,28 +21,28 @@ export default function Layout({
   return (
     <LanguageProvider>
       <main className='relative'>
-      <LogoOverlay />
-      <div className='flex items-center justify-around md:-mt-12 md:-mb-20 gap-10'>
-        <div className='mt-10 mr-5 flex-shrink-0 md:mr-0 w-44 lg:w-60'>
-          <Image src='/missglowlogo.png' width={250} height={50} alt='logo' />
-        </div>
-        <Nav>
-          <NavLink href='/'>Home</NavLink>
-          <NavLink href='/missGlow'>Miss Glow Beauty</NavLink>
-          <NavLink href='/about'>About</NavLink>
-          <div className='flow-root mr-5 mt-2'>
-            <Cart />
+        <LogoOverlay />
+        <div className='flex items-center justify-around md:-mt-12 md:-mb-20 gap-10'>
+          <div className='mt-1 -mb-14 mr-5 flex-shrink-0 md:mr-0 w-60 md:w-44 md:mt-10 md:mb-0 lg:w-72'>
+            <Image src='/lippe.png' width={350} height={100} alt='logo' />
           </div>
-          <LanguageSwitcher />
-        </Nav>
-        <MobilNav>
-          <LanguageSwitcher mobile />
-        </MobilNav>
-      </div>
-      <Canvas className='absolute top-0 left-0 -z-10' />
-      <div className=''>{children}</div>
-      <Footer />
-      <Toaster position='top-center' richColors />
+          <Nav>
+            <NavLink href='/'>Home</NavLink>
+            <NavLink href='/missGlow'>Miss Glow Beauty</NavLink>
+            <NavLink href='/about'>About</NavLink>
+            <div className='flow-root mr-5 mt-2'>
+              <Cart />
+            </div>
+            <LanguageSwitcher />
+          </Nav>
+          <MobilNav>
+            <LanguageSwitcher mobile />
+          </MobilNav>
+        </div>
+        <Canvas className='absolute top-0 left-0 -z-10' />
+        <div className=''>{children}</div>
+        <Footer />
+        <Toaster position='top-center' richColors />
       </main>
     </LanguageProvider>
   );
