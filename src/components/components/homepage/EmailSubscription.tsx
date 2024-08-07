@@ -2,6 +2,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import Image from 'next/image';
 
 function Subscribe() {
   const inputEl = useRef<HTMLInputElement | null>(null);
@@ -63,11 +64,11 @@ function Subscribe() {
     <>
       <section>
         <form onSubmit={subscribe} className='bg-orange-400 p-8'>
-          <div className="relative bg-cover bg-center bg-no-repeat rounded-md shadow-lg bg-[linear-gradient(100deg,rgba(255,105,180,0.9)_0%,rgba(255,105,180,0.9)_100%,transparent_50%),url('/newsletter.webp')] md:bg-[linear-gradient(100deg,rgba(255,105,180,0.9)_0%,rgba(255,105,180,0.9)_60%,transparent_60%),url('/newsletter.webp')]">
-            <div className='w-full md:w-1/2 p-4 md:p-10'>
-              <h3 className='text-center text-pink-100 mb-4 mt-0 text-2xl font-semibold'>
-                Newsletter
-              </h3>
+          <h3 className='text-center text-pink-100 mb-4 text-4xl font-semibold'>
+            Newsletter
+          </h3>
+          <div className='bg-cover bg-center rounded-md shadow-xl md:flex grid grid-flow-cols-1 md:items-center justify-center'>
+            <div className='w-full p-4 md:p-10'>
               <p className='mb-2 text-base text-pink-100 font-semibold'>
                 Genießen Sie 15 % Rabatt auf Ihre erste Bestellung UND ERFAHREN
                 SIE ALS ERSTER:
@@ -134,113 +135,31 @@ function Subscribe() {
                   Beauty einverstanden und gelesen haben.
                 </p>
               </div>
-              <Button type='submit' className='bg-pink-600 w-full md:w-96'>
+              <Button type='submit' variant='default' className='w-full'>
                 Einschreiben
               </Button>
             </div>
+            <div className='w-full md:pb-4'>
+              <Image
+                src='/Kundenkarte.jpeg'
+                alt='Newsletter'
+                width={500}
+                height={500}
+                className='rounded-md mb-5'
+              />
+              <Image
+                src='/Kundenkarte2.jpeg'
+                alt='Newsletter'
+                width={500}
+                height={500}
+                className='rounded-md'
+              />
+            </div>
           </div>
         </form>
-        {/* {notification && (
-          <Notification
-            status={notification.status}
-            title={notification.title}
-            message={notification.message}
-          />
-        )} */}
       </section>
     </>
   );
 }
 
 export default Subscribe;
-
-// <section>
-//   <form onSubmit={subscribe} className={classes.bg}>
-//     <div className={classes.bgpic}>
-//       <div className={classes.form}>
-//         <h3 className={classes.h3}>Newsletter</h3>
-//         <p className={classes.p}>
-//           Schreibe dich in unsere Newsletter ein um auf dem laufendem zu
-//           bleiben.
-//           <br />
-//           Wir werden Sie per E-Mail benachrichtigen, sobald ein neues
-//           Produkt veröffentlicht wird oder wir Rabatt-Aktionen haben.
-//         </p>
-//         <div className={classes.group}>
-//           <input
-//             className={classes.input}
-//             id='email-input'
-//             name='email'
-//             placeholder='E-Mail'
-//             ref={inputEl}
-//             required
-//             type='email'
-//           />
-//           <label htmlFor='email-input' className={classes.label}>
-//             {'E-Mail'}
-//           </label>
-//         </div>
-
-//         <div className={classes.group}>
-//           <input
-//             className={classes.input}
-//             id='email-repeat'
-//             name='email-rp'
-//             placeholder='E-Mail wiederholen'
-//             ref={inputElRep}
-//             required
-//             type='email'
-//           />
-//           <label htmlFor='email-repeat' className={classes.label}>
-//             {'E-Mail wiederholen'}
-//           </label>
-//         </div>
-
-//         <div className={classes.group}>
-//           <input
-//             className={classes.input}
-//             id='fName-input'
-//             name='name'
-//             placeholder='Vorname'
-//             ref={inputFName}
-//             required
-//             type='text'
-//           />
-//           <label htmlFor='fName-input' className={classes.label}>
-//             {'Vorname'}
-//           </label>
-//         </div>
-//         <div className={classes.group}>
-//           <input
-//             className={classes.input}
-//             id='lName-input'
-//             name='lastName'
-//             placeholder='Nachname'
-//             ref={inputLName}
-//             required
-//             type='text'
-//           />
-//           <label htmlFor='lName-input' className={classes.label}>
-//             {'Nachname'}
-//           </label>
-//         </div>
-
-//         <div className={classes.message}>
-//           {message
-//             ? message
-//             : `Wir senden Ihnen nur eine E-Mail, wenn der Blog aktualisiert wird. Kein Spam. Durch Klicken auf die Registrierungsschaltfläche erklären Sie sich mit den Datenschutzbestimmungen, Haftungsausschlüssen und Nutzungsbedingungen von Miss Glow Beauty einverstanden.`}
-//         </div>
-//         <Button type='submit' variant={'ghost'}>
-//           {'Einschreiben'}
-//         </Button>
-//       </div>
-//     </div>
-//   </form>
-//   {notification && (
-//     <Notification
-//       status={notification.status}
-//       title={notification.title}
-//       message={notification.message}
-//     />
-//   )}
-// </section>

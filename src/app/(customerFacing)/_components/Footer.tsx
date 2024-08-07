@@ -7,7 +7,7 @@ import React from 'react';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className='border-t flex justify-center md:justify-start bg-pink-200'>
+    <footer className='flex justify-center md:justify-start bg-orange-400'>
       <div className='px-4 pt-2 grid grid-cols-2 md:grid-cols-3 md:gap-14'>
         <div className='mb-5'>
           {/* <a href='#' className='mb-0'>
@@ -40,8 +40,28 @@ export default function Footer() {
             Rechte Vorbehalten.
           </p>
         </div>
-
-        <nav>
+        <div>
+          <p className='text-lg font-semibold mb-2'>Kundenservice</p>
+          <address className='text-sm flex gap-4'>
+            <div>
+              <p>Whats App</p>
+              <a
+                href='tel:415-201-6370'
+                className='text-gray-600 hover:text-gray-400'>
+                (0049) 015151906996
+              </a>
+            </div>
+            <div>
+              <p>E-Mail</p>
+              <a
+                href={`mailTo: ${process.env.ADMINEMAIL}`}
+                className='text-gray-600 hover:text-gray-400'>
+                {process.env.ADMINEMAIL}
+              </a>
+            </div>
+          </address>
+        </div>
+        <nav className='pb-4'>
           <p className='text-lg font-semibold mb-2'>Miss Glow Beauty</p>
           <ul className='flex gap-2'>
             <li>
@@ -56,27 +76,6 @@ export default function Footer() {
             </li>
           </ul>
         </nav>
-        <div>
-          <p className='text-lg font-semibold mb-2'>Kundenservice</p>
-          <address className='text-sm flex gap-4'>
-            <div>
-              <p>Whats App</p>
-              <a
-                href='tel:415-201-6370'
-                className='text-gray-600 hover:text-gray-400'>
-                098765432567
-              </a>
-            </div>
-            <div>
-              <p>E-Mail</p>
-              <a
-                href='mailto:hello@omnifood.com'
-                className='text-gray-600 hover:text-gray-400'>
-                {process.env.ADMINEMAIL}
-              </a>
-            </div>
-          </address>
-        </div>
       </div>
     </footer>
   );
