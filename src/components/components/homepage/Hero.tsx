@@ -115,7 +115,7 @@ export function Canvas({ className }: any) {
       className={`w-full ${className}`}
       style={{
         clipPath: 'polygon(0 0, 100% 0, 100% 40%, 0% 100%)',
-        height: '85vh',
+        height: '100vh',
         background:
           'linear-gradient(45deg, rgb(255, 126, 193), rgb(255, 126, 193))',
       }}
