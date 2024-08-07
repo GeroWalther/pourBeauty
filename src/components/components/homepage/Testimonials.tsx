@@ -60,7 +60,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <figure
               key={index}
-              className='bg-yellow-100 p-6 rounded-lg shadow-lg'>
+              className='bg-yellow-100 p-6 rounded-lg shadow-xl'>
               <div className='flex justify-center items-center gap-5'>
                 <Image
                   className='w-16 h-16 rounded-full mb-4 -mt-20'
