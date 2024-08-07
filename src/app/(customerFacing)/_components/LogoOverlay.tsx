@@ -5,7 +5,7 @@ import { useMediaQuery } from 'usehooks-ts';
 
 const LogoOverlay: React.FC = () => {
   const [showLogo, setShowLogo] = useState(true);
-  const isDesktop = useMediaQuery('(min-width: 688px)');
+  //const isDesktop = useMediaQuery('(min-width: 688px)');
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLogo(false);
@@ -15,8 +15,8 @@ const LogoOverlay: React.FC = () => {
       clearTimeout(timer);
     };
   }, []);
-  const glowLogoWidth = isDesktop ? '500' : '400';
-  const glowLogoheight = isDesktop ? '100' : '80';
+  // const glowLogoWidth = isDesktop ? '500' : '400';
+  // const glowLogoheight = isDesktop ? '100' : '80';
   return (
     <div>
       {showLogo ? (
@@ -24,8 +24,8 @@ const LogoOverlay: React.FC = () => {
           <div className='flex-col items-center justify-center'>
             <Image
               src='/lippe.png'
-              width={glowLogoWidth}
-              height={glowLogoheight}
+              width={500}
+              height={100}
               alt='logo'
               className='-mt-36'
             />
