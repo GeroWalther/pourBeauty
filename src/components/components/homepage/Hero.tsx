@@ -30,13 +30,13 @@ export default function HeroComp() {
           </div>
           <div className='relative'>
             <p
-              className='mt-6 text-lg max-w-prose text-muted-foreground '
+              className='mt-6 text-xl max-w-prose text-muted-foreground '
               style={{ mixBlendMode: 'color-burn' }}>
               Willkommen zu deiner neuen Lieblingsmarke.
             </p>
             <p
               aria-hidden='true'
-              className='mt-6 text-lg max-w-prose text-muted-foreground absolute top-0 left-0 -z-30'
+              className='mt-6 text-xl max-w-prose text-muted-foreground absolute top-0 left-0 -z-30'
               style={{ mixBlendMode: 'revert' }}>
               Willkommen zu deiner neuen Lieblingsmarke.
             </p>
@@ -47,9 +47,7 @@ export default function HeroComp() {
               className={buttonVariants({ variant: 'outline' })}>
               Was steckt dahinter
             </Link>
-            <Link
-              href='/missGlow'
-              className={buttonVariants({ className: ' bg-pink-600' })}>
+            <Link href='/missGlow' className={buttonVariants()}>
               Shop
             </Link>
           </div>
