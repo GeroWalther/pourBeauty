@@ -70,8 +70,9 @@ function Subscribe() {
           <div className='bg-cover bg-center rounded-md shadow-xl md:flex grid grid-flow-cols-1 md:items-center justify-center'>
             <div className='w-full p-4 md:p-10'>
               <p className='mb-2 text-base text-pink-100 font-semibold'>
-                Genießen Sie 15 % Rabatt auf Ihre erste Bestellung UND ERFAHREN
-                SIE ALS ERSTER:
+                Genießen Sie <span className='font-bold text-xl'>15 %</span>{' '}
+                Rabatt auf Ihre erste Bestellung <br /> UND ERFAHREN SIE ALS
+                ERSTER:
               </p>
               <ul className='mb-6 text-base text-pink-100 font-semibold'>
                 <li>- Einführung neuer Produkte</li>
@@ -132,7 +133,9 @@ function Subscribe() {
                   *Kein Spam. Durch Klicken auf &quot; Einschreiben &quot;
                   erklären Sie sich mit den Datenschutzbestimmungen,
                   Haftungsausschlüssen und Nutzungsbedingungen von Miss Glow
-                  Beauty einverstanden und gelesen haben.
+                  Beauty einverstanden und gelesen haben. Die Kundenkarte mit
+                  attraktiven Konditionen ist nur auf Anfrage bei unserem
+                  Kundenservice erhältlich.
                 </p>
               </div>
               <Button type='submit' variant='default' className='w-full'>
