@@ -1,22 +1,20 @@
 'use client';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { useMediaQuery } from 'usehooks-ts';
 
 const LogoOverlay: React.FC = () => {
   const [showLogo, setShowLogo] = useState(() => true);
-  //const isDesktop = useMediaQuery('(min-width: 688px)');
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowLogo(false);
-  //   }, 3000);
 
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, []);
-  // const glowLogoWidth = isDesktop ? '500' : '400';
-  // const glowLogoheight = isDesktop ? '100' : '80';
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLogo(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <div>
       {showLogo ? (
