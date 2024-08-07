@@ -47,7 +47,7 @@ const galleryImages = [
 const TestimonialsSection = () => {
   return (
     <section id='Test' className='bg-pink-200 grid items-center'>
-      <div className='p-8 md:p-24'>
+      <div className='p-8 md:p-14'>
         <div className='text-center mb-12'>
           <span className='text-lg text-stone-700 font-semibold'>
             Was Kunden sagen.
@@ -56,25 +56,18 @@ const TestimonialsSection = () => {
             Unsere Kunden sind schon überzeugt.
           </h2>
         </div>
-        <div className='grid md:grid-cols-2 gap-y-5 md:gap-y-12 md:gap-x-20'>
+        <div className='grid md:grid-cols-4 gap-y-5 md:gap-y-12 md:gap-x-5'>
           {testimonials.map((testimonial, index) => (
             <figure
               key={index}
-              className='bg-yellow-100 p-6 rounded-lg shadow-xl'>
+              className='bg-white px-2 pb-2 rounded-lg shadow-xl'>
               <div className='flex justify-center items-center gap-5'>
-                <Image
-                  className='w-16 h-16 rounded-full mb-4 -mt-20'
-                  alt={testimonial.alt}
-                  src={testimonial.img}
-                  width={100}
-                  height={100}
-                />
-                <blockquote className='text-gray-700 mb-4 text-lg leading-normal mt-10 self-end'>
-                  <QuoteIcon />
+                <blockquote className='text-gray-700 text-lg leading-normal mt-10 self-end'>
+                  <QuoteIcon className='-mt-8' />
                   {testimonial.text}
                 </blockquote>
               </div>
-              <p className='text-lg text-gray-500 ml-20'>
+              <p className='text-lg text-gray-500'>
                 &mdash; {testimonial.name}
               </p>
             </figure>
