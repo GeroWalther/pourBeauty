@@ -7,9 +7,9 @@ import React from 'react';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className='flex justify-center md:justify-start bg-orange-400'>
-      <div className='px-4 pt-2 grid grid-cols-2 md:grid-cols-3 md:gap-14'>
-        <div className='mb-5'>
+    <footer className='flex justify-center  md:justify-start bg-orange-400'>
+      <div className='px-4 pt-4 grid grid-cols-2 md:grid-cols-3 md:gap-14'>
+        <div className='mb-5 mr-20'>
           {/* <a href='#' className='mb-0'>
             <Image
               src='/missglowlogo.png'
@@ -40,13 +40,13 @@ export default function Footer() {
             Rechte Vorbehalten.
           </p>
         </div>
-        <div>
+        <div className='pb-2'>
           <p className='text-lg font-semibold mb-2'>Kundenservice</p>
-          <address className='text-sm flex gap-4'>
-            <div>
+          <address className='text-sm flex-col md:flex'>
+            <div className='mb-2'>
               <p>Whats App</p>
               <a
-                href='tel:415-201-6370'
+                href='tel:0049015151906996'
                 className='text-gray-600 hover:text-gray-400'>
                 (0049) 015151906996
               </a>
