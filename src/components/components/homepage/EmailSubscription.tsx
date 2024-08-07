@@ -70,7 +70,7 @@ function Subscribe() {
           <div className='bg-cover bg-center rounded-md shadow-xl md:flex grid grid-flow-cols-1 md:items-center justify-center'>
             <div className='w-full p-4 md:p-10'>
               <p className='mb-2 text-base text-pink-100 font-semibold'>
-                Genießen Sie <span className='font-bold text-xl'>15 %</span>{' '}
+                Genießen Sie <span className='text-xl text-pink-500'>15 %</span>
                 Rabatt auf Ihre erste Bestellung <br /> UND ERFAHREN SIE ALS
                 ERSTER:
               </p>
