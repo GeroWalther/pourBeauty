@@ -36,7 +36,7 @@ const questions = [
 export default async function MissGlowShopSite() {
   return (
     <MaxWidthWrapper>
-      <div className='mx-auto max-w-2xl px-4 py-8 sm:px-6 -mt-20 md:mt-0 lg:grid lg:grid-cols-2 lg:max-w-7xl lg:gap-x-8 lg:px-8'>
+      <div className='mx-auto max-w-2xl px-4 py-8 sm:px-6 -mt-10 md:mt-0 lg:grid lg:grid-cols-2 lg:max-w-7xl lg:gap-x-8 lg:px-8'>
         {/* product details */}
         <div className='lg:max-w-lg lg:self-end'>
           <div className='mt-4'>
