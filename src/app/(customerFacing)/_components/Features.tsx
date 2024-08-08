@@ -1,6 +1,6 @@
 'use client';
 import { useLanguage } from '@/contexts/LanguageProvider';
-import { Gem, InfinityIcon, LeafIcon, NutOffIcon, Rabbit } from 'lucide-react';
+import { Gem, InfinityIcon, LeafIcon, Rabbit } from 'lucide-react';
 import React from 'react';
 
 const FeaturesSection = () => {
