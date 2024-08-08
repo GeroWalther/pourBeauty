@@ -27,10 +27,10 @@ const ProductInfo = ({
   const [currImg, setCurrImg] = useState(0);
   return (
     <section id='shop' className='py-20'>
-      <div className='w-[89%] m-auto max-w-[1400px] grid grid-cols-1 md:grid-cols-2 items-center gap-10'>
+      <div className='w-[89%] m-auto max-w-[1400px] grid grid-cols-1 md:grid-cols-2 items-center md:gap-10'>
         {/* LEFT SIDE */}
-        <div className='flex gap-4 items-center'>
-          <div className='flex flex-col gap-4'>
+        <div className='flex md:gap-4 items-center mr-2'>
+          <div className='flex flex-col gap-4 -mr-2'>
             {productImgs.map((img: string, i: number) => (
               <Image
                 key={i}
