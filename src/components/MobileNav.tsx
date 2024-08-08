@@ -8,9 +8,11 @@ import { Sheet, SheetContent, SheetFooter, SheetTrigger } from './ui/sheet';
 import { Button } from './ui/button';
 import Cart from '@/app/(customerFacing)/_components/Cart';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageProvider';
 
 export default function MobilNav({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
+  const { language } = useLanguage();
   return (
     <div>
       <Sheet open={open}>
@@ -39,7 +41,7 @@ export default function MobilNav({ children }: { children: ReactNode }) {
                 onClick={() => setOpen(false)}
                 href='/'
                 className='flex items-center rounded-xl text-white hover:text-foreground'>
-                <span>Home</span>
+                <span>{language == 'de' ? 'Start' : 'Home'}</span>
               </Link>
               <Link
                 onClick={() => setOpen(false)}
@@ -63,7 +65,7 @@ export default function MobilNav({ children }: { children: ReactNode }) {
                 onClick={() => setOpen(false)}
                 href='/about'
                 className='flex  text-white  items-center rounded-xl text-muted-foreground hover:text-foreground'>
-                <span>About</span>
+                <span>{language == 'de' ? 'Über uns' : 'About'}</span>
               </Link>
               <div>{children}</div>
             </nav>
