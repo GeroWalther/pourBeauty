@@ -137,7 +137,7 @@ export default function MagicLipshopSite() {
             <div className='mt-10'>
               <AddToCartButton
                 product={{
-                  id: '1',
+                  id: '2',
                   name: 'Magic Glow Creme',
                   price: 89,
                   image: '/512-1.jpg',

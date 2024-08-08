@@ -137,7 +137,7 @@ export default function MagicLipshopSite() {
             <div className='mt-10'>
               <AddToCartButton
                 product={{
-                  id: '1',
+                  id: '3',
                   name: 'Fresh Eyes Serum',
                   price: 89,
                   image: '/512-1.jpg',
