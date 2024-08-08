@@ -11,10 +11,8 @@ import AddToCartButton from '../_components/AddToCartButton';
 import FAQComponent from '@/components/components/homepage/FAQComp';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import Image from 'next/image';
-
-const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
-
-const FRESHEZESPRICE = 64;
+import { Card } from '@/components/ui/card';
+import { FRESHEZESPRICE, productImagesFresh } from '../../../../consts';
 
 export default function FreshEyeShopSite() {
   const { language } = useLanguage();
@@ -27,8 +25,8 @@ export default function FreshEyeShopSite() {
           : 'How long does the product last?',
       answer:
         language == 'de'
-          ? 'Die Haltbarkeit des Produkts beträgt 12 Monate nach dem Öffnen.'
-          : 'The product has a shelf life of 12 months after opening.',
+          ? 'Die Haltbarkeit des Produkts beträgt 6 Monate nach dem Öffnen.'
+          : 'The product has a shelf life of 6 months after opening.',
     },
     {
       id: 6,
@@ -56,34 +54,34 @@ export default function FreshEyeShopSite() {
       id: 8,
       question:
         language == 'de'
-          ? 'Welchen effekt hat MAGIC LIPS SERUM'
-          : 'What effect does MAGIC LIPS SERUM have?',
+          ? 'Welchen effekt hat FRESH EYES SERUM ?'
+          : 'What effect does FRESH EYES SERUM have?',
       answer:
         language == 'de'
-          ? 'Das Produkt hat eine aufpolsternde Wirkung auf die Lippen. Nach nur 1 Anwendung sind sofort sichtbar volle Lippen. Es verleiht der Lippenpartie ein volles und definiertes Aussehen und reduziert Rillen und Lippenfältchen. Eine verbesserte Definition der Lippen, ebenfalls wird das natürliche Lippenrot hervorgehoben. Lippen aufpolsternde Wirkung bis zu 78%. Wohlgeformte weiche Lippen.'
-          : 'The product has a plumping effect on the lips. Visible full lips after just 1 application. It gives the lip area a full and defined appearance and reduces lip lines and wrinkles. Improved definition of the lips, also enhances the natural lip color. Lip plumping effect up to 78%. Well-shaped soft lips.',
+          ? 'FRESH EYES SERUM besitzt besitzt Liftingwirkung mit einem Preisgekrönten Wirkstoff. Award Winner in seiner Wirksamkeit. 8D 8-fache Hyaloronsäure aus extrem micro Molekülen für eine bessere Feuchtigkeitsversorgung der empfindlichen Augenpartie. FRESH EYES SERUM zögert die Hautalterung hinaus und sorgt für eine sichtbare Verjüngung der Augenpartie.'
+          : 'FRESH EYES SERUM has a lifting effect with an award-winning active ingredient. Award Winner in its effectiveness. 8D 8-fold hyaluronic acid from extremely micro molecules for better moisturization of the sensitive eye area. FRESH EYES SERUM delays skin aging and provides visible rejuvenation of the eye area.',
     },
     {
       id: 9,
       question:
         language == 'de'
-          ? 'Für wen ist MAGIC LIPS SERUM geeignet?'
-          : 'Who is MAGIC LIPS SERUM suitable for?',
+          ? 'Für wen ist FRESH EYES SERUM geeignet?'
+          : 'Who is FRESH EYES SERUM suitable for?',
       answer:
         language == 'de'
-          ? 'MAGIC LIPS SERUM ist eine hilfe für jede Frau, um die hautalterung hinauszuzögern, die Mundpartie zu verfüngen und die lippen zu aufzupolstern.'
-          : 'MAGIC LIPS SERUM is a help for every women. To delay skin aging, to shape the mouth area and to plump the lips.',
+          ? 'FRESH EYES SERUM ist für alle Frauen die sich verjüngen möchten oder länger jung aussehen möchten.'
+          : 'FRESH EYES SERUM is suitable for all women who want to be rejuvenated or look younger for longer.',
     },
     {
       id: 10,
       question:
         language == 'de'
-          ? 'Welche Inhaltsstoffe sind in MAGIC LIPS SERUM enthalten?'
-          : 'What ingredients are in MAGIC LIPS SERUM?',
+          ? 'Welche Inhaltsstoffe sind in FRESH EYES SERUM enthalten?'
+          : 'What ingredients are in FRESH EYES SERUM?',
       answer:
         language == 'de'
-          ? 'MAGIC LIPS SERUM besteht aus hoch effektiven biologischen Inhaltsstoffen, die die Lippen bis zu 78% aufpolstern. Die Formel besitzt einen wertvollen Wirkstoffkomplex aus einer 8-fachen Hyaluronsäure, OLIGO-Aminosäuren,Biologischer Senfsprossen extrakt, Vitanin ACE, Wurzel von Baikal-Helmkraut und eclipta prostrata ( die verjüngend wirkt und den Alterungsprozess verlangsamt) und ecologischer Aloe Vera. Diese Inhaltsstoffe sorgen für eine intensive Lippenaufpolsterung, Lippeneuchtigkeit und Pflege der Lippen nach nur einer Anwendung.'
-          : 'MAGIC LIPS SERUM consists of highly effective organic ingredients that plump the lips up to 78%. The formula has a valuable active ingredient complex of an 8-fold hyaluronic acid, OLIGO amino acids, purified extract of organic mustard sprouts, Vitanin ACE, root of Baikal skullcap and eclipta prostrata (which has a rejuvenating effect and slows down the aging process) and ecological aloe vera. These ingredients provide intensive lip plumping, lip moisture and lip care after just one application.',
+          ? 'FRESH EYES SERUM besitzt natürliche AWARD WINNER Wirkstoffe mit einer excellenten Lifting Wirkung zur Verjüngung der Augenpartie, das modernste OLIGO-Aminosäuren WIRKSTOFF für eine sichtbare Verjüngung und Faltenreduzierung. Die einzigartige Formel enthält Centella Asiatica extract  (die beste erforschte Heilpflanze zum bilden von Körpereigenem Kollagen um bis zu 77%), Vitamine und eine extrem niedrige Micro Molekulare Oligo-HA Hyaluronsäure, eine 8D Hyaluronsäure diese besitzt eine 8fache kombination aus verschiedenen Hyaluronsöuren zur optimalen intensiven ANTI-AGING Behandlung der Augenpartie für frische und wunderschöne Augenblicke.'
+          : "FRESH EYES SERUM has natural AWARD WINNER active ingredients with an excellent lifting effect for rejuvenation of the eye area, the most modern OLIGO-amino acid ACTIVE INGREDIENT for visible rejuvenation and wrinkle reduction. The unique formula contains Centella Asiatica extract (the best researched medicinal plant for the formation of the body's own collagen by up to 77%), vitamins and an extremely low micro-molecular OLIGO-HA hyaluronic acid, an 8D hyaluronic acid this has an 8-fold combination of different hyaluronic acids for optimal intensive ANTI-AGING treatment of the eye area for fresh and beautiful moments.",
     },
   ];
 
@@ -127,30 +125,40 @@ export default function FreshEyeShopSite() {
 
             <div className='mt-4 space-y-6'>
               <ul className='list-disc ml-5'>
-                <li className='text-lg text-muted-foreground'>
+                <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? '78% Aufpolsternde Wirkung auf die Lippen'
-                    : '78% Plumping effect on the lips'}
+                    ? 'Anti Aging Aktivität'
+                    : 'Anti-aging activity'}
                 </li>
-                <li className='text-lg text-muted-foreground'>
+                <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Nach nur 1 Anwendung sofort sichtbar volle Lippen'
-                    : 'Visible full lips after just 1 application'}
+                    ? 'Lifting und Straffung der Lieder und Fältchen'
+                    : 'Lifting and tightening of the eyelids and wrinkles'}
                 </li>
-                <li className='text-lg text-muted-foreground'>
+                <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Verleiht der Lippenpartie ein volles und definiertes Aussehen'
-                    : 'Gives the lip area a full and defined appearance'}
+                    ? 'Auch für die intensive Behandlung der Stirnfalten geeignet'
+                    : 'Also suitable for the intensive treatment of forehead wrinkles'}
                 </li>
-                <li className='text-lg text-muted-foreground'>
+                <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Reduziert Rillen und Lippenfältchen'
-                    : 'Reduces lip lines and wrinkles'}
+                    ? 'Sichtbare Verjüngung der Augenpartie und Faltenreduzierung'
+                    : 'Visible rejuvenation of the eye area and wrinkle reduction'}
                 </li>
-                <li className='text-lg text-muted-foreground'>
+                <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Eine verbesserte Definition der Lippen, ebenfalls wird das natürliche Lippenrot'
-                    : 'Improved definition of the lips, also enhances the natural lip color'}
+                    ? 'Wirkung in Studien bestätigt'
+                    : 'Effect confirmed in studies'}
+                </li>
+                <li className='text-lg ttext-stone-800'>
+                  {language == 'de'
+                    ? 'Sichtbar frischer und straffer'
+                    : 'Visibly fresher and firmer'}
+                </li>
+                <li className='text-lg ttext-stone-800'>
+                  {language == 'de'
+                    ? 'Verlangsamt die Hautalterung'
+                    : 'Slows down skin aging'}
                 </li>
               </ul>
             </div>
@@ -170,7 +178,7 @@ export default function FreshEyeShopSite() {
         {/* product images */}
         <div className='mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center mb-10'>
           <div className='aspect-square rounded-lg'>
-            <ImageSlider urls={productImages} alt={`produkt bilder`} />
+            <ImageSlider urls={productImagesFresh} alt={`produkt bilder`} />
           </div>
         </div>
 
@@ -186,7 +194,7 @@ export default function FreshEyeShopSite() {
                   id: '3',
                   name: 'Fresh Eyes Serum',
                   price: FRESHEZESPRICE,
-                  image: '/512-1.jpg',
+                  image: productImagesFresh[0],
                   quantity: 1,
                 }}
               />
@@ -215,23 +223,50 @@ export default function FreshEyeShopSite() {
         <h4 className=' text-stone-800 font-semibold'>
           {language == 'de' ? 'Produktbeschreibung' : 'Product description'}
         </h4>
-        {/* <p className=' text-stone-700'>
+
+        <div className='mt-5 px-3 pb-5'>
+          <h5 className='text-center font-semibold text-blue-400'>
+            FRESH EYES SERUM
+          </h5>
+          <p className=' text-stone-950 leading-snug mt-3'>
+            {language == 'de'
+              ? 'FRESH EYES SERUM besitzt einen Award Winner Wirkstoffzur gezielten sichtbaren Verjüngung der Augenpartie und Faltenreduzierung, Lifting & Straffung der Lider und Fältchen, für strahlende Augenblicke eine wertvolle natürliche Verbindung für eine nachgewiesene FALTENREDUZIERUNG'
+              : 'FRESH EYES SERUM has an Award Winner active ingredient for targeted visible rejuvenation of the eye area and wrinkle reduction, lifting & tightening of the eyelids and wrinkles, for radiant moments a valuable natural connection for proven WRINKLE REDUCTION'}
+          </p>
+          <p className=' text-stone-950 leading-snug mt-3'>
+            {language == 'de'
+              ? 'FRESH EYES SERUM besitzt besitzt Liftingwirkung mit einem Preisgekrönten Wirkstoff. Award Winner in seiner Wirksamkeit. 8D 8-fache Hyaloronsäure aus extrem micro Molekülen für eine bessere Feuchtigkeitsversorgung der empfindlichen Augenpartie. FRESH EYES SERUM zögert die Hautalterung hinaus und sorgt für eine sichtbare Verjüngung der Augenpartie.'
+              : 'FRESH EYES SERUM has a lifting effect with an award-winning active ingredient. Award Winner in its effectiveness. 8D 8-fold hyaluronic acid from extremely micro molecules for better moisturization of the sensitive eye area. FRESH EYES SERUM delays skin aging and provides visible rejuvenation of the eye area.'}
+          </p>
+        </div>
+
+        <div className='flex-col justify-between items-center gap-10 md:grid md:grid-cols-2'>
+          <Card className='p-3 max-w-lg my-10 bg-gray-200'>
+            <h5 className='text-center font-semibold text-blue-400'>
+              FRESH EYES SERUM
+            </h5>
+            <p className=' text-stone-950 leading-snug '>
+              {language == 'de'
+                ? 'FRESH EYES SERUM besitzt einen Award Winner Wirkstoffzur gezielten sichtbaren Verjüngung der Augenpartie und Faltenreduzierung, Lifting & Straffung der Lider und Fältchen, für strahlende Augenblicke eine wertvolle natürliche Verbindung für eine nachgewiesene FALTENREDUZIERUNG'
+                : 'FRESH EYES SERUM has an Award Winner active ingredient for targeted visible rejuvenation of the eye area and wrinkle reduction, lifting & tightening of the eyelids and wrinkles, for radiant moments a valuable natural connection for proven WRINKLE REDUCTION'}
+            </p>
+          </Card>
+          <Image
+            src='/FRESH.png'
+            width={700}
+            height={700}
+            alt='miss glow fresh eyes'
+            className=' max-w-80 rounded-md'
+          />
+        </div>
+        <p className='text-xs text-center mt-10'>
+          INCI:Centella asiatica extract, cell aqua, aloe barbadensis
+          extract,OLIGO -HA hydrolyzed sodium hyaluronate, acetyl
+          Hexapeptide-1,baicalin extract, Centella asiatica
           {language == 'de'
-            ? 'Ein hochwertiges Lippenprodukt, das speziell für einen glamourösen Look entwickelt wurde. Es bietet langanhaltende Farbe, intensive Feuchtigkeit und ein angenehmes Tragegefühl. Die einzigartige Formel sorgt für volle und geschmeidige Lippen, während sie gleichzeitig pflegt und schützt. Perfekt für jeden Anlass und jede Stimmung!'
-            : 'A high-quality lip product designed specifically for a glamorous look. It provides long-lasting color, intense moisture, and a comfortable feel. The unique formula ensures full and smooth lips while nourishing and protecting. Perfect for any occasion and mood!'}
-        </p> */}
-        <Image
-          src='/lipdescr1.png'
-          width={1000}
-          height={1000}
-          alt='description image 1'
-        />
-        <Image
-          src='/lipdescr2-png.png'
-          width={1000}
-          height={1000}
-          alt='description image 2'
-        />
+            ? '(das zum Wohlgefühl beiträgt)'
+            : '(which contributes to well-being)'}
+        </p>
       </div>
     </MaxWidthWrapper>
   );

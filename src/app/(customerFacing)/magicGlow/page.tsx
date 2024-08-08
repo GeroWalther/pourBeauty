@@ -12,10 +12,7 @@ import FAQComponent from '@/components/components/homepage/FAQComp';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
-
-const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
-
-const PRICEMAGICGLOW = 59;
+import { PRICEMAGICGLOW, productImagesGlowCreme } from '../../../../consts';
 
 export default function MagicGlowShopSite() {
   const { language } = useLanguage();
@@ -181,7 +178,7 @@ export default function MagicGlowShopSite() {
         {/* product images */}
         <div className='mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center mb-10'>
           <div className='aspect-square rounded-lg'>
-            <ImageSlider urls={productImages} alt={`produkt bilder`} />
+            <ImageSlider urls={productImagesGlowCreme} alt={`produkt bilder`} />
           </div>
         </div>
 
@@ -197,7 +194,7 @@ export default function MagicGlowShopSite() {
                   id: '2',
                   name: 'Magic Glow Creme',
                   price: PRICEMAGICGLOW,
-                  image: '/512-1.jpg',
+                  image: productImagesGlowCreme[0],
                   quantity: 1,
                 }}
               />
@@ -262,7 +259,7 @@ export default function MagicGlowShopSite() {
             className=' max-w-80 rounded-md'
           />
         </div>
-        <p className='text-xs text-center mt-2'>
+        <p className='text-xs text-center mt-10'>
           INCI:Centella asiatica extract, cell aqua, palmitoyl tripeptide-1OLIGO
           -HA hydrolyzed sodium hyaluronate, retinal palmitate, tocopherol,
           L-ascorbic acid, acid Centella asiatica

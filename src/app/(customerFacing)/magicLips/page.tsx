@@ -12,10 +12,7 @@ import FAQComponent from '@/components/components/homepage/FAQComp';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
-
-const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
-
-const MAGICLIPSPRICE = 69;
+import { MAGICLIPSPRICE, productImgsLips } from '../../../../consts';
 
 export default function MagicLipsShopSite() {
   const { language } = useLanguage();
@@ -170,7 +167,7 @@ export default function MagicLipsShopSite() {
         {/* product images */}
         <div className='mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center mb-10'>
           <div className='aspect-square rounded-lg'>
-            <ImageSlider urls={productImages} alt={`produkt bilder`} />
+            <ImageSlider urls={productImgsLips} alt={`produkt bilder`} />
           </div>
         </div>
 
@@ -186,7 +183,7 @@ export default function MagicLipsShopSite() {
                   id: '1',
                   name: 'Magic Lips Serum',
                   price: MAGICLIPSPRICE,
-                  image: '/512-1.jpg',
+                  image: productImgsLips[0],
                   quantity: 1,
                 }}
               />
