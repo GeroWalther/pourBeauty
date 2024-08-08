@@ -10,6 +10,7 @@ import { ShareLink } from '../_components/ShareLink';
 import AddToCartButton from '../_components/AddToCartButton';
 import FAQComponent from '@/components/components/homepage/FAQComp';
 import { useLanguage } from '@/contexts/LanguageProvider';
+import Image from 'next/image';
 
 const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
 
@@ -165,15 +166,27 @@ export default function MissGlowShopSite() {
       <FAQComponent questions={questions} />
 
       {/* More images and Product description */}
-      <div className='px-10 pb-20'>
+      <div className='md:px-10 md:pb-20 pb-5'>
         <h4 className=' text-stone-800 font-semibold'>
           {language == 'de' ? 'Produktbeschreibung' : 'Product description'}
         </h4>
-        <p className=' text-stone-700'>
+        {/* <p className=' text-stone-700'>
           {language == 'de'
             ? 'Ein hochwertiges Lippenprodukt, das speziell für einen glamourösen Look entwickelt wurde. Es bietet langanhaltende Farbe, intensive Feuchtigkeit und ein angenehmes Tragegefühl. Die einzigartige Formel sorgt für volle und geschmeidige Lippen, während sie gleichzeitig pflegt und schützt. Perfekt für jeden Anlass und jede Stimmung!'
             : 'A high-quality lip product designed specifically for a glamorous look. It provides long-lasting color, intense moisture, and a comfortable feel. The unique formula ensures full and smooth lips while nourishing and protecting. Perfect for any occasion and mood!'}
-        </p>
+        </p> */}
+        <Image
+          src='/lipdescr1.png'
+          width={1000}
+          height={1000}
+          alt='description image 1'
+        />
+        <Image
+          src='/lipdescr2-png.png'
+          width={1000}
+          height={1000}
+          alt='description image 2'
+        />
       </div>
     </MaxWidthWrapper>
   );
