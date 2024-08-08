@@ -135,7 +135,6 @@ export default function MissGlowShopSite() {
               link={`${process.env.NEXT_PUBLIC_SERVER_URL}/missGlow`}
             />
             <div className='mt-10'>
-              {/* TODO Add to cart */}
               <AddToCartButton
                 product={{
                   id: '1',

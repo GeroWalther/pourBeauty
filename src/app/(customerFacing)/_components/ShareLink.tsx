@@ -16,10 +16,12 @@ import { Input } from '../../../components/ui/input';
 import { CopyIcon } from 'lucide-react';
 import React, { useState } from 'react';
 import { toast } from 'sonner';
+import { useLanguage } from '@/contexts/LanguageProvider';
 
 export function ShareLink({ link }: { link: string }) {
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { language } = useLanguage();
 
   const copyToClipboard = () => {
     navigator.clipboard
@@ -37,14 +39,20 @@ export function ShareLink({ link }: { link: string }) {
         if (!isOpen) setCopied(false);
       }}>
       <DialogTrigger asChild>
-        <Button variant='outline'>Teilen</Button>
+        <Button variant='outline'>
+          {language == 'de' ? 'Teilen' : 'Share'}
+        </Button>
       </DialogTrigger>
       <DialogContent className='sm:max-w-md'>
         <DialogHeader>
-          <DialogTitle>Share link</DialogTitle>
+          <DialogTitle>
+            {' '}
+            {language == 'de' ? 'Link teilen' : 'Share link'}
+          </DialogTitle>
           <DialogDescription>
-            Teile diesen Link mit deinen Freunden. Mit diesem Link kannst du
-            ganz einfach dieses Produkt teilen.
+            {language == 'de'
+              ? 'Teile diesen Link mit deinen Freunden. Mit diesem Link kannst du ganz einfach dieses Produkt teilen.'
+              : 'Share this link with your friends. With this link you can easily share this product.'}
           </DialogDescription>
         </DialogHeader>
         <div className='flex items-center space-x-2'>
@@ -59,18 +67,24 @@ export function ShareLink({ link }: { link: string }) {
             size='sm'
             className='px-3'
             onClick={copyToClipboard}>
-            <span className='sr-only'>Kopieren</span>
+            <span className='sr-only'>
+              {language == 'de' ? 'Kopieren' : 'Copy'}
+            </span>
             <CopyIcon className='h-4 w-4' />
           </Button>
         </div>
         <DialogFooter className='sm:justify-start'>
           <DialogClose asChild>
             <Button type='button' variant='secondary'>
-              Schließen
+              {language == 'de' ? 'Schließen' : 'Close'}
             </Button>
           </DialogClose>
         </DialogFooter>
-        {copied && <p className='text-sm text-green-500'>Link kopiert!</p>}
+        {copied && (
+          <p className='text-sm text-green-500'>
+            {language == 'de' ? 'Link kopiert!' : 'Link copied!'}
+          </p>
+        )}
         {error && <p className='text-sm text-red-500'>{error}</p>}
       </DialogContent>
     </Dialog>
