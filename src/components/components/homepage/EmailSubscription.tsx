@@ -3,8 +3,10 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageProvider';
 
 function Subscribe() {
+  const { language } = useLanguage();
   const inputEl = useRef<HTMLInputElement | null>(null);
   const inputElRep = useRef<HTMLInputElement | null>(null);
   const inputName = useRef<HTMLInputElement | null>(null);
@@ -70,15 +72,39 @@ function Subscribe() {
           <div className='bg-cover bg-center rounded-md shadow-xl md:flex grid grid-flow-cols-1 md:items-center justify-center'>
             <div className='w-full p-4 md:p-10'>
               <p className='mb-2 text-base text-pink-100 font-semibold'>
-                Genießen Sie <span className='text-xl text-pink-500'>15 %</span>
-                Rabatt auf Ihre erste Bestellung <br /> UND ERFAHREN SIE ALS
-                ERSTER:
+                {language == 'de' ? 'Genießen Sie ' : 'Enjoy '}
+                <span className='text-xl text-pink-500'>15 %</span>
+                {language == 'de'
+                  ? ' Rabatt auf Ihre erste Bestellung'
+                  : ' Discount on your first order'}
+                <br />
+                {language == 'de'
+                  ? 'UND ERFAHREN SIE ALS ERSTER'
+                  : 'AND BE THE FIRST TO KNOW'}
               </p>
               <ul className='mb-6 text-base text-pink-100 font-semibold'>
-                <li>- Einführung neuer Produkte</li>
-                <li>- bevorstehende Live-Events</li>
-                <li>- Fachkundige Beratung</li>
-                <li>- Kundenkarte genießen und mit Rabatt einkaufen</li>
+                <li>
+                  -{' '}
+                  {language == 'de'
+                    ? 'Einführung neuer Produkte'
+                    : 'Introduction to new products'}
+                </li>
+                <li>
+                  -{' '}
+                  {language == 'de'
+                    ? 'bevorstehende Live-Events'
+                    : 'upcoming live-events'}{' '}
+                </li>
+                <li>
+                  -{' '}
+                  {language == 'de' ? 'Fachkundige Beratung' : 'Expert advice'}
+                </li>
+                <li>
+                  -{' '}
+                  {language == 'de'
+                    ? 'Kundenkarte genießen und mit Rabatt einkaufen'
+                    : 'Enjoy a loyalty card and shop with a discount'}
+                </li>
               </ul>
               <div className='mb-4'>
                 <input
@@ -101,7 +127,9 @@ function Subscribe() {
                   className='text-base font-inherit text-inherit p-3 rounded border-0 border-b-3 border-transparent bg-white bg-opacity-75 w-full block transition-all duration-300 focus:outline-none focus:shadow-lg focus:border-green-500'
                   id='email-repeat'
                   name='email-rp'
-                  placeholder='E-Mail wiederholen'
+                  placeholder={
+                    language == 'de' ? 'E-Mail wiederholen' : 'Repeate E-Mail'
+                  }
                   ref={inputElRep}
                   required
                   type='email'
@@ -130,16 +158,13 @@ function Subscribe() {
               </div>
               <div className='mt-4 mb-8 text-pink-100 text-sm'>
                 <p>
-                  *Kein Spam. Durch Klicken auf &quot; Einschreiben &quot;
-                  erklären Sie sich mit den Datenschutzbestimmungen,
-                  Haftungsausschlüssen und Nutzungsbedingungen von Miss Glow
-                  Beauty einverstanden und gelesen haben. Die Kundenkarte mit
-                  attraktiven Konditionen ist nur auf Anfrage bei unserem
-                  Kundenservice erhältlich.
+                  {language == 'de'
+                    ? '*Kein Spam. Durch Klicken auf " Einschreiben " erklären Sie sich mit den Datenschutzbestimmungen,Haftungsausschlüssen und Nutzungsbedingungen von Miss GlowBeauty einverstanden und gelesen haben. Die Kundenkarte mit attraktiven Konditionen ist nur auf Anfrage bei unseremKundenservice erhältlich.'
+                    : 'No spam. By clicking "Subscribe", you agree to and have read Miss GlowBeauty privacy policy, disclaimers, and terms of use. The loyalty card with attractive benefits is only available upon request from our customer service.'}
                 </p>
               </div>
               <Button type='submit' variant='default' className='w-full'>
-                Einschreiben
+                {language == 'de' ? ' Einschreiben' : 'Subscribe'}
               </Button>
             </div>
             <div className='w-full md:pb-4'>
