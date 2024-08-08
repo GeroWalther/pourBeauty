@@ -1,12 +1,8 @@
 import React from 'react';
-import Nav, { NavLink } from '../../components/Nav';
 import { Canvas } from '../../components/components/homepage/Hero';
-import Cart from './_components/Cart';
 import { LanguageProvider } from '@/contexts/LanguageProvider';
-import LanguageSwitcher from './_components/SwitchLang';
 
 import Image from 'next/image';
-import MobilNav from '@/components/MobileNav';
 import { Toaster } from 'sonner';
 import Footer from './_components/Footer';
 import LogoOverlay from './_components/LogoOverlay';
