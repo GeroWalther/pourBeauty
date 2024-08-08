@@ -16,7 +16,7 @@ const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
 
 const FRESHEZESPRICE = 64;
 
-export default function MagicLipshopSite() {
+export default function FreshEyeShopSite() {
   const { language } = useLanguage();
   const questions = [
     {

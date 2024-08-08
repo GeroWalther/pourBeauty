@@ -11,12 +11,13 @@ import AddToCartButton from '../_components/AddToCartButton';
 import FAQComponent from '@/components/components/homepage/FAQComp';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import Image from 'next/image';
+import { Card } from '@/components/ui/card';
 
 const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
 
 const PRICEMAGICGLOW = 59;
 
-export default function MagicLipshopSite() {
+export default function MagicGlowShopSite() {
   const { language } = useLanguage();
   const questions = [
     {
@@ -27,8 +28,8 @@ export default function MagicLipshopSite() {
           : 'How long does the product last?',
       answer:
         language == 'de'
-          ? 'Die Haltbarkeit des Produkts beträgt 12 Monate nach dem Öffnen.'
-          : 'The product has a shelf life of 12 months after opening.',
+          ? 'Die Haltbarkeit des Produkts beträgt 6 Monate nach dem Öffnen.'
+          : 'The product has a shelf life of 6 months after opening.',
     },
     {
       id: 6,
@@ -45,23 +46,45 @@ export default function MagicLipshopSite() {
       id: 7,
       question:
         language == 'de'
-          ? 'Gibt es eine Geld-zurück-Garantie?'
-          : 'Is there a money-back guarantee?',
+          ? 'Ist das Produkt klinisch getested?'
+          : 'Is the product clinically tested?',
       answer:
         language == 'de'
-          ? 'Ja, wir bieten eine 30-tägige Geld-zurück-Garantie.'
-          : 'Yes, we offer a 30-day money-back guarantee.',
+          ? 'Ja, das Produkt wurde dermatologisch getestet und ist für die meisten Hauttypen geeignet.'
+          : 'Yes, the product has been dermatologically tested and is suitable for most skin types.',
     },
     {
       id: 8,
       question:
         language == 'de'
-          ? 'Allergische Reaktionen bekannt?'
-          : 'Can it cause allergic reactions?',
+          ? 'Welchen effekt hat MAGIC GLOW CREME ?'
+          : 'What effect does MAGIC GLOW CREME have?',
       answer:
         language == 'de'
-          ? 'Das Produkt wurde dermatologisch getestet und ist für die meisten Hauttypen geeignet. Es kann jedoch bei empfindlicher Haut allergische Reaktionen hervorrufen. Wir empfehlen einen Patch-Test vor der Anwendung.'
-          : 'The product has been dermatologically tested and is suitable for most skin types. However, it can cause allergic reactions in sensitive skin. We recommend a patch test before use.',
+          ? 'MAGIC GLOW CREME besitzt gezielte verjüngende Inhaltsstoffe, die die Hautalterung verlangsamen und die Haut straffen. Die Creme sorgt für eine intensive Hautstraffung und reduziert Falten. Die Haut wird vor oxidativem Stress geschützt und das Zellwachstum wird angeregt. Die Haut fühlt sich nach der Anwendung straffer und jünger an.'
+          : 'MAGIC GLOW CREME has targeted rejuvenating ingredients that slow down skin aging and tighten the skin. The cream provides intensive skin tightening and reduces wrinkles. The skin is protected against oxidative stress and cell growth is stimulated. The skin feels firmer and younger after application.',
+    },
+    {
+      id: 9,
+      question:
+        language == 'de'
+          ? 'Für wen ist MAGIC GLOW CREME geeignet?'
+          : 'Who is MAGIC GLOW CREME suitable for?',
+      answer:
+        language == 'de'
+          ? 'MAGIC GLOW CREME ist für alle Frauen die sich verjüngen möchten oder länger jung aussehen möchten.'
+          : 'MAGIC GLOW CREME is suitable for all women who want to be rejuvenated or look younger for longer.',
+    },
+    {
+      id: 10,
+      question:
+        language == 'de'
+          ? 'Welche Inhaltsstoffe sind in MAGIC GLOW CREME enthalten?'
+          : 'What ingredients are in MAGIC GLOW CREME?',
+      answer:
+        language == 'de'
+          ? 'MAGIC GLOW CREME besitzt natürliche OLIGOpeptide, die die Haut verjüngen und straffen. Die Creme enthält auch wertvolle Inhaltsstoffe wie Centella asiatica extract, OLIGO-HA, micro molikulare Hyaluronsäure, palmitoyl tripeptide-1 (welches die Haut von innen heraus verjüngt), Extrakt aus der Wurzel des Baikal-Schädelkappen, Eclipta Prostrata (sorgt für Wohlgefühl) und Centella asiatica acide (welches Endzündungshemend ist und geschmeidigkeit spended).  Diese Inhaltsstoffe sorgen für eine intensive Hautstraffung und reduzieren Falten.'
+          : 'MAGIC GLOW CREME has natural OLIGOpeptides that rejuvenate and tighten the skin. The cream also contains valuable ingredients such as Centella asiatica extract, OLIGO-HA, micro-molecular hyaluronic acid, palmitoyl tripeptide-1 (which rejuvenates the skin from the inside out), extract from the root of the Baikal skullcap, Eclipta Prostrata (provides a sense of well-being) and Centella asiatica acide (which is anti-inflammatory and provides suppleness). These ingredients provide intensive skin tightening and reduce wrinkles.',
     },
   ];
 
@@ -105,30 +128,40 @@ export default function MagicLipshopSite() {
 
             <div className='mt-4 space-y-6'>
               <ul className='list-disc ml-5'>
-                <li className='text-lg text-muted-foreground'>
-                  {language == 'de'
-                    ? '78% Aufpolsternde Wirkung auf die Lippen'
-                    : '78% Plumping effect on the lips'}
+                <li className='text-lg text-stone-800'>
+                  {language == 'de' ? 'Verjüngung' : 'Rejuvenation'}
                 </li>
-                <li className='text-lg text-muted-foreground'>
+                <li className='text-lg text-stone-800'>
                   {language == 'de'
-                    ? 'Nach nur 1 Anwendung sofort sichtbar volle Lippen'
-                    : 'Visible full lips after just 1 application'}
+                    ? 'Natürliche OLIGOpeptide'
+                    : 'Natural OLIGOpeptides'}
                 </li>
-                <li className='text-lg text-muted-foreground'>
-                  {language == 'de'
-                    ? 'Verleiht der Lippenpartie ein volles und definiertes Aussehen'
-                    : 'Gives the lip area a full and defined appearance'}
+                <li className='text-lg text-stone-800'>
+                  {language == 'de' ? 'Faltenreduzierung' : 'Reduces wrinkles'}
                 </li>
-                <li className='text-lg text-muted-foreground'>
-                  {language == 'de'
-                    ? 'Reduziert Rillen und Lippenfältchen'
-                    : 'Reduces lip lines and wrinkles'}
+                <li className='text-lg text-stone-800'>
+                  {language == 'de' ? 'ANTI-AGING effekt' : 'ANTI-AGING effect'}
                 </li>
-                <li className='text-lg text-muted-foreground'>
+                <li className='text-lg text-stone-800'>
                   {language == 'de'
-                    ? 'Eine verbesserte Definition der Lippen, ebenfalls wird das natürliche Lippenrot'
-                    : 'Improved definition of the lips, also enhances the natural lip color'}
+                    ? 'Verlangsamt die Hautalterung'
+                    : 'Slows down skin aging'}
+                </li>
+                <li className='text-lg text-stone-800'>
+                  {language == 'de' ? 'Zellwachstum' : 'Cell growth'}
+                </li>
+                <li className='text-lg text-stone-800'>
+                  {language == 'de'
+                    ? 'Schutz vor oxidativen Stress'
+                    : 'Protection against oxidative stress'}
+                </li>
+                <li className='text-lg text-stone-800'>
+                  {language == 'de'
+                    ? 'Intensive Hautstraffung'
+                    : 'Intensive skin tightening'}
+                </li>
+                <li className='text-lg text-stone-800'>
+                  {language == 'de' ? 'Wohlgefühl' : 'Well-being'}
                 </li>
               </ul>
             </div>
@@ -188,28 +221,55 @@ export default function MagicLipshopSite() {
       </div>
       <FAQComponent questions={questions} />
 
-      {/* More images and Product description */}
+      {/* Product description */}
       <div className='md:px-10 md:pb-20 pb-5'>
         <h4 className=' text-stone-800 font-semibold'>
           {language == 'de' ? 'Produktbeschreibung' : 'Product description'}
         </h4>
-        {/* <p className=' text-stone-700'>
+
+        <div className='mt-5 px-3 pb-5'>
+          <h5 className='text-center font-semibold text-orange-400'>
+            MAGIC GLOW CREME
+          </h5>
+          <p className=' text-stone-950 leading-snug mt-3'>
+            {language == 'de'
+              ? 'Ist eine Verbindung aus extrem niedrigen Micro Molekularen Oligo-HA Hyaluronsäure, CENTELLA ASIATICA, Aminosäuren, Vitaminen und einem fortschrittlichen OLIGOPEPTIDE WIRKSTOFF der einen signifikanten ANTI-AGING Effekt bietet und NÄHRSTOFFE für das ZELLWACHSTUM liefert, schützt vor oxidative STRESS und speziell für eine sichtbare Verjüngung entwickelt wurde. '
+              : 'Is a compound of extremely low micro-molecular OLIGO-HA hyaluronic acid, CENTELLA ASIATICA, amino acids, vitamins and an advanced OLIGOPEPTIDE ACTIVE INGREDIENT that offers a significant ANTI-AGING effect and provides NUTRIENTS for CELL GROWTH, protects against oxidative STRESS and was specially developed for visible rejuvenation.'}
+          </p>
+          <p className=' text-stone-950 leading-snug mt-3'>
+            {language == 'de'
+              ? 'Mit dem Vorteil eine bessere Hautpenetration, maximiert OLIGO-HA die Befeuchtung der Haut und aktiviert gleichzeitig die Stammfunktion der Epidermis, fördert die Zelldifferenzierung und beugt so der vorzeitigen Hautalterung vor. WOHLGEFÜHL und sichtbare VERJÜNGUNG Klinisch nachgewiesene Faltenreduzierung und Verbesserung der Hautstraffung'
+              : 'With the advantage of better skin penetration, OLIGO-HA maximizes skin hydration and activates the stem function of the epidermis, promotes cell differentiation and thus prevents premature skin aging. WELL-BEING and visible REJUVENATION Clinically proven wrinkle reduction and improvement of skin tightening'}
+          </p>
+        </div>
+
+        <div className='flex-col justify-between items-center gap-10 md:grid md:grid-cols-2'>
+          <Card className='p-3 max-w-lg my-10 bg-gray-200'>
+            <h5 className='text-center font-semibold text-orange-400'>
+              MAGIC GLOW CREME
+            </h5>
+            <p className=' text-stone-950 leading-snug '>
+              {language == 'de'
+                ? 'MAGIC GLOW CREME besitzt gezielte VERJÜNGENDE OLIGOPEPTIDE und Wirkstoffe natürlichen Ursprungs zur gezielten sichtbaren Faltenreduzierung, HAUTSTRUKTUR verbessernd, HAUTALTERUNG zu verlangsamen. MAGIC GLOW CREME eine wertvolle natürliche Verbindung für eine nachgewiesene FALTENREDUZIERUNG.'
+                : 'MAGIC GLOW CREME has targeted REJUVENATING OLIGOPEPTIDES and natural active ingredients for targeted visible wrinkle reduction, improving SKIN STRUCTURE, slowing down SKIN AGING. MAGIC GLOW CREME a valuable natural compound for proven WRINKLE REDUCTION.'}
+            </p>
+          </Card>
+          <Image
+            src='/magicGlowBlond.png'
+            width={700}
+            height={700}
+            alt='miss glow'
+            className=' max-w-80 rounded-md'
+          />
+        </div>
+        <p className='text-xs text-center mt-2'>
+          INCI:Centella asiatica extract, cell aqua, palmitoyl tripeptide-1OLIGO
+          -HA hydrolyzed sodium hyaluronate, retinal palmitate, tocopherol,
+          L-ascorbic acid, acid Centella asiatica
           {language == 'de'
-            ? 'Ein hochwertiges Lippenprodukt, das speziell für einen glamourösen Look entwickelt wurde. Es bietet langanhaltende Farbe, intensive Feuchtigkeit und ein angenehmes Tragegefühl. Die einzigartige Formel sorgt für volle und geschmeidige Lippen, während sie gleichzeitig pflegt und schützt. Perfekt für jeden Anlass und jede Stimmung!'
-            : 'A high-quality lip product designed specifically for a glamorous look. It provides long-lasting color, intense moisture, and a comfortable feel. The unique formula ensures full and smooth lips while nourishing and protecting. Perfect for any occasion and mood!'}
-        </p> */}
-        <Image
-          src='/lipdescr1.png'
-          width={1000}
-          height={1000}
-          alt='description image 1'
-        />
-        <Image
-          src='/lipdescr2-png.png'
-          width={1000}
-          height={1000}
-          alt='description image 2'
-        />
+            ? '(das zum Wohlgefühl beiträgt)'
+            : '(which contributes to well-being)'}
+        </p>
       </div>
     </MaxWidthWrapper>
   );

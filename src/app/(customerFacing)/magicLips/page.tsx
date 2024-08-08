@@ -17,7 +17,7 @@ const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
 
 const MAGICLIPSPRICE = 69;
 
-export default function MagicLipshopSite() {
+export default function MagicLipsShopSite() {
   const { language } = useLanguage();
   const questions = [
     {
@@ -28,8 +28,8 @@ export default function MagicLipshopSite() {
           : 'How long does the product last?',
       answer:
         language == 'de'
-          ? 'Die Haltbarkeit des Produkts beträgt 12 Monate nach dem Öffnen.'
-          : 'The product has a shelf life of 12 months after opening.',
+          ? 'Die Haltbarkeit des Produkts beträgt 6 Monate nach dem Öffnen.'
+          : 'The product has a shelf life of 6 months after opening.',
     },
     {
       id: 6,
@@ -210,7 +210,7 @@ export default function MagicLipshopSite() {
       </div>
       <FAQComponent questions={questions} />
 
-      {/* More images and Product description */}
+      {/*Product description */}
       <div className='md:px-10 md:pb-20 pb-5'>
         <h4 className=' text-stone-800 font-semibold mb-6'>
           {language == 'de' ? 'Produktbeschreibung' : 'Product description'}
