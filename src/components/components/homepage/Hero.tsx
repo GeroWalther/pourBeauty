@@ -8,7 +8,7 @@ export default function HeroComp() {
   const { language } = useLanguage();
   return (
     <>
-      <section className='relative h-[90vh]'>
+      <section className='relative h-[67vh] md:h-[90vh]'>
         {/* <Canvas className='absolute top-0 left-0 -z-10' /> */}
         <div className='py-8 mx-auto text-center flex flex-col items-center max-w-3xl'>
           <div className='relative'>
@@ -51,7 +51,7 @@ export default function HeroComp() {
                 : 'Welcome to your new favorite brand.'}
             </p>
           </div>
-          <div className='flex flex-col sm:flex-row gap-4 mt-6'>
+          <div className='flex flex-col sm:flex-row gap-4 mt-8'>
             <Link
               href='/about'
               className={buttonVariants({ variant: 'outline' })}>
