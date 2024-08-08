@@ -36,9 +36,9 @@ function FAQComponent({ questions }: qtype) {
               }>
               {q.question}
               {activeQuestion === q.id ? (
-                <PlusIcon size={18} />
-              ) : (
                 <MinusIcon size={18} />
+              ) : (
+                <PlusIcon size={18} />
               )}
             </button>
             <AnimatePresence>
