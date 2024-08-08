@@ -54,8 +54,8 @@ export default function MagicLipshopSite() {
       id: 8,
       question:
         language == 'de'
-          ? 'Kann das Produkt allergische Reaktionen verursachen?'
-          : 'Can the product cause allergic reactions?',
+          ? 'Allergische Reaktionen bekannt?'
+          : 'Can it cause allergic reactions?',
       answer:
         language == 'de'
           ? 'Das Produkt wurde dermatologisch getestet und ist für die meisten Hauttypen geeignet. Es kann jedoch bei empfindlicher Haut allergische Reaktionen hervorrufen. Wir empfehlen einen Patch-Test vor der Anwendung.'
