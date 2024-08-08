@@ -1,23 +1,17 @@
+'use client';
 import FaceBookIcon from '@/components/svg/FacebookIcon';
 import InstagramIcon from '@/components/svg/InstagramIcon';
 import TikTokIcon from '@/components/svg/TikTokIcon';
-import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageProvider';
 import React from 'react';
 
 export default function Footer() {
+  const { language } = useLanguage();
   const currentYear = new Date().getFullYear();
   return (
     <footer className='flex justify-center  md:justify-start bg-orange-400'>
       <div className='px-4 pt-4 grid grid-cols-2 md:grid-cols-3 md:gap-14'>
         <div className='mb-5 mr-20'>
-          {/* <a href='#' className='mb-0'>
-            <Image
-              src='/missglowlogo.png'
-              height={150}
-              width={150}
-              alt='missglowlogo'
-            />
-          </a> */}
           <ul className='flex gap-6 '>
             <li>
               <a href='#'>
@@ -36,12 +30,16 @@ export default function Footer() {
             </li>
           </ul>
           <p className='text-sm text-gray-600 mt-3'>
-            &copy; <span>{currentYear}</span> Miss Glow Beautz <br />- Alle
-            Rechte Vorbehalten.
+            &copy; <span>{currentYear}</span> Miss Glow Beauty <br />-{' '}
+            {language == 'de'
+              ? 'Alle Rechte Vorbehalten.'
+              : 'All rights reserved.'}
           </p>
         </div>
         <div className='pb-2'>
-          <p className='text-lg font-semibold mb-2'>Kundenservice</p>
+          <p className='text-lg font-semibold mb-2'>
+            {language == 'de' ? 'Kundenservice' : 'Customer service'}
+          </p>
           <address className='text-sm flex-col md:flex'>
             <div className='mb-2'>
               <p>Whats App</p>
@@ -54,9 +52,9 @@ export default function Footer() {
             <div>
               <p>E-Mail</p>
               <a
-                href={`mailTo: ${process.env.ADMINEMAIL}`}
+                href={`mailto:${process.env.NEXT_PUBLIC_ADMINEMAIL}`}
                 className='text-gray-600 hover:text-gray-400'>
-                {process.env.ADMINEMAIL}
+                {process.env.NEXT_PUBLIC_ADMINEMAIL}
               </a>
             </div>
           </address>
@@ -66,12 +64,12 @@ export default function Footer() {
           <ul className='flex gap-2'>
             <li>
               <a href='#' className='text-gray-600 hover:text-gray-400'>
-                Impressum
+                {language == 'de' ? 'Impressum' : 'Imprint'}
               </a>
             </li>
             <li>
               <a href='#' className='text-gray-600 hover:text-gray-400'>
-                Datenschutz
+                {language == 'de' ? 'Datenschutz' : 'Privacy Policy'}
               </a>
             </li>
           </ul>
