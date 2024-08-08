@@ -1,9 +1,11 @@
 'use client';
+import { useLanguage } from '@/contexts/LanguageProvider';
 import { Button, buttonVariants } from '../../ui/button';
 import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
 
 export default function HeroComp() {
+  const { language } = useLanguage();
   return (
     <>
       <section className='relative h-[90vh]'>
@@ -15,7 +17,9 @@ export default function HeroComp() {
               style={{ mixBlendMode: 'color-burn' }}>
               MISS GLOW BEAUTY
               <span className='text-stone-400 mt-4 block'>
-                Die moderne Naturkosmetik.
+                {language == 'de'
+                  ? 'Die moderne Naturkosmetik.'
+                  : 'The modern natural cosmetics.'}
               </span>
             </h1>
             <p
@@ -24,7 +28,9 @@ export default function HeroComp() {
               style={{ mixBlendMode: 'revert' }}>
               MISS GLOW BEAUTY
               <span className='text-stone-400 mt-4 block'>
-                Die moderne Naturkosmetik.
+                {language == 'de'
+                  ? 'Die moderne Naturkosmetik.'
+                  : 'The modern natural cosmetics.'}
               </span>
             </p>
           </div>
@@ -32,20 +38,24 @@ export default function HeroComp() {
             <p
               className='mt-6 text-xl max-w-prose text-muted-foreground '
               style={{ mixBlendMode: 'color-burn' }}>
-              Willkommen zu deiner neuen Lieblingsmarke.
+              {language == 'de'
+                ? 'Willkommen zu deiner neuen Lieblingsmarke.'
+                : 'Welcome to your new favorite brand.'}
             </p>
             <p
               aria-hidden='true'
               className='mt-6 text-xl max-w-prose text-muted-foreground absolute top-0 left-0 -z-30'
               style={{ mixBlendMode: 'revert' }}>
-              Willkommen zu deiner neuen Lieblingsmarke.
+              {language == 'de'
+                ? 'Willkommen zu deiner neuen Lieblingsmarke.'
+                : 'Welcome to your new favorite brand.'}
             </p>
           </div>
           <div className='flex flex-col sm:flex-row gap-4 mt-6'>
             <Link
               href='/about'
               className={buttonVariants({ variant: 'outline' })}>
-              Was steckt dahinter
+              {language == 'de' ? 'Was steck dahinter' : 'The story'}
             </Link>
             <Link href='/missGlow' className={buttonVariants()}>
               Shop
