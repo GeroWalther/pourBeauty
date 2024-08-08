@@ -90,7 +90,6 @@ const ProductInfo = ({
           <div className='flex justify-center items-center gap-5'>
             {/* Add to Cart */}
             <div className='mt-10'>
-              {/* TODO Add to cart */}
               <AddToCartButton
                 product={{
                   id,
