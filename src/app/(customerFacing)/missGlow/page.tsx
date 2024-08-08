@@ -113,7 +113,9 @@ export default function MissGlowShopSite() {
                 aria-hidden='true'
                 className='h-6 w-6 flex-shrink-0 text-green-500'
               />
-              <p className='ml-2 text-lg text-muted-foreground'>Lieferbar</p>
+              <p className='ml-2 text-lg text-muted-foreground'>
+                {language == 'de' ? 'Lieferbar' : 'Can be shipped'}
+              </p>
             </div>
           </section>
         </div>
