@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { MinusIcon, PlusIcon } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageProvider';
 
 type qtype = {
   questions: {
@@ -15,12 +16,15 @@ type qtype = {
 
 function FAQComponent({ questions }: qtype) {
   const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
+  const { language } = useLanguage();
 
   return (
     <div id='faq' className='w-full py-4 mb-10'>
       <div className='bg-stone-50 px-4 py-6 rounded-lg shadow-md w-[89%] max-w-[1400px] m-auto'>
         <h2 className='text-xl mb-6 font-extralight text-dark'>
-          Häufig gestellte Fragen
+          {language == 'de'
+            ? 'Häufig gestellte Fragen'
+            : 'Frequently Asked Questions'}
         </h2>
 
         {questions.map((q) => (
