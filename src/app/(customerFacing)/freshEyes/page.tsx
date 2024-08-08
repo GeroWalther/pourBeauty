@@ -14,6 +14,8 @@ import Image from 'next/image';
 
 const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
 
+const FRESHEZESPRICE = 64;
+
 export default function MagicLipshopSite() {
   const { language } = useLanguage();
   const questions = [
@@ -43,23 +45,45 @@ export default function MagicLipshopSite() {
       id: 7,
       question:
         language == 'de'
-          ? 'Gibt es eine Geld-zurück-Garantie?'
-          : 'Is there a money-back guarantee?',
+          ? 'Ist das Produkt klinisch getested?'
+          : 'Is the product clinically tested?',
       answer:
         language == 'de'
-          ? 'Ja, wir bieten eine 30-tägige Geld-zurück-Garantie.'
-          : 'Yes, we offer a 30-day money-back guarantee.',
+          ? 'Ja, das Produkt wurde dermatologisch getestet und ist für die meisten Hauttypen geeignet.'
+          : 'Yes, the product has been dermatologically tested and is suitable for most skin types.',
     },
     {
       id: 8,
       question:
         language == 'de'
-          ? 'Allergische Reaktionen bekannt?'
-          : 'Can it cause allergic reactions?',
+          ? 'Welchen effekt hat MAGIC LIPS SERUM'
+          : 'What effect does MAGIC LIPS SERUM have?',
       answer:
         language == 'de'
-          ? 'Das Produkt wurde dermatologisch getestet und ist für die meisten Hauttypen geeignet. Es kann jedoch bei empfindlicher Haut allergische Reaktionen hervorrufen. Wir empfehlen einen Patch-Test vor der Anwendung.'
-          : 'The product has been dermatologically tested and is suitable for most skin types. However, it can cause allergic reactions in sensitive skin. We recommend a patch test before use.',
+          ? 'Das Produkt hat eine aufpolsternde Wirkung auf die Lippen. Nach nur 1 Anwendung sind sofort sichtbar volle Lippen. Es verleiht der Lippenpartie ein volles und definiertes Aussehen und reduziert Rillen und Lippenfältchen. Eine verbesserte Definition der Lippen, ebenfalls wird das natürliche Lippenrot hervorgehoben. Lippen aufpolsternde Wirkung bis zu 78%. Wohlgeformte weiche Lippen.'
+          : 'The product has a plumping effect on the lips. Visible full lips after just 1 application. It gives the lip area a full and defined appearance and reduces lip lines and wrinkles. Improved definition of the lips, also enhances the natural lip color. Lip plumping effect up to 78%. Well-shaped soft lips.',
+    },
+    {
+      id: 9,
+      question:
+        language == 'de'
+          ? 'Für wen ist MAGIC LIPS SERUM geeignet?'
+          : 'Who is MAGIC LIPS SERUM suitable for?',
+      answer:
+        language == 'de'
+          ? 'MAGIC LIPS SERUM ist eine hilfe für jede Frau, um die hautalterung hinauszuzögern, die Mundpartie zu verfüngen und die lippen zu aufzupolstern.'
+          : 'MAGIC LIPS SERUM is a help for every women. To delay skin aging, to shape the mouth area and to plump the lips.',
+    },
+    {
+      id: 10,
+      question:
+        language == 'de'
+          ? 'Welche Inhaltsstoffe sind in MAGIC LIPS SERUM enthalten?'
+          : 'What ingredients are in MAGIC LIPS SERUM?',
+      answer:
+        language == 'de'
+          ? 'MAGIC LIPS SERUM besteht aus hoch effektiven biologischen Inhaltsstoffen, die die Lippen bis zu 78% aufpolstern. Die Formel besitzt einen wertvollen Wirkstoffkomplex aus einer 8-fachen Hyaluronsäure, OLIGO-Aminosäuren,Biologischer Senfsprossen extrakt, Vitanin ACE, Wurzel von Baikal-Helmkraut und eclipta prostrata ( die verjüngend wirkt und den Alterungsprozess verlangsamt) und ecologischer Aloe Vera. Diese Inhaltsstoffe sorgen für eine intensive Lippenaufpolsterung, Lippeneuchtigkeit und Pflege der Lippen nach nur einer Anwendung.'
+          : 'MAGIC LIPS SERUM consists of highly effective organic ingredients that plump the lips up to 78%. The formula has a valuable active ingredient complex of an 8-fold hyaluronic acid, OLIGO amino acids, purified extract of organic mustard sprouts, Vitanin ACE, root of Baikal skullcap and eclipta prostrata (which has a rejuvenating effect and slows down the aging process) and ecological aloe vera. These ingredients provide intensive lip plumping, lip moisture and lip care after just one application.',
     },
   ];
 
@@ -77,7 +101,7 @@ export default function MagicLipshopSite() {
                 {language == 'de' ? 'Hersteller' : 'Manufactured by'}
               </p>
               <span className='text-xl text-muted-foreground font-semibold'>
-                Miss Glow Beauty GMBH.
+                Miss Glow Beauty
               </span>
             </div>
           </div>
@@ -85,7 +109,7 @@ export default function MagicLipshopSite() {
           <section className='mt-4'>
             <div className='flex items-center'>
               <p className='font-medium text-stone-900 text-xl'>
-                {formatCurrency(89)}
+                {formatCurrency(FRESHEZESPRICE)}
               </p>
 
               <div className='ml-4 border-l text-muted-foreground border-stone-300 pl-4'>
@@ -102,11 +126,33 @@ export default function MagicLipshopSite() {
             </div>
 
             <div className='mt-4 space-y-6'>
-              <p className='text-lg text-muted-foreground'>
-                {language == 'de'
-                  ? 'Beschreibung für ein kosmetisches Lippenprodukt.'
-                  : 'Description for a cosmetic lip product.'}
-              </p>
+              <ul className='list-disc ml-5'>
+                <li className='text-lg text-muted-foreground'>
+                  {language == 'de'
+                    ? '78% Aufpolsternde Wirkung auf die Lippen'
+                    : '78% Plumping effect on the lips'}
+                </li>
+                <li className='text-lg text-muted-foreground'>
+                  {language == 'de'
+                    ? 'Nach nur 1 Anwendung sofort sichtbar volle Lippen'
+                    : 'Visible full lips after just 1 application'}
+                </li>
+                <li className='text-lg text-muted-foreground'>
+                  {language == 'de'
+                    ? 'Verleiht der Lippenpartie ein volles und definiertes Aussehen'
+                    : 'Gives the lip area a full and defined appearance'}
+                </li>
+                <li className='text-lg text-muted-foreground'>
+                  {language == 'de'
+                    ? 'Reduziert Rillen und Lippenfältchen'
+                    : 'Reduces lip lines and wrinkles'}
+                </li>
+                <li className='text-lg text-muted-foreground'>
+                  {language == 'de'
+                    ? 'Eine verbesserte Definition der Lippen, ebenfalls wird das natürliche Lippenrot'
+                    : 'Improved definition of the lips, also enhances the natural lip color'}
+                </li>
+              </ul>
             </div>
 
             <div className='mt-6 flex items-center'>
@@ -139,7 +185,7 @@ export default function MagicLipshopSite() {
                 product={{
                   id: '3',
                   name: 'Fresh Eyes Serum',
-                  price: 89,
+                  price: FRESHEZESPRICE,
                   image: '/512-1.jpg',
                   quantity: 1,
                 }}

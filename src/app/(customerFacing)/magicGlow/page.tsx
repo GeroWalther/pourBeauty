@@ -14,6 +14,8 @@ import Image from 'next/image';
 
 const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
 
+const PRICEMAGICGLOW = 59;
+
 export default function MagicLipshopSite() {
   const { language } = useLanguage();
   const questions = [
@@ -77,7 +79,7 @@ export default function MagicLipshopSite() {
                 {language == 'de' ? 'Hersteller' : 'Manufactured by'}
               </p>
               <span className='text-xl text-muted-foreground font-semibold'>
-                Miss Glow Beauty GMBH.
+                Miss Glow Beauty
               </span>
             </div>
           </div>
@@ -85,7 +87,7 @@ export default function MagicLipshopSite() {
           <section className='mt-4'>
             <div className='flex items-center'>
               <p className='font-medium text-stone-900 text-xl'>
-                {formatCurrency(89)}
+                {formatCurrency(PRICEMAGICGLOW)}
               </p>
 
               <div className='ml-4 border-l text-muted-foreground border-stone-300 pl-4'>
@@ -102,11 +104,33 @@ export default function MagicLipshopSite() {
             </div>
 
             <div className='mt-4 space-y-6'>
-              <p className='text-lg text-muted-foreground'>
-                {language == 'de'
-                  ? 'Beschreibung für ein kosmetisches Lippenprodukt.'
-                  : 'Description for a cosmetic lip product.'}
-              </p>
+              <ul className='list-disc ml-5'>
+                <li className='text-lg text-muted-foreground'>
+                  {language == 'de'
+                    ? '78% Aufpolsternde Wirkung auf die Lippen'
+                    : '78% Plumping effect on the lips'}
+                </li>
+                <li className='text-lg text-muted-foreground'>
+                  {language == 'de'
+                    ? 'Nach nur 1 Anwendung sofort sichtbar volle Lippen'
+                    : 'Visible full lips after just 1 application'}
+                </li>
+                <li className='text-lg text-muted-foreground'>
+                  {language == 'de'
+                    ? 'Verleiht der Lippenpartie ein volles und definiertes Aussehen'
+                    : 'Gives the lip area a full and defined appearance'}
+                </li>
+                <li className='text-lg text-muted-foreground'>
+                  {language == 'de'
+                    ? 'Reduziert Rillen und Lippenfältchen'
+                    : 'Reduces lip lines and wrinkles'}
+                </li>
+                <li className='text-lg text-muted-foreground'>
+                  {language == 'de'
+                    ? 'Eine verbesserte Definition der Lippen, ebenfalls wird das natürliche Lippenrot'
+                    : 'Improved definition of the lips, also enhances the natural lip color'}
+                </li>
+              </ul>
             </div>
 
             <div className='mt-6 flex items-center'>
@@ -139,7 +163,7 @@ export default function MagicLipshopSite() {
                 product={{
                   id: '2',
                   name: 'Magic Glow Creme',
-                  price: 89,
+                  price: PRICEMAGICGLOW,
                   image: '/512-1.jpg',
                   quantity: 1,
                 }}
