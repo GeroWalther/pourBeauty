@@ -1,33 +1,8 @@
-import { Quote, QuoteIcon, TextQuoteIcon } from 'lucide-react';
+'use client';
+import { useLanguage } from '@/contexts/LanguageProvider';
+import { QuoteIcon } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
-
-const testimonials = [
-  {
-    img: '/lippe.png',
-    alt: 'Foto von Kundin Hannah Smith',
-    text: 'Ich habe MissGlow für die ganze Familie und es spart so viel Zeit! Außerdem ist alles biologisch und vegan und ohne Plastik.',
-    name: 'Hannah',
-  },
-  {
-    img: '/lippe.png',
-    alt: 'Tatiana',
-    text: 'Eine großartige Erfahrung! Die Produkte sind von hoher Qualität und haben meine Haut verbessert.',
-    name: 'Tatiana',
-  },
-  {
-    img: '/lippe.png',
-    alt: 'Heidi',
-    text: 'Ich bin begeistert von den Kosmetikprodukten! Sie sind effektiv und haben meine Hautprobleme gelöst.',
-    name: 'Heidi',
-  },
-  {
-    img: '/lippe.png',
-    alt: 'Foto von Kundin Sabine',
-    text: 'Die Kosmetikprodukte von Miss Glow Beauty sind fantastisch! Sie haben meine Haut zum Strahlen gebracht und ich fühle mich großartig.',
-    name: 'Sabine',
-  },
-];
 
 const galleryImages = [
   '/512-1.jpg',
@@ -45,15 +20,56 @@ const galleryImages = [
 ];
 
 const TestimonialsSection = () => {
+  const { language } = useLanguage();
+  const testimonials = [
+    {
+      img: '/lippe.png',
+      alt: 'Hannah Photo',
+      text:
+        language == 'de'
+          ? 'Ich habe MissGlow für die ganze Familie und es spart so viel Zeit! Außerdem ist alles biologisch und vegan und ohne Plastik.'
+          : 'I have MissGlow for the whole family and it saves so much time! Plus everything is organic and vegan and without plastic.',
+      name: 'Hannah',
+    },
+    {
+      img: '/lippe.png',
+      alt: 'Tatiana Photo',
+      text:
+        language == 'de'
+          ? 'Eine großartige Erfahrung! Die Produkte sind von hoher Qualität und haben meine Haut verbessert.'
+          : 'A great experience! The products are of high quality and have improved my skin.',
+      name: 'Tatiana',
+    },
+    {
+      img: '/lippe.png',
+      alt: 'Heidi Photo',
+      text:
+        language == 'de'
+          ? 'Ich bin begeistert von den Kosmetikprodukten! Sie sind effektiv und haben meine Hautprobleme gelöst.'
+          : 'I am thrilled with the cosmetics! They are effective and have solved my skin problems.',
+      name: 'Heidi',
+    },
+    {
+      img: '/lippe.png',
+      alt: 'Sabine Photo',
+      text:
+        language == 'de'
+          ? 'Die Kosmetikprodukte von Miss Glow Beauty sind fantastisch! Sie haben meine Haut zum Strahlen gebracht und ich fühle mich großartig.'
+          : 'The cosmetics from Miss Glow Beauty are fantastic! They have made my skin glow and I feel great.',
+      name: 'Sabine',
+    },
+  ];
   return (
     <section id='Test' className='bg-pink-200 grid items-center'>
       <div className='p-8 md:p-14'>
         <div className='text-center mb-12'>
           <span className='text-lg text-stone-700 font-semibold'>
-            Was Kunden sagen.
+            {language == 'de' ? 'Was Kunden sagen.' : 'What our customers say.'}
           </span>
           <h2 className='text-4xl text-stone-700 font-bold mt-2 mb-12'>
-            Unsere Kunden sind schon überzeugt.
+            {language == 'de'
+              ? 'Unsere Kunden sind schon überzeugt.'
+              : 'Our customers are already convinced.'}
           </h2>
         </div>
         <div className='grid md:grid-cols-4 gap-y-5 md:gap-y-12 md:gap-x-5'>
