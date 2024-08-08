@@ -23,7 +23,7 @@ export default function AddToCartButton({ product }: { product: any }) {
         setIsSuccess(true);
       }}
       size='lg'
-      className='w-full bg-orange-400'>
+      className='w-full'>
       {isSuccess ? 'Hinzugefügt!' : 'In den Warenkorb'}
     </Button>
   );

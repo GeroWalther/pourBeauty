@@ -5,8 +5,9 @@ import MaxWidthWrapper from '../_components/MaxWidthWrapper';
 import { Check, Shield } from 'lucide-react';
 import { formatCurrency } from '@/lib/formatters';
 import { ShareLink } from '../_components/ShareLink';
+
 import AddToCartButton from '../_components/AddToCartButton';
-import FAQComponent from '@/components/components/UI/FAQComp';
+import FAQComponent from '@/components/components/homepage/FAQComp';
 
 const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
 const questions = [
@@ -125,6 +126,16 @@ export default async function MissGlowShopSite() {
       <FAQComponent questions={questions} />
 
       {/* More images and Product description */}
+      <div className='px-10 pb-20'>
+        <h4 className=' text-stone-800 font-semibold'>Produktbeschreibung</h4>
+        <p className=' text-stone-700'>
+          Ein hochwertiges Lippenprodukt, das speziell für einen glamourösen
+          Look entwickelt wurde. Es bietet langanhaltende Farbe, intensive
+          Feuchtigkeit und ein angenehmes Tragegefühl. Die einzigartige Formel
+          sorgt für volle und geschmeidige Lippen, während sie gleichzeitig
+          pflegt und schützt. Perfekt für jeden Anlass und jede Stimmung!
+        </p>
+      </div>
     </MaxWidthWrapper>
   );
 }
