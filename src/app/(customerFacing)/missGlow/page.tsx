@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import ImageSlider from '../_components/ImageSlider';
 import MaxWidthWrapper from '../_components/MaxWidthWrapper';
@@ -8,33 +9,59 @@ import { ShareLink } from '../_components/ShareLink';
 
 import AddToCartButton from '../_components/AddToCartButton';
 import FAQComponent from '@/components/components/homepage/FAQComp';
+import { useLanguage } from '@/contexts/LanguageProvider';
 
 const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
-const questions = [
-  {
-    id: 5,
-    question: 'Wie lange hält das Produkt?',
-    answer: 'Die Haltbarkeit des Produkts beträgt 12 Monate nach dem Öffnen.',
-  },
-  {
-    id: 6,
-    question: 'Ist das Produkt tierversuchsfrei?',
-    answer: 'Ja, das Produkt ist tierversuchsfrei und vegan.',
-  },
-  {
-    id: 7,
-    question: 'Gibt es eine Geld-zurück-Garantie?',
-    answer: 'Ja, wir bieten eine 30-tägige Geld-zurück-Garantie.',
-  },
-  {
-    id: 8,
-    question: 'Kann das Produkt allergische Reaktionen verursachen?',
-    answer:
-      'Das Produkt wurde dermatologisch getestet und ist für die meisten Hauttypen geeignet. Es kann jedoch bei empfindlicher Haut allergische Reaktionen hervorrufen. Wir empfehlen einen Patch-Test vor der Anwendung.',
-  },
-];
 
-export default async function MissGlowShopSite() {
+export default function MissGlowShopSite() {
+  const { language } = useLanguage();
+  const questions = [
+    {
+      id: 5,
+      question:
+        language == 'de'
+          ? 'Wie lange hält das Produkt?'
+          : 'How long does the product last?',
+      answer:
+        language == 'de'
+          ? 'Die Haltbarkeit des Produkts beträgt 12 Monate nach dem Öffnen.'
+          : 'The product has a shelf life of 12 months after opening.',
+    },
+    {
+      id: 6,
+      question:
+        language == 'de'
+          ? 'Ist das Produkt tierversuchsfrei?'
+          : 'Is the product cruelty-free?',
+      answer:
+        language == 'de'
+          ? 'Ja, das Produkt ist tierversuchsfrei und vegan.'
+          : 'Yes, the product is cruelty-free and vegan.',
+    },
+    {
+      id: 7,
+      question:
+        language == 'de'
+          ? 'Gibt es eine Geld-zurück-Garantie?'
+          : 'Is there a money-back guarantee?',
+      answer:
+        language == 'de'
+          ? 'Ja, wir bieten eine 30-tägige Geld-zurück-Garantie.'
+          : 'Yes, we offer a 30-day money-back guarantee.',
+    },
+    {
+      id: 8,
+      question:
+        language == 'de'
+          ? 'Kann das Produkt allergische Reaktionen verursachen?'
+          : 'Can the product cause allergic reactions?',
+      answer:
+        language == 'de'
+          ? 'Das Produkt wurde dermatologisch getestet und ist für die meisten Hauttypen geeignet. Es kann jedoch bei empfindlicher Haut allergische Reaktionen hervorrufen. Wir empfehlen einen Patch-Test vor der Anwendung.'
+          : 'The product has been dermatologically tested and is suitable for most skin types. However, it can cause allergic reactions in sensitive skin. We recommend a patch test before use.',
+    },
+  ];
+
   return (
     <MaxWidthWrapper>
       <div className='mx-auto max-w-2xl px-4 py-8 sm:px-6 -mt-10 md:mt-0 lg:grid lg:grid-cols-2 lg:max-w-7xl lg:gap-x-8 lg:px-8'>
@@ -45,7 +72,9 @@ export default async function MissGlowShopSite() {
               Miss Glow Lips
             </h1>
             <div className='flex gap-3 mt-6 items-center'>
-              <p className='text-lg text-muted-foreground'>Hersteller </p>
+              <p className='text-lg text-muted-foreground'>
+                {language == 'de' ? 'Hersteller' : 'Manufactured by'}
+              </p>
               <span className='text-xl text-muted-foreground font-semibold'>
                 Miss Glow Beauty GMBH.
               </span>
@@ -59,17 +88,23 @@ export default async function MissGlowShopSite() {
               </p>
 
               <div className='ml-4 border-l text-muted-foreground border-stone-300 pl-4'>
-                <p className='text-lg font-medium'>Auf Lager</p>
+                <p className='text-lg font-medium'>
+                  {language == 'de' ? 'Auf Lager' : 'In stock'}
+                </p>
                 <p className='text-lg font-medium'>30ml</p>
                 <p className='text-lg font-medium'>
-                  Wird in 1-2 Wochen versendet.
+                  {language == 'de'
+                    ? 'Wird in 1-2 Wochen versendet.'
+                    : 'Will be shipped in 1-2 weeks.'}
                 </p>
               </div>
             </div>
 
             <div className='mt-4 space-y-6'>
               <p className='text-lg text-muted-foreground'>
-                Beschreibung für ein kosmetisches Lippenprodukt.
+                {language == 'de'
+                  ? 'Beschreibung für ein kosmetisches Lippenprodukt.'
+                  : 'Description for a cosmetic lip product.'}
               </p>
             </div>
 
@@ -115,8 +150,10 @@ export default async function MissGlowShopSite() {
                   className='mr-2 h-6 w-6 flex-shrink-0 text-stone-400'
                 />
                 <span className=' text-sm text-muted-foreground hover:text-stone-700'>
-                  Kunden Service Rund um die Uhr erreichbar unter <br /> Email :{' '}
-                  {process.env.ADMINEMAIL}
+                  {language == 'de'
+                    ? 'Kunden Service Rund um die Uhr erreichbar unter'
+                    : 'Customer Service available 24/7 at '}
+                  <br /> E-Mail : {process.env.NEXT_PUBLIC_ADMINEMAIL}
                 </span>
               </div>
             </div>
@@ -127,13 +164,13 @@ export default async function MissGlowShopSite() {
 
       {/* More images and Product description */}
       <div className='px-10 pb-20'>
-        <h4 className=' text-stone-800 font-semibold'>Produktbeschreibung</h4>
+        <h4 className=' text-stone-800 font-semibold'>
+          {language == 'de' ? 'Produktbeschreibung' : 'Product description'}
+        </h4>
         <p className=' text-stone-700'>
-          Ein hochwertiges Lippenprodukt, das speziell für einen glamourösen
-          Look entwickelt wurde. Es bietet langanhaltende Farbe, intensive
-          Feuchtigkeit und ein angenehmes Tragegefühl. Die einzigartige Formel
-          sorgt für volle und geschmeidige Lippen, während sie gleichzeitig
-          pflegt und schützt. Perfekt für jeden Anlass und jede Stimmung!
+          {language == 'de'
+            ? 'Ein hochwertiges Lippenprodukt, das speziell für einen glamourösen Look entwickelt wurde. Es bietet langanhaltende Farbe, intensive Feuchtigkeit und ein angenehmes Tragegefühl. Die einzigartige Formel sorgt für volle und geschmeidige Lippen, während sie gleichzeitig pflegt und schützt. Perfekt für jeden Anlass und jede Stimmung!'
+            : 'A high-quality lip product designed specifically for a glamorous look. It provides long-lasting color, intense moisture, and a comfortable feel. The unique formula ensures full and smooth lips while nourishing and protecting. Perfect for any occasion and mood!'}
         </p>
       </div>
     </MaxWidthWrapper>
