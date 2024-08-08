@@ -57,7 +57,7 @@ export default function HeroComp() {
               className={buttonVariants({ variant: 'outline' })}>
               {language == 'de' ? 'Was steck dahinter' : 'The story'}
             </Link>
-            <Link href='/missGlow' className={buttonVariants()}>
+            <Link href='/magicLips' className={buttonVariants()}>
               Shop
             </Link>
           </div>

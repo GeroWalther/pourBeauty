@@ -3,14 +3,14 @@ import HeroComp from '../../components/components/homepage/Hero';
 import Subscribe from '@/components/components/homepage/EmailSubscription';
 import TestimonialsSection from '@/components/components/homepage/Testimonials';
 import FeaturesSection from './_components/Features';
-import ProductSectionMissGlowLips from './_components/ProductSectionMissGlowLips';
+import ProductSectionMagicLips from './_components/ProductSectionMagicLips';
 
 export default function HomePage() {
   return (
     <>
       <HeroComp />
       <FeaturesSection />
-      <ProductSectionMissGlowLips />
+      <ProductSectionMagicLips />
       <TestimonialsSection />
       <Subscribe />
     </>

@@ -137,7 +137,7 @@ export default function Cart() {
             </div>
             <SheetTrigger asChild>
               <Link
-                href='/missGlow'
+                href='/magicLips'
                 className={buttonVariants({
                   variant: 'link',
                   size: 'sm',

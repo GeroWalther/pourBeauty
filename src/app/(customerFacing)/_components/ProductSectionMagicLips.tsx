@@ -4,13 +4,13 @@ import ProductInfo from './ProductInfo';
 import { useLanguage } from '@/contexts/LanguageProvider';
 const productImgs = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
 
-export default function ProductSectionMissGlowLips() {
+export default function ProductSectionMagicLips() {
   const { language } = useLanguage();
   return (
     <ProductInfo
       id='1'
       productImgs={productImgs}
-      name='Miss Glow Lips'
+      name='Magic Lips Serum'
       description={
         language === 'de'
           ? 'Ein hochwertiges Lippenprodukt, das speziell für einen glamourösen Look entwickelt wurde. Es bietet langanhaltende Farbe, intensive Feuchtigkeit und ein angenehmes Tragegefühl. Die einzigartige Formel sorgt für volle und geschmeidige Lippen, während sie gleichzeitig pflegt und schützt. Perfekt für jeden Anlass und jede Stimmung!'

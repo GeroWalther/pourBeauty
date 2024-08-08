@@ -14,7 +14,7 @@ import Image from 'next/image';
 
 const productImages = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
 
-export default function MissGlowShopSite() {
+export default function MagicLipshopSite() {
   const { language } = useLanguage();
   const questions = [
     {
@@ -70,7 +70,7 @@ export default function MissGlowShopSite() {
         <div className='lg:max-w-lg lg:self-end'>
           <div className='mt-4'>
             <h1 className='text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl'>
-              Miss Glow Lips
+              Magic Glow Creme
             </h1>
             <div className='flex gap-3 mt-6 items-center'>
               <p className='text-lg text-muted-foreground'>
@@ -132,13 +132,13 @@ export default function MissGlowShopSite() {
         <div className='mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start'>
           <div>
             <ShareLink
-              link={`${process.env.NEXT_PUBLIC_SERVER_URL}/missGlow`}
+              link={`${process.env.NEXT_PUBLIC_SERVER_URL}/magicGlow`}
             />
             <div className='mt-10'>
               <AddToCartButton
                 product={{
                   id: '1',
-                  name: 'Miss Glow Lips',
+                  name: 'Magic Glow Creme',
                   price: 89,
                   image: '/512-1.jpg',
                   quantity: 1,
