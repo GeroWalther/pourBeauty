@@ -6,7 +6,9 @@ import { Card } from '@/components/ui/card';
 
 export default function AboutPage() {
   const { language } = useLanguage();
-
+  console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+  console.log(process.env.STRIPE_SECRET_KEY);
+  console.log(process.env.STRIPE_WEBHOOK_SECRET);
   return (
     <MaxWidthWrapper className='mb-10'>
       <div className='bg-gradient-to-r from-pink-400 via-pink-600 to-orange-400 p-10 rounded-lg shadow-2xl'>
@@ -31,10 +33,8 @@ export default function AboutPage() {
                 : 'Discover how MISSGLOWBEAUTY helps you express your unique style and shine with CONFIDENCE.'}
             </p>
           </div>
-        </Card>
 
-        <Card className='bg-white bg-opacity-90 p-8 rounded-lg shadow-lg mt-10'>
-          <div className='space-y-4'>
+          <div className='space-y-4 mt-5'>
             <h3 className='text-gray-800 text-xl font-semibold'>
               {language === 'de'
                 ? 'HOL DIR DEINEN GLOW LOOK'
