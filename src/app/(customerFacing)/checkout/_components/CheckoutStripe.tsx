@@ -53,7 +53,7 @@ export default function CheckoutStripe() {
           const data = await response.json();
           console.log('Payment intent created:', data);
           setClientSecret(data.client_secret);
-          toast.success('Erfolgreich bezahlt!');
+          // toast.success('Erfolgreich bezahlt!');
         } else {
           const errorData = await response.json();
           console.error('Error creating payment intent:', errorData.error);

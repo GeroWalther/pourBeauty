@@ -44,7 +44,7 @@ export default async function SuccessPage({
   // }
 
   return (
-    <main className='flex justify-around md:mt-14 py-4'>
+    <main className='flex justify-around md:mt-14 pb-20'>
       <div className='md:p-4 px-6'>
         {isSuccess ? (
           <h2 className='4xl font-semibold text-pink-950'>
