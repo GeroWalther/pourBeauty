@@ -259,6 +259,17 @@ export default function FreshEyeShopSite() {
             className=' max-w-80 rounded-md'
           />
         </div>
+        <h4 className=' text-stone-800 font-semibold mt-5'>
+          {language == 'de' ? 'Anwendung' : 'Application'}
+        </h4>
+        <p className=' text-stone-800'>
+          <span className='text-stone-800 font-semibold'>
+            {language == 'de' ? '2 mal ' : 'Twice '}
+          </span>
+          {language == 'de'
+            ? ' Täglich auf Stirn und Augenpartie auftragen und einmassieren.'
+            : ' Apply and massage onto forehead and eye area twice daily.'}
+        </p>
         <p className='text-xs text-center mt-10'>
           INCI:Centella asiatica extract, cell aqua, aloe barbadensis
           extract,OLIGO -HA hydrolyzed sodium hyaluronate, acetyl

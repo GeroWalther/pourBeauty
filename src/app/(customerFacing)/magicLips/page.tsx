@@ -231,8 +231,15 @@ export default function MagicLipsShopSite() {
             className=' max-w-80 md:-mt-10'
           />
         </div>
-
-        <p className='text-xs text-center mt-2'>
+        <h4 className=' text-stone-800 font-semibold mt-5'>
+          {language == 'de' ? 'Anwendung' : 'Application'}
+        </h4>
+        <p className=' text-stone-800'>
+          {language == 'de'
+            ? ' kann täglich auf Lippen und Mundregion aufgetragen werden, das tägliche benutzen lässt das Lippenvolumen bis zu 78% aufpolstern.'
+            : ' can be applied daily to lips and mouth area, daily use plumps the lip volume up to 78%.'}
+        </p>
+        <p className='text-xs text-center mt-10'>
           INCI: Centella Asiatica extract, Brassica Alba Sprout Extract
           Tripeptide-1, VitaminACE, OLIGO-Aminosäuren, rubusidaeusacide extract,
           eclipta{' '}

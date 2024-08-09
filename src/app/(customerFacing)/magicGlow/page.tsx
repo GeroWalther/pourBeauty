@@ -259,6 +259,17 @@ export default function MagicGlowShopSite() {
             className=' max-w-80 rounded-md'
           />
         </div>
+        <h4 className=' text-stone-800 font-semibold mt-5'>
+          {language == 'de' ? 'Anwendung' : 'Application'}
+        </h4>
+        <p className=' text-stone-800'>
+          <span className='text-stone-800 font-semibold'>
+            {language == 'de' ? '2 mal ' : 'Twice '}
+          </span>
+          {language == 'de'
+            ? 'Täglich auf Gesicht, Hals und Dekollete einmassieren.'
+            : 'Daily massage into face, neck and décolleté.'}{' '}
+        </p>
         <p className='text-xs text-center mt-10'>
           INCI:Centella asiatica extract, cell aqua, palmitoyl tripeptide-1OLIGO
           -HA hydrolyzed sodium hyaluronate, retinal palmitate, tocopherol,
