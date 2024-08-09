@@ -8,16 +8,17 @@ const useCartTotals = (items: CartItem[], discount: number) => {
   }, [items]);
 
   const subItemTotal = useMemo(() => {
-    return items.reduce((total, { product }) => total + product.price, 0);
+    return items.reduce(
+      (total, { product }) => total + product.price * product.quantity,
+      0
+    );
   }, [items]);
 
-  const totalCart = useMemo(
-    () => subItemTotal * itemCount,
-    [subItemTotal, itemCount]
-  );
+  const totalCart = useMemo(() => subItemTotal, [subItemTotal]);
 
   const discountedPrice =
-    totalCart - totalCart * (discount > 0 ? discount / 100 : 1);
+    discount == 0 ? totalCart : totalCart - (discount / 100) * totalCart;
+
   const toPay = useMemo(() => discountedPrice + SHIPPING, [discountedPrice]);
 
   return {

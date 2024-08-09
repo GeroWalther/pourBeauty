@@ -29,16 +29,27 @@ export default function Cart() {
   const { items, discount } = useCart();
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
-  const { itemCount, totalCart, toPay, discountedPrice } = useCartTotals(
+  const { itemCount, totalCart, discountedPrice } = useCartTotals(
     items,
     discount
   );
+  // console.log(
+  //   'ITEMCOUNT: ',
+  //   itemCount,
+  //   'totalCart: ',
+  //   totalCart,
+  //   'total: ',
+  //   toPay,
+  //   'discountedPrice: ',
+  //   discountedPrice
+  // );
+
   const { language } = useLanguage();
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  // console.log('ITEMS: ', items);
+  console.log('ITEMS: ', items);
 
   return (
     <Sheet>
@@ -106,11 +117,7 @@ export default function Cart() {
 
                 <div className='flex'>
                   <span className='flex-1'>Total</span>
-                  {discount > 0 ? (
-                    <span>{formatCurrency(discountedPrice + SHIPPING)}</span>
-                  ) : (
-                    <span>{formatCurrency(toPay)}</span>
-                  )}
+                  <span>{formatCurrency(discountedPrice + SHIPPING)}</span>
                 </div>
               </div>
               <SheetFooter>
