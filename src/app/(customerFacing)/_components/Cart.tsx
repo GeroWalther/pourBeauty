@@ -49,7 +49,7 @@ export default function Cart() {
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  console.log('ITEMS: ', items);
+  // console.log('ITEMS: ', items);
 
   return (
     <Sheet>
