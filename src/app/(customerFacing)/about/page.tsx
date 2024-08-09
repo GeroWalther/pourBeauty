@@ -6,9 +6,6 @@ import { Card } from '@/components/ui/card';
 
 export default function AboutPage() {
   const { language } = useLanguage();
-  console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
-  console.log(process.env.STRIPE_SECRET_KEY);
-  console.log(process.env.STRIPE_WEBHOOK_SECRET);
   return (
     <MaxWidthWrapper className='mb-10'>
       <div className='bg-gradient-to-r from-pink-400 via-pink-600 to-orange-400 p-10 rounded-lg shadow-2xl'>
