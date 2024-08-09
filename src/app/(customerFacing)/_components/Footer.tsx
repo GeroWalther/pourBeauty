@@ -3,6 +3,7 @@ import FaceBookIcon from '@/components/svg/FacebookIcon';
 import InstagramIcon from '@/components/svg/InstagramIcon';
 import TikTokIcon from '@/components/svg/TikTokIcon';
 import { useLanguage } from '@/contexts/LanguageProvider';
+import Link from 'next/link';
 import React from 'react';
 
 export default function Footer() {
@@ -61,16 +62,29 @@ export default function Footer() {
         </div>
         <nav className='pb-4'>
           <p className='text-lg font-semibold mb-2'>Miss Glow Beauty</p>
-          <ul className='flex gap-2'>
+          <ul className='flex-col gap-2'>
             <li>
-              <a href='#' className='text-gray-600 hover:text-gray-400'>
+              <Link
+                href='/imprint'
+                className='text-gray-600 hover:text-gray-400'>
                 {language == 'de' ? 'Impressum' : 'Imprint'}
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' className='text-gray-600 hover:text-gray-400'>
+              <Link
+                href='/privacy-policy'
+                className='text-gray-600 hover:text-gray-400'>
                 {language == 'de' ? 'Datenschutz' : 'Privacy Policy'}
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href='/returns'
+                className='text-gray-600 hover:text-gray-400'>
+                {language == 'de'
+                  ? 'Widerruf & Rücksendungen'
+                  : 'Cancellation & Returns'}
+              </Link>
             </li>
           </ul>
         </nav>
