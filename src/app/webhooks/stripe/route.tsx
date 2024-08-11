@@ -17,6 +17,9 @@ export async function POST(req: NextRequest) {
       req.headers.get('stripe-signature') as string,
       process.env.STRIPE_WEBHOOK_SECRET as string
     );
+    if (event.type !== 'charge.succeeded') {
+      return new NextResponse('Event type not supported', { status: 400 });
+    }
 
     if (event.type === 'charge.succeeded') {
       const charge = event.data.object;
@@ -52,51 +55,60 @@ export async function POST(req: NextRequest) {
         pricePaidInCents
       );
 
-      // email to admin
-      await resend.emails.send({
-        from: `BESTELLUNGSEINGANG <${process.env.SENDER_EMAIL}>`,
-        to: process.env.SHOP_EMAIL as string,
-        subject: 'Neue Bestellung eingegangen',
-        react: (
-          <PurchaseReceiptEmail
-            products={products}
-            order={{
-              id: order.id,
-              createdAt: order.createdAt,
-              customerName,
-              address,
-              email,
-              pricePaidInCents,
-              shippingCost: order.shippingCost,
-            }}
-          />
-        ),
-      });
+      try {
+        // email to admin
+        await resend.emails.send({
+          from: `BESTELLUNGSEINGANG <${process.env.SENDER_EMAIL}>`,
+          to: process.env.SHOP_EMAIL as string,
+          subject: 'Neue Bestellung eingegangen',
+          react: (
+            <PurchaseReceiptEmail
+              products={products}
+              order={{
+                id: order.id,
+                createdAt: order.createdAt,
+                customerName,
+                address,
+                email,
+                pricePaidInCents,
+                shippingCost: order.shippingCost,
+              }}
+            />
+          ),
+        });
+      } catch (error) {
+        console.error('Error to admin email:', error);
+      }
 
-      // send email to customer
-      await resend.emails.send({
-        from: `Bestellung MISS GLOW BEAUTY <${process.env.SENDER_EMAIL}>`,
-        to: email,
-        subject: 'Vielen Dank für deine Bestellung',
-        react: (
-          <PurchaseReceiptEmail
-            isAdmin={false}
-            products={products}
-            order={{
-              id: order.id,
-              createdAt: order.createdAt,
-              customerName,
-              address,
-              email,
-              pricePaidInCents,
-              shippingCost: order.shippingCost,
-            }}
-          />
-        ),
-      });
+      try {
+        // send email to customer
+        await resend.emails.send({
+          from: `Bestellung MISS GLOW BEAUTY <${process.env.SENDER_EMAIL}>`,
+          to: email,
+          subject: 'Vielen Dank für deine Bestellung',
+          react: (
+            <PurchaseReceiptEmail
+              isAdmin={false}
+              products={products}
+              order={{
+                id: order.id,
+                createdAt: order.createdAt,
+                customerName,
+                address,
+                email,
+                pricePaidInCents,
+                shippingCost: order.shippingCost,
+              }}
+            />
+          ),
+        });
+      } catch (e) {
+        console.error('Error to customer email:', e);
+      }
     }
-    return new NextResponse();
+    return new NextResponse('Webhook processed successfully!', { status: 200 });
   } catch (error) {
     console.error('Error:', error);
+    return new NextResponse('Internal Server Error!', { status: 500 });
   }
 }
