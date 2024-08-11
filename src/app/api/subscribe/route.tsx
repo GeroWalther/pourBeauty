@@ -11,7 +11,7 @@ export async function POST(
   try {
     const body = await req.json();
     const { email, name, emailIsValid } = body;
-    console.log('EMAIL:', email, 'NAME:', name, 'EMAILISVALID:', emailIsValid);
+    // console.log('EMAIL:', email, 'NAME:', name, 'EMAILISVALID:', emailIsValid);
     if (!email || !emailIsValid) {
       return NextResponse.json(
         {
@@ -40,13 +40,13 @@ export async function POST(
       },
     });
 
-    // email to subscriber
-    // await resend.emails.send({
-    //   from: `Newsletter <${process.env.SENDER_EMAIL}>`,
-    //   to: process.env.SHOP_EMAIL as string,
-    //   subject: 'Hier is Ihr Gutscheincode!',
-    //   react: <Subscribed name={name} />,
-    // });
+    //email to subscriber
+    await resend.emails.send({
+      from: `Newsletter <${process.env.SENDER_EMAIL}>`,
+      to: process.env.SHOP_EMAIL as string,
+      subject: 'Hier is Ihr Gutscheincode!',
+      react: <Subscribed name={name} />,
+    });
 
     return NextResponse.json(
       {
