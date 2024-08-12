@@ -171,7 +171,9 @@ function Subscribe() {
                 variant='default'
                 className='w-full'
                 disabled={isLoading}>
-                {isLoading && <Loader2 size={30} className='animate-spin' />}
+                {isLoading && (
+                  <Loader2 size={20} className='animate-spin mr-3' />
+                )}
                 {language == 'de' ? ' Einschreiben' : 'Subscribe'}
               </Button>
             </div>
