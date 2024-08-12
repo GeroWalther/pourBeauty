@@ -4,13 +4,14 @@ import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageProvider';
+import { Loader2 } from 'lucide-react';
 
 function Subscribe() {
   const { language } = useLanguage();
   const inputEl = useRef<HTMLInputElement | null>(null);
   const inputElRep = useRef<HTMLInputElement | null>(null);
   const inputName = useRef<HTMLInputElement | null>(null);
-
+  const [isLoading, setIsLoading] = useState(false);
   const emailIsTheSame = (email: string, repeatEmail: string) => {
     if (email !== repeatEmail) {
       return false;
@@ -21,7 +22,7 @@ function Subscribe() {
 
   const subscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setIsLoading(true);
     const emailIsValid = emailIsTheSame(
       (inputEl.current?.value ?? '') as string,
       (inputElRep.current?.value ?? '') as string
@@ -59,6 +60,8 @@ function Subscribe() {
       );
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -163,7 +166,12 @@ function Subscribe() {
                     : 'No spam. By clicking "Subscribe", you agree to and have read Miss GlowBeauty privacy policy, disclaimers, and terms of use. The loyalty card with attractive benefits is only available upon request from our customer service.'}
                 </p>
               </div>
-              <Button type='submit' variant='default' className='w-full'>
+              <Button
+                type='submit'
+                variant='default'
+                className='w-full'
+                disabled={isLoading}>
+                {isLoading && <Loader2 size={30} className='animate-spin' />}
                 {language == 'de' ? ' Einschreiben' : 'Subscribe'}
               </Button>
             </div>
