@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Magic Glow - Miss Glow Beauty',
+  title: 'Magic Glow Creme - Miss Glow Beauty',
   description:
-    'Entdecke Magic Lips Serum von Miss Glow Beauty – ein revolutionäres Anti-Aging-Produkt für pralle, volle Lippen. Mit hochwirksamen, natürlichen Inhaltsstoffen für sichtbar definierte Lippen und ein jugendliches Aussehen.',
+    'Entdecken Sie die verjüngende Wirkung der Magic Glow Creme von Miss Glow Beauty. Mit natürlichen OLIGOpeptiden und Centella asiatica verlangsamt sie die Hautalterung, reduziert Falten und sorgt für intensive Hautstraffung. Ideal für alle, die sich eine jugendliche Haut wünschen.',
 };
 
 export default function RootLayout({
