@@ -26,7 +26,7 @@ export default function Subscribed({ name }: WelcomeEmailProps) {
             <Heading>
               <Container>
                 <Img
-                  src={`${process.env.NEXT_PUBLIC_SERVER_URL}/missglowlogo.png`}
+                  src={`/missglowlogo.png`}
                   alt='Miss Glow Beauty Logo'
                   className='w-56 h-56 object-cover'
                 />
@@ -41,7 +41,7 @@ export default function Subscribed({ name }: WelcomeEmailProps) {
             <Text className='mt-5 font-bold'>GLOW15</Text>
             <Section className='p-4'>
               <Text>
-                Wenn Sie Fragen haben, können Sie uns gerne unter{' '}
+                Wenn du Fragen haben solltest, kanst du uns gerne unter{' '}
                 {process.env.NEXT_PUBLIC_ADMINEMAIL} kontaktieren.
               </Text>
             </Section>
