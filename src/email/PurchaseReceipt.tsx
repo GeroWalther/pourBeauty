@@ -99,7 +99,7 @@ export default function PurchaseReceiptEmail({
               <Section className='p-4'>
                 <Text>
                   Bei fragen schreibe bitte eine E-Mail an:{' '}
-                  {process.env.ADMINEMAIL}{' '}
+                  {process.env.NEXT_PUBLIC_ADMINEMAIL}{' '}
                 </Text>
               </Section>
             )}

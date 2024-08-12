@@ -42,7 +42,7 @@ export default function Subscribed({ name }: WelcomeEmailProps) {
             <Section className='p-4'>
               <Text>
                 Wenn Sie Fragen haben, können Sie uns gerne unter{' '}
-                {process.env.ADMINEMAIL} kontaktieren.
+                {process.env.NEXT_PUBLIC_ADMINEMAIL} kontaktieren.
               </Text>
             </Section>
           </Container>
