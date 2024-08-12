@@ -26,7 +26,7 @@ export default function Subscribed({ name }: WelcomeEmailProps) {
             <Heading>
               <Container>
                 <Img
-                  src={`/missglowlogo.png`}
+                  src={`${process.env.NEXT_PUBLIC_SERVER_URL}/missglowlogo.png`}
                   alt='Miss Glow Beauty Logo'
                   className='w-56 h-56 object-cover'
                 />
