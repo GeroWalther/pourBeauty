@@ -43,7 +43,7 @@ export async function POST(
     //email to subscriber
     await resend.emails.send({
       from: `Newsletter <${process.env.SENDER_EMAIL}>`,
-      to: process.env.SHOP_EMAIL as string,
+      to: email.toString().trim(),
       subject: 'Hier is Ihr Gutscheincode!',
       react: <Subscribed name={name} />,
     });
