@@ -44,6 +44,9 @@ function Subscribe() {
       if (error) {
         toast.error(error);
       }
+      if (msg) {
+        toast.success(msg);
+      }
 
       //  Clear the input value and show a success message.
       if (inputEl.current) {
@@ -55,9 +58,6 @@ function Subscribe() {
       if (inputName.current) {
         inputName.current.value = '';
       }
-      toast.success(
-        'Erfolgreich eingeschrieben!🎉 Wir haben dir eine Email mit deinem Rabattcode gesendet!'
-      );
     } catch (error) {
       console.log(error);
     } finally {

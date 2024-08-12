@@ -25,32 +25,41 @@ export async function POST(
     if (!name) {
       return NextResponse.json(
         {
+          msg: '',
           error: 'Name ist erforderlich.',
           code: 1,
         },
         { status: 400 }
       );
     }
-
-    await db.newsletter.create({
-      data: {
-        email,
-        name,
-        subscribedAt: new Date(),
-      },
-    });
+    try {
+      await db.newsletter.create({
+        data: {
+          email,
+          name,
+          subscribedAt: new Date(),
+        },
+      });
+    } catch (error) {
+      console.log(error);
+      return NextResponse.json(
+        { msg: '', error: 'Schon eingeschrieben! Already subscribed!' },
+        { status: 400 }
+      );
+    }
 
     //email to subscriber
     await resend.emails.send({
       from: `Newsletter <${process.env.SENDER_EMAIL}>`,
-      to: email.toString().trim(),
-      subject: 'Hier is Ihr Gutscheincode!',
+      to: email.toString().trim() as string,
+      subject: 'Hier is dein Gutscheincode!',
       react: <Subscribed name={name} />,
     });
 
     return NextResponse.json(
       {
         error: '',
+        msg: 'Erfolgreich eingeschrieben!🎉 Wir haben dir eine Email mit deinem Rabattcode gesendet!',
         code: 2,
       },
       { status: 201 }
