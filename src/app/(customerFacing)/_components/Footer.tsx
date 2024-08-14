@@ -37,7 +37,7 @@ export default function Footer() {
               : 'All rights reserved.'}
           </p>
         </div>
-        <div className='pb-2'>
+        <div className='pb-2 -ml-5'>
           <p className='text-lg font-semibold mb-2'>
             {language == 'de' ? 'Kundenservice' : 'Customer service'}
           </p>

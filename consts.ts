@@ -15,7 +15,7 @@ export const productImagesFresh = ['/freshEyes.JPG', '/fresheyes2.jpg'];
 
 // testimonials gallery
 export const galleryImages = [
-  '/512-1.jpg',
+  '/gallery1.jpg',
   '/512-2.jpg',
   '/Kundenkarte.jpeg',
   '/lippe.png',
