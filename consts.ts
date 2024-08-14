@@ -11,4 +11,20 @@ export const productImagesGlowCreme = [
   '/MagicGlowCreme1.JPG',
   '/MagicGlowCreme.JPG',
 ];
-export const productImagesFresh = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
+export const productImagesFresh = ['/freshEyes.JPG'];
+
+// testimonials gallery
+export const galleryImages = [
+  '/512-1.jpg',
+  '/512-2.jpg',
+  '/Kundenkarte.jpeg',
+  '/lippe.png',
+  '/Kundenkarte2.jpeg',
+  '/newsletter.webp',
+  '/512-1.jpg',
+  '/512-2.jpg',
+  '/Kundenkarte.jpeg',
+  '/lippe.png',
+  '/Kundenkarte2.jpeg',
+  '/newsletter.webp',
+];

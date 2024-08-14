@@ -3,21 +3,7 @@ import { useLanguage } from '@/contexts/LanguageProvider';
 import { QuoteIcon } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
-
-const galleryImages = [
-  '/512-1.jpg',
-  '/512-2.jpg',
-  '/Kundenkarte.jpeg',
-  '/lippe.png',
-  '/Kundenkarte2.jpeg',
-  '/newsletter.webp',
-  '/512-1.jpg',
-  '/512-2.jpg',
-  '/Kundenkarte.jpeg',
-  '/lippe.png',
-  '/Kundenkarte2.jpeg',
-  '/newsletter.webp',
-];
+import { galleryImages } from '../../../../consts';
 
 const TestimonialsSection = () => {
   const { language } = useLanguage();
