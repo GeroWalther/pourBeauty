@@ -27,14 +27,14 @@ export default function HeroComp() {
               className='sm:mb-8 text-4xl font-semibold tracking-tight text-stone-700 sm:text-6xl md:mt-20 absolute top-0 left-0 -z-30'
               style={{ mixBlendMode: 'revert' }}>
               MISS GLOW BEAUTY
-              <span className='text-stone-700 mt-4 block text-2xl font-light'>
+              <span className='text-stone-900 mt-4 block text-2xl font-light'>
                 {language == 'de'
                   ? 'Die moderne Naturkosmetik.'
                   : 'The modern natural cosmetics.'}
               </span>
             </p>
           </div>
-          <div className='relative'>
+          <div className='relative mt-3 md:mt-0'>
             <p
               className='md:-mt-3 text-2xl max-w-prose text-stone-900 font-light'
               style={{ mixBlendMode: 'color-burn' }}>

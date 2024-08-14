@@ -35,9 +35,8 @@ export default function AboutPage() {
 
             <div className='space-y-4 mt-5'>
               <h3 className='text-gray-800 text-xl font-semibold'>
-                {language === 'de'
-                  ? 'HOL DIR DEINEN GLOW LOOK'
-                  : 'GET YOUR GLOW LOOK'}
+                {language === 'de' ? 'HOL DIR DEINEN GLOW ' : 'GET YOUR GLOW '}
+                <span className='font-bold text-pink-500'>LOOK!</span>
               </h3>
               <p className='text-gray-700 text-lg'>
                 {language === 'de'
