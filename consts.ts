@@ -7,5 +7,8 @@ export const MAGICLIPSPRICE = 69;
 
 //images
 export const productImgsLips = ['/MagicLips.jpg', '/lippen.jpg'];
-export const productImagesGlowCreme = ['/MagicGlow.jpg'];
+export const productImagesGlowCreme = [
+  '/MagicGlowCreme1.JPG',
+  '/MagicGlowCreme.JPG',
+];
 export const productImagesFresh = ['/512-1.jpg', '/512-2.jpg', '/512.jpg'];
