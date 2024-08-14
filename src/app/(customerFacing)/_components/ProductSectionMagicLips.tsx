@@ -10,7 +10,7 @@ export default function ProductSectionMagicLips() {
     <ProductInfo
       id='1'
       productImgs={productImgsLips}
-      name='Magic Lips Serum'
+      name='MAGIC LIPS SERUM'
       description={
         language === 'de'
           ? 'Ein hochwertiges Lippenprodukt, das speziell für einen glamourösen Look entwickelt wurde. Es bietet langanhaltende Farbe, intensive Feuchtigkeit und ein angenehmes Tragegefühl. Die einzigartige Formel sorgt für volle und geschmeidige Lippen, während sie gleichzeitig pflegt und schützt. Perfekt für jeden Anlass und jede Stimmung!'

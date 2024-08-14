@@ -29,7 +29,7 @@ const ProductInfo = ({
     <section id='shop' className='py-20'>
       <div className='w-[89%] m-auto max-w-[1400px] grid grid-cols-1 md:grid-cols-2 items-center md:gap-10'>
         {/* LEFT SIDE */}
-        <div className='flex md:gap-4 items-center mr-2'>
+        <div className='flex md:gap-4 items-center mr-2 -mb-10 md:mb-0'>
           <div className='flex flex-col gap-4 -mr-2'>
             {productImgs.map((img: string, i: number) => (
               <Image

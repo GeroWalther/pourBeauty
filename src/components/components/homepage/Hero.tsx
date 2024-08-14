@@ -10,7 +10,7 @@ export default function HeroComp() {
     <>
       <section className='relative h-[70vh] md:h-[90vh]'>
         {/* <Canvas className='absolute top-0 left-0 -z-10' /> */}
-        <div className='py-8 mx-auto text-center flex flex-col items-center max-w-3xl'>
+        <div className='pt-8 mx-auto text-center flex flex-col items-center max-w-3xl'>
           <div className='relative'>
             <h1
               className='sm:mb-8 text-4xl font-bold tracking-tight text-stone-700 sm:text-6xl md:mt-20'
@@ -57,9 +57,9 @@ export default function HeroComp() {
               className={buttonVariants({ variant: 'outline' })}>
               {language == 'de' ? 'Was steck dahinter' : 'The story'}
             </Link>
-            <Link href='/magicLips' className={buttonVariants()}>
+            {/* <Link href='/magicLips' className={buttonVariants()}>
               Shop
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>
