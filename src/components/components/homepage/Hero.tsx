@@ -10,13 +10,13 @@ export default function HeroComp() {
     <>
       <section className='relative h-[70vh] md:h-[90vh]'>
         {/* <Canvas className='absolute top-0 left-0 -z-10' /> */}
-        <div className='pt-2 mx-auto text-center flex flex-col items-center max-w-3xl'>
+        <div className='pt-8 mx-auto text-center flex flex-col items-center max-w-3xl'>
           <div className='relative'>
             <h1
-              className='sm:mb-8 text-4xl font-light tracking-tight text-stone-700 sm:text-6xl md:mt-20'
+              className='sm:mb-8 text-4xl font-semibold tracking-tight text-stone-700 sm:text-6xl md:mt-20'
               style={{ mixBlendMode: 'color-burn' }}>
               MISS GLOW BEAUTY
-              <span className='text-stone-900 mt-4 block'>
+              <span className='text-stone-700 mt-4 block text-2xl font-light'>
                 {language == 'de'
                   ? 'Die moderne Naturkosmetik.'
                   : 'The modern natural cosmetics.'}
@@ -24,10 +24,10 @@ export default function HeroComp() {
             </h1>
             <p
               aria-hidden='true'
-              className='sm:mb-8 text-4xl font-light tracking-tight text-stone-900 sm:text-6xl md:mt-20 absolute top-0 left-0 -z-30'
+              className='sm:mb-8 text-4xl font-semibold tracking-tight text-stone-700 sm:text-6xl md:mt-20 absolute top-0 left-0 -z-30'
               style={{ mixBlendMode: 'revert' }}>
               MISS GLOW BEAUTY
-              <span className='text-stone-900 mt-4 block'>
+              <span className='text-stone-700 mt-4 block text-2xl font-light'>
                 {language == 'de'
                   ? 'Die moderne Naturkosmetik.'
                   : 'The modern natural cosmetics.'}
@@ -36,7 +36,7 @@ export default function HeroComp() {
           </div>
           <div className='relative'>
             <p
-              className='text-3xl max-w-prose text-stone-900 font-extralight'
+              className='md:-mt-3 text-2xl max-w-prose text-stone-900 font-light'
               style={{ mixBlendMode: 'color-burn' }}>
               {language == 'de'
                 ? 'Willkommen zu deiner neuen Lieblingsmarke.'
@@ -44,7 +44,7 @@ export default function HeroComp() {
             </p>
             <p
               aria-hidden='true'
-              className=' text-3xl max-w-prose text-stone-900 font-extralight absolute top-0 left-0 -z-30'
+              className='md:-mt-3 text-2xl max-w-prose text-stone-900 font-light absolute top-0 left-0 -z-30'
               style={{ mixBlendMode: 'revert' }}>
               {language == 'de'
                 ? 'Willkommen zu deiner neuen Lieblingsmarke.'
@@ -61,6 +61,10 @@ export default function HeroComp() {
               Shop
             </Link> */}
           </div>
+          <h2 className='mt-12 text-2xl max-w-prose text-stone-900 font-light'>
+            Hol dir deinen Glow{' '}
+            <span className='font-bold text-pink-500'>Look!</span>
+          </h2>
         </div>
       </section>
     </>

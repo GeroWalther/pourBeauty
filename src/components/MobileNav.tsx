@@ -47,19 +47,19 @@ export default function MobilNav({ children }: { children: ReactNode }) {
                 onClick={() => setOpen(false)}
                 href='/magicLips'
                 className='flex items-center rounded-xl  text-white text-muted-foreground hover:text-foreground'>
-                <span>Magic Lips Serum</span>
+                <span>MAGIC LIPS SERUM</span>
               </Link>
               <Link
                 onClick={() => setOpen(false)}
                 href='/freshEyes'
                 className='flex items-center rounded-xl  text-white text-muted-foreground hover:text-foreground'>
-                <span>Fresh Eyes Serum</span>
+                <span>FRESH EYES SERUM</span>
               </Link>
               <Link
                 onClick={() => setOpen(false)}
                 href='/magicGlow'
                 className='flex items-center rounded-xl  text-white text-muted-foreground hover:text-foreground'>
-                <span>Magic Glow Creme</span>
+                <span>MAGIC GLOW CREAM</span>
               </Link>
               <Link
                 onClick={() => setOpen(false)}
