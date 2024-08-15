@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 export const metadata: Metadata = {
   title: 'MISS GLOW BEAUTY',
   description:
-    'Willkommen zu deiner neuen Lieblingsmarke, Hol dir deinen GLOW LOOK!.',
+    'Willkommen zu deiner neuen Lieblingsmarke, Hol dir deinen GLOW LOOK!',
   keywords: [
     'cosmetics',
     'beauty products',
@@ -89,7 +89,22 @@ export const metadata: Metadata = {
     'Beauty für alle Hauttypen',
     'Beauty-Tipps für Frauen',
   ],
-  // authors: ['Miss Glow Team']
+  // authors: ['Miss Glow Team'],
+  openGraph: {
+    title: 'MISS GLOW BEAUTY',
+    description:
+      'Willkommen zu deiner neuen Lieblingsmarke, Hol dir deinen GLOW LOOK!',
+    url: `${process.env.NEXT_PUBLIC_SERVER_URL}`,
+    images: [
+      {
+        url: `/MagicGlowCreme.JPG`,
+        width: 1200,
+        height: 630,
+        alt: 'MISS GLOW BEAUTY - Logo',
+      },
+    ],
+    siteName: 'MISS GLOW BEAUTY',
+  },
 };
 
 export default function RootLayout({
