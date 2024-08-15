@@ -36,8 +36,8 @@ export default function MagicLipsShopSite() {
           : 'Is the product cruelty-free?',
       answer:
         language == 'de'
-          ? 'Ja, das Produkt ist tierversuchsfrei und vegan.'
-          : 'Yes, the product is cruelty-free and vegan.',
+          ? 'Ja, das Produkt ist tierversuchsfrei und 100% Vegan'
+          : 'Yes, the product is cruelty-free and 100% vegan.',
     },
     {
       id: 7,
@@ -47,8 +47,8 @@ export default function MagicLipsShopSite() {
           : 'Is the product clinically tested?',
       answer:
         language == 'de'
-          ? 'Ja, das Produkt wurde dermatologisch getestet und ist für die meisten Hauttypen geeignet.'
-          : 'Yes, the product has been dermatologically tested and is suitable for most skin types.',
+          ? 'Ja, das Produkt wurde in klinischen Studien getestet und ist selbst für empfindliche und sensible Hauttypen geeignet.'
+          : 'Yes, the product has been tested in clinical studies and is suitable also for sensitve skin types.',
     },
     {
       id: 8,
