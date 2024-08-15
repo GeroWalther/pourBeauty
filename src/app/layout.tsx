@@ -5,8 +5,9 @@ import { cn } from '@/lib/utils';
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: 'Miss Glow Beauty',
-  description: 'Die neue Beauty-Plattform für selbstbewusste Frauen.',
+  title: 'MISS GLOW BEAUTZ',
+  description:
+    'Willkommen zu deiner neuen Lieblingsmarke, Hol dir deinen GLOW LOOK!.',
   keywords: [
     'cosmetics',
     'beauty products',
