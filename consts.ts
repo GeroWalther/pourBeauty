@@ -1,7 +1,7 @@
-export const SHIPPING = 0;
+export const SHIPPING = 5;
 
 //prizes
-export const FRESHEZESPRICE = 1;
+export const FRESHEZESPRICE = 64;
 export const PRICEMAGICGLOW = 79;
 export const MAGICLIPSPRICE = 69;
 
