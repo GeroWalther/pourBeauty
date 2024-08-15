@@ -186,7 +186,7 @@ function Subscribe() {
                 className='rounded-md mb-5'
               />
               <Image
-                src='/Kundenkarte2.jpeg'
+                src='/Kundenkarte3.png'
                 alt='Newsletter'
                 width={500}
                 height={500}

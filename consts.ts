@@ -24,7 +24,7 @@ export const galleryImages = [
   '/magicGlowBlond.png',
 
   '/gallery6.jpg',
-  '/Kundenkarte2.jpeg',
+  '/Kundenkarte3.png',
   '/MagicGlowCreme1.JPG',
   '/lippen.jpg',
   '/freshEyes.JPG',
