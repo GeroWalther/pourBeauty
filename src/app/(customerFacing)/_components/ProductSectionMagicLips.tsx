@@ -13,8 +13,8 @@ export default function ProductSectionMagicLips() {
       name='MAGIC LIPS SERUM'
       description={
         language === 'de'
-          ? 'Ein hochwertiges Lippenprodukt, das speziell für einen glamourösen Look entwickelt wurde. Es bietet langanhaltende Farbe, intensive Feuchtigkeit und ein angenehmes Tragegefühl. Die einzigartige Formel sorgt für volle und geschmeidige Lippen, während sie gleichzeitig pflegt und schützt. Perfekt für jeden Anlass und jede Stimmung!'
-          : 'A high-quality lip product designed specifically for a glamorous look. It provides long-lasting color, intense moisture, and a comfortable feel. The unique formula creates full and smooth lips while nourishing and protecting them. Perfect for any occasion and mood!'
+          ? 'MAGIC LIPS SERUM  mit einem erstaunlichen LIP PLUMPING EFFEKT bis zu 78% mehr Lippenvolumen, verleiht absolute volle Aufpolsterung der Lippen und intensive Pflege. MAGIC LIPS SERUM enthält hocheffektive WIRKSTOFFKOSMETIK zum steigern der Attraktivität.'
+          : 'MAGIC LIPS SERUM with an amazing LIP PLUMPING EFFECT up to 78% more lip volume, gives absolute full plumping of the lips and intensive care. MAGIC LIPS SERUM contains highly effective ACTIVE COSMETICS to increase attractiveness.'
       }
       price={MAGICLIPSPRICE}
       priceBeforeDiscount={129}

@@ -10,7 +10,7 @@ type pType = {
 const ProdDispComp = ({ name, productImg, link }: pType) => {
   return (
     <div
-      className='flex items-center justify-center flex-auto h-80 hover:brightness-100 w-full transition-transform duration-300 transform hover:scale-110'
+      className='flex items-center justify-center flex-auto h-80 hover:brightness-100 w-full transition-transform duration-300 transform hover:scale-110 md:rounded-md'
       style={{
         backgroundImage: `url(${productImg})`,
         backgroundSize: 'cover',

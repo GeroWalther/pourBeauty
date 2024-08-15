@@ -16,15 +16,16 @@ export const productImagesFresh = ['/freshEyes.JPG', '/fresheyes2.jpg'];
 // testimonials gallery
 export const galleryImages = [
   '/gallery1.jpg',
-  '/512-2.jpg',
+  '/MagicGlowCreme.JPG',
+  '/FRESH.png',
+  '/gallery3.jpeg',
+  '/gallery5.jpg',
   '/Kundenkarte.jpeg',
-  '/lippe.png',
+  '/magicGlowBlond.png',
+
+  '/gallery6.jpg',
   '/Kundenkarte2.jpeg',
-  '/newsletter.webp',
-  '/512-1.jpg',
-  '/512-2.jpg',
-  '/Kundenkarte.jpeg',
-  '/lippe.png',
-  '/Kundenkarte2.jpeg',
-  '/newsletter.webp',
+  '/MagicGlowCreme1.JPG',
+  '/lippen.jpg',
+  '/freshEyes.JPG',
 ];

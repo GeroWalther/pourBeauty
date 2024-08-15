@@ -9,7 +9,7 @@ import ProdDispComp from './ProdDispComp';
 export default function ProductDisplay() {
   return (
     <>
-      <section className='grid grid-cols-1 md:grid-cols-3 -mt-6 gap-6 pb-10'>
+      <section className='grid grid-cols-1 md:grid-cols-3 md:-mt-6 gap-6 pb-10 md:mx-2'>
         <ProdDispComp
           name='MAGIC LIPS'
           productImg={productImgsLips[0]}

@@ -35,8 +35,8 @@ export default function AboutPage() {
 
             <div className='space-y-4 mt-5'>
               <h3 className='text-gray-800 text-xl font-semibold'>
-                {language === 'de' ? 'HOL DIR DEINEN GLOW ' : 'GET YOUR GLOW '}
-                <span className='font-bold text-pink-500'>LOOK!</span>
+                {language === 'de' ? 'HOL DIR DEINEN ' : 'GET YOUR '}
+                <span className='font-bold text-pink-500'> GLOW LOOK!</span>
               </h3>
               <p className='text-gray-700 text-lg'>
                 {language === 'de'
@@ -49,6 +49,24 @@ export default function AboutPage() {
                   : 'Write to us, also gladly via WhatsApp, to participate in the free MISSGLOWBEAUTY WORKSHOP.'}
               </p>
             </div>
+            <address className='text-lg flex-col md:flex mt-5'>
+              <div className='mb-2'>
+                <p>Whats App</p>
+                <a
+                  href='tel:0049015151906996'
+                  className='text-gray-600 hover:text-gray-400'>
+                  (0049) 015151906996
+                </a>
+              </div>
+              <div>
+                <p>E-Mail</p>
+                <a
+                  href={`mailto:${process.env.NEXT_PUBLIC_ADMINEMAIL}`}
+                  className='text-gray-600 hover:text-gray-400'>
+                  {process.env.NEXT_PUBLIC_ADMINEMAIL}
+                </a>
+              </div>
+            </address>
           </div>
 
           <Image

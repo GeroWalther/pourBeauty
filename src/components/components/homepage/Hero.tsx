@@ -62,8 +62,9 @@ export default function HeroComp() {
             </Link> */}
           </div>
           <h2 className='mt-12 text-2xl max-w-prose text-stone-900 font-light'>
-            Hol dir deinen Glow{' '}
-            <span className='font-bold text-pink-500'>Look!</span>
+            {language == 'de' ? 'Hol dir deinen' : 'Get your '}
+
+            <span className='font-bold text-pink-500'> Glow Look!</span>
           </h2>
         </div>
       </section>

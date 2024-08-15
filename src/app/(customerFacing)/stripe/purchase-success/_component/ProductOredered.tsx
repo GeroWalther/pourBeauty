@@ -6,6 +6,7 @@ import { formatCurrency } from '@/lib/formatters';
 import { Separator } from '@radix-ui/react-dropdown-menu';
 import React, { useEffect } from 'react';
 import { SHIPPING } from '../../../../../../consts';
+
 export default function ProductOredered({ products }: { products: Product[] }) {
   const { language } = useLanguage();
   const { clearCart } = useCart();
@@ -13,7 +14,6 @@ export default function ProductOredered({ products }: { products: Product[] }) {
   useEffect(() => {
     clearCart();
   }, []);
-
   const qty = products.map((p) => p.quantity);
   const subTotal = products.reduce(
     (total, p, index) => total + p.price * qty[index],
