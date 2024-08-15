@@ -78,7 +78,7 @@ export default async function SuccessPage({
         </div>
 
         <Image
-          src={'/thankyou.jpg'}
+          src={'/thankyou2.jpg'}
           alt='thanks for your purchase image'
           height={500}
           width={500}
