@@ -15,17 +15,21 @@ export default function Footer() {
         <div className='mb-5 mr-20'>
           <ul className='flex gap-6 '>
             <li>
-              <a href='#'>
+              <a
+                target='_blank'
+                href='https://www.instagram.com/miss.glowbeauty?igsh=MmlzNjJyOWI1MHN5'>
                 <InstagramIcon />
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href='#'>
                 <FaceBookIcon />
               </a>
-            </li>
+            </li> */}
             <li>
-              <a href='#'>
+              <a
+                target='_blank'
+                href='https://www.tiktok.com/@miss.glowbeauty?_t=8p5LX0BIWJc&_r=1'>
                 <TikTokIcon />
               </a>
             </li>
