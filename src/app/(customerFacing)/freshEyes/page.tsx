@@ -228,11 +228,11 @@ export default function FreshEyeShopSite() {
           <h5 className='text-center font-semibold text-blue-400'>
             FRESH EYES SERUM
           </h5>
-          <p className=' text-stone-950 leading-snug mt-3'>
+          {/* <p className=' text-stone-950 leading-snug mt-3'>
             {language == 'de'
               ? 'FRESH EYES SERUM besitzt einen Award Winner Wirkstoffzur gezielten sichtbaren Verjüngung der Augenpartie und Faltenreduzierung, Lifting & Straffung der Lider und Fältchen, für strahlende Augenblicke eine wertvolle natürliche Verbindung für eine nachgewiesene FALTENREDUZIERUNG'
               : 'FRESH EYES SERUM has an Award Winner active ingredient for targeted visible rejuvenation of the eye area and wrinkle reduction, lifting & tightening of the eyelids and wrinkles, for radiant moments a valuable natural connection for proven WRINKLE REDUCTION'}
-          </p>
+          </p> */}
           <p className=' text-stone-950 leading-snug mt-3'>
             {language == 'de'
               ? 'FRESH EYES SERUM besitzt besitzt Liftingwirkung mit einem Preisgekrönten Wirkstoff. Award Winner in seiner Wirksamkeit. 8D 8-fache Hyaloronsäure aus extrem micro Molekülen für eine bessere Feuchtigkeitsversorgung der empfindlichen Augenpartie. FRESH EYES SERUM zögert die Hautalterung hinaus und sorgt für eine sichtbare Verjüngung der Augenpartie.'
