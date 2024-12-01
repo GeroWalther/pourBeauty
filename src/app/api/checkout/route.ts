@@ -10,7 +10,9 @@ export async function POST(
 ): Promise<NextResponse | undefined> {
   try {
     const body = await req.json();
-    const { totalAmountinCents, products } = body;
+
+    const { totalAmountinCents, products, discountCode } = body;
+    console.log('Disco : ', discountCode);
     if (!totalAmountinCents || !products) {
       throw new Error(
         'Missing required fields: totalAmountinCents or products'
@@ -24,6 +26,7 @@ export async function POST(
       description: 'Miss Glow Bestellung',
       metadata: {
         products: JSON.stringify(products),
+        discountCode,
       },
     });
 

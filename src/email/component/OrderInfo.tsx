@@ -11,6 +11,7 @@ type OrderInfoProps = {
     email: string;
     pricePaidInCents: number;
     shippingCost: number;
+    discountCode: string;
   };
   products: {
     name: string;
@@ -39,6 +40,12 @@ export function OrderInfo({ order, products }: OrderInfoProps) {
               Bestellcode:
             </Text>
             <Text className='mt-0 text-right'>{order.id}</Text>
+          </Column>
+          <Column className='flex items-center justify-between'>
+            <Text className='mt-0 text-gray-500 whitespace-nowrap text-nowrap mr-28 self-start'>
+              Gutschein / Kundenkarten Nr. :
+            </Text>
+            <Text className='mt-0 text-right'>{order.discountCode}</Text>
           </Column>
           <Column className='flex items-center justify-between'>
             <Text className='mt-0 text-gray-500 whitespace-nowrap text-nowrap mr-4'>

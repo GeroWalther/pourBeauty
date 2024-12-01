@@ -9,7 +9,7 @@ import { SHIPPING } from '../../../../../../consts';
 
 export default function ProductOredered({ products }: { products: Product[] }) {
   const { language } = useLanguage();
-  const { clearCart } = useCart();
+  const { clearCart, discount } = useCart();
 
   useEffect(() => {
     clearCart();
@@ -19,6 +19,7 @@ export default function ProductOredered({ products }: { products: Product[] }) {
     (total, p, index) => total + p.price * qty[index],
     0
   );
+  const afterdiscount = subTotal * (1 - discount / 100);
 
   return (
     <section className='flex w-full flex-col pr-0 sm:max-w-lg'>
@@ -39,6 +40,20 @@ export default function ProductOredered({ products }: { products: Product[] }) {
             </div>
             <div className='flex'>
               <span className='flex-1'>
+                {language == 'de' && 'Rabatt'}
+                {language == 'en' && 'Discount'}
+              </span>
+              <span>- {discount}%</span>
+            </div>
+            <div className='flex'>
+              <span className='flex-1'>
+                {language == 'de' && ''}
+                {language == 'en' && ''}
+              </span>
+              <span>{formatCurrency(afterdiscount)}</span>
+            </div>
+            <div className='flex'>
+              <span className='flex-1'>
                 {language == 'de' && ' Versand'}
                 {language == 'en' && 'Shipping'}
               </span>
@@ -46,7 +61,7 @@ export default function ProductOredered({ products }: { products: Product[] }) {
             </div>
             <div className='flex'>
               <span className='flex-1'>Total</span>
-              <span>{formatCurrency(subTotal + SHIPPING)}</span>
+              <span>{formatCurrency(afterdiscount + SHIPPING)}</span>
             </div>
           </div>
         </div>

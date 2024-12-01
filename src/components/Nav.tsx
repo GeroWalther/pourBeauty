@@ -14,7 +14,7 @@ export default function Nav({
 }) {
   return (
     <nav
-      className={`text-primary-foreground md:flex justify-center px-4 gap-10 p-2 ${
+      className={`text-primary-foreground md:flex justify-center px-4 gap-1 p-2 ${
         admin ? 'bg-primary flex' : 'bg-transparent hidden'
       }`}>
       {children}

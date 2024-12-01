@@ -80,6 +80,7 @@ model Order {
   address          String
   email            String
   customerName     String
+  discountCode     String 
 }
 
 model DiscountCode {

@@ -1,9 +1,9 @@
-"use server";
+'use server';
 
-import { SHIPPING } from "@/config/priceConfig";
-import db from "@/db";
-import { Product } from "@/hooks/use-cart-hook";
-import { sendEmail } from "@/lib/sendEmail";
+import { SHIPPING } from '@/config/priceConfig';
+import db from '@/db';
+import { Product } from '@/hooks/use-cart-hook';
+import { sendEmail } from '@/lib/sendEmail';
 
 export async function saveOrder(
   address: string,
@@ -34,9 +34,9 @@ export async function saveOrder(
 
   await sendEmail({
     email,
-    name: "User",
+    name: 'User',
     address,
-    type: "orderConfirmation",
+    type: 'orderConfirmation',
     product: items,
   });
 }

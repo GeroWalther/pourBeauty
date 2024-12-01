@@ -9,9 +9,10 @@ export async function saveOrder(
   customerName: string,
   email: string,
   items: Product[],
-  pricePaidInCents: number
+  pricePaidInCents: number,
+  discountCode: string
 ) {
-//  console.log('ITEMS: ', items);
+  //  console.log('ITEMS: ', items);
   // Create the order first
   const order = await db.order.create({
     data: {
@@ -20,6 +21,7 @@ export async function saveOrder(
       pricePaidInCents,
       shippingCost: SHIPPING,
       customerName,
+      discountCode,
     },
   });
 

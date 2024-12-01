@@ -29,6 +29,7 @@ type PurchaseReceiptEmailProps = {
     email: string;
     pricePaidInCents: number;
     shippingCost: number;
+    discountCode: string;
   };
 };
 
@@ -56,6 +57,7 @@ PurchaseReceiptEmail.PreviewProps = {
     email: 'sabine@kratz.com',
     pricePaidInCents: 22300,
     shippingCost: 5,
+    discountCode: 'MISSGLOW15',
   },
 } satisfies PurchaseReceiptEmailProps;
 

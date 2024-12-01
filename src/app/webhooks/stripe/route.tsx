@@ -23,7 +23,6 @@ export async function POST(req: NextRequest) {
 
     if (event.type === 'charge.succeeded') {
       const charge = event.data.object;
-      //  console .log(charge);
       const productsAsString = charge.metadata.products;
       const products = JSON.parse(productsAsString);
       // console.log('PRODUCTS:', products);
@@ -31,6 +30,9 @@ export async function POST(req: NextRequest) {
       const email = charge.billing_details.email;
       const pricePaidInCents = charge.amount;
       const customerName = charge.billing_details.name;
+
+      console.log('CHARGE META : ', charge.metadata);
+      const discountCode = charge.metadata.discountCount;
 
       const city = charge.shipping?.address?.city;
       const country = charge.shipping?.address?.country;
@@ -52,7 +54,8 @@ export async function POST(req: NextRequest) {
         customerName,
         email!,
         products,
-        pricePaidInCents
+        pricePaidInCents,
+        discountCode
       );
 
       try {
@@ -72,6 +75,7 @@ export async function POST(req: NextRequest) {
                 email,
                 pricePaidInCents,
                 shippingCost: order.shippingCost,
+                discountCode: order.discountCode,
               }}
             />
           ),
@@ -98,6 +102,7 @@ export async function POST(req: NextRequest) {
                 email,
                 pricePaidInCents,
                 shippingCost: order.shippingCost,
+                discountCode: order.discountCode,
               }}
             />
           ),

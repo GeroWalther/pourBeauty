@@ -15,10 +15,12 @@ export default function NavBarComp() {
         <NavLink href='/magicLips'>MAGIC LIPS</NavLink>
         <NavLink href='/magicGlow'>MAGIC GLOW</NavLink>
         <NavLink href='/freshEyes'>FRESH EYES</NavLink>
+        <NavLink href='/newProd1'>New Prod 1</NavLink>
+        <NavLink href='/newProd2'>New Prod 2</NavLink>
         <NavLink href='/about'>
           {language == 'de' ? 'Über uns' : 'About'}
         </NavLink>
-        <div className='flow-root mr-5 mt-2'>
+        <div className='flow-root mr-5 self-center'>
           <Cart />
         </div>
         <LanguageSwitcher />

@@ -32,6 +32,7 @@ const OrderTable: FC<OrderTableProps> = ({ orderData, orderStatus }) => {
           <TableHead>Address</TableHead>
           <TableHead>Email</TableHead>
           <TableHead>Bestelleingang</TableHead>
+          <TableHead>Gutschein/Kundenkarten Nr.</TableHead>
           <TableHead className='text-right'>Betrag</TableHead>
         </TableRow>
       </TableHeader>
@@ -73,6 +74,9 @@ const OrderTable: FC<OrderTableProps> = ({ orderData, orderStatus }) => {
                 month: 'long',
                 day: 'numeric',
               })}
+            </TableCell>
+            <TableCell className='font-medium'>
+              {singleRow.discountCode}
             </TableCell>
             <TableCell className='font-bold text-right'>
               €{singleRow.pricePaidInCents / 100}

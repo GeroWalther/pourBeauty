@@ -32,7 +32,7 @@ const stripePromise = loadStripe(
 export default function CheckoutStripe() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [clientSecret, setClientSecret] = useState<string>('');
-  const { items, discount } = useCart();
+  const { items, discount, discountCode } = useCart();
   const { toPay } = useCartTotals(items, discount);
   const itemsToCheckout = items.map((item) => item.product);
   useEffect(() => {
@@ -45,8 +45,9 @@ export default function CheckoutStripe() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            totalAmountinCents: toPay * 100,
+            totalAmountinCents: Math.round(toPay * 100),
             products,
+            discountCode: discountCode === '' ? '-' : discountCode,
           }),
         });
         if (response.ok) {

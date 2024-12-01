@@ -20,6 +20,8 @@ type CartState = {
   clearCart: () => void;
   discount: number;
   setDiscount: (discount: number) => void;
+  discountCode: string;
+  setDiscountCode: (code: string) => void;
 };
 
 // add items
@@ -66,6 +68,8 @@ export const useCart = create<CartState>()(
       clearCart: () => set({ items: [] }),
       discount: 0,
       setDiscount: (value: number) => set({ discount: value }), // New function to set the discount value directly
+      discountCode: '',
+      setDiscountCode: (code: string) => set({ discountCode: code }),
     }),
     {
       name: 'cart-storage',

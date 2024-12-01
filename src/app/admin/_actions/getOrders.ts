@@ -40,6 +40,7 @@ const getOrders = async () => {
       email: true,
       createdAt: true,
       customerName: true,
+      discountCode: true,
     },
     orderBy: { createdAt: 'desc' },
   });
@@ -64,6 +65,7 @@ const getOrders = async () => {
       email: true,
       createdAt: true,
       customerName: true,
+      discountCode: true,
     },
   });
 
