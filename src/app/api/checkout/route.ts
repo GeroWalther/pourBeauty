@@ -12,7 +12,7 @@ export async function POST(
     const body = await req.json();
 
     const { totalAmountinCents, products, discountCode } = body;
-    console.log('Disco : ', discountCode);
+    // console.log('Disco : ', discountCode);
     if (!totalAmountinCents || !products) {
       throw new Error(
         'Missing required fields: totalAmountinCents or products'

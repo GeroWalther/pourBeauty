@@ -25,14 +25,12 @@ export async function POST(req: NextRequest) {
       const charge = event.data.object;
       const productsAsString = charge.metadata.products;
       const products = JSON.parse(productsAsString);
-      // console.log('PRODUCTS:', products);
+      //console.log('PRODUCTS:', products);
 
       const email = charge.billing_details.email;
       const pricePaidInCents = charge.amount;
       const customerName = charge.billing_details.name;
-
-      console.log('CHARGE META : ', charge.metadata);
-      const discountCode = charge.metadata.discountCount;
+      const discountCode = charge.metadata.discountCode;
 
       const city = charge.shipping?.address?.city;
       const country = charge.shipping?.address?.country;
@@ -60,7 +58,8 @@ export async function POST(req: NextRequest) {
 
       try {
         // email to admin
-        await resend.emails.send({
+        console.log('EMAIL DISCOCODE: ', order.discountCode);
+        const sendEmail = await resend.emails.send({
           from: `BESTELLUNGSEINGANG <${process.env.SENDER_EMAIL}>`,
           to: process.env.SHOP_EMAIL as string,
           subject: 'Neue Bestellung eingegangen',
@@ -81,7 +80,7 @@ export async function POST(req: NextRequest) {
           ),
         });
       } catch (error) {
-        console.error('Error to admin email:', error);
+        console.log('Error to admin email:', error);
       }
 
       try {

@@ -12,8 +12,16 @@ export async function saveOrder(
   pricePaidInCents: number,
   discountCode: string
 ) {
-  //  console.log('ITEMS: ', items);
   // Create the order first
+  // console.log(
+  //   'CREATE ORDER: ',
+  //   customerName,
+  //   email,
+  //   address,
+  //   items,
+  //   pricePaidInCents,
+  //   discountCode
+  // );
   const order = await db.order.create({
     data: {
       address,
@@ -24,6 +32,10 @@ export async function saveOrder(
       discountCode,
     },
   });
+
+  if (!order) {
+    throw new Error('Failed to create order');
+  }
 
   // Prepare ordered products data with the created order ID
   const orderedProductsData = items.map((item) => ({

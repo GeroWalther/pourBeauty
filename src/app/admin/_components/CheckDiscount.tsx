@@ -36,7 +36,7 @@ const CheckDiscount = () => {
               className='flex flex-col shadow  p-4 border border-emerald-100'>
               {/* <p className="shadow-sm p-1 m-1">{discount.id}</p> */}
               <p className=' shadow-sm p-1 m-1'>
-                Code: &quot;{discount.code}&quot;
+                Code: &quot;{discount?.code}&quot;
               </p>
               <p className=' shadow-sm p-1 m-1'>
                 Rabatt: {discount.discountInPercent}%
