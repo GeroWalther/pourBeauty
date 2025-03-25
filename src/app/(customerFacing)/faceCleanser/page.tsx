@@ -95,7 +95,7 @@ export default function FaceCleanser() {
         <div className='lg:max-w-lg lg:self-end'>
           <div className='mt-4'>
             <h1 className='text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl'>
-              Face Cleanser
+              FACE CLEANSER
             </h1>
             <div className='flex gap-3 mt-6 items-center'>
               <p className='text-lg text-muted-foreground'>
