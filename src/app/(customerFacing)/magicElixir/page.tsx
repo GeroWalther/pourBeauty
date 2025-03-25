@@ -12,9 +12,9 @@ import FAQComponent from '@/components/components/homepage/FAQComp';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
-import { FRESHEZESPRICE, productImagesFresh } from '../../../../consts';
+import { MAGICELIXIRPRICE, productImagesMagicElixir } from '../../../../consts';
 
-export default function FreshEyeShopSite() {
+export default function MagicElixir() {
   const { language } = useLanguage();
   const questions = [
     {
@@ -25,8 +25,8 @@ export default function FreshEyeShopSite() {
           : 'How long does the product last?',
       answer:
         language == 'de'
-          ? 'Die Haltbarkeit des Produkts beträgt 6 Monate nach dem Öffnen.'
-          : 'The product has a shelf life of 6 months after opening.',
+          ? 'Die Haltbarkeit des Produkts beträgt 12 Monate nach dem Öffnen.'
+          : 'The product has a shelf life of 12 months after opening.',
     },
     {
       id: 6,
@@ -54,34 +54,34 @@ export default function FreshEyeShopSite() {
       id: 8,
       question:
         language == 'de'
-          ? 'Welchen effekt hat FRESH EYES SERUM ?'
-          : 'What effect does FRESH EYES SERUM have?',
+          ? 'Welchen effekt hat MAGIC ELIXIR ?'
+          : 'What effect does MAGIC ELIXIR have?',
       answer:
         language == 'de'
-          ? 'FRESH EYES SERUM besitzt besitzt Liftingwirkung mit einem Preisgekrönten Wirkstoff. Award Winner in seiner Wirksamkeit. 8D 8-fache Hyaloronsäure aus extrem micro Molekülen für eine bessere Feuchtigkeitsversorgung der empfindlichen Augenpartie. FRESH EYES SERUM zögert die Hautalterung hinaus und sorgt für eine sichtbare Verjüngung der Augenpartie.'
-          : 'FRESH EYES SERUM has a lifting effect with an award-winning active ingredient. Award Winner in its effectiveness. 8D 8-fold hyaluronic acid from extremely micro molecules for better moisturization of the sensitive eye area. FRESH EYES SERUM delays skin aging and provides visible rejuvenation of the eye area.',
+          ? 'MAGIC ELIXIR ist ein MUST HAVE für jede Frau, MAGIC ELIXIR besitzt 3 hochwertige natürliche Pflanzenstammzellen für das tägliche Wohlgefühl, steigert die Anziehungskraft der Frau, die Frau wirkt attraktiver und zieht magisch positive Erlebnisse an, die Frau die MAGIC ELIXIR benutzt wirkt Selbstbewusster, kann innere Stärke entwickeln, und ihre Attraktivität um mehr als ein vielfaches steigern, sie wird vom Umfeld begehrter wahrgenommen, sie bekommt dadurch ein gesteigertes Selbstwertgefühl, ein Gefühl alles erreichen zu können.'
+          : 'MAGIC ELIXIR is a MUST HAVE for every woman, MAGIC ELIXIR has 3 high-quality natural plant stem cells for daily well-being, increases the attractiveness of the woman, the woman is more attractive and attracts magical positive experiences, the woman who uses MAGIC ELIXIR is more self-confident, can develop inner strength, and her attractiveness increases by more than a multiple, she is more desired by her environment, she receives a strengthened sense of self-worth, a feeling of being able to achieve everything.',
     },
     {
       id: 9,
       question:
         language == 'de'
-          ? 'Für wen ist FRESH EYES SERUM geeignet?'
-          : 'Who is FRESH EYES SERUM suitable for?',
+          ? 'Für wen ist MAGIC ELIXIR geeignet?'
+          : 'Who is MAGIC ELIXIR suitable for?',
       answer:
         language == 'de'
-          ? 'FRESH EYES SERUM ist für alle Frauen die sich verjüngen möchten oder länger jung aussehen möchten.'
-          : 'FRESH EYES SERUM is suitable for all women who want to be rejuvenated or look younger for longer.',
+          ? 'MAGIC ELIXIR ist für alle Frauen geeignet, die ihre Anziehungskraft steigern möchten.'
+          : 'MAGIC ELIXIR is suitable for all women who want to increase their attractiveness.',
     },
     {
       id: 10,
       question:
         language == 'de'
-          ? 'Welche Inhaltsstoffe sind in FRESH EYES SERUM enthalten?'
-          : 'What ingredients are in FRESH EYES SERUM?',
+          ? 'Welche Inhaltsstoffe sind in MAGIC ELIXIR enthalten?'
+          : 'What ingredients are in MAGIC ELIXIR?',
       answer:
         language == 'de'
-          ? 'FRESH EYES SERUM besitzt natürliche AWARD WINNER Wirkstoffe mit einer excellenten Lifting Wirkung zur Verjüngung der Augenpartie, das modernste OLIGO-Aminosäuren WIRKSTOFF für eine sichtbare Verjüngung und Faltenreduzierung. Die einzigartige Formel enthält Centella Asiatica extract  (die beste erforschte Heilpflanze zum bilden von Körpereigenem Kollagen um bis zu 77%), Vitamine und eine extrem niedrige Micro Molekulare Oligo-HA Hyaluronsäure, eine 8D Hyaluronsäure diese besitzt eine 8fache kombination aus verschiedenen Hyaluronsöuren zur optimalen intensiven ANTI-AGING Behandlung der Augenpartie für frische und wunderschöne Augenblicke.'
-          : "FRESH EYES SERUM has natural AWARD WINNER active ingredients with an excellent lifting effect for rejuvenation of the eye area, the most modern OLIGO-amino acid ACTIVE INGREDIENT for visible rejuvenation and wrinkle reduction. The unique formula contains Centella Asiatica extract (the best researched medicinal plant for the formation of the body's own collagen by up to 77%), vitamins and an extremely low micro-molecular OLIGO-HA hyaluronic acid, an 8D hyaluronic acid this has an 8-fold combination of different hyaluronic acids for optimal intensive ANTI-AGING treatment of the eye area for fresh and beautiful moments.",
+          ? 'MAGIC ELIXIR besitzt 3 natürliche Pflanzliche Stammzellen, Eclipta prostrata, jasminum officinale, ceratonia siliqua.'
+          : 'MAGIC ELIXIR has 3 natural plant stem cells, Eclipta prostrata, jasminum officinale, ceratonia siliqua.',
     },
   ];
 
@@ -92,7 +92,7 @@ export default function FreshEyeShopSite() {
         <div className='lg:max-w-lg lg:self-end'>
           <div className='mt-4'>
             <h1 className='text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl'>
-              New Prod 2
+              Magic Elixir
             </h1>
             <div className='flex gap-3 mt-6 items-center'>
               <p className='text-lg text-muted-foreground'>
@@ -107,14 +107,14 @@ export default function FreshEyeShopSite() {
           <section className='mt-4'>
             <div className='flex items-center'>
               <p className='font-medium text-stone-900 text-xl'>
-                {formatCurrency(FRESHEZESPRICE)}
+                {formatCurrency(MAGICELIXIRPRICE)}
               </p>
 
               <div className='ml-4 border-l text-muted-foreground border-stone-300 pl-4'>
                 <p className='text-lg font-medium'>
                   {language == 'de' ? 'Auf Lager' : 'In stock'}
                 </p>
-                <p className='text-lg font-medium'>30ml</p>
+                <p className='text-lg font-medium'>10ml</p>
                 <p className='text-lg font-medium'>
                   {language == 'de'
                     ? 'Wird in 1-2 Wochen versendet.'
@@ -122,28 +122,27 @@ export default function FreshEyeShopSite() {
                 </p>
               </div>
             </div>
-
             <div className='mt-4 space-y-6'>
               <ul className='list-disc ml-5'>
                 <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Anti Aging Aktivität'
-                    : 'Anti-aging activity'}
+                    ? 'MAGIC ELIXIR steigert die Anziehungskraft der Frau um ein vielfaches'
+                    : 'MAGIC ELIXIR increases the attractiveness of the woman by a multiple'}
                 </li>
                 <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Lifting und Straffung der Lieder und Fältchen'
-                    : 'Lifting and tightening of the eyelids and wrinkles'}
+                    ? 'Fördert das Selbstbewusstsein der Frau'
+                    : 'Fosters the self-confidence of the woman'}
                 </li>
                 <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Auch für die intensive Behandlung der Stirnfalten geeignet'
-                    : 'Also suitable for the intensive treatment of forehead wrinkles'}
+                    ? 'Erhöht die Attraktivität'
+                    : 'Increases the attractiveness'}
                 </li>
                 <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Sichtbare Verjüngung der Augenpartie und Faltenreduzierung'
-                    : 'Visible rejuvenation of the eye area and wrinkle reduction'}
+                    ? 'Kann das Begehren wecken nach der Frau die MAGIC ELIXIR benutzt'
+                    : 'MAGIC ELIXIR increases the attractiveness of the woman by a multiple'}
                 </li>
                 <li className='text-lg ttext-stone-800'>
                   {language == 'de'
@@ -152,13 +151,8 @@ export default function FreshEyeShopSite() {
                 </li>
                 <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Sichtbar frischer und straffer'
-                    : 'Visibly fresher and firmer'}
-                </li>
-                <li className='text-lg ttext-stone-800'>
-                  {language == 'de'
-                    ? 'Verlangsamt die Hautalterung'
-                    : 'Slows down skin aging'}
+                    ? 'MAGIC ELIXIR ist Dein unsichtbarer Begleiter hinterlasse einen bleibenden Eindruck'
+                    : 'MAGIC ELIXIR is your invisible companion, leave a lasting impression'}
                 </li>
               </ul>
             </div>
@@ -178,7 +172,10 @@ export default function FreshEyeShopSite() {
         {/* product images */}
         <div className='mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center mb-10'>
           <div className='aspect-square rounded-lg'>
-            <ImageSlider urls={productImagesFresh} alt={`produkt bilder`} />
+            <ImageSlider
+              urls={productImagesMagicElixir}
+              alt={`produkt bilder`}
+            />
           </div>
         </div>
 
@@ -191,10 +188,10 @@ export default function FreshEyeShopSite() {
             <div className='mt-10'>
               <AddToCartButton
                 product={{
-                  id: '5',
+                  id: '4',
                   name: 'Fresh Eyes Serum',
-                  price: FRESHEZESPRICE,
-                  image: productImagesFresh[0],
+                  price: MAGICELIXIRPRICE,
+                  image: productImagesMagicElixir[0],
                   quantity: 1,
                 }}
               />
@@ -225,8 +222,8 @@ export default function FreshEyeShopSite() {
         </h4>
 
         <div className='mt-5 px-3 pb-5'>
-          <h5 className='text-center font-semibold text-blue-400'>
-            FRESH EYES SERUM
+          <h5 className='text-center font-semibold text-pink-400'>
+            MAGIC ELIXIR
           </h5>
           {/* <p className=' text-stone-950 leading-snug mt-3'>
             {language == 'de'
@@ -235,24 +232,24 @@ export default function FreshEyeShopSite() {
           </p> */}
           <p className=' text-stone-950 leading-snug mt-3'>
             {language == 'de'
-              ? 'FRESH EYES SERUM besitzt besitzt Liftingwirkung mit einem Preisgekrönten Wirkstoff. Award Winner in seiner Wirksamkeit. 8D 8-fache Hyaloronsäure aus extrem micro Molekülen für eine bessere Feuchtigkeitsversorgung der empfindlichen Augenpartie. FRESH EYES SERUM zögert die Hautalterung hinaus und sorgt für eine sichtbare Verjüngung der Augenpartie.'
-              : 'FRESH EYES SERUM has a lifting effect with an award-winning active ingredient. Award Winner in its effectiveness. 8D 8-fold hyaluronic acid from extremely micro molecules for better moisturization of the sensitive eye area. FRESH EYES SERUM delays skin aging and provides visible rejuvenation of the eye area.'}
+              ? 'MAGIC ELIXIR Steigert die Anziehungskraft der Frau, MAGIC ELIXIR wurde speziell entwickelt, um die natürliche Anziehungskraft der Frau zu steigern, die Frau wirkt Selbstbewusst und anziehend auf ihr Umfeld, MAGIC ELIXIR kann dich unwiderstehlich machen und das Wohlbefinden fördern, sorgt für eine unglaubliche Attraktivität die vom Umfeld wahr genommen wird und die Aufmerksamkeit auf Dich zieht.'
+              : 'MAGIC ELIXIR increases the attractiveness of the woman, MAGIC ELIXIR was specifically developed to increase the natural attractiveness of the woman, the woman is self-confident and attractive to her environment, MAGIC ELIXIR can make you irresistible and promote well-being, it provides an incredible attractiveness that is appreciated by the environment and attracts attention to you.'}
           </p>
         </div>
 
         <div className='flex-col justify-between items-center gap-10 md:grid md:grid-cols-2'>
           <Card className='p-3 max-w-lg my-10 bg-gray-200'>
-            <h5 className='text-center font-semibold text-blue-400'>
-              FRESH EYES SERUM
+            <h5 className='text-center font-semibold text-pink-400'>
+              MAGIC ELIXIR
             </h5>
             <p className=' text-stone-950 leading-snug '>
               {language == 'de'
-                ? 'FRESH EYES SERUM besitzt einen Award Winner Wirkstoffzur gezielten sichtbaren Verjüngung der Augenpartie und Faltenreduzierung, Lifting & Straffung der Lider und Fältchen, für strahlende Augenblicke eine wertvolle natürliche Verbindung für eine nachgewiesene FALTENREDUZIERUNG'
-                : 'FRESH EYES SERUM has an Award Winner active ingredient for targeted visible rejuvenation of the eye area and wrinkle reduction, lifting & tightening of the eyelids and wrinkles, for radiant moments a valuable natural connection for proven WRINKLE REDUCTION'}
+                ? 'MAGIC ELIXIR ist Dein Geheimnis für unwiderstehliche Anziehungskraft, steigert um ein vielfaches Deine Anziehung, aber eines der wichtigsten emotionalen Bedürfnisse ist es, das andere Geschlecht ( die Person, die Dich interessiert) anzuziehen, begehrt zu werden und attraktiv wahrgenommen zu werden. '
+                : ''}
             </p>
           </Card>
           <Image
-            src='/FRESH.png'
+            src='/MagicElixir.jpg'
             width={700}
             height={700}
             alt='miss glow fresh eyes'
@@ -267,13 +264,11 @@ export default function FreshEyeShopSite() {
             {language == 'de' ? '2 mal ' : 'Twice '}
           </span>
           {language == 'de'
-            ? ' Täglich auf Stirn und Augenpartie auftragen und einmassieren.'
-            : ' Apply and massage onto forehead and eye area twice daily.'}
+            ? ' Tägliches auftragen unterstützt die Anziehungskraft und das Wohlbefinden, auf Hals (links und rechts) jeweils an 5 Stellen MAGIC ELIXIR ist KEIN parfume.'
+            : ''}
         </p>
         <p className='text-xs text-center mt-10'>
-          INCI:Centella asiatica extract, cell aqua, aloe barbadensis
-          extract,OLIGO -HA hydrolyzed sodium hyaluronate, acetyl
-          Hexapeptide-1,baicalin extract, Centella asiatica
+          INCI:Eclipta prostrata, jasminum officinale,ceratonia siliqua
           {language == 'de'
             ? '(das zum Wohlgefühl beiträgt)'
             : '(which contributes to well-being)'}

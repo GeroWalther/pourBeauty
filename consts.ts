@@ -4,6 +4,8 @@ export const SHIPPING = 5;
 export const FRESHEZESPRICE = 64;
 export const PRICEMAGICGLOW = 79;
 export const MAGICLIPSPRICE = 69;
+export const FACECLEANSERPRICE = 21;
+export const MAGICELIXIRPRICE = 94;
 
 //images
 export const productImgsLips = ['/MagicLips.jpg', '/lippen.jpg'];
@@ -12,6 +14,16 @@ export const productImagesGlowCreme = [
   '/MagicGlowCreme.JPG',
 ];
 export const productImagesFresh = ['/freshEyes.JPG', '/fresheyes2.jpg'];
+
+export const productImagesMagicElixir = [
+  '/MagicElixirProdBottleSolo.jpg',
+  '/MagicElixir.jpg',
+];
+
+export const productImagesFaceCleanser = [
+  '/FaceCleanserProductBottleSolo.jpg',
+  '/FaceCleanser.jpeg',
+];
 
 // testimonials gallery
 export const galleryImages = [

@@ -12,9 +12,12 @@ import FAQComponent from '@/components/components/homepage/FAQComp';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
-import { FRESHEZESPRICE, productImagesFresh } from '../../../../consts';
+import {
+  FACECLEANSERPRICE,
+  productImagesFaceCleanser,
+} from '../../../../consts';
 
-export default function FreshEyeShopSite() {
+export default function FaceCleanser() {
   const { language } = useLanguage();
   const questions = [
     {
@@ -54,34 +57,34 @@ export default function FreshEyeShopSite() {
       id: 8,
       question:
         language == 'de'
-          ? 'Welchen effekt hat FRESH EYES SERUM ?'
-          : 'What effect does FRESH EYES SERUM have?',
+          ? 'Welchen effekt hat FACE CLEANSER ?'
+          : 'What effect does FACE CLEANSER have?',
       answer:
         language == 'de'
-          ? 'FRESH EYES SERUM besitzt besitzt Liftingwirkung mit einem Preisgekrönten Wirkstoff. Award Winner in seiner Wirksamkeit. 8D 8-fache Hyaloronsäure aus extrem micro Molekülen für eine bessere Feuchtigkeitsversorgung der empfindlichen Augenpartie. FRESH EYES SERUM zögert die Hautalterung hinaus und sorgt für eine sichtbare Verjüngung der Augenpartie.'
-          : 'FRESH EYES SERUM has a lifting effect with an award-winning active ingredient. Award Winner in its effectiveness. 8D 8-fold hyaluronic acid from extremely micro molecules for better moisturization of the sensitive eye area. FRESH EYES SERUM delays skin aging and provides visible rejuvenation of the eye area.',
+          ? 'FACE CLEANSER hat mehrere positve Effekte auf die Haut: Tiefenreinigung: Entfernt Make-up, überschüssigen Talg und Schmutz aus den Poren für ein klares Hautbild.Verfeinertes Hautbild: Wirkt entzündungshemmend und reduziert Hautunreinheiten.Feuchtigkeitsspendend: Enthält Hyaluronsäure, die die Haut optimal mit Feuchtigkeit versorgt. Schonend und pflegend: Geeignet für empfindliche Haut, ohne sie auszutrocknen. Strahlende Haut: Stellt das natürliche Hautgleichgewicht wieder her und sorgt für einen frischen, gesunden Glow.'
+          : 'FACE CLEANSER has several positive effects on the skin: Deep cleansing: Removes make-up, excess oil and dirt from the pores for a clear skin appearance. Refined skin: Acts anti-inflammatory and reduces skin impurities. Moisturizing: Contains hyaluronic acid that optimally moisturizes the skin. Gentle and protective: Suitable for sensitive skin, without drying it out. Radiant skin: Restores the natural skin balance and provides a fresh, healthy glow.',
     },
     {
       id: 9,
       question:
         language == 'de'
-          ? 'Für wen ist FRESH EYES SERUM geeignet?'
-          : 'Who is FRESH EYES SERUM suitable for?',
+          ? 'Für wen ist FACE CLEANSER geeignet?'
+          : 'Who is FACE CLEANSER suitable for?',
       answer:
         language == 'de'
-          ? 'FRESH EYES SERUM ist für alle Frauen die sich verjüngen möchten oder länger jung aussehen möchten.'
-          : 'FRESH EYES SERUM is suitable for all women who want to be rejuvenated or look younger for longer.',
+          ? 'FACE CLEANSER ist für alle Frauen geeignet, die eine tiefere und sanfte Reinigung der Haut benötigen, um ein klares Hautbild zu erhalten. Es ist besonders gut für empfindliche und sensible Haut geeignet.'
+          : 'FACE CLEANSER is suitable for all women who need a deeper and gentleskin cleansing to achieve a clear skin appearance. It is particularly good for sensitive and sensitive skin types.',
     },
     {
       id: 10,
       question:
         language == 'de'
-          ? 'Welche Inhaltsstoffe sind in FRESH EYES SERUM enthalten?'
+          ? 'Welche Inhaltsstoffe sind in FACE CLEANSER enthalten? '
           : 'What ingredients are in FRESH EYES SERUM?',
       answer:
         language == 'de'
-          ? 'FRESH EYES SERUM besitzt natürliche AWARD WINNER Wirkstoffe mit einer excellenten Lifting Wirkung zur Verjüngung der Augenpartie, das modernste OLIGO-Aminosäuren WIRKSTOFF für eine sichtbare Verjüngung und Faltenreduzierung. Die einzigartige Formel enthält Centella Asiatica extract  (die beste erforschte Heilpflanze zum bilden von Körpereigenem Kollagen um bis zu 77%), Vitamine und eine extrem niedrige Micro Molekulare Oligo-HA Hyaluronsäure, eine 8D Hyaluronsäure diese besitzt eine 8fache kombination aus verschiedenen Hyaluronsöuren zur optimalen intensiven ANTI-AGING Behandlung der Augenpartie für frische und wunderschöne Augenblicke.'
-          : "FRESH EYES SERUM has natural AWARD WINNER active ingredients with an excellent lifting effect for rejuvenation of the eye area, the most modern OLIGO-amino acid ACTIVE INGREDIENT for visible rejuvenation and wrinkle reduction. The unique formula contains Centella Asiatica extract (the best researched medicinal plant for the formation of the body's own collagen by up to 77%), vitamins and an extremely low micro-molecular OLIGO-HA hyaluronic acid, an 8D hyaluronic acid this has an 8-fold combination of different hyaluronic acids for optimal intensive ANTI-AGING treatment of the eye area for fresh and beautiful moments.",
+          ? 'FACE CLEANSER besitzt natürliche hochwertige Wirkstoffe mit einer intensiven Wirkung zur Reinigung und Pflege der Gesichtspartie. Die einzigartige Formel enthält Centella Asiatica extract  (die beste erforschte Heilpflanze zum bilden von Körpereigenem Kollagen um bis zu 77%), Vitamine und eine extrem niedrige Micro Molekulare Hyaluronsäure,diese besitzt eine 8fache kombination aus verschiedenen Hyaluronsöuren zur optimalen intensiven ANTI-AGING Behandlung für mehr frische und strahlende Haut.'
+          : "FACE CLEANSER contains natural high-quality active ingredients with an intensive effect for cleansing and care of the skin. The unique formula contains Centella Asiatica extract (the best researched medicinal plant for the formation of the body's own collagen by up to 77%), vitamins and an extremely low micro-molecular hyaluronic acid, this has an 8-fold combination of different hyaluronic acids for optimal intensive ANTI-AGING treatment for more fresh and radiant skin.",
     },
   ];
 
@@ -92,7 +95,7 @@ export default function FreshEyeShopSite() {
         <div className='lg:max-w-lg lg:self-end'>
           <div className='mt-4'>
             <h1 className='text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl'>
-              New Prod 1
+              Face Cleanser
             </h1>
             <div className='flex gap-3 mt-6 items-center'>
               <p className='text-lg text-muted-foreground'>
@@ -107,14 +110,14 @@ export default function FreshEyeShopSite() {
           <section className='mt-4'>
             <div className='flex items-center'>
               <p className='font-medium text-stone-900 text-xl'>
-                {formatCurrency(FRESHEZESPRICE)}
+                {formatCurrency(FACECLEANSERPRICE)}
               </p>
 
               <div className='ml-4 border-l text-muted-foreground border-stone-300 pl-4'>
                 <p className='text-lg font-medium'>
                   {language == 'de' ? 'Auf Lager' : 'In stock'}
                 </p>
-                <p className='text-lg font-medium'>30ml</p>
+                <p className='text-lg font-medium'>50ml</p>
                 <p className='text-lg font-medium'>
                   {language == 'de'
                     ? 'Wird in 1-2 Wochen versendet.'
@@ -127,23 +130,21 @@ export default function FreshEyeShopSite() {
               <ul className='list-disc ml-5'>
                 <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Anti Aging Aktivität'
-                    : 'Anti-aging activity'}
+                    ? 'Reinigt die Poren und entfernt selbst das Make up für ein klares und glattes Hautgefühl'
+                    : 'Cleans the pores and removes make-up for a clear and smooth skin feel'}
                 </li>
                 <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Lifting und Straffung der Lieder und Fältchen'
-                    : 'Lifting and tightening of the eyelids and wrinkles'}
+                    ? 'Entzündungshemmend verfeinert das Hautbild '
+                    : 'Anti-inflammatory refines the skin'}
                 </li>
                 <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Auch für die intensive Behandlung der Stirnfalten geeignet'
-                    : 'Also suitable for the intensive treatment of forehead wrinkles'}
+                    ? 'Für empfindliche Haut geeignet'
+                    : 'Suitable for sensitive skin'}
                 </li>
                 <li className='text-lg ttext-stone-800'>
-                  {language == 'de'
-                    ? 'Sichtbare Verjüngung der Augenpartie und Faltenreduzierung'
-                    : 'Visible rejuvenation of the eye area and wrinkle reduction'}
+                  {language == 'de' ? 'Strahlendes Hautbild' : 'Radiant skin'}
                 </li>
                 <li className='text-lg ttext-stone-800'>
                   {language == 'de'
@@ -157,8 +158,8 @@ export default function FreshEyeShopSite() {
                 </li>
                 <li className='text-lg ttext-stone-800'>
                   {language == 'de'
-                    ? 'Verlangsamt die Hautalterung'
-                    : 'Slows down skin aging'}
+                    ? 'Stellt das natürliche Hautgleichgewicht wieder her, enthält Hyaluronsäure zur optimalen Reinigung und Pflege der Gesichtshaut '
+                    : 'Restores the natural skin balance, contains hyaluronic acid for optimal cleansing and care of the skin'}
                 </li>
               </ul>
             </div>
@@ -178,7 +179,10 @@ export default function FreshEyeShopSite() {
         {/* product images */}
         <div className='mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center mb-10'>
           <div className='aspect-square rounded-lg'>
-            <ImageSlider urls={productImagesFresh} alt={`produkt bilder`} />
+            <ImageSlider
+              urls={productImagesFaceCleanser}
+              alt={`produkt bilder`}
+            />
           </div>
         </div>
 
@@ -191,10 +195,10 @@ export default function FreshEyeShopSite() {
             <div className='mt-10'>
               <AddToCartButton
                 product={{
-                  id: '4',
+                  id: '5',
                   name: 'Fresh Eyes Serum',
-                  price: FRESHEZESPRICE,
-                  image: productImagesFresh[0],
+                  price: FACECLEANSERPRICE,
+                  image: productImagesFaceCleanser[0],
                   quantity: 1,
                 }}
               />
@@ -225,8 +229,8 @@ export default function FreshEyeShopSite() {
         </h4>
 
         <div className='mt-5 px-3 pb-5'>
-          <h5 className='text-center font-semibold text-blue-400'>
-            FRESH EYES SERUM
+          <h5 className='text-center font-semibold text-pink-400'>
+            FACE CLEANSER
           </h5>
           {/* <p className=' text-stone-950 leading-snug mt-3'>
             {language == 'de'
@@ -235,24 +239,24 @@ export default function FreshEyeShopSite() {
           </p> */}
           <p className=' text-stone-950 leading-snug mt-3'>
             {language == 'de'
-              ? 'FRESH EYES SERUM besitzt besitzt Liftingwirkung mit einem Preisgekrönten Wirkstoff. Award Winner in seiner Wirksamkeit. 8D 8-fache Hyaloronsäure aus extrem micro Molekülen für eine bessere Feuchtigkeitsversorgung der empfindlichen Augenpartie. FRESH EYES SERUM zögert die Hautalterung hinaus und sorgt für eine sichtbare Verjüngung der Augenpartie.'
-              : 'FRESH EYES SERUM has a lifting effect with an award-winning active ingredient. Award Winner in its effectiveness. 8D 8-fold hyaluronic acid from extremely micro molecules for better moisturization of the sensitive eye area. FRESH EYES SERUM delays skin aging and provides visible rejuvenation of the eye area.'}
+              ? 'FACE CLEANSER besitzt positive Effekte auf die Haut, reduziert Rötungen und irritationen, ideal für gestresste Haut. Unterstützt die natürliche Schutzbarriere der Haut und bringt sie ins Gleichgewicht. Anti-Aging Wirkung durch die 8D 8-fache Hyaloronsäure aus extrem micro Molekülen für eine bessere Feuchtigkeitsversorgung der Haut.FACE CLEANSER verleiht der Haut ein frisches Hautgefühl, reinigt und pflegt selbst die sensible Haut, zögert die Hautalterung hinaus und sorgt für eine sichtbare gepflegte Haut.'
+              : 'FACE CLEANSER has positive effects on the skin, reduces redness and irritation, ideal for stressed skin. Supports the natural protective barrier of the skin and brings it into balance. Anti-Aging effect through the 8D 8-fold hyaluronic acid from extremely micro molecules for better moisturization of the skin.FACE CLEANSER gives the skin a fresh skin feel, cleanses and cares for the sensitive skin, delays skin aging and provides a visible well-cared-for skin.'}
           </p>
         </div>
 
         <div className='flex-col justify-between items-center gap-10 md:grid md:grid-cols-2'>
           <Card className='p-3 max-w-lg my-10 bg-gray-200'>
-            <h5 className='text-center font-semibold text-blue-400'>
-              FRESH EYES SERUM
+            <h5 className='text-center font-semibold text-pink-400'>
+              FACE CLEANSER
             </h5>
             <p className=' text-stone-950 leading-snug '>
               {language == 'de'
-                ? 'FRESH EYES SERUM besitzt einen Award Winner Wirkstoffzur gezielten sichtbaren Verjüngung der Augenpartie und Faltenreduzierung, Lifting & Straffung der Lider und Fältchen, für strahlende Augenblicke eine wertvolle natürliche Verbindung für eine nachgewiesene FALTENREDUZIERUNG'
-                : 'FRESH EYES SERUM has an Award Winner active ingredient for targeted visible rejuvenation of the eye area and wrinkle reduction, lifting & tightening of the eyelids and wrinkles, for radiant moments a valuable natural connection for proven WRINKLE REDUCTION'}
+                ? 'FACE CLEANSER bereitet die Gesichtshaut gründlich auf die Pflege vor, sodass nachfolgende Pflegeprodukte besser aufgenommen werden können. '
+                : 'FACE CLEANSER thoroughly prepares the skin for care, so that subsequent care products can be better absorbed.'}
             </p>
           </Card>
           <Image
-            src='/FRESH.png'
+            src='/FaceCleanser.jpeg'
             width={700}
             height={700}
             alt='miss glow fresh eyes'
@@ -267,13 +271,13 @@ export default function FreshEyeShopSite() {
             {language == 'de' ? '2 mal ' : 'Twice '}
           </span>
           {language == 'de'
-            ? ' Täglich auf Stirn und Augenpartie auftragen und einmassieren.'
-            : ' Apply and massage onto forehead and eye area twice daily.'}
+            ? 'Morgens und Abends auf die Gesichtshaut einen ganzen push FACE CLEANSER mit etwas Wasser aufemulgieren und das Gesicht reinigen, entfernt selbst Augen Make Up'
+            : 'Clean the skin with FACE CLEANSER morning and evening. Apply and massage onto the skin with a little water to emulsify and cleanse the skin, removes eye make-up.'}
         </p>
         <p className='text-xs text-center mt-10'>
           INCI:Centella asiatica extract, cell aqua, aloe barbadensis
-          extract,OLIGO -HA hydrolyzed sodium hyaluronate, acetyl
-          Hexapeptide-1,baicalin extract, Centella asiatica
+          extract,OLIGO -HA hydrolyzed sodium hyaluronate, Lactococcus ferment,
+          Centella asiatica aceide
           {language == 'de'
             ? '(das zum Wohlgefühl beiträgt)'
             : '(which contributes to well-being)'}
