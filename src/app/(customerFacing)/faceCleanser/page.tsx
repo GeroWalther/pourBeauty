@@ -15,6 +15,7 @@ import { Card } from '@/components/ui/card';
 import {
   FACECLEANSERPRICE,
   productImagesFaceCleanser,
+  PRODUCTS,
 } from '../../../../consts';
 
 export default function FaceCleanser() {
@@ -193,15 +194,7 @@ export default function FaceCleanser() {
               link={`${process.env.NEXT_PUBLIC_SERVER_URL}/freshEyes`}
             />
             <div className='mt-10'>
-              <AddToCartButton
-                product={{
-                  id: '5',
-                  name: 'Fresh Eyes Serum',
-                  price: FACECLEANSERPRICE,
-                  image: productImagesFaceCleanser[0],
-                  quantity: 1,
-                }}
-              />
+              <AddToCartButton product={PRODUCTS.find((p) => p.id === '5')} />
             </div>
             <div className='mt-6 text-center'>
               <div className='group inline-flex text-lg text-medium'>
