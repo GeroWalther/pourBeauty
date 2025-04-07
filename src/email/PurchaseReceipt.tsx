@@ -57,7 +57,7 @@ PurchaseReceiptEmail.PreviewProps = {
     email: 'sabine@kratz.com',
     pricePaidInCents: 22300,
     shippingCost: 5,
-    discountCode: 'MISSGLOW15',
+    discountCode: 'POURBEAUTY15',
   },
 } satisfies PurchaseReceiptEmailProps;
 
@@ -68,7 +68,7 @@ export default function PurchaseReceiptEmail({
 }: PurchaseReceiptEmailProps) {
   return (
     <Html>
-      <Preview>Bestellung - Miss Glow Beauty</Preview>
+      <Preview>Bestellung - POUR BEAUTY BIOLOGICAL</Preview>
       <Tailwind>
         <Head />
         <Body className='font-sans bg-pink-200'>
@@ -77,7 +77,7 @@ export default function PurchaseReceiptEmail({
               <Container>
                 <Img
                   src={`${process.env.NEXT_PUBLIC_SERVER_URL}/missglowlogo.png`}
-                  alt='Miss Glow Beauty Logo'
+                  alt='POUR BEAUTY BIOLOGICAL Logo'
                   className='w-56 h-56 object-cover'
                 />
                 {isAdmin ? (

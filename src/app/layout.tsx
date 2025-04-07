@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: 'MISS GLOW BEAUTY',
+  title: 'POUR BEAUTY BIOLOGICAL',
   description:
     'Willkommen zu deiner neuen Lieblingsmarke, Hol dir deinen GLOW LOOK!',
   keywords: [
@@ -89,9 +89,9 @@ export const metadata: Metadata = {
     'Beauty für alle Hauttypen',
     'Beauty-Tipps für Frauen',
   ],
-  // authors: ['Miss Glow Team'],
+  // authors: ['POUR BEAUTY BIOLOGICAL Team'],
   openGraph: {
-    title: 'MISS GLOW BEAUTY',
+    title: 'POUR BEAUTY BIOLOGICAL',
     description:
       'Willkommen zu deiner neuen Lieblingsmarke, Hol dir deinen GLOW LOOK!',
     url: `${process.env.NEXT_PUBLIC_SERVER_URL}`,
@@ -100,10 +100,10 @@ export const metadata: Metadata = {
         url: `/MagicGlowCreme.JPG`,
         width: 1200,
         height: 630,
-        alt: 'MISS GLOW BEAUTY - Logo',
+        alt: 'POUR BEAUTY BIOLOGICAL - Logo',
       },
     ],
-    siteName: 'MISS GLOW BEAUTY',
+    siteName: 'POUR BEAUTY BIOLOGICAL',
   },
 };
 

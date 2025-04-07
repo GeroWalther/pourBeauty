@@ -102,7 +102,7 @@ export default function FaceCleanser() {
                 {language == 'de' ? 'Hersteller' : 'Manufactured by'}
               </p>
               <span className='text-xl text-muted-foreground font-semibold'>
-                Miss Glow Beauty
+                POUR BEAUTY BIOLOGICAL
               </span>
             </div>
           </div>
