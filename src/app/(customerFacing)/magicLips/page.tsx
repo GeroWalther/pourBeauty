@@ -12,7 +12,7 @@ import FAQComponent from '@/components/components/homepage/FAQComp';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
-import { MAGICLIPSPRICE, productImgsLips } from '../../../../consts';
+import { MAGICLIPSPRICE, productImgsLips, PRODUCTS } from '../../../../consts';
 
 export default function MagicLipsShopSite() {
   const { language } = useLanguage();
@@ -178,15 +178,7 @@ export default function MagicLipsShopSite() {
               link={`${process.env.NEXT_PUBLIC_SERVER_URL}/magicLips`}
             />
             <div className='mt-10'>
-              <AddToCartButton
-                product={{
-                  id: '1',
-                  name: 'Magic Lips Serum',
-                  price: MAGICLIPSPRICE,
-                  image: productImgsLips[0],
-                  quantity: 1,
-                }}
-              />
+              <AddToCartButton product={PRODUCTS.find((p) => p.id === '2')} />
             </div>
             <div className='mt-6 text-center'>
               <div className='group inline-flex text-lg text-medium'>

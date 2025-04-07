@@ -46,7 +46,7 @@ export const galleryImages = [
 export const PRODUCTS = [
   {
     id: '1',
-    name: 'POUR BEAUTY BIOLOGICAL Magic Glow',
+    name: 'Magic Glow',
     description: 'Our signature beauty product for a radiant glow.',
     price: PRICEMAGICGLOW,
     image: productImagesGlowCreme[0],
@@ -56,7 +56,7 @@ export const PRODUCTS = [
   },
   {
     id: '2',
-    name: 'POUR BEAUTY BIOLOGICAL Magic Lips',
+    name: 'Magic Lips',
     description: 'Hydrating lip treatment for soft, plump lips.',
     price: MAGICLIPSPRICE,
     image: productImgsLips[0],
@@ -66,7 +66,7 @@ export const PRODUCTS = [
   },
   {
     id: '3',
-    name: 'POUR BEAUTY BIOLOGICAL Magic Elixir',
+    name: 'Magic Elixir',
     description: 'Advanced formula for youthful, rejuvenated skin.',
     price: MAGICELIXIRPRICE,
     image: productImagesMagicElixir[0],
@@ -76,7 +76,7 @@ export const PRODUCTS = [
   },
   {
     id: '4',
-    name: 'POUR BEAUTY BIOLOGICAL Fresh Eyes',
+    name: 'Fresh Eyes',
     description: 'Intensive treatment for youthful, vibrant eyes.',
     price: FRESHEZESPRICE,
     image: productImagesFresh[0],
@@ -86,7 +86,7 @@ export const PRODUCTS = [
   },
   {
     id: '5',
-    name: 'POUR BEAUTY BIOLOGICAL Face Cleanser',
+    name: 'Face Cleanser',
     description: 'Gentle cleansing formula for all skin types.',
     price: FACECLEANSERPRICE,
     image: productImagesFaceCleanser[0],

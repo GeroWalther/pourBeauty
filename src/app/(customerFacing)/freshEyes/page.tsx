@@ -12,7 +12,11 @@ import FAQComponent from '@/components/components/homepage/FAQComp';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
-import { FRESHEZESPRICE, productImagesFresh } from '../../../../consts';
+import {
+  FRESHEZESPRICE,
+  productImagesFresh,
+  PRODUCTS,
+} from '../../../../consts';
 
 export default function FreshEyeShopSite() {
   const { language } = useLanguage();
@@ -189,15 +193,7 @@ export default function FreshEyeShopSite() {
               link={`${process.env.NEXT_PUBLIC_SERVER_URL}/freshEyes`}
             />
             <div className='mt-10'>
-              <AddToCartButton
-                product={{
-                  id: '3',
-                  name: 'Fresh Eyes Serum',
-                  price: FRESHEZESPRICE,
-                  image: productImagesFresh[0],
-                  quantity: 1,
-                }}
-              />
+              <AddToCartButton product={PRODUCTS.find((p) => p.id === '4')} />
             </div>
             <div className='mt-6 text-center'>
               <div className='group inline-flex text-lg text-medium'>

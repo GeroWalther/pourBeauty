@@ -12,7 +12,11 @@ import FAQComponent from '@/components/components/homepage/FAQComp';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
-import { PRICEMAGICGLOW, productImagesGlowCreme } from '../../../../consts';
+import {
+  PRICEMAGICGLOW,
+  productImagesGlowCreme,
+  PRODUCTS,
+} from '../../../../consts';
 
 export default function MagicGlowShopSite() {
   const { language } = useLanguage();
@@ -189,15 +193,7 @@ export default function MagicGlowShopSite() {
               link={`${process.env.NEXT_PUBLIC_SERVER_URL}/magicGlow`}
             />
             <div className='mt-10'>
-              <AddToCartButton
-                product={{
-                  id: '2',
-                  name: 'Magic Glow Creme',
-                  price: PRICEMAGICGLOW,
-                  image: productImagesGlowCreme[0],
-                  quantity: 1,
-                }}
-              />
+              <AddToCartButton product={PRODUCTS.find((p) => p.id === '1')} />
             </div>
             <div className='mt-6 text-center'>
               <div className='group inline-flex text-lg text-medium'>

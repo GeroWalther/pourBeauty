@@ -12,7 +12,11 @@ import FAQComponent from '@/components/components/homepage/FAQComp';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
-import { MAGICELIXIRPRICE, productImagesMagicElixir } from '../../../../consts';
+import {
+  MAGICELIXIRPRICE,
+  productImagesMagicElixir,
+  PRODUCTS,
+} from '../../../../consts';
 
 export default function MagicElixir() {
   const { language } = useLanguage();
@@ -186,15 +190,7 @@ export default function MagicElixir() {
               link={`${process.env.NEXT_PUBLIC_SERVER_URL}/freshEyes`}
             />
             <div className='mt-10'>
-              <AddToCartButton
-                product={{
-                  id: '4',
-                  name: 'Fresh Eyes Serum',
-                  price: MAGICELIXIRPRICE,
-                  image: productImagesMagicElixir[0],
-                  quantity: 1,
-                }}
-              />
+              <AddToCartButton product={PRODUCTS.find((p) => p.id === '3')} />
             </div>
             <div className='mt-6 text-center'>
               <div className='group inline-flex text-lg text-medium'>
