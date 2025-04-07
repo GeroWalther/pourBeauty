@@ -12,11 +12,7 @@ export default function NavBarComp() {
     <>
       <Nav>
         <NavLink href='/'>{language == 'de' ? 'Start' : 'Home'}</NavLink>
-        <NavLink href='/magicLips'>MAGIC LIPS</NavLink>
-        <NavLink href='/magicGlow'>MAGIC GLOW</NavLink>
-        <NavLink href='/freshEyes'>FRESH EYES</NavLink>
-        <NavLink href='/magicElixir'>MAGIC ELIXIR</NavLink>
-        <NavLink href='/faceCleanser'>FACE CLEANSER</NavLink>
+        <NavLink href='/shop'>Shop</NavLink>
         <NavLink href='/about'>
           {language == 'de' ? 'Über uns' : 'About'}
         </NavLink>
