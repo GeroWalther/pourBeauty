@@ -153,8 +153,8 @@ export default function HeroComp() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className='text-center mt-16 md:mt-24'>
-          <h2 className='text-xl md:text-2xl text-stone-700 font-light'>
+          className='text-center mt-16 md:mt-24 mb-6'>
+          <h2 className='text-xl md:text-2xl text-stone-700 font-light '>
             {language === 'de' ? 'Hol dir deinen' : 'Get your '}
             <span className='font-medium text-amber-700'> Glow Look!</span>
           </h2>
