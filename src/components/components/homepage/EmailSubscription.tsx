@@ -68,15 +68,15 @@ function Subscribe() {
   return (
     <>
       <section>
-        <form onSubmit={subscribe} className='bg-orange-400 p-8'>
-          <h3 className='text-center text-pink-100 mb-4 text-4xl font-semibold'>
+        <form onSubmit={subscribe} className='bg-gray-500 p-8'>
+          <h3 className='text-center text-amber-100 mb-4 text-4xl font-semibold'>
             Newsletter
           </h3>
           <div className='bg-cover bg-center rounded-md shadow-xl md:flex grid grid-flow-cols-1 md:items-center justify-center'>
             <div className='w-full p-4 md:p-10'>
-              <p className='mb-2 text-base text-pink-100 font-semibold'>
+              <p className='mb-2 text-base text-amber-100 font-semibold'>
                 {language == 'de' ? 'Genießen Sie ' : 'Enjoy '}
-                <span className='text-xl text-pink-500'>15 %</span>
+                <span className='text-xl text-amber-500'>15 %</span>
                 {language == 'de'
                   ? ' Rabatt auf Ihre erste Bestellung'
                   : ' Discount on your first order'}
@@ -85,7 +85,7 @@ function Subscribe() {
                   ? 'UND ERFAHREN SIE ALS ERSTER'
                   : 'AND BE THE FIRST TO KNOW'}
               </p>
-              <ul className='mb-6 text-base text-pink-100 font-semibold'>
+              <ul className='mb-6 text-base text-amber-100 font-semibold'>
                 <li>
                   -{' '}
                   {language == 'de'
@@ -121,7 +121,7 @@ function Subscribe() {
                 />
                 <label
                   htmlFor='email-input'
-                  className='block mt-2 text-base font-bold ml-4 transition-all duration-300 text-pink-100'>
+                  className='block mt-2 text-base font-bold ml-4 transition-all duration-300 text-amber-100'>
                   {'E-Mail'}
                 </label>
               </div>
@@ -139,7 +139,7 @@ function Subscribe() {
                 />
                 <label
                   htmlFor='email-repeat'
-                  className='block mt-2 text-base font-bold ml-4 transition-all duration-300 text-pink-100'>
+                  className='block mt-2 text-base font-bold ml-4 transition-all duration-300 text-amber-100'>
                   {'E-Mail wiederholen'}
                 </label>
               </div>
@@ -155,11 +155,11 @@ function Subscribe() {
                 />
                 <label
                   htmlFor='Name-input'
-                  className='block mt-2 text-base font-bold ml-4 transition-all duration-300 text-pink-100'>
+                  className='block mt-2 text-base font-bold ml-4 transition-all duration-300 text-amber-100'>
                   {'Name'}
                 </label>
               </div>
-              <div className='mt-4 mb-8 text-pink-100 text-sm'>
+              <div className='mt-4 mb-8 text-amber-100 text-sm'>
                 <p>
                   {language == 'de'
                     ? '*Kein Spam. Durch Klicken auf " Einschreiben " erklären Sie sich mit den Datenschutzbestimmungen,Haftungsausschlüssen und Nutzungsbedingungen von Miss GlowBeauty einverstanden und gelesen haben. Die Kundenkarte mit attraktiven Konditionen ist nur auf Anfrage bei unseremKundenservice erhältlich.'

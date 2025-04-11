@@ -56,9 +56,9 @@ export default function Cart() {
       <SheetTrigger className='group -m-2 flex items-center p-2'>
         <ShoppingCart
           aria-hidden='true'
-          className='h-6 w-6 flex-shrink-0 text-stone-100 group-hover:text-orange-200'
+          className='h-6 w-6 flex-shrink-0 text-stone-800 group-hover:text-amber-800'
         />
-        <span className='ml-2 text-sm font-medium text-orange-100 group-hover:text-orang-200'>
+        <span className='ml-2 text-sm font-medium text-stone-800 group-hover:text-amber-800'>
           {isMounted ? itemCount : 0}
         </span>
       </SheetTrigger>
@@ -92,11 +92,11 @@ export default function Cart() {
                 {discount > 0 && (
                   <>
                     <div className='flex'>
-                      <span className='flex-1 font-bold text-pink-700'>
+                      <span className='flex-1 font-bold text-amber-700'>
                         {language == 'de' && 'Rabatt'}
                         {language == 'en' && 'Discount'}
                       </span>
-                      <span className='font-bold text-pink-700'>
+                      <span className='font-bold text-amber-700'>
                         - {discount} %
                       </span>
                     </div>

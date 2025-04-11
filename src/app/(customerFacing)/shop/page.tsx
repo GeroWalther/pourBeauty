@@ -24,7 +24,7 @@ export default function ShopPage() {
 
   return (
     <div className='container mx-auto py-12 px-4'>
-      <h1 className='text-3xl md:text-4xl font-bold text-center mb-12 text-pink-600'>
+      <h1 className='text-3xl md:text-4xl font-bold text-center mb-12 text-white'>
         {language === 'de' ? 'Unsere Produkte' : 'Our Products'}
       </h1>
 
@@ -48,11 +48,11 @@ export default function ShopPage() {
               </h2>
               <p className='text-gray-600 mb-4'>{product.description}</p>
               <div className='flex justify-between items-center'>
-                <span className='text-pink-600 font-bold text-lg'>
+                <span className='text-amber-600 font-bold text-lg'>
                   €{product.price}
                 </span>
                 <Link href={`/${product.slug}`}>
-                  <Button className='bg-pink-500 hover:bg-pink-600 text-white'>
+                  <Button className='bg-amber-500 hover:bg-amber-600 text-white'>
                     {language === 'de' ? 'Produkt anzeigen' : 'View Product'}
                   </Button>
                 </Link>

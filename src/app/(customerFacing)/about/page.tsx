@@ -9,7 +9,7 @@ export default function AboutPage() {
   const { language } = useLanguage();
   return (
     <MaxWidthWrapper className='mb-10'>
-      <div className='bg-gradient-to-r from-pink-400 via-pink-600 to-orange-400 p-2 rounded-lg shadow-2xl'>
+      <div className='bg-gradient-to-r from-amber-400 via-amber-600 to-red-400 p-2 rounded-lg shadow-2xl'>
         <h1 className='font-bold text-white text-center text-3xl mb-2'>
           {language === 'de' ? 'Was steckt dahinter' : 'The story behind.'}
         </h1>
@@ -31,7 +31,10 @@ export default function AboutPage() {
             <div className='space-y-4 mt-5'>
               <h3 className='text-gray-800 text-xl font-semibold'>
                 {language === 'de' ? 'HOL DIR DEINEN ' : 'GET YOUR '}
-                <span className='font-bold text-pink-500'> GLOW LOOK!</span>
+                <span className='font-bold text-amber-500 mb-10'>
+                  {' '}
+                  GLOW LOOK!
+                </span>
               </h3>
               <p className='text-gray-700 text-lg'>
                 {language === 'de'

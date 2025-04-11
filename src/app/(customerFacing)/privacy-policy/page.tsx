@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
   const { language } = useLanguage();
   return (
     <MaxWidthWrapper className='mb-10'>
-      <div className='bg-gradient-to-r from-pink-400 via-pink-600 to-orange-400 p-10 rounded-lg shadow-2xl'>
+      <div className='bg-gradient-to-r from-amber-400 via-amber-600 to-red-400 p-10 rounded-lg shadow-2xl'>
         <h1 className='font-bold text-white text-center text-3xl mb-8'>
           {language === 'de'
             ? 'Datenschutz auf einen Blick'

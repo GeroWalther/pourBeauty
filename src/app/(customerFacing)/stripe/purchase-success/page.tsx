@@ -49,10 +49,10 @@ export default async function SuccessPage({
         <div className='md:p-4 px-6'>
           {isSuccess ? (
             <>
-              <h2 className='text-4xl font-semibold text-pink-950 mb-2'>
+              <h2 className='text-4xl font-semibold text-amber-950 mb-2'>
                 Vielen Dank für deine Bestellung!
               </h2>
-              <h2 className='text-4xl font-semibold text-pink-950'>
+              <h2 className='text-4xl font-semibold text-amber-950'>
                 Thank you for your purchase!
               </h2>
             </>
@@ -63,14 +63,14 @@ export default async function SuccessPage({
             </h2>
           )}
 
-          <p className=' font-semibold text-pink-900 text-sm mt-5'>
+          <p className=' font-semibold text-amber-900 text-sm mt-5'>
             Wir haben deine Bestellung erhalten und werden sie bald bearbeiten.{' '}
             <br />
             Your Order will soon be shipped.
           </p>
 
           <div className='flex-col justify-between items-center mt-4'>
-            <p className=' font-semibold text-pink-900 mb-2'>
+            <p className=' font-semibold text-amber-900 mb-2'>
               Deine Bestellung / Order Summary :{' '}
             </p>
             <ProductOredered products={products} />
@@ -87,7 +87,7 @@ export default async function SuccessPage({
       </div>
       <div>
         <h2 className='text-2xl max-w-prose text-stone-900 font-light mb-4 md:mb-10 mx-20'>
-          <span className='font-bold text-pink-500'>The Glow Look!</span>
+          <span className='font-bold text-amber-500'>The Glow Look!</span>
         </h2>
         <ProductDisplay />
       </div>

@@ -38,7 +38,7 @@ export default function CheckoutForm() {
         <DialogTrigger asChild>
           <Button
             className={buttonVariants({
-              className: 'w-full bg-pink-500',
+              className: 'w-full bg-amber-500',
             })}>
             {language == 'en' ? 'Checkout' : 'Zur Kasse'}
           </Button>

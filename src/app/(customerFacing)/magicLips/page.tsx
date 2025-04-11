@@ -276,14 +276,14 @@ export default function MagicLipsShopSite() {
               : ' This ANTI-AGING treatment of the LIPS is Cosmeceutical and is based on a messenger peptide that restores glycosaminoglycans and collagen.'}
           </p>
           <div className='md:ml-20 ml-10 mt-12'>
-            <span className='font-bold text-pink-800 '>
+            <span className='font-bold text-amber-800 '>
               {language == 'de'
                 ? 'SOFORT SICHTBARE WIRKSAMKEIT'
                 : 'INSTANTLY VISIBLE EFFECTIVENESS'}
             </span>
           </div>
           <div className='mt-10'>
-            <span className='font-bold text-pink-800 '>
+            <span className='font-bold text-amber-800 '>
               {language == 'de'
                 ? 'MAGIC LIPS SERUM führt zu einer Verbesserung von Aussehen, Definition und Farbe der Lippen. Erhöht das Lippen Volumen bis zu 78%'
                 : 'MAGIC LIPS SERUM leads to an improvement in the appearance, definition and color of the lips. Increases lip volume up to 78%'}
@@ -295,7 +295,7 @@ export default function MagicLipsShopSite() {
               : ' has an ANTI-AGING active ingredient Centella Asiatica the best scientifically researched medicinal plant, is the non-plus-ultra in the fight against skin aging, have an excellent reduction of wrinkles in the mouth-lip area OLIGO amino acids, powerful active ingredients, for rejuvenation of the mouth area and the lips significantly fuller up to 78%. more voluminous and wrinkle-free in the scene.'}
           </p>
           <div className='mt-5'>
-            <span className='font-bold text-pink-800 '>
+            <span className='font-bold text-amber-800 '>
               {language == 'de'
                 ? 'Wohlgeformte bis zu 78% mehr Lippenvolumen, weiche sinnliche Lippen ohne Rillen und Fältchen.'
                 : 'Well-shaped up to 78% more lip volume, soft sensual lips without grooves and wrinkles.'}

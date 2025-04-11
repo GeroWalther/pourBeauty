@@ -29,35 +29,35 @@ export default function MobilNav({ children }: { children: ReactNode }) {
         <SheetContent
           setOpen={setOpen}
           side='left'
-          className='flex flex-col bg-pink-500'>
+          className='flex flex-col bg-amber-500'>
           <ScrollArea>
-            <nav className='grid gap-6 text-lg font-medium'>
+            <nav className='grid gap-6 text-lg font-light tracking-wide'>
               <div className='flex items-center mb-2'>
-                <div className='bg-pink-700 p-5 rounded-md'>
+                <div className='bg-amber-700 p-5 rounded-md'>
                   <Cart />
                 </div>
               </div>
               <Link
                 onClick={() => setOpen(false)}
                 href='/'
-                className='flex items-center rounded-xl text-white hover:text-foreground'>
+                className='flex items-center rounded-xl text-white hover:text-stone-800 transition-colors'>
                 <span>{language == 'de' ? 'Start' : 'Home'}</span>
               </Link>
               <Link
                 onClick={() => setOpen(false)}
                 href='/shop'
-                className='flex items-center rounded-xl  text-white text-muted-foreground hover:text-foreground'>
+                className='flex items-center rounded-xl text-white hover:text-stone-800 transition-colors'>
                 <span>Shop</span>
               </Link>
               <Link
                 onClick={() => setOpen(false)}
                 href='/about'
-                className='flex  text-white  items-center rounded-xl text-muted-foreground hover:text-foreground'>
+                className='flex items-center rounded-xl text-white hover:text-stone-800 transition-colors'>
                 <span>{language == 'de' ? 'Über uns' : 'About'}</span>
               </Link>
               <div>{children}</div>
             </nav>
-            <SheetFooter className='mt-10 bg-pink-300 flex rounded-full justify-center'>
+            <SheetFooter className='mt-10 bg-amber-300 flex rounded-full justify-center'>
               <Image
                 src='/missglowlogo.png'
                 width={250}

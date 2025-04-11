@@ -222,7 +222,7 @@ export default function FaceCleanser() {
         </h4>
 
         <div className='mt-5 px-3 pb-5'>
-          <h5 className='text-center font-semibold text-pink-400'>
+          <h5 className='text-center font-semibold text-amber-400'>
             FACE CLEANSER
           </h5>
           {/* <p className=' text-stone-950 leading-snug mt-3'>
@@ -239,7 +239,7 @@ export default function FaceCleanser() {
 
         <div className='flex-col justify-between items-center gap-10 md:grid md:grid-cols-2'>
           <Card className='p-3 max-w-lg my-10 bg-gray-200'>
-            <h5 className='text-center font-semibold text-pink-400'>
+            <h5 className='text-center font-semibold text-orange-400'>
               FACE CLEANSER
             </h5>
             <p className=' text-stone-950 leading-snug '>

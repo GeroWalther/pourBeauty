@@ -71,7 +71,7 @@ export default function PurchaseReceiptEmail({
       <Preview>Bestellung - PURE BEAUTY BIOLOGICAL</Preview>
       <Tailwind>
         <Head />
-        <Body className='font-sans bg-pink-200'>
+        <Body className='font-sans bg-amber-200'>
           <Container className='max-w-lg'>
             <Heading>
               <Container>

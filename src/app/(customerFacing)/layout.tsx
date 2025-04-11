@@ -31,7 +31,7 @@ export default function Layout({
           </div>
           <NavBarComp />
         </div>
-        <Canvas className='absolute top-0 left-0 -z-10' />
+        {/* <Canvas className='absolute top-0 left-0 -z-10' /> */}
         <div className=''>{children}</div>
         <Footer />
         <Toaster position='top-center' richColors />

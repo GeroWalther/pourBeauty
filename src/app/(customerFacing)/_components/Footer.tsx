@@ -10,7 +10,7 @@ export default function Footer() {
   const { language } = useLanguage();
   const currentYear = new Date().getFullYear();
   return (
-    <footer className='flex justify-center  md:justify-start bg-orange-400'>
+    <footer className='flex justify-center  md:justify-start bg-gray-500'>
       <div className='px-4 pt-4 grid grid-cols-2 md:grid-cols-3 md:gap-14'>
         <div className='mb-5 mr-20'>
           <ul className='flex gap-6 '>

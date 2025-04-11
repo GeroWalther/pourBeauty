@@ -11,7 +11,9 @@ export default function LanguageSwitcher({ mobile = false }) {
   return (
     <button
       onClick={toggleLanguage}
-      className={`mt-1 ${mobile ? 'text-white' : ''}`}>
+      className={`mt-1 font-medium ${
+        mobile ? 'text-white' : 'text-stone-800 hover:text-amber-800'
+      }`}>
       <span>{language.toUpperCase()}</span>
       {/* {language === 'de' ? 'English' : 'Deutsch'} */}
     </button>
