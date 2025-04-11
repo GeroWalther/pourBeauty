@@ -39,7 +39,7 @@ export default function HeroComp() {
         className='absolute top-40 -left-40 w-96 h-96 rounded-full border border-amber-100 opacity-30'
       />
 
-      <div className='container mx-auto px-4 pt-20 md:pt-32 relative z-10'>
+      <div className='container mx-auto px-4 pt-4 md:pt-8 relative z-10'>
         <div className='flex flex-col md:flex-row items-center justify-between'>
           {/* Text content */}
           <div className='md:w-1/2 text-center md:text-left mb-12 md:mb-0'>
@@ -47,7 +47,7 @@ export default function HeroComp() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className='inline-block mb-4 px-4 py-1 bg-amber-50 border-l-2 border-amber-400 text-amber-800'>
+              className='inline-block  px-4 py-1 bg-amber-50 border-l-2 border-amber-400 text-amber-800'>
               <span className='text-sm font-medium tracking-wider'>
                 {language === 'de'
                   ? 'PREMIUM NATURKOSMETIK'
@@ -55,14 +55,26 @@ export default function HeroComp() {
               </span>
             </motion.div>
 
-            <motion.h1
+            {/* <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className='text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-stone-800 mb-4'>
               <span className='font-medium text-amber-700'>PURE</span> BEAUTY
               <span className='block mt-2 text-amber-800'>BIOLOGICAL</span>
-            </motion.h1>
+            </motion.h1> */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className='mb-6 mt-5'>
+              <Image
+                src='/PUREBEAUTYLOGO.png.PNG'
+                alt='Pure Beauty Biological logo'
+                width={400}
+                height={400}
+              />
+            </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -84,16 +96,16 @@ export default function HeroComp() {
                 className={buttonVariants({
                   variant: 'outline',
                   className:
-                    'border-amber-300 text-amber-800 hover:bg-amber-50 hover:text-amber-900 group',
+                    'border-[`${}`] text-amber-800 hover:bg-amber-50 hover:text-amber-900 group',
                 })}>
                 {language === 'de' ? 'Unsere Geschichte' : 'Our Story'}
                 <ChevronRight className='ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform' />
               </Link>
 
               <Link
-                href='/magicGlow'
+                href='/shop'
                 className={buttonVariants({
-                  className: 'bg-amber-700 hover:bg-amber-800 text-white',
+                  className: 'bg-amber-200 hover:bg-amber-300 text-white',
                 })}>
                 {language === 'de' ? 'Produkte entdecken' : 'Discover Products'}
               </Link>

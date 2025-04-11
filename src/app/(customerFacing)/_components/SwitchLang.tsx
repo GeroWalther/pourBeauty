@@ -1,5 +1,6 @@
 'use client';
 import { useLanguage } from '@/contexts/LanguageProvider';
+import { PRIMARYBUTTONCOLOR } from '../../../../consts';
 
 export default function LanguageSwitcher({ mobile = false }) {
   const { language, setLanguage } = useLanguage();
@@ -12,7 +13,7 @@ export default function LanguageSwitcher({ mobile = false }) {
     <button
       onClick={toggleLanguage}
       className={`mt-1 font-medium ${
-        mobile ? 'text-white' : 'text-stone-800 hover:text-amber-800'
+        mobile ? 'text-white' : 'text-stone-800 hover:text-amber-700'
       }`}>
       <span>{language.toUpperCase()}</span>
       {/* {language === 'de' ? 'English' : 'Deutsch'} */}

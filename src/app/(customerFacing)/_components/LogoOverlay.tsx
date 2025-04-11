@@ -36,7 +36,7 @@ const LogoOverlay: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className='relative z-10 mb-8'>
               <Image
-                src='/PUREBEAUTYLOGO.png.PNG'
+                src='/PUREBEAUTYLOGO.Overlay.PNG'
                 width={400}
                 height={300}
                 alt='PURE BEAUTY BIOLOGICAL'

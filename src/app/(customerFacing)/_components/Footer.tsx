@@ -5,6 +5,7 @@ import TikTokIcon from '@/components/svg/TikTokIcon';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import Link from 'next/link';
 import React from 'react';
+import { PRIMARYBUTTONCOLOR } from '../../../../consts';
 
 export default function Footer() {
   const { language } = useLanguage();

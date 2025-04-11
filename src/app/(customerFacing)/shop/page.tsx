@@ -5,7 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageProvider';
-import { PRODUCTS } from '../../../../consts';
+import {
+  PRODUCTS,
+  PRIMARYBUTTONCOLOR,
+  HOVERBUTTONCOLOR,
+} from '../../../../consts';
 
 // Define product type
 type Product = {
@@ -24,8 +28,10 @@ export default function ShopPage() {
 
   return (
     <div className='container mx-auto py-12 px-4'>
-      <h1 className='text-3xl md:text-4xl font-bold text-center mb-12 text-white'>
-        {language === 'de' ? 'Unsere Produkte' : 'Our Products'}
+      <h1 className='text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800'>
+        {language === 'de'
+          ? 'Premium Naturkosmetik'
+          : 'Premium Nature Cosmetics'}
       </h1>
 
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
@@ -48,11 +54,12 @@ export default function ShopPage() {
               </h2>
               <p className='text-gray-600 mb-4'>{product.description}</p>
               <div className='flex justify-between items-center'>
-                <span className='text-amber-600 font-bold text-lg'>
+                <span
+                  className={`text-[${PRIMARYBUTTONCOLOR}] font-bold text-lg`}>
                   €{product.price}
                 </span>
                 <Link href={`/${product.slug}`}>
-                  <Button className='bg-amber-500 hover:bg-amber-600 text-white'>
+                  <Button className='bg-amber-200 hover:bg-amber-300 text-black'>
                     {language === 'de' ? 'Produkt anzeigen' : 'View Product'}
                   </Button>
                 </Link>

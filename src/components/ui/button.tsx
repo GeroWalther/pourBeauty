@@ -3,22 +3,23 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
+import { HOVERBUTTONCOLOR, PRIMARYBUTTONCOLOR } from '../../../consts';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
         default:
-          'bg-amber-700 text-white shadow hover:bg-amber-800 px-10 text-xl',
+          'bg-amber-200 text-black shadow hover:bg-amber-300 px-10 text-xl',
         destructive:
           'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
         outline:
-          'border border-amber-300 bg-background shadow-sm hover:bg-amber-50 hover:text-amber-800 text-xl',
+          'border border-amber-200 bg-background shadow-sm hover:bg-amber-300/50 hover:text-black text-xl',
         secondary:
-          'bg-amber-100 text-amber-800 shadow-sm hover:bg-amber-200 hover:text-amber-900',
-        ghost: 'hover:bg-amber-50 hover:text-amber-800',
-        link: 'text-amber-700 underline-offset-4 hover:underline hover:text-amber-800',
+          'bg-amber-200/30 text-black shadow-sm hover:bg-amber-300/40 hover:text-black',
+        ghost: 'hover:bg-amber-300/10 hover:text-black',
+        link: 'text-amber-200 underline-offset-4 hover:underline hover:text-amber-300',
       },
       size: {
         default: 'h-9 px-4 py-2',

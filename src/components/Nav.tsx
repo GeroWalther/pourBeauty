@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { ComponentProps } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
+import { PRIMARYBUTTONCOLOR } from '../../consts';
 
 export default function Nav({
   children,
@@ -14,8 +15,8 @@ export default function Nav({
 }) {
   return (
     <nav
-      className={`text-primary-foreground md:flex justify-center px-4 gap-4 p-2 ${
-        admin ? 'bg-primary flex' : 'bg-transparent hidden'
+      className={`md:flex justify-center px-4 gap-4 p-2 ${
+        admin ? 'bg-primary flex' : 'bg-white hidden'
       }`}>
       {children}
     </nav>
@@ -28,10 +29,10 @@ export function NavLink(props: Omit<ComponentProps<typeof Link>, 'className'>) {
     <Link
       {...props}
       className={cn(
-        'p-2 mx-1 rounded-md hover:bg-amber-100 text-sm font-light tracking-wide hover:text-amber-800 focus-visible:bg-amber-100 focus-visible:text-amber-800',
+        `p-2 mx-1 rounded-md hover:bg-[${PRIMARYBUTTONCOLOR}] hover:text-black text-sm font-extralight tracking-widest uppercase focus-visible:bg-[${PRIMARYBUTTONCOLOR}] focus-visible:text-black transition-colors`,
         pathname === props.href
-          ? 'bg-amber-100 text-amber-800'
-          : 'text-stone-800'
+          ? `bg-[${PRIMARYBUTTONCOLOR}] text-black`
+          : 'text-black'
       )}
     />
   );

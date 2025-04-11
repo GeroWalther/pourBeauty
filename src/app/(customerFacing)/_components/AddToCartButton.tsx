@@ -25,7 +25,7 @@ export default function AddToCartButton({ product }: { product: any }) {
         setIsSuccess(true);
       }}
       size='lg'
-      className='w-full'>
+      className='w-full bg-amber-200 hover:bg-amber-300'>
       {isSuccess && language === 'de' && 'Hinzugefügt!'}
       {!isSuccess && language === 'de' && 'In den Warenkorb'}{' '}
       {isSuccess && language === 'en' && 'Added!'}

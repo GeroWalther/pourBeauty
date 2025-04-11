@@ -24,6 +24,7 @@ import {
 } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageProvider';
 import { saveOrder } from '@/app/actions/orders';
+import { PRIMARYBUTTONCOLOR, HOVERBUTTONCOLOR } from '../../../../../consts';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string
@@ -73,7 +74,11 @@ export default function CheckoutStripe() {
   return (
     <div>
       {isLoading && (
-        <Loader2 size={50} color='#f23cce' className=' animate-spin ' />
+        <Loader2
+          size={50}
+          color={PRIMARYBUTTONCOLOR}
+          className=' animate-spin '
+        />
       )}
       {clientSecret && (
         <Elements options={{ clientSecret }} stripe={stripePromise}>
@@ -181,7 +186,8 @@ function Form({ toPay, items }: { toPay: number; items: CartItem[] }) {
           <Button
             disabled={stripe === null || elements === null || isLoading}
             className={buttonVariants({
-              className: 'w-full bg-amber-500 mt-4 font-semibold text-lg',
+              className:
+                'w-full bg-amber-200 hover:bg-amber-300 mt-4 font-semibold text-lg',
             })}>
             {isLoading
               ? 'Ladevorgang...'

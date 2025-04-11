@@ -1,5 +1,9 @@
 export const SHIPPING = 5;
 
+// Colors
+export const PRIMARYBUTTONCOLOR = '#E9D376';
+export const HOVERBUTTONCOLOR = '##dcc356'; // Slightly darker gold for hover states
+
 //prizes
 export const FRESHEZESPRICE = 64;
 export const PRICEMAGICGLOW = 79;

@@ -20,7 +20,7 @@ export default function Layout({
       <main className='relative'>
         <LogoOverlay />
         <div className='flex items-center justify-between px-6 md:px-12'>
-          <div className='flex-shrink-0 w-40 md:w-32 lg:w-44'>
+          {/* <div className='flex-shrink-0 w-40 md:w-32 lg:w-44'>
             <Image
               src='/PUREBEAUTYLOGO.png.PNG'
               width={100}
@@ -28,7 +28,7 @@ export default function Layout({
               alt='logo'
               className='object-contain'
             />
-          </div>
+          </div> */}
           <NavBarComp />
         </div>
         {/* <Canvas className='absolute top-0 left-0 -z-10' /> */}

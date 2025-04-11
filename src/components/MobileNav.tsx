@@ -9,6 +9,7 @@ import { Button } from './ui/button';
 import Cart from '@/app/(customerFacing)/_components/Cart';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageProvider';
+import { PRIMARYBUTTONCOLOR } from '../../consts';
 
 export default function MobilNav({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -29,41 +30,42 @@ export default function MobilNav({ children }: { children: ReactNode }) {
         <SheetContent
           setOpen={setOpen}
           side='left'
-          className='flex flex-col bg-amber-500'>
+          className='flex flex-col bg-white text-black'>
           <ScrollArea>
-            <nav className='grid gap-6 text-lg font-light tracking-wide'>
+            <nav className='grid gap-6 text-lg font-extralight tracking-widest'>
               <div className='flex items-center mb-2'>
-                <div className='bg-amber-700 p-5 rounded-md'>
+                <div
+                  className={`bg-white border border-[${PRIMARYBUTTONCOLOR}] p-5 rounded-md`}>
                   <Cart />
                 </div>
               </div>
               <Link
                 onClick={() => setOpen(false)}
                 href='/'
-                className='flex items-center rounded-xl text-white hover:text-stone-800 transition-colors'>
-                <span>{language == 'de' ? 'Start' : 'Home'}</span>
+                className={`flex items-center rounded-xl text-black hover:text-[${PRIMARYBUTTONCOLOR}] transition-colors`}>
+                <span>{language == 'de' ? 'START' : 'HOME'}</span>
               </Link>
               <Link
                 onClick={() => setOpen(false)}
                 href='/shop'
-                className='flex items-center rounded-xl text-white hover:text-stone-800 transition-colors'>
-                <span>Shop</span>
+                className={`flex items-center rounded-xl text-black hover:text-[${PRIMARYBUTTONCOLOR}] transition-colors`}>
+                <span>SHOP</span>
               </Link>
               <Link
                 onClick={() => setOpen(false)}
                 href='/about'
-                className='flex items-center rounded-xl text-white hover:text-stone-800 transition-colors'>
-                <span>{language == 'de' ? 'Über uns' : 'About'}</span>
+                className={`flex items-center rounded-xl text-black hover:text-[${PRIMARYBUTTONCOLOR}] transition-colors`}>
+                <span>{language == 'de' ? 'ÜBER UNS' : 'ABOUT'}</span>
               </Link>
               <div>{children}</div>
             </nav>
-            <SheetFooter className='mt-10 bg-amber-300 flex rounded-full justify-center'>
+            <SheetFooter className='mt-10 flex justify-center'>
               <Image
                 src='/missglowlogo.png'
                 width={250}
                 height={50}
                 alt='logo'
-                className=' mt-1 -mb-10'
+                className='mt-1 -mb-10 opacity-90 filter invert'
               />
             </SheetFooter>
           </ScrollArea>

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 
 import { Button, buttonVariants } from '@/components/ui/button';
+import { PRIMARYBUTTONCOLOR, HOVERBUTTONCOLOR } from '../../../../../consts';
 
 import {
   Dialog,
@@ -38,7 +39,7 @@ export default function CheckoutForm() {
         <DialogTrigger asChild>
           <Button
             className={buttonVariants({
-              className: 'w-full bg-amber-500',
+              className: 'w-full bg-amber-200 hover:bg-amber-300',
             })}>
             {language == 'en' ? 'Checkout' : 'Zur Kasse'}
           </Button>

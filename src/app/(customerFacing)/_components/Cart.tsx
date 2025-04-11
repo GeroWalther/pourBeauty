@@ -20,7 +20,11 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { useLanguage } from '@/contexts/LanguageProvider';
-import { SHIPPING } from '../../../../consts';
+import {
+  SHIPPING,
+  PRIMARYBUTTONCOLOR,
+  HOVERBUTTONCOLOR,
+} from '../../../../consts';
 import useCartTotals from '@/hooks/use-to-pay';
 import CheckoutForm from '../checkout/_components/CheckoutForm';
 import DiscountCodeInput from './DiscountCodeInput';
@@ -56,9 +60,9 @@ export default function Cart() {
       <SheetTrigger className='group -m-2 flex items-center p-2'>
         <ShoppingCart
           aria-hidden='true'
-          className='h-6 w-6 flex-shrink-0 text-stone-800 group-hover:text-amber-800'
+          className='h-6 w-6 flex-shrink-0 text-stone-500 group-hover:text-amber-500'
         />
-        <span className='ml-2 text-sm font-medium text-stone-800 group-hover:text-amber-800'>
+        <span className='ml-2 text-sm font-medium text-stone-500 group-hover:text-amber-500'>
           {isMounted ? itemCount : 0}
         </span>
       </SheetTrigger>

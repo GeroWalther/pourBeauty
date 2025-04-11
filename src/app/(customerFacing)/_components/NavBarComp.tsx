@@ -9,7 +9,7 @@ import { useLanguage } from '@/contexts/LanguageProvider';
 export default function NavBarComp() {
   const { language } = useLanguage();
   return (
-    <>
+    <div className='border-b border-gray-200'>
       <Nav>
         <NavLink href='/'>{language == 'de' ? 'Start' : 'Home'}</NavLink>
         <NavLink href='/shop'>Shop</NavLink>
@@ -24,6 +24,6 @@ export default function NavBarComp() {
       <MobilNav>
         <LanguageSwitcher mobile />
       </MobilNav>
-    </>
+    </div>
   );
 }
