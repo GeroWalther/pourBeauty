@@ -23,46 +23,49 @@ function Subscribe() {
   const subscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    const emailIsValid = emailIsTheSame(
-      (inputEl.current?.value ?? '') as string,
-      (inputElRep.current?.value ?? '') as string
-    );
-    try {
-      //Send a request to our API with the user's email address.
-      const res = await fetch('/api/subscribe', {
-        body: JSON.stringify({
-          email: inputEl.current?.value,
-          name: inputName.current?.value,
-          emailIsValid,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      });
-      const { msg, error } = await res.json();
-      if (error) {
-        toast.error(error);
-      }
-      if (msg) {
-        toast.success(msg);
-      }
+    toast.success('Subscribed!');
+    console.log('Subscribed');
+    //for now we don't need to send the email to the API - later in Production we need the necessary API Key from Resend to make that work.
+    // const emailIsValid = emailIsTheSame(
+    //   (inputEl.current?.value ?? '') as string,
+    //   (inputElRep.current?.value ?? '') as string
+    // );
+    // try {
+    //   //Send a request to our API with the user's email address.
+    //   const res = await fetch('/api/subscribe', {
+    //     body: JSON.stringify({
+    //       email: inputEl.current?.value,
+    //       name: inputName.current?.value,
+    //       emailIsValid,
+    //     }),
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     method: 'POST',
+    //   });
+    //   const { msg, error } = await res.json();
+    //   if (error) {
+    //     toast.error(error);
+    //   }
+    //   if (msg) {
+    //     toast.success(msg);
+    //   }
 
-      //  Clear the input value and show a success message.
-      if (inputEl.current) {
-        inputEl.current.value = '';
-      }
-      if (inputElRep.current) {
-        inputElRep.current.value = '';
-      }
-      if (inputName.current) {
-        inputName.current.value = '';
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
+    //   //  Clear the input value and show a success message.
+    //   if (inputEl.current) {
+    //     inputEl.current.value = '';
+    //   }
+    //   if (inputElRep.current) {
+    //     inputElRep.current.value = '';
+    //   }
+    //   if (inputName.current) {
+    //     inputName.current.value = '';
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // } finally {
+    //   setIsLoading(false);
+    // }
   };
 
   return (
