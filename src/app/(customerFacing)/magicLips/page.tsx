@@ -98,7 +98,7 @@ export default function MagicLipsShopSite() {
                 {language == 'de' ? 'Hersteller' : 'Manufactured by'}
               </p>
               <span className='text-xl text-muted-foreground font-semibold'>
-                POUR BEAUTY BIOLOGICAL
+                PURE BEAUTY BIOLOGICAL
               </span>
             </div>
           </div>

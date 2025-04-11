@@ -13,8 +13,8 @@ const TestimonialsSection = () => {
       alt: 'Hannah Photo',
       text:
         language == 'de'
-          ? 'Ich habe POUR BEAUTY BIOLOGICAL für die ganze Familie und es spart so viel Zeit! Außerdem ist alles biologisch und vegan und ohne Plastik.'
-          : 'I have POUR BEAUTY BIOLOGICAL for the whole family and it saves so much time! Plus everything is organic and vegan and without plastic.',
+          ? 'Ich habe PURE BEAUTY BIOLOGICAL für die ganze Familie und es spart so viel Zeit! Außerdem ist alles biologisch und vegan und ohne Plastik.'
+          : 'I have PURE BEAUTY BIOLOGICAL for the whole family and it saves so much time! Plus everything is organic and vegan and without plastic.',
       name: 'Hannah',
     },
     {
@@ -40,8 +40,8 @@ const TestimonialsSection = () => {
       alt: 'Sabine Photo',
       text:
         language == 'de'
-          ? 'Die Kosmetikprodukte von POUR BEAUTY BIOLOGICAL sind fantastisch! Sie haben meine Haut zum Strahlen gebracht und ich fühle mich großartig.'
-          : 'The cosmetics from POUR BEAUTY BIOLOGICAL are fantastic! They have made my skin glow and I feel great.',
+          ? 'Die Kosmetikprodukte von PURE BEAUTY BIOLOGICAL sind fantastisch! Sie haben meine Haut zum Strahlen gebracht und ich fühle mich großartig.'
+          : 'The cosmetics from PURE BEAUTY BIOLOGICAL are fantastic! They have made my skin glow and I feel great.',
       name: 'Sabine',
     },
   ];

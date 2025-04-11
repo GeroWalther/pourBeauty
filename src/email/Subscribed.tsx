@@ -18,7 +18,7 @@ type WelcomeEmailProps = {
 export default function Subscribed({ name }: WelcomeEmailProps) {
   return (
     <Html>
-      <Preview>Willkommen bei POUR BEAUTY BIOLOGICAL!</Preview>
+      <Preview>Willkommen bei PURE BEAUTY BIOLOGICAL!</Preview>
       <Tailwind>
         <Head />
         <Body className='font-sans bg-pink-200'>
@@ -27,14 +27,14 @@ export default function Subscribed({ name }: WelcomeEmailProps) {
               <Container>
                 <Img
                   src={`${process.env.NEXT_PUBLIC_SERVER_URL}/missglowlogo.png`}
-                  alt='POUR BEAUTY BIOLOGICAL Logo'
+                  alt='PURE BEAUTY BIOLOGICAL Logo'
                   className='w-56 h-56 object-cover'
                 />
                 <Text className='-mt-20'>Willkommen, {name}!</Text>
               </Container>
             </Heading>
             <Text className='-mt-10'>
-              Vielen Dank, dass du dich bei POUR BEAUTY BIOLOGICAL Newsletter
+              Vielen Dank, dass du dich bei PURE BEAUTY BIOLOGICAL Newsletter
               eingeschrieben hast. Als Dankeschön bekommst du einen Rabattcode
               für deinen nächsten Einkauf:
             </Text>

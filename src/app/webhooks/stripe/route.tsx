@@ -86,7 +86,7 @@ export async function POST(req: NextRequest) {
       try {
         // send email to customer
         await resend.emails.send({
-          from: `Bestellung POUR BEAUTY BIOLOGICAL <${process.env.SENDER_EMAIL}>`,
+          from: `Bestellung PURE BEAUTY BIOLOGICAL <${process.env.SENDER_EMAIL}>`,
           to: email,
           subject: 'Vielen Dank für deine Bestellung',
           react: (

@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: 'POUR BEAUTY BIOLOGICAL',
+  title: 'PURE BEAUTY BIOLOGICAL',
   description:
     'Willkommen zu deiner neuen Lieblingsmarke, Hol dir deinen GLOW LOOK!',
   keywords: [
@@ -89,9 +89,9 @@ export const metadata: Metadata = {
     'Beauty für alle Hauttypen',
     'Beauty-Tipps für Frauen',
   ],
-  // authors: ['POUR BEAUTY BIOLOGICAL Team'],
+  // authors: ['PURE BEAUTY BIOLOGICAL Team'],
   openGraph: {
-    title: 'POUR BEAUTY BIOLOGICAL',
+    title: 'PURE BEAUTY BIOLOGICAL',
     description:
       'Willkommen zu deiner neuen Lieblingsmarke, Hol dir deinen GLOW LOOK!',
     url: `${process.env.NEXT_PUBLIC_SERVER_URL}`,
@@ -100,10 +100,10 @@ export const metadata: Metadata = {
         url: `/MagicGlowCreme.JPG`,
         width: 1200,
         height: 630,
-        alt: 'POUR BEAUTY BIOLOGICAL - Logo',
+        alt: 'PURE BEAUTY BIOLOGICAL - Logo',
       },
     ],
-    siteName: 'POUR BEAUTY BIOLOGICAL',
+    siteName: 'PURE BEAUTY BIOLOGICAL',
   },
 };
 

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Impressum - POUR BEAUTY BIOLOGICAL ',
+  title: 'Impressum - PURE BEAUTY BIOLOGICAL ',
   description: 'Impressum',
 };
 

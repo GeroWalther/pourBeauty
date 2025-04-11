@@ -68,7 +68,7 @@ export default function PurchaseReceiptEmail({
 }: PurchaseReceiptEmailProps) {
   return (
     <Html>
-      <Preview>Bestellung - POUR BEAUTY BIOLOGICAL</Preview>
+      <Preview>Bestellung - PURE BEAUTY BIOLOGICAL</Preview>
       <Tailwind>
         <Head />
         <Body className='font-sans bg-pink-200'>
@@ -77,7 +77,7 @@ export default function PurchaseReceiptEmail({
               <Container>
                 <Img
                   src={`${process.env.NEXT_PUBLIC_SERVER_URL}/missglowlogo.png`}
-                  alt='POUR BEAUTY BIOLOGICAL Logo'
+                  alt='PURE BEAUTY BIOLOGICAL Logo'
                   className='w-56 h-56 object-cover'
                 />
                 {isAdmin ? (
