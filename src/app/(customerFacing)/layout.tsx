@@ -1,5 +1,5 @@
 import React from 'react';
-import { Canvas } from '../../components/components/homepage/Hero';
+import { Canvas } from '@/components/ui/Canvas';
 import { LanguageProvider } from '@/contexts/LanguageProvider';
 
 import Image from 'next/image';
@@ -19,9 +19,15 @@ export default function Layout({
     <LanguageProvider>
       <main className='relative'>
         <LogoOverlay />
-        <div className='flex items-center justify-around md:-mt-12 md:-mb-20 gap-10'>
-          <div className='mt-1 -mb-14 mr-5 flex-shrink-0 md:mr-0 w-60 md:w-44 md:mt-10 md:mb-0 lg:w-72'>
-            <Image src='/lippe.png' width={350} height={100} alt='logo' />
+        <div className='flex items-center justify-between px-6 md:px-12'>
+          <div className='flex-shrink-0 w-40 md:w-32 lg:w-44'>
+            <Image
+              src='/PUREBEAUTYLOGO.png.PNG'
+              width={100}
+              height={40}
+              alt='logo'
+              className='object-contain'
+            />
           </div>
           <NavBarComp />
         </div>

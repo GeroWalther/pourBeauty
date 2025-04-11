@@ -9,7 +9,7 @@ const TestimonialsSection = () => {
   const { language } = useLanguage();
   const testimonials = [
     {
-      img: '/lippe.png',
+      img: '/PUREBEAUTYLOGO.png.PNG',
       alt: 'Hannah Photo',
       text:
         language == 'de'
@@ -18,7 +18,7 @@ const TestimonialsSection = () => {
       name: 'Hannah',
     },
     {
-      img: '/lippe.png',
+      img: '/PUREBEAUTYLOGO.png.PNG',
       alt: 'Tatiana Photo',
       text:
         language == 'de'
@@ -27,7 +27,7 @@ const TestimonialsSection = () => {
       name: 'Tatiana',
     },
     {
-      img: '/lippe.png',
+      img: '/PUREBEAUTYLOGO.png.PNG',
       alt: 'Heidi Photo',
       text:
         language == 'de'
@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
       name: 'Heidi',
     },
     {
-      img: '/lippe.png',
+      img: '/PUREBEAUTYLOGO.png.PNG',
       alt: 'Sabine Photo',
       text:
         language == 'de'
