@@ -14,7 +14,7 @@ export default function Nav({
 }) {
   return (
     <nav
-      className={`text-primary-foreground md:flex justify-center px-4 gap-1 p-2 ${
+      className={`text-primary-foreground md:flex justify-center px-4 gap-6 p-2 ${
         admin ? 'bg-primary flex' : 'bg-transparent hidden'
       }`}>
       {children}
@@ -28,7 +28,7 @@ export function NavLink(props: Omit<ComponentProps<typeof Link>, 'className'>) {
     <Link
       {...props}
       className={cn(
-        ' p-2 rounded-md hover:bg-pink-200 text-sm font-semibold hover:text-pink-800 focus-visible:bg-pink-200  focus-visible:text-pink-800 ',
+        ' p-1 rounded-md hover:bg-pink-200 text-xs font-semibold hover:text-pink-800 focus-visible:bg-pink-200  focus-visible:text-pink-800 ',
         pathname === props.href ? 'bg-pink-200 text-pink-800' : ''
       )}
     />

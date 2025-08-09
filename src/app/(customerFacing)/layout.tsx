@@ -20,7 +20,7 @@ export default function Layout({
       <main className='relative'>
         <LogoOverlay />
         <div className='flex items-center justify-around md:-mt-12 md:-mb-20 gap-10'>
-          <div className='mt-1 -mb-14 mr-5 flex-shrink-0 md:mr-0 w-60 md:w-44 md:mt-10 md:mb-0 lg:w-72'>
+          <div className='mt-1 -mb-14 mr-5 flex-shrink-0 md:mr-0 w-48 md:w-36 md:mt-10 md:mb-0 lg:w-60'>
             <Image src='/lippe.png' width={350} height={100} alt='logo' />
           </div>
           <NavBarComp />
