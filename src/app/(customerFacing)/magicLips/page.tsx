@@ -224,7 +224,7 @@ export default function MagicLipsShopSite() {
             </p>
           </Card>
           <Image
-            src='/lippenVivo.png'
+            src='/lippenVivo2.jpg'
             width={700}
             height={700}
             alt='vivo study'
