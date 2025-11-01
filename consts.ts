@@ -6,10 +6,12 @@ export const PRICEMAGICGLOW = 79;
 export const MAGICLIPSPRICE = 69;
 export const FACECLEANSERPRICE = 21;
 export const MAGICELIXIRPRICE = 94;
-
+export const BETOXPRICE = 89;
 //images
 export const productImgsLips = ['/MagicLips.jpg', '/lippen.jpg'];
+export const productImgsBetox = ['/betox.png', '/betox-eyes.jpeg'];
 export const productImagesGlowCreme = [
+  '/glowcream1.png',
   '/MagicGlowCreme1.JPG',
   '/MagicGlowCreme.JPG',
 ];

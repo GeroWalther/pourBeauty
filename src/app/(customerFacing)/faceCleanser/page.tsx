@@ -80,7 +80,7 @@ export default function FaceCleanser() {
       question:
         language == 'de'
           ? 'Welche Inhaltsstoffe sind in FACE CLEANSER enthalten? '
-          : 'What ingredients are in FRESH EYES SERUM?',
+          : 'What ingredients are in FACE CLEANSER?',
       answer:
         language == 'de'
           ? 'FACE CLEANSER besitzt natürliche hochwertige Wirkstoffe mit einer intensiven Wirkung zur Reinigung und Pflege der Gesichtspartie. Die einzigartige Formel enthält Centella Asiatica extract  (die beste erforschte Heilpflanze zum bilden von Körpereigenem Kollagen um bis zu 77%), Vitamine und eine extrem niedrige Micro Molekulare Hyaluronsäure,diese besitzt eine 8fache kombination aus verschiedenen Hyaluronsöuren zur optimalen intensiven ANTI-AGING Behandlung für mehr frische und strahlende Haut.'

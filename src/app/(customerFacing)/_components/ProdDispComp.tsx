@@ -17,8 +17,10 @@ const ProdDispComp = ({ name, productImg, link }: pType) => {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
       }}>
-      <div className='text-center flex flex-col items-center px-10 md:mt-0 mt-12'>
-        <h2 className='text-3xl font-bold text-dark mb-5 text-white'>{name}</h2>
+      <div className='text-center flex flex-col items-center px-10'>
+        <h2 className='text-xl font-bold text-dark mb-5 text-gray-800'>
+          {name}
+        </h2>
         <div className='flex justify-center items-center gap-5'>
           <Link href={link} className={buttonVariants()}>
             Shop

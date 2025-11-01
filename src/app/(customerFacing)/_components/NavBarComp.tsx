@@ -17,6 +17,7 @@ export default function NavBarComp() {
         <NavLink href='/freshEyes'>FRESH EYES</NavLink>
         <NavLink href='/magicElixir'>MAGIC ELIXIR</NavLink>
         <NavLink href='/faceCleanser'>FACE CLEANSER</NavLink>
+        <NavLink href='/betoxserum'>BETOX SERUM</NavLink>
         <NavLink href='/about'>
           {language == 'de' ? 'Über uns' : 'About'}
         </NavLink>

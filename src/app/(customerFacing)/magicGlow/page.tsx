@@ -252,7 +252,7 @@ export default function MagicGlowShopSite() {
             </p>
           </Card>
           <Image
-            src='/MagicGlowCreme1.JPG'
+            src='/glowcream1.png'
             width={700}
             height={700}
             alt='miss glow'

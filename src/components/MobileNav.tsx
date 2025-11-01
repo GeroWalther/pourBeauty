@@ -75,6 +75,13 @@ export default function MobilNav({ children }: { children: ReactNode }) {
               </Link>
               <Link
                 onClick={() => setOpen(false)}
+                href='/betoxserum'
+                className='flex items-center rounded-xl  text-white text-muted-foreground hover:text-foreground'>
+                <span>BETOX SERUM</span>
+              </Link>
+
+              <Link
+                onClick={() => setOpen(false)}
                 href='/about'
                 className='flex  text-white  items-center rounded-xl text-muted-foreground hover:text-foreground'>
                 <span>{language == 'de' ? 'Über uns' : 'About'}</span>
