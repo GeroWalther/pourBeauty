@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: 'MISS GLOW BEAUTY',
@@ -120,6 +121,7 @@ export default function RootLayout({
           inter.variable
         )}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
