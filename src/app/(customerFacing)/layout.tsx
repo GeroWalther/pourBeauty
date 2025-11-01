@@ -29,7 +29,7 @@ export default function Layout({
             width={700}
             height={700}
             alt='award'
-            className='fixed max-w-32 md:right-32 md:top-48 md:max-w-32 right-10 top-96'
+            className='fixed max-w-32 md:right-32 md:top-48 md:max-w-32 right-2 bottom-2 z-50'
           />
         </div>
         <Canvas className='absolute top-0 left-0 -z-10' />
