@@ -24,6 +24,13 @@ export default function Layout({
             <Image src='/lippe.png' width={350} height={100} alt='logo' />
           </div>
           <NavBarComp />
+          <Image
+            src='/award.png'
+            width={700}
+            height={700}
+            alt='award'
+            className='fixed max-w-32 md:right-32 md:top-48 md:max-w-32 right-10 top-96'
+          />
         </div>
         <Canvas className='absolute top-0 left-0 -z-10' />
         <div className=''>{children}</div>
