@@ -19,6 +19,7 @@ export default function ProductSectionBetox() {
         }
         price={BETOXPRICE}
         priceBeforeDiscount={99}
+        productLink='/betoxserum'
       />
     </div>
   );

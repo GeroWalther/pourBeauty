@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import { formatCurrency } from '@/lib/formatters';
 import { StarFilledIcon } from '@radix-ui/react-icons';
 import AddToCartButton from './AddToCartButton';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 type pType = {
   id: string;
@@ -14,6 +16,7 @@ type pType = {
   priceBeforeDiscount: number;
   description: string;
   productImgs: string[];
+  productLink: string;
 };
 
 const ProductInfo = ({
@@ -23,6 +26,7 @@ const ProductInfo = ({
   priceBeforeDiscount,
   description,
   productImgs,
+  productLink,
 }: pType) => {
   const [currImg, setCurrImg] = useState(0);
   return (
@@ -88,9 +92,12 @@ const ProductInfo = ({
           </div>
           <p className='mb-5'>{description}</p>
           <div className='flex justify-center items-center gap-5'>
-            {/* Add to Cart */}
+            {/* Add to Cart / Product link */}
             <div className='mt-10'>
-              <AddToCartButton
+              <Link href={productLink}>
+                <Button>Shop</Button>
+              </Link>
+              {/* <AddToCartButton
                 product={{
                   id,
                   name,
@@ -98,7 +105,7 @@ const ProductInfo = ({
                   image: productImgs[0],
                   quantity: 1,
                 }}
-              />
+              /> */}
             </div>
           </div>
         </div>

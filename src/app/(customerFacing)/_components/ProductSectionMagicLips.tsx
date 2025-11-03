@@ -18,6 +18,7 @@ export default function ProductSectionMagicLips() {
       }
       price={MAGICLIPSPRICE}
       priceBeforeDiscount={129}
+      productLink='/magicLips'
     />
   );
 }
