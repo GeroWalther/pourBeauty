@@ -26,9 +26,8 @@ import CheckoutForm from '../checkout/_components/CheckoutForm';
 import DiscountCodeInput from './DiscountCodeInput';
 
 export default function Cart() {
-  const { items, discount } = useCart();
+  const { items, discount, isOpen, setIsOpen } = useCart();
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  const [open, setOpen] = useState<boolean>(false);
   const { itemCount, totalCart, discountedPrice } = useCartTotals(
     items,
     discount
@@ -52,7 +51,7 @@ export default function Cart() {
   // console.log('ITEMS: ', items);
 
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger className='group -m-2 flex items-center p-2'>
         <ShoppingCart
           aria-hidden='true'
@@ -64,7 +63,7 @@ export default function Cart() {
       </SheetTrigger>
 
       <SheetContent
-        setOpen={setOpen}
+        setOpen={setIsOpen}
         className='flex w-full flex-col pr-0 sm:max-w-lg'>
         <SheetHeader className='space-y-2.5 pr-6'>
           <SheetTitle>

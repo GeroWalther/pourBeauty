@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageProvider';
 
 export default function AddToCartButton({ product }: { product: any }) {
-  const { addItem } = useCart();
+  const { addItem, setIsOpen } = useCart();
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const { language } = useLanguage();
 
@@ -23,6 +23,7 @@ export default function AddToCartButton({ product }: { product: any }) {
       onClick={() => {
         addItem(product);
         setIsSuccess(true);
+        setIsOpen(true);
       }}
       size='lg'
       className='w-full'>
