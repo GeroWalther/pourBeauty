@@ -22,6 +22,8 @@ type CartState = {
   setDiscount: (discount: number) => void;
   discountCode: string;
   setDiscountCode: (code: string) => void;
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
 };
 
 // add items
@@ -70,6 +72,8 @@ export const useCart = create<CartState>()(
       setDiscount: (value: number) => set({ discount: value }), // New function to set the discount value directly
       discountCode: '',
       setDiscountCode: (code: string) => set({ discountCode: code }),
+      isOpen: false,
+      setIsOpen: (isOpen: boolean) => set({ isOpen }),
     }),
     {
       name: 'cart-storage',

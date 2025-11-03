@@ -18,7 +18,7 @@ const SheetPortal = SheetPrimitive.Portal;
 const SheetOverlay = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay> & {
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    setOpen: (open: boolean) => void;
   }
 >(({ setOpen, className, ...props }, ref) => (
   <SheetPrimitive.Overlay
@@ -55,7 +55,7 @@ const sheetVariants = cva(
 interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
     VariantProps<typeof sheetVariants> {
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpen: (open: boolean) => void;
 }
 
 const SheetContent = React.forwardRef<
@@ -66,6 +66,7 @@ const SheetContent = React.forwardRef<
     <SheetOverlay setOpen={setOpen} />
     <SheetPrimitive.Content
       ref={ref}
+      onCloseAutoFocus={(e) => e.preventDefault()}
       className={cn(sheetVariants({ side }), className)}
       {...props}>
       {children}
