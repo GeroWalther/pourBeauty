@@ -12,7 +12,9 @@ export default function AboutPage() {
      
       <div className='bg-gradient-to-r from-pink-400 via-pink-600 to-orange-400 p-2 rounded-lg shadow-2xl'>
         <h1 className='font-bold text-white text-center text-3xl mb-2'>
-          {language === 'de' ? '✨ Über uns – MISS GLOW BEAUTY' : '✨ About Us – MISS GLOW BEAUTY'}
+          {language === 'de' ? '✨ Über uns' : '✨ About Us'}
+          <br/>
+           MISS GLOW BEAUTY
         </h1>
        
         <Card className='bg-white bg-opacity-90 p-8 rounded-lg shadow-lg'>
