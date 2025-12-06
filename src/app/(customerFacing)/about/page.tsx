@@ -9,10 +9,12 @@ export default function AboutPage() {
   const { language } = useLanguage();
   return (
     <MaxWidthWrapper className='mb-10'>
+     
       <div className='bg-gradient-to-r from-pink-400 via-pink-600 to-orange-400 p-2 rounded-lg shadow-2xl'>
         <h1 className='font-bold text-white text-center text-3xl mb-2'>
           {language === 'de' ? 'Was steckt dahinter' : 'The story behind.'}
         </h1>
+       
         <Card className='bg-white bg-opacity-90 p-8 rounded-lg shadow-lg'>
           <div>
             <div className='space-y-4'>
@@ -21,10 +23,18 @@ export default function AboutPage() {
                   ? 'TAUCHE EIN IN EINE NEUE WELT DER SCHÖNHEIT '
                   : 'IMMERSE YOURSELF IN A NEW WORLD OF BEAUTY'}
               </h3>
+                    <Image
+            src='/FrauSchaller.jpeg'
+            alt='Founder Tatjana Schaller Miss Glow Beauty'
+            width={200}
+            height={300}
+            className='rounded-lg shadow-lg mt-10'
+          />
+          <p>Founder Tatjana Schaller Miss Glow Beauty</p>
               <p className='text-gray-700 text-lg'>
                 {language === 'de'
-                  ? 'MISSGLOWBEAUTY setzt auf eine gesündere Haut, trendige, hochwertige biologische Kosmetikprodukte, die wirklich wirken und für jeden zugänglich sind. die deine Haut sichtbar verbessern und verjüngen und dir einen frischen, strahlenden GLOW Look verleihen. MISSGLOWBEAUTY widmet sich der Herstellung von Produkten, die auf wissenschaftlichen Erkenntnissen und grossartigen Formulierungen basieren, wirksame Produkte vereinfachen die Hautpflege und Ihre Haut sichtbar verbessern mit einem GLOW Look.'
-                  : 'MISSGLOWBEAUTY focuses on healthier skin, trendy, high-quality organic cosmetic products that really work and are accessible to everyone. that visibly improve and rejuvenate your skin and give you a fresh, radiant GLOW look. MISSGLOWBEAUTY is dedicated to creating products based on scientific knowledge and great formulations, effective products simplify skincare and visibly improve your skin with a GLOW look.'}
+                  ? 'MISSGLOWBEAUTY setzt auf eine gesündere Haut, hochwertige biologische Kosmetikprodukte, die wirklich wirken und für jeden zugänglich sind. die deine Haut sichtbar verbessern und verjüngen und dir einen frischen, strahlenden GLOW Look verleihen. MISSGLOWBEAUTY widmet sich der Herstellung von Produkten, die auf wissenschaftlichen Erkenntnissen und grossartigen Formulierungen basieren, wirksame Produkte vereinfachen die Hautpflege und Ihre Haut sichtbar verbessern mit einem GLOW Look.'
+                  : 'MISSGLOWBEAUTY focuses on healthier skin, high-quality organic cosmetic products that really work and are accessible to everyone. that visibly improve and rejuvenate your skin and give you a fresh, radiant GLOW look. MISSGLOWBEAUTY is dedicated to creating products based on scientific knowledge and great formulations, effective products simplify skincare and visibly improve your skin with a GLOW look.'}
               </p>
               <p className='text-gray-700 text-lg'>
                 {language === 'de'
@@ -76,6 +86,7 @@ export default function AboutPage() {
             height={1000}
             className='rounded-lg shadow-lg mt-10'
           />
+      
         </Card>
       </div>
     </MaxWidthWrapper>
