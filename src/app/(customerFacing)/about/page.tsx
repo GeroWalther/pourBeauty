@@ -12,51 +12,108 @@ export default function AboutPage() {
      
       <div className='bg-gradient-to-r from-pink-400 via-pink-600 to-orange-400 p-2 rounded-lg shadow-2xl'>
         <h1 className='font-bold text-white text-center text-3xl mb-2'>
-          {language === 'de' ? 'Was steckt dahinter' : 'The story behind.'}
+          {language === 'de' ? '✨ Über uns – MISS GLOW BEAUTY' : '✨ About Us – MISS GLOW BEAUTY'}
         </h1>
        
         <Card className='bg-white bg-opacity-90 p-8 rounded-lg shadow-lg'>
           <div>
-            <div className='space-y-4'>
-              <h3 className='text-gray-800 text-xl font-semibold'>
+            <div className='space-y-6'>
+              <h3 className='text-gray-800 text-2xl font-bold'>
                 {language === 'de'
-                  ? 'TAUCHE EIN IN EINE NEUE WELT DER SCHÖNHEIT '
-                  : 'IMMERSE YOURSELF IN A NEW WORLD OF BEAUTY'}
+                  ? 'Glow. Beauty. Power.'
+                  : 'Glow. Beauty. Power.'}
               </h3>
-                    <Image
-            src='/FrauSchaller.jpeg'
-            alt='Founder Tatjana Schaller Miss Glow Beauty'
-            width={200}
-            height={300}
-            className='rounded-lg shadow-lg mt-10'
-          />
-          <p>Founder Tatjana Schaller Miss Glow Beauty</p>
-              <p className='text-gray-700 text-lg'>
+              <p className='text-gray-700 text-lg italic'>
                 {language === 'de'
-                  ? 'MISSGLOWBEAUTY setzt auf eine gesündere Haut, hochwertige biologische Kosmetikprodukte, die wirklich wirken und für jeden zugänglich sind. die deine Haut sichtbar verbessern und verjüngen und dir einen frischen, strahlenden GLOW Look verleihen. MISSGLOWBEAUTY widmet sich der Herstellung von Produkten, die auf wissenschaftlichen Erkenntnissen und grossartigen Formulierungen basieren, wirksame Produkte vereinfachen die Hautpflege und Ihre Haut sichtbar verbessern mit einem GLOW Look.'
-                  : 'MISSGLOWBEAUTY focuses on healthier skin, high-quality organic cosmetic products that really work and are accessible to everyone. that visibly improve and rejuvenate your skin and give you a fresh, radiant GLOW look. MISSGLOWBEAUTY is dedicated to creating products based on scientific knowledge and great formulations, effective products simplify skincare and visibly improve your skin with a GLOW look.'}
+                  ? 'Created by Tatjana Schaller.'
+                  : 'Created by Tatjana Schaller.'}
               </p>
-              <p className='text-gray-700 text-lg'>
+              
+              <Image
+                src='/FrauSchaller.jpeg'
+                alt='Founder Tatjana Schaller Miss Glow Beauty'
+                width={200}
+                height={300}
+                className='rounded-lg shadow-lg my-6'
+              />
+              <p className='text-sm text-gray-600 italic'>Founder Tatjana Schaller Miss Glow Beauty</p>
+              
+              <p className='text-gray-700 text-lg leading-relaxed'>
                 {language === 'de'
-                  ? 'Entdecke, wie MISSGLOWBEAUTY dir dabei hilft, deinen einzigartigen Stil auszudrücken und mit SELBSTBEWUSSTSEIN zu glänzen.'
-                  : 'Discover how MISSGLOWBEAUTY helps you express your unique style and shine with CONFIDENCE.'}
+                  ? 'Bei MISS GLOW BEAUTY glaube ich daran, dass Hautpflege mehr ist als nur ein Produkt – sie ist ein Gefühl, ein Ritual, ein Moment der Wertschätzung für dich selbst. Meine Mission ist es, biologische, hochwertige Kosmetik zu schaffen, die Ergebnisse liefert und sichtbar Ausstrahlung von innen nach außen schenkt.'
+                  : 'At MISS GLOW BEAUTY, we believe that skincare is more than just a product – it is a feeling, a ritual, a moment of appreciation for yourself. Our mission is to create organic, high-quality cosmetics that deliver results and visibly grant radiance from the inside out.'}
+              </p>
+              
+              <p className='text-gray-700 text-lg leading-relaxed'>
+                {language === 'de'
+                  ? 'Founder Tatjana Schaller hat MISS GLOW BEAUTY aus einer klaren Vision heraus gegründet: Frauen Produkte zu geben, die nicht nur schön aussehen, sondern sich gut anfühlen – innen wie außen.'
+                  : 'Founder Tatjana Schaller created MISS GLOW BEAUTY from a clear vision: to give women products that not only look beautiful, but feel good – inside and out.'}
+              </p>
+              
+              <p className='text-gray-700 text-lg leading-relaxed'>
+                {language === 'de'
+                  ? 'Sie wollte eine Pflegeroutine schaffen, die den Alltag veredelt. Ein kleines tägliches Luxusritual, das die Haut stärkt, regeneriert und mit jeder Anwendung ein Stück mehr zum Strahlen bringt. Kosmetik, die den Alterungsprozess sichtbar verlangsamt, verjüngend wirkt und echte Hautlösungen bietet.'
+                  : 'She wanted to create a care routine that elevates everyday life. A small daily luxury ritual that strengthens, regenerates the skin and makes it shine a little more with each application. Cosmetics that visibly slow down the aging process, have a rejuvenating effect and offer real skin solutions.'}
+              </p>
+              
+              <p className='text-gray-700 text-lg leading-relaxed'>
+                {language === 'de'
+                  ? 'Unsere exklusive Clean & Green Beauty Formel wird mit größter Sorgfalt entwickelt. Jeder Inhaltsstoff ist bewusst ausgewählt, jede Komponente durchdacht – für eine Pflege, die wirksam, rein und nachhaltig ist. Jedes Detail – vom Design bis zur Rezeptur – trägt die Handschrift von Tatjana Schaller, die Schönheit als etwas versteht, das im Inneren beginnt und sich nach außen entfaltet.'
+                  : 'Our exclusive Clean & Green Beauty formula is developed with the greatest care. Every ingredient is consciously selected, every component well thought out – for care that is effective, pure and sustainable. Every detail – from design to formulation – bears the signature of Tatjana Schaller, who understands beauty as something that begins on the inside and unfolds outward.'}
+              </p>
+              
+              <div className='border-l-4 border-pink-500 pl-4 py-2 my-6'>
+                <p className='text-gray-800 text-lg font-semibold'>
+                  {language === 'de'
+                    ? 'MISS GLOW BEAUTY ist mehr als ein Produkt.'
+                    : 'MISS GLOW BEAUTY is more than a product.'}
+                </p>
+                <p className='text-gray-800 text-lg'>
+                  {language === 'de'
+                    ? 'Es ist ein Gefühl.'
+                    : 'It is a feeling.'}
+                </p>
+                <p className='text-gray-800 text-lg'>
+                  {language === 'de'
+                    ? 'Ein Ritual.'
+                    : 'A ritual.'}
+                </p>
+                <p className='text-gray-800 text-lg'>
+                  {language === 'de'
+                    ? 'Ein Moment nur für dich und deine Schönheit.'
+                    : 'A moment just for you and your beauty.'}
+                </p>
+              </div>
+              
+              <p className='text-gray-700 text-lg font-semibold'>
+                {language === 'de'
+                  ? 'Getreu dem Motto:'
+                  : 'True to the motto:'}
+              </p>
+              <p className='text-2xl font-bold text-pink-600 italic'>
+                "Age doesn't matter."
+              </p>
+              
+              <p className='text-gray-700 text-lg italic mt-4'>
+                {language === 'de'
+                  ? 'Mit Liebe entwickelt.'
+                  : 'Developed with love.'}
+              </p>
+              <p className='text-gray-700 text-lg italic'>
+                {language === 'de'
+                  ? 'Von Tatjana Schaller.'
+                  : 'By Tatjana Schaller.'}
               </p>
             </div>
 
-            <div className='space-y-4 mt-5'>
+            <div className='space-y-4 mt-10 pt-6 border-t-2 border-pink-200'>
               <h3 className='text-gray-800 text-xl font-semibold'>
-                {language === 'de' ? 'HOL DIR DEINEN ' : 'GET YOUR '}
-                <span className='font-bold text-pink-500'> GLOW LOOK!</span>
+                {language === 'de' ? 'KONTAKTIERE UNS' : 'CONTACT US'}
               </h3>
               <p className='text-gray-700 text-lg'>
                 {language === 'de'
-                  ? 'Lass dich von MISSGLOWBEAUTY inspirieren und werde Teil einer Community, die SCHÖNHEIT neu definiert.'
-                  : 'Be inspired by MISSGLOWBEAUTY and become part of a community that redefines BEAUTY.'}
-              </p>
-              <p className='text-gray-700 text-lg'>
-                {language === 'de'
-                  ? 'Schreib uns, auch gerne eine WhatsApp, um am kostenlosen MISSGLOWBEAUTY WORKSHOP teilzunehmen.'
-                  : 'Write to us, also gladly via WhatsApp, to participate in the free MISSGLOWBEAUTY WORKSHOP.'}
+                  ? 'Hast du Fragen oder möchtest du mehr erfahren? Wir sind für dich da.'
+                  : 'Do you have questions or want to learn more? We are here for you.'}
               </p>
             </div>
             <address className='text-lg flex-col md:flex mt-5'>
