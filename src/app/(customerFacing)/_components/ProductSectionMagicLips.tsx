@@ -17,7 +17,6 @@ export default function ProductSectionMagicLips() {
           : 'MAGIC LIPS SERUM with an amazing LIP PLUMPING EFFECT up to 78% more lip volume, gives absolute full plumping of the lips and intensive care. MAGIC LIPS SERUM contains highly effective ACTIVE COSMETICS to increase attractiveness.'
       }
       price={MAGICLIPSPRICE}
-      priceBeforeDiscount={129}
       productLink='/magicLips'
     />
   );

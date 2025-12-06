@@ -13,9 +13,11 @@ import { useLanguage } from '@/contexts/LanguageProvider';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { PRICEMAGICGLOW, productImagesGlowCreme } from '../../../../consts';
+import { getSalePrice, useSale } from '@/contexts/SaleProvider';
 
 export default function MagicGlowShopSite() {
   const { language } = useLanguage();
+  const { isActive, salePercentage, saleName } = useSale();
   const questions = [
     {
       id: 5,
@@ -106,9 +108,21 @@ export default function MagicGlowShopSite() {
 
           <section className='mt-4'>
             <div className='flex items-center'>
-              <p className='font-medium text-stone-900 text-xl'>
-                {formatCurrency(PRICEMAGICGLOW)}
-              </p>
+              <div className='flex flex-col'>
+                {isActive && (
+                  <div className='flex items-center gap-2'>
+                    <p className='font-medium text-stone-600 text-lg line-through'>
+                      {formatCurrency(PRICEMAGICGLOW)}
+                    </p>
+                    <span className='text-xs font-bold text-white bg-gradient-to-r from-orange-400 via-pink-400 to-orange-400 px-3 py-1.5 rounded-full shadow-md whitespace-nowrap'>
+                      -{salePercentage}% {saleName}
+                    </span>
+                  </div>
+                )}
+                <p className='font-medium text-stone-900 text-xl'>
+                  {formatCurrency(getSalePrice(PRICEMAGICGLOW, salePercentage))}
+                </p>
+              </div>
 
               <div className='ml-4 border-l text-muted-foreground border-stone-300 pl-4'>
                 <p className='text-lg font-medium'>
@@ -193,7 +207,7 @@ export default function MagicGlowShopSite() {
                 product={{
                   id: '2',
                   name: 'Magic Glow Creme',
-                  price: PRICEMAGICGLOW,
+                  price: getSalePrice(PRICEMAGICGLOW, salePercentage),
                   image: productImagesGlowCreme[0],
                   quantity: 1,
                 }}

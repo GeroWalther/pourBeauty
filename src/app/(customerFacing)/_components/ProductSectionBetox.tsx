@@ -18,7 +18,6 @@ export default function ProductSectionBetox() {
             : 'Eye care with “Botox Effect”: BETOX Serum reduces wrinkles within one month by 64%, in addition to this effect, there is an intensive moisture for the sensitive eye area, wrinkles are plumped and relaxed'
         }
         price={BETOXPRICE}
-        priceBeforeDiscount={99}
         productLink='/betoxserum'
       />
     </div>

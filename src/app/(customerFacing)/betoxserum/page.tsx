@@ -13,9 +13,11 @@ import { useLanguage } from '@/contexts/LanguageProvider';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { BETOXPRICE, productImgsBetox } from '../../../../consts';
+import { getSalePrice, useSale } from '@/contexts/SaleProvider';
 
 export default function BetoxSerum() {
   const { language } = useLanguage();
+  const { isActive, salePercentage, saleName } = useSale();
   const questions = [
     {
       id: 5,
@@ -106,9 +108,21 @@ export default function BetoxSerum() {
 
           <section className='mt-4'>
             <div className='flex items-center'>
-              <p className='font-medium text-stone-900 text-xl'>
-                {formatCurrency(BETOXPRICE)}
-              </p>
+              <div className='flex flex-col'>
+                {isActive && (
+                  <div className='flex items-center gap-2'>
+                    <p className='font-medium text-stone-600 text-lg line-through'>
+                      {formatCurrency(BETOXPRICE)}
+                    </p>
+                    <span className='text-xs font-bold text-white bg-gradient-to-r from-orange-400 via-pink-400 to-orange-400 px-3 py-1.5 rounded-full shadow-md whitespace-nowrap'>
+                      -{salePercentage}% {saleName}
+                    </span>
+                  </div>
+                )}
+                <p className='font-medium text-stone-900 text-xl'>
+                  {formatCurrency(getSalePrice(BETOXPRICE, salePercentage))}
+                </p>
+              </div>
 
               <div className='ml-4 border-l text-muted-foreground border-stone-300 pl-4'>
                 <p className='text-lg font-medium'>
@@ -183,7 +197,7 @@ export default function BetoxSerum() {
                 product={{
                   id: '6',
                   name: 'BETOX SERUM',
-                  price: BETOXPRICE,
+                  price: getSalePrice(BETOXPRICE, salePercentage),
                   image: productImgsBetox[0],
                   quantity: 1,
                 }}

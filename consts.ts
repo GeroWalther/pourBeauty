@@ -43,3 +43,4 @@ export const galleryImages = [
   '/lippen.jpg',
   '/freshEyes.JPG',
 ];
+

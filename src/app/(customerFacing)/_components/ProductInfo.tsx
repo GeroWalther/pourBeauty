@@ -8,12 +8,13 @@ import { StarFilledIcon } from '@radix-ui/react-icons';
 import AddToCartButton from './AddToCartButton';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { getSalePrice, useSale } from '@/contexts/SaleProvider';
 
 type pType = {
   id: string;
   name: string;
   price: number;
-  priceBeforeDiscount: number;
+  priceBeforeDiscount?: number; // Optional, calculated from price if not provided
   description: string;
   productImgs: string[];
   productLink: string;
@@ -29,6 +30,7 @@ const ProductInfo = ({
   productLink,
 }: pType) => {
   const [currImg, setCurrImg] = useState(0);
+  const { isActive, salePercentage } = useSale();
   return (
     <section id='shop' className='py-20'>
       <div className='w-[89%] m-auto max-w-[1400px] grid grid-cols-1 md:grid-cols-2 items-center md:gap-10'>
@@ -83,12 +85,27 @@ const ProductInfo = ({
             <span>(5.0)</span>
           </div>
           <div className='mb-5 flex items-center'>
-            <span className='text-2xl font-semibold mr-3 text-dark'>
-              {formatCurrency(price)}
-            </span>
-            <span className='text-gray-400 line-through'>
-              {formatCurrency(priceBeforeDiscount)}
-            </span>
+            {isActive ? (
+              <>
+                <span className='text-2xl font-semibold mr-3 text-dark'>
+                  {formatCurrency(getSalePrice(price, salePercentage))}
+                </span>
+                <span className='text-gray-400 line-through'>
+                  {formatCurrency(price)}
+                </span>
+              </>
+            ) : (
+              <>
+                <span className='text-2xl font-semibold mr-3 text-dark'>
+                  {formatCurrency(price)}
+                </span>
+                {priceBeforeDiscount && (
+                  <span className='text-gray-400 line-through'>
+                    {formatCurrency(priceBeforeDiscount)}
+                  </span>
+                )}
+              </>
+            )}
           </div>
           <p className='mb-5'>{description}</p>
           <div className='flex justify-center items-center gap-5'>
