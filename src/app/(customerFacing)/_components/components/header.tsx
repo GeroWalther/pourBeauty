@@ -1,0 +1,83 @@
+"use client"
+
+import { Button } from "@/components/ui/button"
+import { ShoppingCart, List, X } from "@phosphor-icons/react"
+import { useState } from "react"
+import Link from "next/link"
+import { useCart } from "@/hooks/use-cart-hook"
+
+export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { items } = useCart()
+  const itemCount = items.reduce((sum, item) => sum + item.product.quantity, 0)
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="mx-auto max-w-7xl flex h-16 items-center justify-between px-6">
+        <Link href="/" className="flex items-center gap-2">
+          <div className="text-2xl font-bold tracking-tight text-primary">Derma Skin</div>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-8">
+          <Link href="/products" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            Products
+          </Link>
+          <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            About
+          </Link>
+          <Link href="/reviews" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            Reviews
+          </Link>
+          <Link href="/contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            Contact
+          </Link>
+        </nav>
+
+        <div className="flex items-center gap-4">
+          <Link href="/cart" className="relative">
+            <Button variant="ghost" size="icon" className="hidden md:flex">
+              <ShoppingCart size={20} />
+            </Button>
+            {itemCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                {itemCount}
+              </span>
+            )}
+          </Link>
+          <Link href="/shop">
+            <Button className="hidden md:flex bg-primary text-primary-foreground hover:bg-primary/90">Shop Now</Button>
+          </Link>
+
+          {/* Mobile Menu Toggle */}
+          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X size={24} /> : <List size={24} />}
+          </Button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-border bg-background">
+          <nav className="mx-auto max-w-7xl flex flex-col gap-4 px-6 py-6">
+            <Link href="/products" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+              Products
+            </Link>
+            <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+              About
+            </Link>
+            <Link href="/reviews" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+              Reviews
+            </Link>
+            <Link href="/contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+              Contact
+            </Link>
+            <Link href="/shop">
+              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Shop Now</Button>
+            </Link>
+          </nav>
+        </div>
+      )}
+    </header>
+  )
+}

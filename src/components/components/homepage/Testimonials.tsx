@@ -40,8 +40,8 @@ const TestimonialsSection = () => {
       alt: 'Sabine Photo',
       text:
         language == 'de'
-          ? 'Die Kosmetikprodukte von Miss Glow Beauty sind fantastisch! Sie haben meine Haut zum Strahlen gebracht und ich fühle mich großartig.'
-          : 'The cosmetics from Miss Glow Beauty are fantastic! They have made my skin glow and I feel great.',
+          ? 'Die Kosmetikprodukte von PureBeauty sind fantastisch! Sie haben meine Haut zum Strahlen gebracht und ich fühle mich großartig.'
+          : 'The cosmetics from PureBeauty are fantastic! They have made my skin glow and I feel great.',
       name: 'Sabine',
     },
   ];

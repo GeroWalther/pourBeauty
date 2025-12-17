@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_dummy', {
   apiVersion: '2024-06-20',
 });
 
@@ -23,7 +23,7 @@ export async function POST(
       // payment_method_types: ['card', 'klarna'],
       amount: totalAmountinCents,
       currency: 'EUR',
-      description: 'Miss Glow Bestellung',
+      description: 'PureBeauty Bestellung',
       metadata: {
         products: JSON.stringify(products),
         discountCode,

@@ -37,13 +37,13 @@ PurchaseReceiptEmail.PreviewProps = {
   isAdmin: false,
   products: [
     {
-      name: 'Miss Glow',
+      name: 'PureBeauty Product',
       image: '/512-1.jpg',
       price: 89,
       quantity: 2,
     },
     {
-      name: 'Miss Glow2',
+      name: 'PureBeauty Product 2',
       image: '/512-2.jpg',
       price: 40,
       quantity: 1,
@@ -68,7 +68,7 @@ export default function PurchaseReceiptEmail({
 }: PurchaseReceiptEmailProps) {
   return (
     <Html>
-      <Preview>Bestellung - Miss Glow Beauty</Preview>
+      <Preview>Bestellung - PureBeauty</Preview>
       <Tailwind>
         <Head />
         <Body className='font-sans bg-pink-200'>
@@ -77,7 +77,7 @@ export default function PurchaseReceiptEmail({
               <Container>
                 <Img
                   src={`${process.env.NEXT_PUBLIC_SERVER_URL}/missglowlogo.png`}
-                  alt='Miss Glow Beauty Logo'
+                  alt='PureBeauty Logo'
                   className='w-56 h-56 object-cover'
                 />
                 {isAdmin ? (

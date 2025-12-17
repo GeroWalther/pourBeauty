@@ -7,8 +7,8 @@ import PurchaseReceiptEmail from '@/email/PurchaseReceipt';
 
 // console.log('process.env.RESEND_API_KEY', process.env.RESEND_API_KEY);
 // console.log('process.env.STRIPE_SECRET_KEY', process.env.STRIPE_SECRET_KEY);
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
-const resend = new Resend(process.env.RESEND_API_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_dummy');
+const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy');
 
 export async function POST(req: NextRequest) {
   try {
@@ -86,7 +86,7 @@ export async function POST(req: NextRequest) {
       try {
         // send email to customer
         await resend.emails.send({
-          from: `Bestellung MISS GLOW BEAUTY <${process.env.SENDER_EMAIL}>`,
+          from: `Bestellung PUREBEAUTY <${process.env.SENDER_EMAIL}>`,
           to: email,
           subject: 'Vielen Dank für deine Bestellung',
           react: (

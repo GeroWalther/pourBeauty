@@ -162,8 +162,8 @@ function Subscribe() {
               <div className='mt-4 mb-8 text-pink-100 text-sm'>
                 <p>
                   {language == 'de'
-                    ? '*Kein Spam. Durch Klicken auf " Einschreiben " erklären Sie sich mit den Datenschutzbestimmungen,Haftungsausschlüssen und Nutzungsbedingungen von Miss GlowBeauty einverstanden und gelesen haben. Die Kundenkarte mit attraktiven Konditionen ist nur auf Anfrage bei unseremKundenservice erhältlich.'
-                    : 'No spam. By clicking "Subscribe", you agree to and have read Miss GlowBeauty privacy policy, disclaimers, and terms of use. The loyalty card with attractive benefits is only available upon request from our customer service.'}
+                    ? '*Kein Spam. Durch Klicken auf " Einschreiben " erklären Sie sich mit den Datenschutzbestimmungen,Haftungsausschlüssen und Nutzungsbedingungen von PureBeauty einverstanden und gelesen haben. Die Kundenkarte mit attraktiven Konditionen ist nur auf Anfrage bei unseremKundenservice erhältlich.'
+                    : 'No spam. By clicking "Subscribe", you agree to and have read PureBeauty privacy policy, disclaimers, and terms of use. The loyalty card with attractive benefits is only available upon request from our customer service.'}
                 </p>
               </div>
               <Button

@@ -15,7 +15,7 @@ export default function HeroComp() {
             <h1
               className='sm:mb-8 text-4xl font-semibold tracking-tight text-stone-700 sm:text-6xl md:mt-20'
               style={{ mixBlendMode: 'color-burn' }}>
-              MISS GLOW BEAUTY
+              PUREBEAUTY
               <span className='text-stone-700 mt-4 block text-2xl font-light'>
                 {language == 'de'
                   ? 'Die moderne Naturkosmetik.'
@@ -26,7 +26,7 @@ export default function HeroComp() {
               aria-hidden='true'
               className='sm:mb-8 text-4xl font-semibold tracking-tight text-stone-700 sm:text-6xl md:mt-20 absolute top-0 left-0 -z-30'
               style={{ mixBlendMode: 'revert' }}>
-              MISS GLOW BEAUTY
+              PUREBEAUTY
               <span className='text-stone-900 mt-4 block text-2xl font-light'>
                 {language == 'de'
                   ? 'Die moderne Naturkosmetik.'

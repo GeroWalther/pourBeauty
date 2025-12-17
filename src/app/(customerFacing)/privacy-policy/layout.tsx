@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Datenschutz - Miss Glow Beauty ',
+  title: 'Datenschutz - PureBeauty ',
   description: 'Unser Datenschutz auf einen Blick',
 };
 

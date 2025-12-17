@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Rückgaberecht - Miss Glow Beauty ',
+  title: 'Rückgaberecht - PureBeauty ',
   description: 'Rückgaberecht auf den Punkt gebracht.',
 };
 

@@ -35,7 +35,7 @@ export default function Footer() {
             </li>
           </ul>
           <p className='text-sm text-gray-600 mt-3'>
-            &copy; <span>{currentYear}</span> Miss Glow Beauty <br />-{' '}
+            &copy; <span>{currentYear}</span> PureBeauty <br />-{' '}
             {language == 'de'
               ? 'Alle Rechte Vorbehalten.'
               : 'All rights reserved.'}
@@ -65,7 +65,7 @@ export default function Footer() {
           </address>
         </div>
         <nav className='pb-4'>
-          <p className='text-lg font-semibold mb-2'>Miss Glow Beauty</p>
+          <p className='text-lg font-semibold mb-2'>PureBeauty</p>
           <ul className='flex-col gap-2'>
             <li>
               <Link

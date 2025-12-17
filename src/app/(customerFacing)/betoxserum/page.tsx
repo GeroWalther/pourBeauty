@@ -101,7 +101,7 @@ export default function BetoxSerum() {
                 {language == 'de' ? 'Hersteller' : 'Manufactured by'}
               </p>
               <span className='text-xl text-muted-foreground font-semibold'>
-                Miss Glow Beauty
+                PureBeauty
               </span>
             </div>
           </div>

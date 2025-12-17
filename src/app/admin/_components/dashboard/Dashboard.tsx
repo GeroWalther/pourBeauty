@@ -30,7 +30,7 @@ const Dashboard: FC<DashboardProps> = ({ dashboardParams }) => {
     <div className='flex-1 space-y-4 p-4 pt-6 md:p-8'>
       <div className='flex items-center justify-between space-y-2'>
         <h2 className='text-3xl font-bold tracking-tight'>
-          Miss Glow Administration
+          PureBeauty Administration
         </h2>
         {/* <div className='hidden items-center space-x-2 md:flex'>
           <Button>Download</Button>

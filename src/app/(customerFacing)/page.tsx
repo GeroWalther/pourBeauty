@@ -1,22 +1,20 @@
 import React from 'react';
-import HeroComp from '../../components/components/homepage/Hero';
-import Subscribe from '@/components/components/homepage/EmailSubscription';
-import TestimonialsSection from '@/components/components/homepage/Testimonials';
-import FeaturesSection from './_components/Features';
-import ProductSectionMagicLips from './_components/ProductSectionMagicLips';
-import ProductDisplay from './_components/ProductDisplay';
-import ProductSectionBetox from './_components/ProductSectionBetox';
+import { HeroSection } from './_components/components/hero-section';
+import { FeaturesSection } from './_components/components/features-section';
+import { ProductGallery } from './_components/components/product-gallery';
+import { TestimonialsSection } from './_components/components/testimonials-section';
+import { CTASection } from './_components/components/cta-section';
+import { NewsletterSection } from './_components/components/newsletter-section';
 
 export default function HomePage() {
   return (
     <>
-      <HeroComp />
-      <ProductSectionBetox />
-      <ProductDisplay />
+      <HeroSection />
       <FeaturesSection />
-      <ProductSectionMagicLips />
+      <ProductGallery />
       <TestimonialsSection />
-      <Subscribe />
+      <CTASection />
+      <NewsletterSection />
     </>
   );
 }

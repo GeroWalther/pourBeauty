@@ -14,7 +14,7 @@ export default function AboutPage() {
         <h1 className='font-bold text-white text-center text-3xl mb-2'>
           {language === 'de' ? '✨ Über uns' : '✨ About Us'}
           <br/>
-           MISS GLOW BEAUTY
+           PUREBEAUTY
         </h1>
        
         <Card className='bg-white bg-opacity-90 p-8 rounded-lg shadow-lg'>
@@ -33,23 +33,23 @@ export default function AboutPage() {
               
               <Image
                 src='/FrauSchaller.jpeg'
-                alt='Founder Tatjana Schaller Miss Glow Beauty'
+                alt='Founder Tatjana Schaller PureBeauty'
                 width={200}
                 height={300}
                 className='rounded-lg shadow-lg my-6'
               />
-              <p className='text-sm text-gray-600 italic'>Founder Tatjana Schaller Miss Glow Beauty</p>
+              <p className='text-sm text-gray-600 italic'>Founder Tatjana Schaller PureBeauty</p>
               
               <p className='text-gray-700 text-lg leading-relaxed'>
                 {language === 'de'
-                  ? 'Bei MISS GLOW BEAUTY glaube ich daran, dass Hautpflege mehr ist als nur ein Produkt – sie ist ein Gefühl, ein Ritual, ein Moment der Wertschätzung für dich selbst. Meine Mission ist es, biologische, hochwertige Kosmetik zu schaffen, die Ergebnisse liefert und sichtbar Ausstrahlung von innen nach außen schenkt.'
-                  : 'At MISS GLOW BEAUTY, we believe that skincare is more than just a product – it is a feeling, a ritual, a moment of appreciation for yourself. Our mission is to create organic, high-quality cosmetics that deliver results and visibly grant radiance from the inside out.'}
+                  ? 'Bei PureBeauty glaube ich daran, dass Hautpflege mehr ist als nur ein Produkt – sie ist ein Gefühl, ein Ritual, ein Moment der Wertschätzung für dich selbst. Meine Mission ist es, biologische, hochwertige Kosmetik zu schaffen, die Ergebnisse liefert und sichtbar Ausstrahlung von innen nach außen schenkt.'
+                  : 'At PureBeauty, we believe that skincare is more than just a product – it is a feeling, a ritual, a moment of appreciation for yourself. Our mission is to create organic, high-quality cosmetics that deliver results and visibly grant radiance from the inside out.'}
               </p>
               
               <p className='text-gray-700 text-lg leading-relaxed'>
                 {language === 'de'
-                  ? 'Founder Tatjana Schaller hat MISS GLOW BEAUTY aus einer klaren Vision heraus gegründet: Frauen Produkte zu geben, die nicht nur schön aussehen, sondern sich gut anfühlen – innen wie außen.'
-                  : 'Founder Tatjana Schaller created MISS GLOW BEAUTY from a clear vision: to give women products that not only look beautiful, but feel good – inside and out.'}
+                  ? 'Founder Tatjana Schaller hat PureBeauty aus einer klaren Vision heraus gegründet: Frauen Produkte zu geben, die nicht nur schön aussehen, sondern sich gut anfühlen – innen wie außen.'
+                  : 'Founder Tatjana Schaller created PureBeauty from a clear vision: to give women products that not only look beautiful, but feel good – inside and out.'}
               </p>
               
               <p className='text-gray-700 text-lg leading-relaxed'>
@@ -67,8 +67,8 @@ export default function AboutPage() {
               <div className='border-l-4 border-pink-500 pl-4 py-2 my-6'>
                 <p className='text-gray-800 text-lg font-semibold'>
                   {language === 'de'
-                    ? 'MISS GLOW BEAUTY ist mehr als ein Produkt.'
-                    : 'MISS GLOW BEAUTY is more than a product.'}
+                    ? 'PureBeauty ist mehr als ein Produkt.'
+                    : 'PureBeauty is more than a product.'}
                 </p>
                 <p className='text-gray-800 text-lg'>
                   {language === 'de'
@@ -140,7 +140,7 @@ export default function AboutPage() {
 
           <Image
             src='/werdeTeil.jpg'
-            alt='werde teil von Miss Glow Beauty Foto'
+            alt='werde teil von PureBeauty Foto'
             width={500}
             height={1000}
             className='rounded-lg shadow-lg mt-10'

@@ -1,14 +1,18 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Nunito_Sans } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const nunitoSans = Nunito_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700", "800"],
+  variable: "--font-sans",
+})
 import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
-  title: 'MISS GLOW BEAUTY',
+  title: 'PourBeauty - Professional Dermatology Skincare',
   description:
-    'Willkommen zu deiner neuen Lieblingsmarke, Hol dir deinen GLOW LOOK!',
+    'Premium pharmaceutical-grade skincare products for radiant, healthy skin',
   keywords: [
     'cosmetics',
     'beauty products',
@@ -90,21 +94,21 @@ export const metadata: Metadata = {
     'Beauty für alle Hauttypen',
     'Beauty-Tipps für Frauen',
   ],
-  // authors: ['Miss Glow Team'],
+  // authors: ['PureBeauty Team'],
   openGraph: {
-    title: 'MISS GLOW BEAUTY',
+    title: 'PourBeauty - Professional Dermatology Skincare',
     description:
-      'Willkommen zu deiner neuen Lieblingsmarke, Hol dir deinen GLOW LOOK!',
+      'Premium pharmaceutical-grade skincare products for radiant, healthy skin',
     url: `${process.env.NEXT_PUBLIC_SERVER_URL}`,
     images: [
       {
         url: `/MagicGlowCreme.JPG`,
         width: 1200,
         height: 630,
-        alt: 'MISS GLOW BEAUTY - Logo',
+        alt: 'PourBeauty - Logo',
       },
     ],
-    siteName: 'MISS GLOW BEAUTY',
+    siteName: 'PourBeauty',
   },
 };
 
@@ -116,10 +120,7 @@ export default function RootLayout({
   return (
     <html lang='de'>
       <body
-        className={cn(
-          'bg-background min-h-screen font-sans antialiased',
-          inter.variable
-        )}>
+         className={`${nunitoSans.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
