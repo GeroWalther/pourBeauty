@@ -24,7 +24,7 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/products" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+          <Link href="/shop" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
             {language === 'de' ? 'Produkte' : 'Products'}
           </Link>
           <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
@@ -58,7 +58,7 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-border bg-background">
           <nav className="mx-auto max-w-7xl flex flex-col gap-4 px-6 py-6">
-            <Link href="/products" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link href="/shop" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               {language === 'de' ? 'Produkte' : 'Products'}
             </Link>
             <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">

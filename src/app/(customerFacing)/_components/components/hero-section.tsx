@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr"
 import { useLanguage } from "@/contexts/LanguageProvider"
+import Link from "next/link"
 
 export function HeroSection() {
   const { language } = useLanguage()
@@ -16,7 +17,7 @@ export function HeroSection() {
               <span className="h-px w-8 bg-primary"></span>
               {language === 'de' ? 'Professionelle Dermatologie' : 'Professional Dermatology'}
             </div>
-            <h1 className="text-5xl font-bold tracking-tight text-foreground text-balance">
+            <h1 className="text-6xl font-bold tracking-tight text-foreground text-balance">
               {language === 'de' ? 'Verwandeln Sie Ihre Haut mit mit moderner Hautwissenschaft' : 'Transform Your Skin with Science-Backed Skincare'}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
@@ -25,13 +26,17 @@ export function HeroSection() {
                 : 'Experience pharmaceutical-grade skincare backed by dermatological science. Our advanced formulations deliver visible results for healthier, radiant skin.'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                {language === 'de' ? 'Produkte erkunden' : 'Explore Products'}
-                <ArrowRight size={20} className="ml-2" />
-              </Button>
-              <Button size="lg" variant="outline">
-                {language === 'de' ? 'Mehr erfahren' : 'Learn More'}
-              </Button>
+              <Link href="/shop">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                  {language === 'de' ? 'Produkte erkunden' : 'Explore Products'}
+                  <ArrowRight size={20} className="ml-2" />
+                </Button>
+              </Link>
+              <Link href="/about">
+                <Button size="lg" variant="outline">
+                  {language === 'de' ? 'Mehr erfahren' : 'Learn More'}
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="relative aspect-square lg:aspect-auto lg:h-[600px]">
