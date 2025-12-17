@@ -6,11 +6,11 @@ export function CTASection() {
     <section className="py-20 md:py-28 bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl mb-6 text-balance">
+          <h2 className="text-4xl font-bold tracking-tight md:text-5xl mb-6 text-balance">
             Ready to Transform Your Skin?
           </h2>
           <p className="text-lg text-primary-foreground/90 mb-8 leading-relaxed">
-            Join thousands of satisfied customers and experience the PourBeauty difference. Professional results, backed
+            Join thousands of satisfied customers and experience the PureBeauty difference. Professional results, backed
             by science.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

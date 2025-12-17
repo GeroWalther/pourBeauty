@@ -21,7 +21,7 @@ export function NewsletterSection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-2 items-center max-w-6xl mx-auto">
           <div>
-            <h2 className="text-4xl font-extrabold tracking-tight text-foreground md:text-5xl mb-4 text-balance">
+            <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl mb-4 text-balance">
               Get Exclusive Offers & Skincare Tips
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">

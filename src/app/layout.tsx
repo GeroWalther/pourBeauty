@@ -4,13 +4,13 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700", "800"],
+  weight: ["300", "400", "600", "700", "800", "900"],
   variable: "--font-sans",
 })
 import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
-  title: 'PourBeauty - Professional Dermatology Skincare',
+  title: 'PureBeauty - Professional Dermatology Skincare',
   description:
     'Premium pharmaceutical-grade skincare products for radiant, healthy skin',
   keywords: [
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
   ],
   // authors: ['PureBeauty Team'],
   openGraph: {
-    title: 'PourBeauty - Professional Dermatology Skincare',
+    title: 'PureBeauty - Professional Dermatology Skincare',
     description:
       'Premium pharmaceutical-grade skincare products for radiant, healthy skin',
     url: `${process.env.NEXT_PUBLIC_SERVER_URL}`,
@@ -105,10 +105,10 @@ export const metadata: Metadata = {
         url: `/MagicGlowCreme.JPG`,
         width: 1200,
         height: 630,
-        alt: 'PourBeauty - Logo',
+        alt: 'PureBeauty - Logo',
       },
     ],
-    siteName: 'PourBeauty',
+    siteName: 'PureBeauty',
   },
 };
 

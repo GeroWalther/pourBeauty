@@ -5,48 +5,46 @@ import { ShoppingCart, List, X } from "@phosphor-icons/react"
 import { useState } from "react"
 import Link from "next/link"
 import { useCart } from "@/hooks/use-cart-hook"
+import Cart from "../Cart"
+import LanguageSwitcher from "../SwitchLang"
+import { useLanguage } from "@/contexts/LanguageProvider"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { items } = useCart()
   const itemCount = items.reduce((sum, item) => sum + item.product.quantity, 0)
+  const { language } = useLanguage()
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto max-w-7xl flex h-16 items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="text-2xl font-bold tracking-tight text-primary">Derma Skin</div>
+        <Link href="/" className="flex items-center">
+          <div className="text-2xl font-bold tracking-tight text-primary">PURE BEAUTY DermaSkin</div>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           <Link href="/products" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-            Products
+            {language === 'de' ? 'Produkte' : 'Products'}
           </Link>
           <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-            About
+            {language === 'de' ? 'Über uns' : 'About'}
           </Link>
           <Link href="/reviews" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-            Reviews
+            {language === 'de' ? 'Bewertungen' : 'Reviews'}
           </Link>
           <Link href="/contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-            Contact
+            {language === 'de' ? 'Kontakt' : 'Contact'}
           </Link>
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link href="/cart" className="relative">
-            <Button variant="ghost" size="icon" className="hidden md:flex">
-              <ShoppingCart size={20} />
-            </Button>
-            {itemCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                {itemCount}
-              </span>
-            )}
-          </Link>
+          <LanguageSwitcher />
+          <Cart />
           <Link href="/shop">
-            <Button className="hidden md:flex bg-primary text-primary-foreground hover:bg-primary/90">Shop Now</Button>
+            <Button className="hidden md:flex bg-primary text-primary-foreground hover:bg-primary/90">
+              {language === 'de' ? 'Jetzt kaufen' : 'Shop Now'}
+            </Button>
           </Link>
 
           {/* Mobile Menu Toggle */}
@@ -61,19 +59,21 @@ export function Header() {
         <div className="md:hidden border-t border-border bg-background">
           <nav className="mx-auto max-w-7xl flex flex-col gap-4 px-6 py-6">
             <Link href="/products" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Products
+              {language === 'de' ? 'Produkte' : 'Products'}
             </Link>
             <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              About
+              {language === 'de' ? 'Über uns' : 'About'}
             </Link>
             <Link href="/reviews" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Reviews
+              {language === 'de' ? 'Bewertungen' : 'Reviews'}
             </Link>
             <Link href="/contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Contact
+              {language === 'de' ? 'Kontakt' : 'Contact'}
             </Link>
             <Link href="/shop">
-              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Shop Now</Button>
+              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                {language === 'de' ? 'Jetzt kaufen' : 'Shop Now'}
+              </Button>
             </Link>
           </nav>
         </div>

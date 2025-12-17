@@ -52,14 +52,16 @@ export default function Cart() {
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger className='group -m-2 flex items-center p-2'>
+      <SheetTrigger className='group -m-2 flex items-center p-2 relative'>
         <ShoppingCart
           aria-hidden='true'
-          className='h-6 w-6 flex-shrink-0 text-stone-100 group-hover:text-orange-200'
+          className='h-6 w-6 flex-shrink-0 text-foreground group-hover:text-primary'
         />
-        <span className='ml-2 text-sm font-medium text-orange-100 group-hover:text-orang-200'>
-          {isMounted ? itemCount : 0}
-        </span>
+        {isMounted && itemCount > 0 && (
+          <span className='absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center'>
+            {itemCount}
+          </span>
+        )}
       </SheetTrigger>
 
       <SheetContent

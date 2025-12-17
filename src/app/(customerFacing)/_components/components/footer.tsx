@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="text-2xl font-bold mb-4">PourBeauty</h3>
+            <h3 className="text-2xl font-bold mb-4">PureBeauty</h3>
             <p className="text-secondary-foreground/80 leading-relaxed mb-6">
               Professional dermatological skincare backed by science and trusted by experts worldwide.
             </p>
@@ -90,7 +90,7 @@ export function Footer() {
             <ul className="space-y-3 text-secondary-foreground/80">
               <li className="flex items-start gap-3">
                 <EnvelopeSimple size={20} className="mt-1 flex-shrink-0" />
-                <span>support@pourbeauty.com</span>
+                <span>support@purebeauty.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone size={20} className="mt-1 flex-shrink-0" />
@@ -105,7 +105,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-secondary-foreground/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-secondary-foreground/80">© 2025 PourBeauty. All rights reserved.</p>
+          <p className="text-sm text-secondary-foreground/80">© 2025 PureBeauty. All rights reserved.</p>
           <div className="flex gap-6 text-sm text-secondary-foreground/80">
             <a href="#" className="hover:text-primary transition-colors">
               Privacy Policy

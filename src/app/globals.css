@@ -65,8 +65,8 @@
 }
 
 @theme inline {
-  --font-sans: "Nunito Sans", "Nunito Sans Fallback", sans-serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-family-sans: var(--font-sans);
+  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

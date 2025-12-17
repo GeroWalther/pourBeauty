@@ -63,6 +63,38 @@ export const products: Product[] = [
       de: 'Intensive Feuchtigkeit mit SPF-Schutz für ganztägige Hydratation.',
     },
   },
+  {
+    id: '3',
+    name: 'Brightening Eye Treatment',
+    slug: 'brightening-eye-treatment',
+    priceInCents: 7900,
+    image: '/eye-cream-tube-minimalist-white-background.jpg',
+    images: ['/eye-cream-tube-minimalist-white-background.jpg'],
+    description: {
+      en: 'Targets dark circles and puffiness while smoothing the delicate eye area. Reduces signs of fatigue and brightens for a refreshed appearance.',
+      de: 'Zielt auf Augenringe und Schwellungen ab, während es die empfindliche Augenpartie glättet. Reduziert Müdigkeitserscheinungen und hellt auf.',
+    },
+    shortDescription: {
+      en: 'Targets dark circles and puffiness while smoothing the delicate eye area.',
+      de: 'Zielt auf Augenringe und Schwellungen ab und glättet die Augenpartie.',
+    },
+  },
+  {
+    id: '4',
+    name: 'Purifying Night Mask',
+    slug: 'purifying-night-mask',
+    priceInCents: 7500,
+    image: '/skincare-mask-jar-clean-white-background.jpg',
+    images: ['/skincare-mask-jar-clean-white-background.jpg'],
+    description: {
+      en: 'Overnight treatment that deeply cleanses and rejuvenates while you sleep. Wake up to refreshed, revitalized skin with improved texture and clarity.',
+      de: 'Nächtliche Behandlung, die tiefenreinigt und verjüngt, während Sie schlafen. Wachen Sie mit frischer, revitalisierter Haut auf.',
+    },
+    shortDescription: {
+      en: 'Overnight treatment that deeply cleanses and rejuvenates while you sleep.',
+      de: 'Nächtliche Behandlung, die tiefenreinigt und verjüngt.',
+    },
+  },
 ];
 
 export const getProductBySlug = (slug: string): Product | undefined => {

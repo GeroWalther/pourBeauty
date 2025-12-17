@@ -14,7 +14,7 @@ export default function AboutPage() {
         <h1 className='font-bold text-white text-center text-3xl mb-2'>
           {language === 'de' ? '✨ Über uns' : '✨ About Us'}
           <br/>
-           PUREBEAUTY
+           PUREBEAUTY DermaSkin
         </h1>
        
         <Card className='bg-white bg-opacity-90 p-8 rounded-lg shadow-lg'>
