@@ -1,37 +1,39 @@
 import React from 'react';
-import MaxWidthWrapper from '../_components/MaxWidthWrapper';
-import { Card } from '@/components/ui/card';
 
 export default function Imprint() {
   return (
-    <MaxWidthWrapper className='mb-10'>
-      <div className='bg-gradient-to-r from-pink-400  via-pink-600 to-orange-400 p-10 rounded-lg shadow-2xl'>
-        <h1 className='font-bold text-white text-center text-3xl mb-8'>
+    <div className="max-w-7xl mx-auto px-6 py-12">
+      <div className="mb-12">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Impressum
         </h1>
-        <Card className='bg-white bg-opacity-90 p-8 rounded-lg shadow-lg'>
-          <div className='space-y-4'>
-            <p className='text-gray-800 text-lg font-semibold'>
-              Angaben gemäß § 5 TMG
-            </p>
-            <p className='text-gray-700'>Schaller Cosmetic Group</p>
-            <p className='text-gray-700'>Umsatzsteuer-ID DE363514924</p>
-            <p className='text-gray-700'>Tatjana Schaller</p>
-            <p className='text-gray-700'>An der Leiten 38</p>
-            <p className='text-gray-700'>91177 Thalmässing</p>
-            <p className='text-gray-700'>Deutschland</p>
-            <p className='text-gray-700'>Tel: +49 91736699940</p>
-            <p className='text-gray-700'>
-              E-Mail:{' '}
-              <a
-                href='mailto:info@missglowbeauty.com'
-                className='text-blue-500 hover:text-blue-700'>
-                info@missglowbeauty.com
-              </a>
-            </p>
-          </div>
-        </Card>
-        <div className='mt-10 bg-white bg-opacity-90 p-8 rounded-lg shadow-lg space-y-6'>
+        <div className="h-1 w-20 bg-[oklch(0.52_0.12_195)]" />
+      </div>
+
+      <div className='bg-white rounded-lg shadow-sm border border-gray-100 p-8'>
+        <div className='space-y-4'>
+          <p className='text-gray-900 text-lg font-bold'>
+            Angaben gemäß § 5 TMG
+          </p>
+          <p className='text-gray-700'>Schaller Cosmetic Group</p>
+          <p className='text-gray-700'>Umsatzsteuer-ID DE363514924</p>
+          <p className='text-gray-700'>Uwe Schaller</p>
+          <p className='text-gray-700'>An der Leiten 38</p>
+          <p className='text-gray-700'>91177 Thalmässing</p>
+          <p className='text-gray-700'>Deutschland</p>
+          <p className='text-gray-700'>Tel: +49 91736699940</p>
+          <p className='text-gray-700'>
+            E-Mail:{' '}
+            <a
+              href={`mailto:${process.env.NEXT_PUBLIC_ADMINEMAIL}`}
+              className='text-[oklch(0.52_0.12_195)] hover:text-[oklch(0.45_0.12_195)]'>
+              {process.env.NEXT_PUBLIC_ADMINEMAIL}
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div className='mt-8 bg-white rounded-lg shadow-sm border border-gray-100 p-8 space-y-6'>
           <div>
             <h2 className='text-xl font-semibold text-gray-800'>
               Streitschlichtung
@@ -41,7 +43,7 @@ export default function Imprint() {
               Online-Streitbeilegung (OS) bereit:
               <a
                 href='https://ec.europa.eu/consumers/odr'
-                className='text-blue-500 hover:text-blue-700'>
+                className='text-[oklch(0.52_0.12_195)] hover:text-[oklch(0.45_0.12_195)]'>
                 {' '}
                 https://ec.europa.eu/consumers/odr
               </a>
@@ -120,6 +122,5 @@ export default function Imprint() {
           </div>
         </div>
       </div>
-    </MaxWidthWrapper>
   );
 }

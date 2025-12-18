@@ -30,10 +30,7 @@ export function Header() {
           <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
             {language === 'de' ? 'Über uns' : 'About'}
           </Link>
-          <Link href="/reviews" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-            {language === 'de' ? 'Bewertungen' : 'Reviews'}
-          </Link>
-          <Link href="/contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+          <Link href="/imprint" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
             {language === 'de' ? 'Kontakt' : 'Contact'}
           </Link>
         </nav>
