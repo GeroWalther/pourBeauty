@@ -55,7 +55,7 @@ export default function ShopPage() {
                     <span className="text-2xl font-bold text-primary">
                       {formatCurrency(product.priceInCents / 100)}
                     </span>
-                    <Link href={`/${product.slug}`}>
+                    <Link href={`/products/${product.slug}`}>
                       <Button variant="outline" size="sm">
                         {language === 'de' ? 'Details' : 'View Details'}
                       </Button>

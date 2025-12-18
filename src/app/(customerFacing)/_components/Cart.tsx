@@ -82,7 +82,7 @@ export default function Cart() {
                 ))}
               </div>
             </ScrollArea>
-            <div className='space-y-4 pr-6'>
+            <div className='space-y-4 px-6'>
               <Separator />
               <DiscountCodeInput />
               <div className='space-y-1-5 text-sm'>
@@ -93,11 +93,11 @@ export default function Cart() {
                 {discount > 0 && (
                   <>
                     <div className='flex'>
-                      <span className='flex-1 font-bold text-pink-700'>
+                      <span className='flex-1 font-bold text-primary'>
                         {language == 'de' && 'Rabatt'}
                         {language == 'en' && 'Discount'}
                       </span>
-                      <span className='font-bold text-pink-700'>
+                      <span className='font-bold text-primary'>
                         - {discount} %
                       </span>
                     </div>
@@ -145,14 +145,14 @@ export default function Cart() {
             </div>
             <SheetTrigger asChild>
               <Link
-                href='/magicLips'
+                href='/shop'
                 className={buttonVariants({
                   variant: 'link',
                   size: 'sm',
-                  className: 'text-sm text-muted-foreground text-stone-600',
+                  className: 'text-sm text-primary hover:text-primary/80',
                 })}>
-                {language == 'de' && 'Füge Produkte hinzu.'}
-                {language == 'en' && 'Add products to cart.'}
+                {language == 'de' && 'Zum Shop'}
+                {language == 'en' && 'Go to Shop'}
               </Link>
             </SheetTrigger>
           </div>

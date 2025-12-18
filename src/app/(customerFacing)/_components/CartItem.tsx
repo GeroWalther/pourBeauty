@@ -19,7 +19,7 @@ export default function CartItem({
     <div className='space-y-3 py-2'>
       <div className='flex items-start justify-between gap-4'>
         <div className='flex items-center space-x-4'>
-          <div className='relative aspect-square h-16 w-16 min-w-fit overflow-hidden rounded'>
+          <div className='relative aspect-square h-16 w-16 min-w-fit overflow-hidden rounded ml-4'>
             {product.image ? (
               <Image
                 src={product.image}

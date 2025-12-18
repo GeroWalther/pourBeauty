@@ -379,7 +379,7 @@ export default function PrivacyPolicy() {
             <br />
             E-Mail:{' '}
             <a className='text-blue-600' href='mailto:shop@missglowbeauty.com'>
-              shop@missglowbeauty.com
+              shop@purebeauty.com
             </a>
           </p>
         </div>

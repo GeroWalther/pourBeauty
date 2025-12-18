@@ -7,6 +7,7 @@ import { products } from "@/config/products"
 import { useCart } from "@/hooks/use-cart-hook"
 import { useLanguage } from "@/contexts/LanguageProvider"
 import { formatCurrency } from "@/lib/formatters"
+import Link from "next/link"
 
 export function ProductGallery() {
   const { addItem } = useCart()
@@ -38,13 +39,15 @@ export function ProductGallery() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {products.map((product) => (
             <Card key={product.id} className="overflow-hidden group hover:shadow-lg transition-shadow border-0">
-              <div className="aspect-square overflow-hidden bg-card">
-                <img
-                  src={product.image || "/placeholder.svg"}
-                  alt={product.name}
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+              <Link href={`/products/${product.slug}`}>
+                <div className="aspect-square overflow-hidden bg-card cursor-pointer">
+                  <img
+                    src={product.image || "/placeholder.svg"}
+                    alt={product.name}
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </Link>
               <CardContent className="p-6 bg-card">
                 <div className="flex items-center gap-1 mb-2">
                   {[...Array(5)].map((_, i) => (
@@ -52,7 +55,11 @@ export function ProductGallery() {
                   ))}
                   <span className="text-sm text-muted-foreground ml-2">(5.0)</span>
                 </div>
-                <h3 className="text-xl font-semibold text-card-foreground mb-2">{product.name}</h3>
+                <Link href={`/products/${product.slug}`}>
+                  <h3 className="text-xl font-semibold text-card-foreground mb-2 hover:text-primary transition-colors cursor-pointer">
+                    {product.name}
+                  </h3>
+                </Link>
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                   {language === 'de' ? product.shortDescription.de : product.shortDescription.en}
                 </p>
