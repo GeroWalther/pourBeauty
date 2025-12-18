@@ -38,7 +38,7 @@ export function ProductGallery() {
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {products.map((product) => (
-            <Card key={product.id} className="overflow-hidden group hover:shadow-lg transition-shadow border-0">
+            <Card key={product.id} className="overflow-hidden group hover:shadow-lg transition-shadow border-0 flex flex-col">
               <Link href={`/products/${product.slug}`}>
                 <div className="aspect-square overflow-hidden bg-card cursor-pointer">
                   <img
@@ -48,7 +48,7 @@ export function ProductGallery() {
                   />
                 </div>
               </Link>
-              <CardContent className="p-6 bg-card">
+              <CardContent className="p-6 bg-card flex flex-col h-full">
                 <div className="flex items-center gap-1 mb-2">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={16} weight="fill" className="text-primary" />
@@ -60,18 +60,28 @@ export function ProductGallery() {
                     {product.name}
                   </h3>
                 </Link>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-1">
                   {language === 'de' ? product.shortDescription.de : product.shortDescription.en}
                 </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-primary">{formatCurrency(product.priceInCents / 100)}</span>
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    onClick={() => handleAddToCart(product)}
-                  >
-                    {language === 'de' ? 'In den Warenkorb' : 'Add to Cart'}
-                  </Button>
+                <div className="mt-auto space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl font-bold text-primary">{formatCurrency(product.priceInCents / 100)}</span>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button 
+                      variant="default" 
+                      size="sm"
+                      className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90"
+                      onClick={() => handleAddToCart(product)}
+                    >
+                      {language === 'de' ? 'In den Warenkorb' : 'Add to Cart'}
+                    </Button>
+                    <Link href={`/products/${product.slug}`} className="flex-1">
+                      <Button variant="outline" size="sm" className="w-full">
+                        {language === 'de' ? 'Details' : 'Details'}
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </CardContent>
             </Card>

@@ -15,7 +15,7 @@ export default function ShopPage() {
   return (
     <div className="min-h-screen bg-background">
       <section className="py-20 md:py-28">
-        <div className="container px-4">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
             <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl mb-4 text-balance">
               {language === 'de' ? 'Alle Produkte' : 'All Products'}
@@ -27,7 +27,7 @@ export default function ShopPage() {
             </p>
           </div>
           
-          <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
               <Card key={product.id} className="overflow-hidden group hover:shadow-lg transition-shadow border-border">
                 <Link href={`/${product.slug}`}>
