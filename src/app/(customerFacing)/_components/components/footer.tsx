@@ -12,9 +12,9 @@ export function Footer() {
               Professional dermatological skincare backed by science and trusted by experts worldwide.
             </p>
             <div className="flex gap-4">
-              {/* <a href="#" className="hover:text-primary transition-colors">
+              <a href="https://www.facebook.com/purebeautybiological/" className="hover:text-primary transition-colors">
                 <FacebookLogo size={24} weight="fill" />
-              </a> */}
+              </a>
               <a href="https://www.instagram.com/purebeauty_biological?igsh=MWs4bjUwMWc1MW5oZg%3D%3D&utm_source=qr" className="hover:text-primary transition-colors">
                 <InstagramLogo size={24} weight="fill" />
               </a>
