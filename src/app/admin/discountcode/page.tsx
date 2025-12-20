@@ -9,7 +9,7 @@ export default async function DiscountPage() {
   const getAllDiscounts = await getDiscounts();
   return (
     <section>
-      <h3 className='text-lg w-80 mb-2 text-left'>
+      <h3 className='text-lg w-80 mb-2 text-left ml-4'>
         Richte hier einen neuen Rabattcode ein. Wähle ein Datum aus, um den
         Gutschein zeitlich zu begrenzen.
       </h3>

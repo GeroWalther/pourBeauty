@@ -30,6 +30,9 @@ export function Header() {
           <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
             {language === 'de' ? 'Über uns' : 'About'}
           </Link>
+          <Link href="/blog" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            Blog
+          </Link>
           <Link href="/imprint" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
             {language === 'de' ? 'Kontakt' : 'Contact'}
           </Link>
@@ -60,6 +63,9 @@ export function Header() {
             </Link>
             <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               {language === 'de' ? 'Über uns' : 'About'}
+            </Link>
+            <Link href="/blog" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+              Blog
             </Link>
             <Link href="/reviews" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               {language === 'de' ? 'Bewertungen' : 'Reviews'}

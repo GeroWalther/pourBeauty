@@ -9,7 +9,7 @@ export default async function SalePromotionPage() {
 
   return (
     <section>
-      <h3 className='text-lg w-full mb-2 text-left'>
+      <h3 className='text-lg w-full mb-2 text-left ml-4'>
         Richte hier eine Rabattaktion für alle Produkte ein. Die Aktion wird
         automatisch aktiv, wenn das aktuelle Datum im angegebenen Zeitraum liegt.
       </h3>

@@ -104,38 +104,64 @@ export default function SalePromotionForm() {
           <Label className='mb-2'>Startdatum</Label>
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant='outline' size='default' className='w-full mb-2'>
-                {startDate ? startDate.toLocaleDateString('de-DE') : 'Startdatum auswählen'}
+              <Button variant='outline' size='default' className='w-full mb-2' type='button'>
+                {startDate ? startDate.toLocaleDateString('de-DE', {
+                  day: '2-digit',
+                  month: '2-digit',
+                  year: 'numeric',
+                }) : 'Startdatum auswählen'}
               </Button>
             </PopoverTrigger>
-            <PopoverContent>
+            <PopoverContent align='start' className='w-auto p-0'>
               <Calendar
                 mode='single'
                 selected={startDate}
                 onSelect={setStartDate}
-                className='rounded-md border shadow'
               />
             </PopoverContent>
           </Popover>
+          {startDate && (
+            <p className='text-sm text-gray-600 mt-1'>
+              Gewählt: {startDate.toLocaleDateString('de-DE', {
+                weekday: 'long',
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+              })}
+            </p>
+          )}
         </div>
 
         <div className='mb-4 flex flex-col'>
           <Label className='mb-2'>Enddatum</Label>
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant='outline' size='default' className='w-full mb-2'>
-                {endDate ? endDate.toLocaleDateString('de-DE') : 'Enddatum auswählen'}
+              <Button variant='outline' size='default' className='w-full mb-2' type='button'>
+                {endDate ? endDate.toLocaleDateString('de-DE', {
+                  day: '2-digit',
+                  month: '2-digit',
+                  year: 'numeric',
+                }) : 'Enddatum auswählen'}
               </Button>
             </PopoverTrigger>
-            <PopoverContent>
+            <PopoverContent align='start' className='w-auto p-0'>
               <Calendar
                 mode='single'
                 selected={endDate}
                 onSelect={setEndDate}
-                className='rounded-md border shadow'
               />
             </PopoverContent>
           </Popover>
+          {endDate && (
+            <p className='text-sm text-gray-600 mt-1'>
+              Gewählt: {endDate.toLocaleDateString('de-DE', {
+                weekday: 'long',
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+              })}
+            </p>
+          )}
         </div>
 
         <Button type='submit' className='w-full' disabled={isLoading}>

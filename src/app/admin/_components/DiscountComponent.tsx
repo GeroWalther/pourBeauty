@@ -69,21 +69,37 @@ export function AddtDiscount() {
             className='rounded-md border shadow p-2 w-80 mb-1'
           />
         </div>
-        <Popover>
-          <PopoverTrigger asChild>
-            <Button variant='outline' size='default' className='w-80 mb-2'>
-              Datum auswählen
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <Calendar
-              mode='single'
-              selected={date}
-              onSelect={setDate}
-              className='rounded-md border shadow '
-            />
-          </PopoverContent>
-        </Popover>
+        <div className='mb-4 flex flex-col'>
+          <label className='mb-2'>Ablaufdatum</label>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant='outline' size='default' className='w-80 mb-2' type='button'>
+                {date ? date.toLocaleDateString('de-DE', {
+                  day: '2-digit',
+                  month: '2-digit',
+                  year: 'numeric',
+                }) : 'Datum auswählen'}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent align='start' className='w-auto p-0'>
+              <Calendar
+                mode='single'
+                selected={date}
+                onSelect={setDate}
+              />
+            </PopoverContent>
+          </Popover>
+          {date && (
+            <p className='text-sm text-gray-600 mt-1'>
+              Gewählt: {date.toLocaleDateString('de-DE', {
+                weekday: 'long',
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+              })}
+            </p>
+          )}
+        </div>
         <Button type='submit' className='w-80 mb-2'>
           Einrichten
         </Button>
