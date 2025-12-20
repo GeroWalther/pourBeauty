@@ -1,18 +1,3 @@
-import {
-  FRESHEZESPRICE,
-  PRICEMAGICGLOW,
-  MAGICLIPSPRICE,
-  FACECLEANSERPRICE,
-  MAGICELIXIRPRICE,
-  BETOXPRICE,
-  productImgsLips,
-  productImgsBetox,
-  productImagesGlowCreme,
-  productImagesFresh,
-  productImagesMagicElixir,
-  productImagesFaceCleanser,
-} from '../../consts';
-
 export interface Product {
   id: string;
   name: string;
