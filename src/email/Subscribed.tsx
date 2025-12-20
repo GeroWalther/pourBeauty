@@ -38,7 +38,7 @@ export default function Subscribed({ name }: WelcomeEmailProps) {
               eingeschrieben hast. Als Dankeschön bekommst du einen Rabattcode
               für deinen nächsten Einkauf:
             </Text>
-            <Text className='mt-5 font-bold'>GLOW15</Text>
+            <Text className='mt-5 font-bold'>Pure15</Text>
             <Section className='p-4'>
               <Text>
                 Wenn du Fragen haben solltest, kanst du uns gerne unter{' '}

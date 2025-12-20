@@ -71,12 +71,12 @@ export default function PurchaseReceiptEmail({
       <Preview>Bestellung - PureBeauty</Preview>
       <Tailwind>
         <Head />
-        <Body className='font-sans bg-pink-200'>
+        <Body className='font-sans bg-teal-100'>
           <Container className='max-w-lg'>
             <Heading>
               <Container>
                 <Img
-                  src={`${process.env.NEXT_PUBLIC_SERVER_URL}/missglowlogo.png`}
+                  src={`${process.env.NEXT_PUBLIC_SERVER_URL}/purebeautylogo.png`}
                   alt='PureBeauty Logo'
                   className='w-56 h-56 object-cover'
                 />

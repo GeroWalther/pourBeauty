@@ -8,12 +8,44 @@ import { useState } from "react"
 
 export function NewsletterSection() {
   const [email, setEmail] = useState("")
+  const [name, setName] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState("")
+  const [error, setError] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle newsletter signup
-    console.log("Newsletter signup:", email)
-    setEmail("")
+    setLoading(true)
+    setMessage("")
+    setError("")
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          name,
+          emailIsValid: true,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        setError(data.error || "Failed to subscribe")
+      } else {
+        setMessage(data.msg || "Successfully subscribed!")
+        setEmail("")
+        setName("")
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -59,6 +91,7 @@ export function NewsletterSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  disabled={loading}
                   className="w-full"
                 />
               </div>
@@ -66,10 +99,30 @@ export function NewsletterSection() {
                 <label htmlFor="name" className="sr-only">
                   Name
                 </label>
-                <Input id="name" type="text" placeholder="Enter your name" className="w-full" />
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="Enter your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  disabled={loading}
+                  className="w-full"
+                />
               </div>
-              <Button type="submit" size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                Subscribe Now
+              {message && (
+                <p className="text-sm text-green-600 text-center">{message}</p>
+              )}
+              {error && (
+                <p className="text-sm text-red-600 text-center">{error}</p>
+              )}
+              <Button
+                type="submit"
+                size="lg"
+                disabled={loading}
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+              >
+                {loading ? "Subscribing..." : "Subscribe Now"}
               </Button>
               <p className="text-xs text-muted-foreground text-center">
                 By subscribing, you agree to our Privacy Policy and Terms of Service.
