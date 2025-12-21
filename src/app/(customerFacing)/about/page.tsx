@@ -1,5 +1,6 @@
 'use client';
 import { useLanguage } from '@/contexts/LanguageProvider';
+import Image from 'next/image';
 import React from 'react';
 
 export default function AboutPage() {
@@ -15,76 +16,87 @@ export default function AboutPage() {
 
       <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 space-y-8">
         <div className='space-y-6'>
+          <p className='text-gray-700 text-lg leading-relaxed'>
+            {language === 'de'
+              ? 'Wir die Gründer von PURE BEAUTY BIOLOGICAL denken Kosmetik und Schönheit neu, als Teil der Gesundheit wird Schönheit heute verstanden.'
+              : 'We, the founders of PURE BEAUTY BIOLOGICAL, rethink cosmetics and beauty, beauty is now understood as part of health.'}
+          </p>
+
           <h3 className='text-gray-900 text-2xl font-bold'>
             {language === 'de'
-              ? 'Glow. Beauty. Power.'
-              : 'Glow. Beauty. Power.'}
+              ? 'SCHÖNHEIT BEDEUTET GESUNDHEIT'
+              : 'BEAUTY MEANS HEALTH'}
           </h3>
           
           <p className='text-gray-700 text-lg leading-relaxed'>
             {language === 'de'
-              ? 'Bei PureBeauty glauben wir daran, dass Hautpflege mehr ist als nur ein Produkt – sie ist ein Gefühl, ein Ritual, ein Moment der Wertschätzung für dich selbst. Unsere Mission ist es, biologische, hochwertige Kosmetik zu schaffen, die Ergebnisse liefert und sichtbar Ausstrahlung von innen nach außen schenkt.'
-              : 'At PureBeauty, we believe that skincare is more than just a product – it is a feeling, a ritual, a moment of appreciation for yourself. Our mission is to create organic, high-quality cosmetics that deliver results and visibly grant radiance from the inside out.'}
+              ? 'Schönheit als Teil der Gesundheit, statt nur "schön auszusehen" geht es um sichtbares Wohlbefinden.'
+              : 'Beauty as part of health, instead of just "looking good" it is about visible well-being.'}
+          </p>
+
+          <p className='text-gray-700 text-lg leading-relaxed'>
+            {language === 'de'
+              ? 'Was heisst das konkret? Die Haut und die Haare gelten als die zugänglichen BIOMARKER des Körpers, PURE BEAUTY BIOLOGICAL hat sich auf die PRÄVENTION, ANTI-AGING und BEAUTY LONGEVITY spezialisiert um die Hautalterung gezielt hinaus zu zögern.'
+              : 'What does that mean concretely? The skin and hair are considered the accessible BIOMARKERS of the body, PURE BEAUTY BIOLOGICAL specializes in PREVENTION, ANTI-AGING and BEAUTY LONGEVITY to specifically delay skin aging.'}
           </p>
           
           <p className='text-gray-700 text-lg leading-relaxed'>
             {language === 'de'
-              ? 'PureBeauty wurde aus einer klaren Vision heraus gegründet: Menschen Produkte zu geben, die nicht nur schön aussehen, sondern sich gut anfühlen – innen wie außen.'
-              : 'PureBeauty was created from a clear vision: to give people products that not only look beautiful, but feel good – inside and out.'}
+              ? 'Mit smarter persönlichen Pflegeroutine länger die Jugendlichkeit beizubehalten, nicht nur zu pflegen sondern natürlich zu transformieren.'
+              : 'With a smart personal care routine to maintain youthfulness longer, not just to care for but to naturally transform.'}
           </p>
           
           <p className='text-gray-700 text-lg leading-relaxed'>
             {language === 'de'
-              ? 'Wir wollten eine Pflegeroutine schaffen, die den Alltag veredelt. Ein kleines tägliches Luxusritual, das die Haut stärkt, regeneriert und mit jeder Anwendung ein Stück mehr zum Strahlen bringt. Kosmetik, die den Alterungsprozess sichtbar verlangsamt, verjüngend wirkt und echte Hautlösungen bietet.'
-              : 'We wanted to create a care routine that elevates everyday life. A small daily luxury ritual that strengthens, regenerates the skin and makes it shine a little more with each application. Cosmetics that visibly slow down the aging process, have a rejuvenating effect and offer real skin solutions.'}
+              ? 'Sensorische Erlebnisse, sind das neue Luxusgut für die Haut. Eine Kombination aus medizinischen Heilpflanzen, Longevity Inhaltsstoffen und die Meerestherapie Thalassa vereinen einen BEAUTY COCKTAIL für die Hautzellen und ihre Jugend.'
+              : 'Sensory experiences are the new luxury good for the skin. A combination of medicinal healing plants, longevity ingredients and the sea therapy Thalassa unite a BEAUTY COCKTAIL for the skin cells and their youth.'}
           </p>
           
           <p className='text-gray-700 text-lg leading-relaxed'>
             {language === 'de'
-              ? 'Unsere exklusive Clean & Green Beauty Formel wird mit größter Sorgfalt entwickelt. Jeder Inhaltsstoff ist bewusst ausgewählt, jede Komponente durchdacht – für eine Pflege, die wirksam, rein und nachhaltig ist.'
-              : 'Our exclusive Clean & Green Beauty formula is developed with the greatest care. Every ingredient is consciously selected, every component well thought out – for care that is effective, pure and sustainable.'}
+              ? 'Die HAUT und das WOHLBEFINDEN partizipieren von der Nachhaltigkeit der natürlichen Wirkstoffe, jedes einzelne Produkt aus unserer DERMA SKIN Linie besitzt eine intensive Zell verjüngende Eigenschaft, selbst auf die sensible Haut wurde bei dieser Linie geachtet, so das auch eine zu Rötungen neigende Haut eine hervorragende Hautpflege und Wohlbefinden erhält.'
+              : 'The SKIN and the WELL-BEING benefit from the sustainability of the natural active ingredients, each individual product from our DERMA SKIN line has an intensive cell rejuvenating property, even sensitive skin has been taken into account in this line, so that even skin prone to redness receives excellent skin care and well-being.'}
           </p>
           
           <div className='border-l-4 border-[oklch(0.52_0.12_195)] pl-6 py-4 my-8 bg-[oklch(0.97_0.02_195)]'>
-            <p className='text-gray-900 text-lg font-bold mb-2'>
+            <p className='text-gray-900 text-lg font-bold mb-4'>
               {language === 'de'
-                ? 'PureBeauty ist mehr als ein Produkt.'
-                : 'PureBeauty is more than a product.'}
+                ? 'CLEAN BEAUTY ist in unserer DERMA SKIN Linie selbstverständlich, grossen Wert legen wir auf Sicherheit, Transparenz, hochwertige Natürliche Wirkstoffe, belegbare Studien.'
+                : 'CLEAN BEAUTY is a matter of course in our DERMA SKIN line, we place great value on safety, transparency, high-quality natural active ingredients, and verifiable studies.'}
             </p>
-            <p className='text-gray-700 text-lg'>
+            <p className='text-gray-900 text-lg font-semibold mb-2'>
               {language === 'de'
-                ? 'Es ist ein Gefühl.'
-                : 'It is a feeling.'}
+                ? 'Wir verzichten auf:'
+                : 'We avoid:'}
             </p>
-            <p className='text-gray-700 text-lg'>
-              {language === 'de'
-                ? 'Ein Ritual.'
-                : 'A ritual.'}
-            </p>
-            <p className='text-gray-700 text-lg'>
-              {language === 'de'
-                ? 'Ein Moment nur für dich und deine Schönheit.'
-                : 'A moment just for you and your beauty.'}
-            </p>
+            <ul className='text-gray-700 text-lg space-y-2 list-disc list-inside'>
+              <li>
+                {language === 'de'
+                  ? 'Bedenkliche Inhaltsstoffe, wie Mineralöl, Parabene, Silikone, etc. und auf chemische Konservierungsstoffe'
+                  : 'Questionable ingredients such as mineral oil, parabens, silicones, etc. and chemical preservatives'}
+              </li>
+              <li>
+                {language === 'de'
+                  ? 'Keine Tierversuche, bei der Verpackung achten wir auf Sicherheitsbewertungen und Chemiefreie nachhaltige Verpackungen'
+                  : 'No animal testing, we pay attention to safety assessments and chemical-free sustainable packaging'}
+              </li>
+            </ul>
           </div>
-          
-          <p className='text-gray-700 text-lg font-bold'>
+
+          <p className='text-gray-700 text-lg leading-relaxed'>
             {language === 'de'
-              ? 'Getreu dem Motto:'
-              : 'True to the motto:'}
-          </p>
-          <p className='text-2xl font-bold text-[oklch(0.52_0.12_195)] italic'>
-            &quot;Age doesn&apos;t matter.&quot;
+              ? 'SCHÖNHEIT ist ein Teil ganzheitlicher Gesundheit, DERMA SKIN ist nicht nur PFLEGE, es sind Produkte mit echtem Wirkstoff nutzen, SKINCARE FIRST Philosophie, Echter GLOW entsteht durch eine gestärkte Hautbarriere und mit echter Wirkstoffpflege entsteht die Transformation, die Jugendlichkeit bewahrt.'
+              : 'BEAUTY is part of holistic health, DERMA SKIN is not just CARE, these are products with real active ingredient benefits, SKINCARE FIRST philosophy, Real GLOW comes from a strengthened skin barrier and with real active ingredient care, transformation occurs that preserves youthfulness.'}
           </p>
           
-          <p className='text-gray-700 text-lg italic mt-4'>
-            {language === 'de'
-              ? 'Mit Liebe entwickelt.'
-              : 'Developed with love.'}
+          <p className='text-2xl font-bold text-[oklch(0.52_0.12_195)] italic text-center mt-8'>
+            PURE BEAUTY BIOLOGICAL<br />
+            Naturally Pure, Naturally Beautiful
           </p>
         </div>
 
-        <div className='space-y-4 pt-8 border-t-2 border-gray-100'>
+          <div className='flex justify-between items-center'>
+        <div className='space-y-4 pt-8 border-t-2 border-gray-100 '>
           <h3 className='text-gray-900 text-xl font-bold'>
             {language === 'de' ? 'KONTAKTIERE UNS' : 'CONTACT US'}
           </h3>
@@ -111,6 +123,12 @@ export default function AboutPage() {
               </a>
             </div>
           </address>
+          </div>
+          <Image
+            src='/purenature.png'
+            alt='Pure Nature Logo'
+            width={300}
+            height={200}/>
         </div>
       </div>
     </div>
