@@ -95,7 +95,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-          <div className='flex justify-between items-center'>
+          <div className='flex flex-col md:flex-row justify-between items-center -mt-4'>
         <div className='space-y-4 pt-8 border-t-2 border-gray-100 '>
           <h3 className='text-gray-900 text-xl font-bold'>
             {language === 'de' ? 'KONTAKTIERE UNS' : 'CONTACT US'}
@@ -128,7 +128,8 @@ export default function AboutPage() {
             src='/purenature.png'
             alt='Pure Nature Logo'
             width={300}
-            height={200}/>
+            height={200}
+            className='md:mt-20 mt-10'/>
         </div>
       </div>
     </div>
