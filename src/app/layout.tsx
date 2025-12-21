@@ -11,6 +11,7 @@ const nunitoSans = Nunito_Sans({
 import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://pour-beauty.vercel.app'),
   title: 'PureBeauty - Professional Dermatology Skincare',
   description:
     'Premium pharmaceutical-grade skincare products for radiant, healthy skin',
