@@ -81,7 +81,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <div className="flex items-center gap-3 text-sm">
                 <ShieldCheck size={20} className="text-primary" weight="duotone" />
                 <span className="text-foreground">
-                  {language === 'de' ? 'Dermatologisch getestet' : 'Dermatologically tested'}
+                  {language === 'de' ? 'Getestete Inhaltsstoffe' : 'Tested Ingredients'}
                 </span>
               </div>
               <div className="flex items-center gap-3 text-sm">
@@ -127,8 +127,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               </h3>
               <p className="text-sm text-muted-foreground">
                 {language === 'de' 
-                  ? 'Alle unsere Produkte sind mit pharmazeutischen Inhaltsstoffen formuliert und klinisch getestet für optimale Wirksamkeit.'
-                  : 'All our products are formulated with pharmaceutical-grade ingredients and clinically tested for optimal efficacy.'}
+                  ? 'Alle unsere Produkte sind mit hochwertigen, natürlichen Inhaltsstoffen formuliert und für ihre Wirksamkeit optimiert.'
+                  : 'All our products are formulated with high-quality, natural ingredients and optimized for effectiveness.'}
               </p>
             </div>
           </div>

@@ -43,12 +43,12 @@ export const useCart = create<CartState>()(
           if (existingItem) {
             const updatedItems = state.items.map((item) => {
               if (item.product.id === product.id) {
-                // Assuming item.product.quantity is meant to be updated directly
+                // Add the specified quantity to the existing quantity
                 return {
                   ...item,
                   product: {
                     ...item.product,
-                    quantity: item.product.quantity + 1,
+                    quantity: item.product.quantity + product.quantity,
                   },
                 };
               }
@@ -56,9 +56,8 @@ export const useCart = create<CartState>()(
             });
             return { items: updatedItems };
           }
-          // When adding a new product, ensure the product has a quantity of 1
-          const newProduct = { ...product, quantity: 1 };
-          return { items: [...state.items, { product: newProduct }] };
+          // When adding a new product, use the quantity from the product
+          return { items: [...state.items, { product }] };
         }),
       removeItem: (id) =>
         set((state) => {
