@@ -25,19 +25,19 @@ export default function BlogPostForm() {
     };
     reader.readAsDataURL(file);
 
-    // Upload image
-    const formData = new FormData();
-    formData.append('file', file);
-
+    // Upload image to Vercel Blob
     try {
-      const response = await fetch('/api/upload-blog-image', {
-        method: 'POST',
-        body: formData,
-      });
+      const response = await fetch(
+        `/api/upload-blog-image?filename=${encodeURIComponent(file.name)}`,
+        {
+          method: 'POST',
+          body: file,
+        }
+      );
 
-      const data = await response.json();
-      if (data.success) {
-        setUploadedImagePath(data.path);
+      const blob = await response.json();
+      if (blob.url) {
+        setUploadedImagePath(blob.url);
         toast.success('Bild hochgeladen');
       } else {
         toast.error('Fehler beim Hochladen des Bildes');

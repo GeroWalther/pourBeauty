@@ -1,46 +1,29 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { writeFile } from 'fs/promises';
-import path from 'path';
+import { put } from '@vercel/blob';
+import { NextResponse } from 'next/server';
 
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   try {
-    const formData = await request.formData();
-    const file = formData.get('file') as File;
+    const { searchParams } = new URL(request.url);
+    const filename = searchParams.get('filename');
 
-    if (!file) {
+    if (!filename) {
       return NextResponse.json(
-        { success: false, error: 'No file provided' },
+        { success: false, error: 'No filename provided' },
         { status: 400 }
       );
     }
 
-    // Validate file type
-    if (!file.type.startsWith('image/')) {
-      return NextResponse.json(
-        { success: false, error: 'File must be an image' },
-        { status: 400 }
-      );
-    }
-
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    // Generate unique filename
+    // Generate unique filename with timestamp
     const timestamp = Date.now();
-    const originalName = file.name.replace(/\s+/g, '-');
-    const filename = `${timestamp}-${originalName}`;
+    const sanitizedFilename = filename.replace(/\s+/g, '-');
+    const blobFilename = `blog-images/${timestamp}-${sanitizedFilename}`;
 
-    // Save to public/blog-images
-    const publicPath = path.join(process.cwd(), 'public', 'blog-images', filename);
-    await writeFile(publicPath, buffer);
-
-    // Return the public URL path
-    const publicUrl = `/blog-images/${filename}`;
-
-    return NextResponse.json({
-      success: true,
-      path: publicUrl,
+    // Upload to Vercel Blob
+    const blob = await put(blobFilename, request.body, {
+      access: 'public',
     });
+
+    return NextResponse.json(blob);
   } catch (error) {
     console.error('Error uploading file:', error);
     return NextResponse.json(
