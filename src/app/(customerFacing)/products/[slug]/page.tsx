@@ -49,12 +49,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Product Image Gallery */}
-          <div className="relative aspect-square overflow-hidden rounded-lg bg-accent">
-            <img
-              src={product.images[0]}
-              alt={product.name}
-              className="object-cover w-full h-full"
-            />
+          <div>
+            <ImageSlider urls={product.images} alt={product.name} />
           </div>
 
           {/* Product Info */}

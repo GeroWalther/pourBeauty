@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Nunito_Sans } from 'next/font/google';
 import './globals.css';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import { cn } from '@/lib/utils';
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
