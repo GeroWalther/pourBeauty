@@ -17,8 +17,8 @@ export function HeroSection() {
               <span className="h-px w-8 bg-primary"></span>
               {language === 'de' ? 'Professionelle Dermatologie' : 'Professional Dermatology'}
             </div>
-            <h1 className="text-6xl font-bold tracking-tight text-foreground text-balance">
-              {language === 'de' ? 'Verwandeln Sie Ihre Haut mit mit moderner Hautwissenschaft' : 'Transform Your Skin with Science-Backed Skincare'}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground text-balance">
+              {language === 'de' ? 'Verwandeln Sie Ihre Haut mit moderner Hautwissenschaft' : 'Transform Your Skin with Science-Backed Skincare'}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
               {language === 'de' 
