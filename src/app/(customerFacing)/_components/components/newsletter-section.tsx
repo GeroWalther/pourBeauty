@@ -5,8 +5,10 @@ import type React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import { useLanguage } from "@/contexts/LanguageProvider"
 
 export function NewsletterSection() {
+  const { language } = useLanguage()
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
   const [loading, setLoading] = useState(false)
@@ -54,27 +56,33 @@ export function NewsletterSection() {
         <div className="grid gap-12 lg:grid-cols-2 items-center max-w-6xl mx-auto">
           <div>
             <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl mb-4 text-balance">
-              Get Exclusive Offers & Skincare Tips
+              {language === 'de' ?
+                "Erhalten Sie exklusive Angebote & Hautpflege-Tipps"
+                :
+                "Get Exclusive Offers & Skincare Tips"}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Subscribe to our newsletter and receive:
+             {language === 'de' ?
+                "Abonnieren Sie unseren Newsletter und erhalten Sie:"
+                :
+                "Subscribe to our newsletter and receive:"}
             </p>
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex items-start gap-3">
                 <span className="text-primary">•</span>
-                <span>15% off your first order</span>
+                <span>{language === 'de' ? "15% Rabatt auf Ihre erste Bestellung" : "15% off your first order"}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary">•</span>
-                <span>Early access to new product launches</span>
+                <span>{language === 'de' ? "Früherer Zugang zu neuen Produkten" : "Early access to new product launches"}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary">•</span>
-                <span>Expert skincare advice from dermatologists</span>
+                <span>{language === 'de' ? "Expertenschadensberatung von Dermatologen" : "Expert skincare advice from dermatologists"}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary">•</span>
-                <span>Exclusive promotions and special offers</span>
+                <span>{language === 'de' ? "Exklusive Angebote und Sonderangebote" : "Exclusive promotions and special offers"}</span>
               </li>
             </ul>
           </div>
@@ -125,7 +133,10 @@ export function NewsletterSection() {
                 {loading ? "Subscribing..." : "Subscribe Now"}
               </Button>
               <p className="text-xs text-muted-foreground text-center">
-                By subscribing, you agree to our Privacy Policy and Terms of Service.
+                {language === 'de' ?
+                  "Wir respektieren Ihre Privatsphäre. Keine Spam-E-Mails, nur wertvolle Inhalte."
+                  :
+                  "We respect your privacy. No spam emails, just valuable content."}
               </p>
             </form>
           </div>

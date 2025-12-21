@@ -11,8 +11,8 @@ export function FeaturesSection() {
       icon: Flask,
       title: language === 'de' ? 'Klinische Formel' : 'Clinical Formula',
       description: language === 'de' 
-        ? 'Von Dermatologen mit pharmazeutischen Inhaltsstoffen für maximale Wirksamkeit entwickelt.'
-        : 'Developed by dermatologists using pharmaceutical-grade ingredients for maximum efficacy.',
+        ? 'Von Dermatologen für maximale Wirksamkeit entwickelt.'
+        : 'Developed by dermatologists for maximum efficacy.',
     },
     {
       icon: ShieldCheck,

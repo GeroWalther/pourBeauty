@@ -1,7 +1,11 @@
+'use client'
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr"
+import { useLanguage } from "@/contexts/LanguageProvider"
+import Link from "next/link"
 
 export function CTASection() {
+  const { language } = useLanguage()
   return (
     <section className="py-20 md:py-28 bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-6">
@@ -10,21 +14,27 @@ export function CTASection() {
             Ready to Transform Your Skin?
           </h2>
           <p className="text-lg text-primary-foreground/90 mb-8 leading-relaxed">
-            Join thousands of satisfied customers and experience the PureBeauty difference. Professional results, backed
-            by science.
+            {language === 'de' ?
+            "Schließen Sie sich Tausenden zufriedener Kunden an und erleben Sie den Unterschied mit DERMA SKIN. Professionelle Ergebnisse, unterstützt durch Wissenschaft."
+            :
+            "Join thousands of satisfied customers and experience the DERMA SKIN difference. Professional results, backed by science."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90">
-              Shop Collection
+        <Link href="/shop">
+            <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90 text-2xl font-semibold">
+              Shop 
               <ArrowRight size={20} className="ml-2" />
             </Button>
+        </Link>
+        <a href="mailto:info@purebeautybiological.com">
             <Button
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
-            >
+          size="lg"
+          variant="outline"
+          className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 bg-transparent text-xl font-semibold"
+          >
               Book Consultation
             </Button>
+              </a>
           </div>
         </div>
       </div>
