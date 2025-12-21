@@ -154,30 +154,12 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                     {language === 'de' ? 'Hauptvorteile' : 'Key Benefits'}
                   </h3>
                   <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>
-                        {language === 'de' 
-                          ? 'Klinisch getestete Formel'
-                          : 'Clinically tested formula'}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>
-                        {language === 'de' 
-                          ? 'Dermatologisch zugelassen'
-                          : 'Dermatologically approved'}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>
-                        {language === 'de' 
-                          ? 'Sichtbare Ergebnisse innerhalb von Wochen'
-                          : 'Visible results within weeks'}
-                      </span>
-                    </li>
+                    {(language === 'de' ? product.keyBenefits.de : product.keyBenefits.en).map((benefit, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div>
@@ -185,30 +167,12 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                     {language === 'de' ? 'Anwendung' : 'How to Use'}
                   </h3>
                   <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">1.</span>
-                      <span>
-                        {language === 'de' 
-                          ? 'Auf gereinigte Haut auftragen'
-                          : 'Apply to cleansed skin'}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">2.</span>
-                      <span>
-                        {language === 'de' 
-                          ? 'Sanft einmassieren bis vollständig eingezogen'
-                          : 'Gently massage until fully absorbed'}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">3.</span>
-                      <span>
-                        {language === 'de' 
-                          ? 'Morgens und abends verwenden für beste Ergebnisse'
-                          : 'Use morning and evening for best results'}
-                      </span>
-                    </li>
+                    {(language === 'de' ? product.howToUse.de : product.howToUse.en).map((step, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="text-primary mt-1">{index + 1}.</span>
+                        <span>{step}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>

@@ -13,6 +13,14 @@ export interface Product {
     en: string;
     de: string;
   };
+  keyBenefits: {
+    en: string[];
+    de: string[];
+  };
+  howToUse: {
+    en: string[];
+    de: string[];
+  };
 }
 
 export const products: Product[] = [
@@ -31,6 +39,30 @@ export const products: Product[] = [
       en: 'Advanced anti-aging formula that reduces fine lines and wrinkles by 64% within one month.',
       de: 'Fortschrittliche Anti-Aging-Formel, die Linien und Falten um 64% reduziert.',
     },
+    keyBenefits: {
+      en: [
+        'Clinically tested formula',
+        'Dermatologically approved',
+        'Visible results within weeks',
+      ],
+      de: [
+        'Klinisch getestete Formel',
+        'Dermatologisch zugelassen',
+        'Sichtbare Ergebnisse innerhalb von Wochen',
+      ],
+    },
+    howToUse: {
+      en: [
+        'Apply to cleansed skin',
+        'Gently massage until fully absorbed',
+        'Use morning and evening for best results',
+      ],
+      de: [
+        'Auf gereinigte Haut auftragen',
+        'Sanft einmassieren bis vollständig eingezogen',
+        'Morgens und abends verwenden für beste Ergebnisse',
+      ],
+    },
   },
   {
     id: '2',
@@ -46,6 +78,30 @@ export const products: Product[] = [
     shortDescription: {
       en: 'Intense moisture with SPF protection for all-day hydration and sun defense.',
       de: 'Intensive Feuchtigkeit mit SPF-Schutz für ganztägige Hydratation.',
+    },
+    keyBenefits: {
+      en: [
+        'Clinically tested formula',
+        'Dermatologically approved',
+        'Visible results within weeks',
+      ],
+      de: [
+        'Klinisch getestete Formel',
+        'Dermatologisch zugelassen',
+        'Sichtbare Ergebnisse innerhalb von Wochen',
+      ],
+    },
+    howToUse: {
+      en: [
+        'Apply to cleansed skin',
+        'Gently massage until fully absorbed',
+        'Use morning and evening for best results',
+      ],
+      de: [
+        'Auf gereinigte Haut auftragen',
+        'Sanft einmassieren bis vollständig eingezogen',
+        'Morgens und abends verwenden für beste Ergebnisse',
+      ],
     },
   },
   {
@@ -63,6 +119,30 @@ export const products: Product[] = [
       en: 'Targets dark circles and puffiness while smoothing the delicate eye area.',
       de: 'Zielt auf Augenringe und Schwellungen ab und glättet die Augenpartie.',
     },
+    keyBenefits: {
+      en: [
+        'Clinically tested formula',
+        'Dermatologically approved',
+        'Visible results within weeks',
+      ],
+      de: [
+        'Klinisch getestete Formel',
+        'Dermatologisch zugelassen',
+        'Sichtbare Ergebnisse innerhalb von Wochen',
+      ],
+    },
+    howToUse: {
+      en: [
+        'Apply to cleansed skin',
+        'Gently massage until fully absorbed',
+        'Use morning and evening for best results',
+      ],
+      de: [
+        'Auf gereinigte Haut auftragen',
+        'Sanft einmassieren bis vollständig eingezogen',
+        'Morgens und abends verwenden für beste Ergebnisse',
+      ],
+    },
   },
   {
     id: '4',
@@ -78,6 +158,30 @@ export const products: Product[] = [
     shortDescription: {
       en: 'Overnight treatment that deeply cleanses and rejuvenates while you sleep.',
       de: 'Nächtliche Behandlung, die tiefenreinigt und verjüngt.',
+    },
+    keyBenefits: {
+      en: [
+        'Clinically tested formula',
+        'Dermatologically approved',
+        'Visible results within weeks',
+      ],
+      de: [
+        'Klinisch getestete Formel',
+        'Dermatologisch zugelassen',
+        'Sichtbare Ergebnisse innerhalb von Wochen',
+      ],
+    },
+    howToUse: {
+      en: [
+        'Apply to cleansed skin',
+        'Gently massage until fully absorbed',
+        'Use morning and evening for best results',
+      ],
+      de: [
+        'Auf gereinigte Haut auftragen',
+        'Sanft einmassieren bis vollständig eingezogen',
+        'Morgens und abends verwenden für beste Ergebnisse',
+      ],
     },
   },
 ];
