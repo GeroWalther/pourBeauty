@@ -49,12 +49,17 @@ export async function POST(
     }
 
     //email to subscriber
-    await resend.emails.send({
-      from: `Newsletter <${process.env.SENDER_EMAIL}>`,
-      to: email.toString().trim() as string,
-      subject: 'Hier is dein Gutscheincode!',
-      react: <Subscribed name={name} />,
-    });
+    try {
+      await resend.emails.send({
+        from: `PURE BEAUTY BIOLOGICAL <${process.env.SENDER_EMAIL}>`,
+        to: email.toString().trim() as string,
+        subject: 'PURE BEAUTY DermaSkin Newsletter Einschreibung',
+        react: <Subscribed name={name} />,
+      });
+    } catch (emailError) {
+      console.error('Failed to send email:', emailError);
+      // Continue even if email fails - subscriber is still saved in DB
+    }
 
     return NextResponse.json(
       {

@@ -21,12 +21,12 @@ export default function Subscribed({ name }: WelcomeEmailProps) {
       <Preview>Willkommen bei PureBeauty!</Preview>
       <Tailwind>
         <Head />
-        <Body className='font-sans bg-pink-200'>
+        <Body className='font-sans bg-teal-100'>
           <Container className='max-w-lg'>
             <Heading>
               <Container>
                 <Img
-                  src={`${process.env.NEXT_PUBLIC_SERVER_URL}/missglowlogo.png`}
+                  src={`${process.env.NEXT_PUBLIC_SERVER_URL}/loveskin.png`}
                   alt='PureBeauty Logo'
                   className='w-56 h-56 object-cover'
                 />
@@ -34,11 +34,16 @@ export default function Subscribed({ name }: WelcomeEmailProps) {
               </Container>
             </Heading>
             <Text className='-mt-10'>
-              Vielen Dank, dass du dich bei PureBeauty Newsletter
+              Vielen Dank, dass du dich bei PURE BEAUTY BIOLOGICAL in die Newsletter
               eingeschrieben hast. Als Dankeschön bekommst du einen Rabattcode
               für deinen nächsten Einkauf:
             </Text>
             <Text className='mt-5 font-bold'>Pure15</Text>
+             <Text className='mt-5'>
+              Nutze den Code an der Kasse, um 15% Rabatt auf deine Bestellung zu
+              erhalten. Wir freuen uns, dich in unserer Community begrüßen zu
+              dürfen!
+            </Text>
             <Section className='p-4'>
               <Text>
                 Wenn du Fragen haben solltest, kanst du uns gerne unter{' '}
