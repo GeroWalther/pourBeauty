@@ -22,7 +22,7 @@ export const products: Product[] = [
     slug: 'revitalizing-serum',
     priceInCents: 8900,
     image: '/luxury-serum-bottle-on-white-background.jpg',
-    images: ['/luxury-serum-bottle-on-white-background.jpg'],
+    images: ['/luxury-serum-bottle-on-white-background.jpg', '/elegant-face-cream-jar-white-background.jpg'],
     description: {
       en: 'Advanced anti-aging formula that reduces fine lines and wrinkles by 64% within one month.',
       de: 'Fortschrittliche Anti-Aging-Formel, die feine Linien und Falten innerhalb eines Monats um 64% reduziert.',

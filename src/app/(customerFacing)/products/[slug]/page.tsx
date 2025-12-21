@@ -10,6 +10,7 @@ import { useLanguage } from "@/contexts/LanguageProvider"
 import { formatCurrency } from "@/lib/formatters"
 import Link from "next/link"
 import { useState } from "react"
+import ImageSlider from "../../_components/ImageSlider"
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
   const product = getProductBySlug(params.slug)
@@ -47,15 +48,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       {/* Product Section */}
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid gap-12 lg:grid-cols-2">
-          {/* Product Image */}
-          <div className="relative aspect-square overflow-hidden rounded-lg bg-accent">
-            <Image
-              src={product.image}
-              alt={product.name}
-              fill
-              className="object-cover"
-              priority
-            />
+          {/* Product Image Gallery */}
+          <div>
+            <ImageSlider urls={product.images} alt={product.name} />
           </div>
 
           {/* Product Info */}
