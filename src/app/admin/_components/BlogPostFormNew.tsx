@@ -1,7 +1,7 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
-import { FormEvent, useState, useRef } from 'react';
+import { FormEvent, useState, useRef, useEffect } from 'react';
 import { createBlogPost, updateBlogPost } from '../_actions/blogPost';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
@@ -15,12 +15,14 @@ interface BlogPostFormNewProps {
   products: ProductType[];
   editPost?: BlogPostType;
   onCancel?: () => void;
+  onSuccess?: () => void;
 }
 
 export default function BlogPostFormNew({
   products,
   editPost,
   onCancel,
+  onSuccess,
 }: BlogPostFormNewProps) {
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
@@ -31,12 +33,34 @@ export default function BlogPostFormNew({
   const [uploadedImagePath, setUploadedImagePath] = useState<string>(
     editPost?.headerImage || ''
   );
+  const [key, setKey] = useState(0); // Key to force re-render of editors
 
   // Parse existing content or start with one empty paragraph
-  const initialContent = editPost?.content
-    ? JSON.parse(editPost.content)
-    : ['<p></p>'];
-  const [paragraphs, setParagraphs] = useState<string[]>(initialContent);
+  const [paragraphs, setParagraphs] = useState<string[]>(() => {
+    if (editPost?.content) {
+      try {
+        return JSON.parse(editPost.content);
+      } catch (e) {
+        return ['<p></p>'];
+      }
+    }
+    return ['<p></p>'];
+  });
+
+  // Update form when editPost changes
+  useEffect(() => {
+    if (editPost) {
+      setImagePreview(editPost.headerImage);
+      setUploadedImagePath(editPost.headerImage);
+      try {
+        const content = JSON.parse(editPost.content);
+        setParagraphs(content);
+      } catch (e) {
+        setParagraphs(['<p></p>']);
+      }
+      setKey(prev => prev + 1); // Force re-render
+    }
+  }, [editPost]);
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -135,8 +159,9 @@ export default function BlogPostFormNew({
         setImagePreview(null);
         setUploadedImagePath('');
         setParagraphs(['<p></p>']);
+        setKey(prev => prev + 1); // Force re-render to clear editors
       }
-      router.refresh();
+      if (onSuccess) onSuccess();
       if (onCancel) onCancel();
     } else {
       toast.error(
@@ -235,7 +260,7 @@ export default function BlogPostFormNew({
           </div>
 
           {paragraphs.map((paragraph, index) => (
-            <div key={index} className='mb-4'>
+            <div key={`${key}-${index}`} className='mb-4'>
               <div className='flex items-center justify-between mb-2'>
                 <Label className='text-sm text-gray-600'>
                   Absatz {index + 1}

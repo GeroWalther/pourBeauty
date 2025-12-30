@@ -1,120 +1,52 @@
-import React from 'react';
-import PageHeader from '../_components/PageHeader';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import { CheckCircle2, MoreVertical, XCircle } from 'lucide-react';
-import { formatCurrency, formatNumber } from '@/lib/formatters';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import db from '@/db';
+'use client';
+import React, { useState, useEffect } from 'react';
+import { Card } from '@/components/ui/card';
+import { getAllProducts, type ProductType } from '../_actions/product';
+import ProductForm from '../_components/ProductForm';
+import ProductList from '../_components/ProductList';
 
-export default function ProductsAdminPage() {
-  return (
-    <>
-      <div className='flex justify-between items-center gap-4'>
-        <PageHeader>Products</PageHeader>
-        <Button asChild className='mr-12'>
-          <Link href='/admin/products/new'>Produkt hinzufügen</Link>
-        </Button>
-      </div>
-      <ProductsTable />
-    </>
-  );
-}
+export default function ProductsPage() {
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const [editingProduct, setEditingProduct] = useState<ProductType | undefined>();
 
-async function ProductsTable() {
-  // const products = await db.product.findMany({
-  //   select: {
-  //     id: true,
-  //     name: true,
-  //     priceInCents: true,
-  //     isAvailableForPurchase: true,
-  //     _count: { select: { orders: true } },
-  //   },
-  //   orderBy: { name: 'asc' },
-  // });
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const prods = await getAllProducts();
+      setProducts(prods);
+    };
+    fetchProducts();
+  }, []);
 
-  // if (products.length === 0) return <p>No products found</p>;
+  const handleEdit = (product: ProductType) => {
+    setEditingProduct(product);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCancelEdit = () => {
+    setEditingProduct(undefined);
+  };
+
+  const refreshProducts = async () => {
+    const prods = await getAllProducts();
+    setProducts(prods);
+    setEditingProduct(undefined);
+  };
 
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead className='w-0'>
-            <span className='sr-only'>Available For Purchase</span>
-          </TableHead>
-          <TableHead>Name</TableHead>
-          <TableHead>Price</TableHead>
-          <TableHead>Orders</TableHead>
-          <TableHead className='w-0'>
-            <span className='sr-only'>Actions</span>
-          </TableHead>
-        </TableRow>
-      </TableHeader>
-      {/* <TableBody>
-        {products.map((product) => (
-          <TableRow key={product.id}>
-            <TableCell>
-              {product.isAvailableForPurchase ? (
-                <>
-                  <span className='sr-only'>Available</span>
-                  <CheckCircle2 />
-                </>
-              ) : (
-                <>
-                  <span className='sr-only'>Unavailable</span>
-                  <XCircle className='stroke-destructive' />
-                </>
-              )}
-            </TableCell>
-            <TableCell>{product.name}</TableCell>
-            <TableCell>{formatCurrency(product.priceInCents / 100)}</TableCell>
-            <TableCell>{formatNumber(product._count.orders)}</TableCell>
-            <TableCell>
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <MoreVertical />
-                  <span className='sr-only'>Actions</span>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem asChild>
-                    <a download href={`/admin/products/${product.id}/download`}>
-                      Download
-                    </a>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href={`/admin/products/${product.id}/edit`}>
-                      Edit
-                    </Link>
-                  </DropdownMenuItem>
-                  {/* <ActiveToggleDropdownItem
-                    id={product.id}
-                    isAvailableForPurchase={product.isAvailableForPurchase}
-                  /> 
-                  <DropdownMenuSeparator />
-                  <DeleteDropdownItem
-                    id={product.id}
-                    disabled={product._count.orders > 0}
-                  />
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody> */}
-    </Table>
+    <section>
+      <h3 className='text-lg w-full mb-2 text-left ml-4'>
+        Erstelle und verwalte hier deine Produkte. Diese werden auf der
+        Kundenwebseite angezeigt.
+      </h3>
+      <Card className='mb-4 p-5'>
+        <ProductForm
+          editProduct={editingProduct}
+          onCancel={editingProduct ? handleCancelEdit : undefined}
+          onSuccess={refreshProducts}
+        />
+      </Card>
+      
+      <ProductList products={products} onEdit={handleEdit} onDelete={refreshProducts} />
+    </section>
   );
 }

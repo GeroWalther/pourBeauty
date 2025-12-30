@@ -24,10 +24,11 @@ interface RichTextEditorProps {
 }
 
 const BRAND_COLORS = [
-  { name: 'Primary', value: '#000000' },
-  { name: 'Secondary', value: '#666666' },
-  { name: 'Accent', value: '#d4af37' },
-  { name: 'Link Blue', value: '#0066cc' },
+  { name: 'Primary (Teal)', value: '#1a9a8c' }, // oklch(0.52 0.12 195)
+  { name: 'Secondary (Dark Teal)', value: '#0d5c5a' }, // oklch(0.35 0.08 210)
+  { name: 'Accent (Light Teal)', value: '#b3e5e0' }, // oklch(0.88 0.08 180)
+  { name: 'Text Dark', value: '#2d3748' }, // Foreground color
+  { name: 'Muted', value: '#718096' }, // Muted foreground
 ];
 
 export default function RichTextEditor({

@@ -33,6 +33,12 @@ export default function BlogPostPage() {
     setEditingPost(undefined);
   };
 
+  const refreshPosts = async () => {
+    const posts = await getAllBlogPosts();
+    setBlogPosts(posts);
+    setEditingPost(undefined);
+  };
+
   return (
     <section>
       <h3 className='text-lg w-full mb-2 text-left ml-4'>
@@ -44,6 +50,7 @@ export default function BlogPostPage() {
           products={products}
           editPost={editingPost}
           onCancel={editingPost ? handleCancelEdit : undefined}
+          onSuccess={refreshPosts}
         />
       </Card>
       
