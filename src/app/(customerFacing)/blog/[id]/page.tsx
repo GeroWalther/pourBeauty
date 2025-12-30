@@ -28,12 +28,12 @@ export default async function BlogPostPage({
         </Button>
       </Link>
 
-      <div className='relative w-full h-96 mb-8 rounded-lg overflow-hidden'>
+      <div className='relative w-full h-96 mb-8 rounded-lg overflow-hidden bg-gray-100'>
         <Image
           src={blogPost.headerImage}
           alt={blogPost.title}
           fill
-          className='object-cover'
+          className='object-contain'
           priority
         />
       </div>
