@@ -16,7 +16,7 @@ export function FeaturesSection() {
     },
     {
       icon: ShieldCheck,
-      title: language === 'de' ? 'Dermatologisch getestet' : 'Dermatologically Tested',
+      title: language === 'de' ? 'Hautverträglichkeit bestätigt' : 'Proven skin compatibility',
       description: language === 'de'
         ? 'Alle Produkte werden streng getestet und sind für alle Hauttypen, einschließlich empfindlicher Haut, sicher.'
         : 'All products are rigorously tested and proven safe for all skin types, including sensitive skin.',

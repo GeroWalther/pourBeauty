@@ -22,8 +22,8 @@ export function HeroSection() {
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
               {language === 'de' 
-                ? 'Erleben Sie Hautpflege in pharmazeutischer Qualität, die auf dermatologischer Wissenschaft basiert. Unsere fortschrittlichen Formulierungen liefern sichtbare Ergebnisse für gesündere, strahlende Haut.'
-                : 'Experience pharmaceutical-grade skincare backed by dermatological science. Our advanced formulations deliver visible results for healthier, radiant skin.'}
+                ? 'Erleben Sie Hautpflege auf Basis moderner dermatologischer Erkenntnisse. Unsere innovativen Formulierungen sorgen für sichtbare Ergebnisse und eine gesunde, strahlende Haut.'
+                : 'Experience skincare rooted in cutting-edge dermatological science. Our innovative formulations deliver visible results for healthy, radiant skin.'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/shop">

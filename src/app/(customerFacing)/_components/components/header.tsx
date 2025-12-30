@@ -1,13 +1,13 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ShoppingCart, List, X } from "@phosphor-icons/react"
 import { useState } from "react"
 import Link from "next/link"
 import { useCart } from "@/hooks/use-cart-hook"
 import Cart from "../Cart"
 import LanguageSwitcher from "../SwitchLang"
 import { useLanguage } from "@/contexts/LanguageProvider"
+import { List, X } from "lucide-react"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -58,22 +58,19 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-border bg-background">
           <nav className="mx-auto max-w-7xl flex flex-col gap-4 px-6 py-6">
-            <Link href="/shop" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link  onClick={() => setMobileMenuOpen(false)} href="/shop" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               {language === 'de' ? 'Produkte' : 'Products'}
             </Link>
-            <Link href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link  onClick={() => setMobileMenuOpen(false)} href="/about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               {language === 'de' ? 'Über uns' : 'About'}
             </Link>
-            <Link href="/blog" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link  onClick={() => setMobileMenuOpen(false)} href="/blog" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               Blog
             </Link>
-            <Link href="/reviews" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              {language === 'de' ? 'Bewertungen' : 'Reviews'}
-            </Link>
-            <Link href="/contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link onClick={() => setMobileMenuOpen(false)} href="/imprint" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               {language === 'de' ? 'Kontakt' : 'Contact'}
             </Link>
-            <Link href="/shop">
+            <Link onClick={() => setMobileMenuOpen(false)} href="/shop">
               <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 {language === 'de' ? 'Jetzt kaufen' : 'Shop Now'}
               </Button>
