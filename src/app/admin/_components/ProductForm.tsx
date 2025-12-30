@@ -129,15 +129,21 @@ export default function ProductForm({ editProduct, onCancel, onSuccess }: Produc
 
     if (result.success) {
       toast.success(editProduct ? 'Produkt aktualisiert' : 'Produkt erstellt');
-      if (!editProduct) {
-        formRef.current?.reset();
-        setAllImages([]);
-        setKeyBenefitsEn(['']);
-        setKeyBenefitsDe(['']);
-        setHowToUseEn(['']);
-        setHowToUseDe(['']);
-        setFormKey(prev => prev + 1); // Force complete re-render
+      
+      // Reset form for both create and update
+      formRef.current?.reset();
+      setAllImages([]);
+      setKeyBenefitsEn(['']);
+      setKeyBenefitsDe(['']);
+      setHowToUseEn(['']);
+      setHowToUseDe(['']);
+      setFormKey(prev => prev + 1); // Force complete re-render
+      
+      // Exit edit mode if updating
+      if (editProduct && onCancel) {
+        onCancel();
       }
+      
       if (onSuccess) onSuccess();
     } else {
       toast.error('Fehler beim Speichern');

@@ -40,7 +40,7 @@ export default async function BlogPostPage({
 
       <article>
         <div className='flex items-center gap-3 mb-4'>
-          <h1 className='text-4xl font-bold'>{blogPost.title}</h1>
+          <h1 className='text-4xl font-bold text-teal-600'>{blogPost.title}</h1>
           <span className='px-3 py-1 bg-blue-100 text-blue-800 text-sm font-semibold rounded'>
             {blogPost.language === 'de' ? '🇩🇪' : '🇬🇧'}
           </span>

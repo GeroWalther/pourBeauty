@@ -10,9 +10,10 @@ import Image from 'next/image';
 type Props = {
   blogPosts: BlogPostType[];
   onEdit?: (post: BlogPostType) => void;
+  onDelete?: () => void;
 };
 
-export default function BlogPostList({ blogPosts, onEdit }: Props) {
+export default function BlogPostList({ blogPosts, onEdit, onDelete }: Props) {
   const router = useRouter();
 
   const getContentPreview = (post: BlogPostType): string => {
@@ -36,7 +37,11 @@ export default function BlogPostList({ blogPosts, onEdit }: Props) {
     const result = await deleteBlogPost(id);
     if (result.success) {
       toast.success('Blogpost gelöscht');
-      router.refresh();
+      if (onDelete) {
+        onDelete();
+      } else {
+        router.refresh();
+      }
     } else {
       toast.error('Fehler beim Löschen');
     }

@@ -54,7 +54,7 @@ export default function BlogPostPage() {
         />
       </Card>
       
-      <BlogPostList blogPosts={blogPosts} onEdit={handleEdit} />
+      <BlogPostList blogPosts={blogPosts} onEdit={handleEdit} onDelete={refreshPosts} />
     </section>
   );
 }
