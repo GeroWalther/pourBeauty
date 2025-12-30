@@ -1,7 +1,7 @@
 'use client';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Trash2, Eye } from 'lucide-react';
+import { Trash2, Eye, Edit } from 'lucide-react';
 import { deleteBlogPost, type BlogPostType } from '../_actions/blogPost';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
@@ -9,10 +9,26 @@ import Image from 'next/image';
 
 type Props = {
   blogPosts: BlogPostType[];
+  onEdit?: (post: BlogPostType) => void;
 };
 
-export default function BlogPostList({ blogPosts }: Props) {
+export default function BlogPostList({ blogPosts, onEdit }: Props) {
   const router = useRouter();
+
+  const getContentPreview = (post: BlogPostType): string => {
+    try {
+      const content = JSON.parse(post.content);
+      if (Array.isArray(content) && content.length > 0) {
+        // Strip HTML tags for preview
+        const firstParagraph = content[0].replace(/<[^>]*>/g, '');
+        return firstParagraph.substring(0, 150);
+      }
+    } catch (e) {
+      // Fallback for old format
+      return '';
+    }
+    return '';
+  };
 
   const handleDelete = async (id: string) => {
     if (!confirm('Möchtest du diesen Blogpost wirklich löschen?')) return;
@@ -62,7 +78,7 @@ export default function BlogPostList({ blogPosts }: Props) {
                   </span>
                 </div>
                 <p className='text-sm text-gray-600 mb-2 line-clamp-2'>
-                  {post.mainContent1}
+                  {getContentPreview(post)}
                 </p>
                 <div className='text-xs text-gray-500'>
                   <p>
@@ -84,6 +100,15 @@ export default function BlogPostList({ blogPosts }: Props) {
                 >
                   <Eye className='w-4 h-4' />
                 </Button>
+                {onEdit && (
+                  <Button
+                    variant='outline'
+                    size='sm'
+                    onClick={() => onEdit(post)}
+                  >
+                    <Edit className='w-4 h-4' />
+                  </Button>
+                )}
                 <Button
                   variant='destructive'
                   size='sm'

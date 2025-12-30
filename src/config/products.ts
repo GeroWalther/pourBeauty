@@ -1,3 +1,5 @@
+import { ProductType } from '@/app/admin/_actions/product';
+
 export interface Product {
   id: string;
   name: string;
@@ -23,173 +25,53 @@ export interface Product {
   };
 }
 
-export const products: Product[] = [
-  {
-    id: '1',
-    name: 'Revitalizing Serum',
-    slug: 'revitalizing-serum',
-    priceInCents: 8900,
-    image: '/luxury-serum-bottle-on-white-background.jpg',
-    images: ['/luxury-serum-bottle-on-white-background.jpg', '/elegant-face-cream-jar-white-background.jpg'],
+// Transform DB product to match the old Product interface
+export function transformDbProduct(dbProduct: ProductType): Product {
+  return {
+    id: dbProduct.id,
+    name: dbProduct.name,
+    slug: dbProduct.slug,
+    priceInCents: dbProduct.priceInCents,
+    image: dbProduct.image,
+    images: dbProduct.images,
     description: {
-      en: 'Advanced anti-aging formula that reduces fine lines and wrinkles by 64% within one month.',
-      de: 'Fortschrittliche Anti-Aging-Formel, die feine Linien und Falten innerhalb eines Monats um 64% reduziert.',
+      en: dbProduct.descriptionEn,
+      de: dbProduct.descriptionDe,
     },
     shortDescription: {
-      en: 'Advanced anti-aging formula that reduces fine lines and wrinkles by 64% within one month.',
-      de: 'Fortschrittliche Anti-Aging-Formel, die Linien und Falten um 64% reduziert.',
+      en: dbProduct.shortDescriptionEn,
+      de: dbProduct.shortDescriptionDe,
     },
     keyBenefits: {
-      en: [
-        'Clinically tested formula',
-        'Dermatologically approved',
-        'Visible results within weeks',
-      ],
-      de: [
-        'Klinisch getestete Formel',
-        'Dermatologisch zugelassen',
-        'Sichtbare Ergebnisse innerhalb von Wochen',
-      ],
+      en: dbProduct.keyBenefitsEn,
+      de: dbProduct.keyBenefitsDe,
     },
     howToUse: {
-      en: [
-        'Apply to cleansed skin',
-        'Gently massage until fully absorbed',
-        'Use morning and evening for best results',
-      ],
-      de: [
-        'Auf gereinigte Haut auftragen',
-        'Sanft einmassieren bis vollständig eingezogen',
-        'Morgens und abends verwenden für beste Ergebnisse',
-      ],
+      en: dbProduct.howToUseEn,
+      de: dbProduct.howToUseDe,
     },
-  },
-  {
-    id: '2',
-    name: 'Hydrating Day Cream',
-    slug: 'hydrating-day-cream',
-    priceInCents: 6900,
-    image: '/elegant-face-cream-jar-white-background.jpg',
-    images: ['/elegant-face-cream-jar-white-background.jpg'],
-    description: {
-      en: 'Intense moisture with SPF protection for all-day hydration and sun defense.',
-      de: 'Intensive Feuchtigkeit mit SPF-Schutz für ganztägige Hydratation und Sonnenschutz.',
-    },
-    shortDescription: {
-      en: 'Intense moisture with SPF protection for all-day hydration and sun defense.',
-      de: 'Intensive Feuchtigkeit mit SPF-Schutz für ganztägige Hydratation.',
-    },
-    keyBenefits: {
-      en: [
-        'Clinically tested formula',
-        'Dermatologically approved',
-        'Visible results within weeks',
-      ],
-      de: [
-        'Klinisch getestete Formel',
-        'Dermatologisch zugelassen',
-        'Sichtbare Ergebnisse innerhalb von Wochen',
-      ],
-    },
-    howToUse: {
-      en: [
-        'Apply to cleansed skin',
-        'Gently massage until fully absorbed',
-        'Use morning and evening for best results',
-      ],
-      de: [
-        'Auf gereinigte Haut auftragen',
-        'Sanft einmassieren bis vollständig eingezogen',
-        'Morgens und abends verwenden für beste Ergebnisse',
-      ],
-    },
-  },
-  {
-    id: '3',
-    name: 'Brightening Eye Treatment',
-    slug: 'brightening-eye-treatment',
-    priceInCents: 7900,
-    image: '/eye-cream-tube-minimalist-white-background.jpg',
-    images: ['/eye-cream-tube-minimalist-white-background.jpg'],
-    description: {
-      en: 'Targets dark circles and puffiness while smoothing the delicate eye area. Reduces signs of fatigue and brightens for a refreshed appearance.',
-      de: 'Zielt auf Augenringe und Schwellungen ab, während es die empfindliche Augenpartie glättet. Reduziert Müdigkeitserscheinungen und hellt auf.',
-    },
-    shortDescription: {
-      en: 'Targets dark circles and puffiness while smoothing the delicate eye area.',
-      de: 'Zielt auf Augenringe und Schwellungen ab und glättet die Augenpartie.',
-    },
-    keyBenefits: {
-      en: [
-        'Clinically tested formula',
-        'Dermatologically approved',
-        'Visible results within weeks',
-      ],
-      de: [
-        'Klinisch getestete Formel',
-        'Dermatologisch zugelassen',
-        'Sichtbare Ergebnisse innerhalb von Wochen',
-      ],
-    },
-    howToUse: {
-      en: [
-        'Apply to cleansed skin',
-        'Gently massage until fully absorbed',
-        'Use morning and evening for best results',
-      ],
-      de: [
-        'Auf gereinigte Haut auftragen',
-        'Sanft einmassieren bis vollständig eingezogen',
-        'Morgens und abends verwenden für beste Ergebnisse',
-      ],
-    },
-  },
-  {
-    id: '4',
-    name: 'Purifying Night Mask',
-    slug: 'purifying-night-mask',
-    priceInCents: 7500,
-    image: '/skincare-mask-jar-clean-white-background.jpg',
-    images: ['/skincare-mask-jar-clean-white-background.jpg'],
-    description: {
-      en: 'Overnight treatment that deeply cleanses and rejuvenates while you sleep. Wake up to refreshed, revitalized skin with improved texture and clarity.',
-      de: 'Nächtliche Behandlung, die tiefenreinigt und verjüngt, während Sie schlafen. Wachen Sie mit frischer, revitalisierter Haut auf.',
-    },
-    shortDescription: {
-      en: 'Overnight treatment that deeply cleanses and rejuvenates while you sleep.',
-      de: 'Nächtliche Behandlung, die tiefenreinigt und verjüngt.',
-    },
-    keyBenefits: {
-      en: [
-        'Clinically tested formula',
-        'Dermatologically approved',
-        'Visible results within weeks',
-      ],
-      de: [
-        'Klinisch getestete Formel',
-        'Dermatologisch zugelassen',
-        'Sichtbare Ergebnisse innerhalb von Wochen',
-      ],
-    },
-    howToUse: {
-      en: [
-        'Apply to cleansed skin',
-        'Gently massage until fully absorbed',
-        'Use morning and evening for best results',
-      ],
-      de: [
-        'Auf gereinigte Haut auftragen',
-        'Sanft einmassieren bis vollständig eingezogen',
-        'Morgens und abends verwenden für beste Ergebnisse',
-      ],
-    },
-  },
-];
+  };
+}
 
-export const getProductBySlug = (slug: string): Product | undefined => {
-  return products.find((product) => product.slug === slug);
-};
+// Export transformed products array (async function for compatibility)
+export async function getProducts(): Promise<Product[]> {
+  const { getAllProducts } = await import('@/app/admin/_actions/product');
+  const dbProducts = await getAllProducts();
+  return dbProducts.map(transformDbProduct);
+}
 
-export const getProductById = (id: string): Product | undefined => {
-  return products.find((product) => product.id === id);
-};
+// For synchronous client components, we need a different approach
+// These files will need to be converted to async or use useEffect
+export const products: Product[] = []; // Empty placeholder - client components should use async data fetching
+
+export async function getProductBySlug(slug: string): Promise<Product | undefined> {
+  const { getProductBySlug: getDbProductBySlug } = await import('@/app/admin/_actions/product');
+  const dbProduct = await getDbProductBySlug(slug);
+  return dbProduct ? transformDbProduct(dbProduct) : undefined;
+}
+
+export async function getProductById(id: string): Promise<Product | undefined> {
+  const { getProductById: getDbProductById } = await import('@/app/admin/_actions/product');
+  const dbProduct = await getDbProductById(id);
+  return dbProduct ? transformDbProduct(dbProduct) : undefined;
+}

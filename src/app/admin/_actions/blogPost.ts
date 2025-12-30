@@ -32,12 +32,7 @@ export async function createBlogPost(data: {
   headerImage: string;
   title: string;
   language: string;
-  mainContent1: string;
-  mainContent2?: string;
-  mainContent3?: string;
-  mainContent4?: string;
-  mainContent5?: string;
-  mainContent6?: string;
+  content: string; // JSON array of paragraph HTML
 }) {
   try {
     const blogPost = await db.blogPost.create({
@@ -56,12 +51,7 @@ export async function updateBlogPost(
     headerImage: string;
     title: string;
     language: string;
-    mainContent1: string;
-    mainContent2?: string;
-    mainContent3?: string;
-    mainContent4?: string;
-    mainContent5?: string;
-    mainContent6?: string;
+    content: string; // JSON array of paragraph HTML
   }
 ) {
   try {

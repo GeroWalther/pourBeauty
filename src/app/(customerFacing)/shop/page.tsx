@@ -5,12 +5,22 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Star } from "@phosphor-icons/react"
 import Link from "next/link"
 import Image from "next/image"
-import { products } from "@/config/products"
 import { formatCurrency } from "@/lib/formatters"
 import { useLanguage } from "@/contexts/LanguageProvider"
+import { useState, useEffect } from "react"
+import type { Product } from "@/config/products"
+import { getAllProducts } from "@/app/admin/_actions/product"
+import { transformDbProduct } from "@/config/products"
 
 export default function ShopPage() {
   const { language } = useLanguage()
+  const [products, setProducts] = useState<Product[]>([])
+  
+  useEffect(() => {
+    getAllProducts().then(dbProducts => {
+      setProducts(dbProducts.map(transformDbProduct))
+    })
+  }, [])
 
   return (
     <div className="min-h-screen bg-background">
@@ -30,7 +40,7 @@ export default function ShopPage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
               <Card key={product.id} className="overflow-hidden group hover:shadow-lg transition-shadow border-border">
-                <Link href={`/${product.slug}`}>
+                <Link href={`/products/${product.slug}`}>
                   <div className="aspect-square overflow-hidden bg-card relative">
                     <Image
                       src={product.image}

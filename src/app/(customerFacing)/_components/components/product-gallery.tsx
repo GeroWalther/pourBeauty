@@ -3,15 +3,25 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Star } from "@phosphor-icons/react"
-import { products } from "@/config/products"
 import { useCart } from "@/hooks/use-cart-hook"
 import { useLanguage } from "@/contexts/LanguageProvider"
 import { formatCurrency } from "@/lib/formatters"
 import Link from "next/link"
+import { useState, useEffect } from "react"
+import type { Product } from "@/config/products"
+import { getAllProducts } from "@/app/admin/_actions/product"
+import { transformDbProduct } from "@/config/products"
 
 export function ProductGallery() {
   const { addItem } = useCart()
   const { language } = useLanguage()
+  const [products, setProducts] = useState<Product[]>([])
+  
+  useEffect(() => {
+    getAllProducts().then(dbProducts => {
+      setProducts(dbProducts.map(transformDbProduct))
+    })
+  }, [])
 
   const handleAddToCart = (product: typeof products[0]) => {
     addItem({

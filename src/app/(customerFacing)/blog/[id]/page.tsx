@@ -54,41 +54,20 @@ export default async function BlogPostPage({
         </p>
 
         <div className='prose prose-lg max-w-none'>
-          {blogPost.mainContent1 && (
-            <p className='mb-6 text-gray-700 leading-relaxed'>
-              {blogPost.mainContent1}
-            </p>
-          )}
-
-          {blogPost.mainContent2 && (
-            <p className='mb-6 text-gray-700 leading-relaxed'>
-              {blogPost.mainContent2}
-            </p>
-          )}
-
-          {blogPost.mainContent3 && (
-            <p className='mb-6 text-gray-700 leading-relaxed'>
-              {blogPost.mainContent3}
-            </p>
-          )}
-
-          {blogPost.mainContent4 && (
-            <p className='mb-6 text-gray-700 leading-relaxed'>
-              {blogPost.mainContent4}
-            </p>
-          )}
-
-          {blogPost.mainContent5 && (
-            <p className='mb-6 text-gray-700 leading-relaxed'>
-              {blogPost.mainContent5}
-            </p>
-          )}
-
-          {blogPost.mainContent6 && (
-            <p className='mb-6 text-gray-700 leading-relaxed'>
-              {blogPost.mainContent6}
-            </p>
-          )}
+          {(() => {
+            try {
+              const content = JSON.parse(blogPost.content);
+              return content.map((paragraph: string, index: number) => (
+                <div
+                  key={index}
+                  className='mb-6 text-gray-700 leading-relaxed'
+                  dangerouslySetInnerHTML={{ __html: paragraph }}
+                />
+              ));
+            } catch (e) {
+              return <p>Error loading content</p>;
+            }
+          })()}
         </div>
       </article>
 

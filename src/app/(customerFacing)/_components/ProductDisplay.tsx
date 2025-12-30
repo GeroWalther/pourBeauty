@@ -1,9 +1,11 @@
 import React from 'react';
-import { products } from '@/config/products';
+import { getProducts } from '@/config/products';
 import Link from 'next/link';
 import { formatCurrency } from '@/lib/formatters';
 
-export default function ProductDisplay() {
+export default async function ProductDisplay() {
+  const products = await getProducts();
+  
   return (
     <section className='grid grid-cols-1 md:grid-cols-3 gap-6 pb-10 px-6'>
       {products.slice(0, 3).map((product) => (

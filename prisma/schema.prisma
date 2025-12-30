@@ -108,17 +108,32 @@ model SalePromotion {
   updatedAt       DateTime @updatedAt
 }
 
+model Product {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  name             String
+  slug             String   @unique
+  priceInCents     Int
+  image            String
+  images           String[]
+  descriptionEn    String
+  descriptionDe    String
+  shortDescriptionEn String
+  shortDescriptionDe String
+  keyBenefitsEn    String[]
+  keyBenefitsDe    String[]
+  howToUseEn       String[]
+  howToUseDe       String[]
+  isAvailableForPurchase Boolean @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
 model BlogPost {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   headerImage  String
   title        String
   language     String   @default("de")
-  mainContent1 String
-  mainContent2 String?
-  mainContent3 String?
-  mainContent4 String?
-  mainContent5 String?
-  mainContent6 String?
+  content      String   @default("[]")
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 }

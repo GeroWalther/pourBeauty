@@ -1,11 +1,37 @@
-import React from 'react';
+'use client';
+import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
-import { getAllBlogPosts } from '../_actions/blogPost';
-import BlogPostForm from '../_components/BlogPostForm';
+import { getAllBlogPosts, type BlogPostType } from '../_actions/blogPost';
+import { getAllProducts } from '../_actions/product';
+import BlogPostFormNew from '../_components/BlogPostFormNew';
 import BlogPostList from '../_components/BlogPostList';
+import type { ProductType } from '../_actions/product';
 
-export default async function BlogPostPage() {
-  const blogPosts = await getAllBlogPosts();
+export default function BlogPostPage() {
+  const [blogPosts, setBlogPosts] = useState<BlogPostType[]>([]);
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const [editingPost, setEditingPost] = useState<BlogPostType | undefined>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const [posts, prods] = await Promise.all([
+        getAllBlogPosts(),
+        getAllProducts(),
+      ]);
+      setBlogPosts(posts);
+      setProducts(prods);
+    };
+    fetchData();
+  }, []);
+
+  const handleEdit = (post: BlogPostType) => {
+    setEditingPost(post);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCancelEdit = () => {
+    setEditingPost(undefined);
+  };
 
   return (
     <section>
@@ -14,10 +40,14 @@ export default async function BlogPostPage() {
         Kundenwebseite unter &quot;Blog&quot; angezeigt.
       </h3>
       <Card className='mb-4 p-5'>
-        <BlogPostForm />
+        <BlogPostFormNew
+          products={products}
+          editPost={editingPost}
+          onCancel={editingPost ? handleCancelEdit : undefined}
+        />
       </Card>
       
-      <BlogPostList blogPosts={blogPosts} />
+      <BlogPostList blogPosts={blogPosts} onEdit={handleEdit} />
     </section>
   );
 }
