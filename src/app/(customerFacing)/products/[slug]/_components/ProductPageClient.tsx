@@ -70,7 +70,7 @@ export default function ProductPageClient({ product, relatedProducts }: ProductP
 
             <div className="prose prose-sm">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                {language === 'de' ? product.description.de : product.description.en}
+                {language === 'de' ? product.shortDescription.de : product.shortDescription.en}
               </p>
             </div>
 
