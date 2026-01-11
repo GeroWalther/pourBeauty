@@ -42,7 +42,7 @@ export function FeaturesSection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl mb-4 text-balance">
-            {language === 'de' ? 'Warum DermaSkin wählen' : 'Why Choose DermaSkin'}
+            {language === 'de' ? 'Warum PURE BEAUTY BIOLOGICAL wählen' : 'Why Choose PURE BEAUTY BIOLOGICAL'}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {language === 'de'

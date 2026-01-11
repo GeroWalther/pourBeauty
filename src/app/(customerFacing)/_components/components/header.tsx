@@ -19,7 +19,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto max-w-7xl flex h-16 items-center justify-between px-6">
         <Link href="/" className="flex items-center">
-          <div className="text-2xl font-bold tracking-tight text-primary">PURE BEAUTY DermaSkin</div>
+          <div className="text-2xl font-bold tracking-tight text-primary">PURE BEAUTY BIOLOGICAL</div>
         </Link>
 
         {/* Desktop Navigation */}

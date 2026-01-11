@@ -54,15 +54,15 @@ export default function AboutPage() {
           
           <p className='text-gray-700 text-lg leading-relaxed'>
             {language === 'de'
-              ? 'Die HAUT und das WOHLBEFINDEN partizipieren von der Nachhaltigkeit der natürlichen Wirkstoffe, jedes einzelne Produkt aus unserer DERMA SKIN Linie besitzt eine intensive Zell verjüngende Eigenschaft, selbst auf die sensible Haut wurde bei dieser Linie geachtet, so das auch eine zu Rötungen neigende Haut eine hervorragende Hautpflege und Wohlbefinden erhält.'
-              : 'The SKIN and the WELL-BEING benefit from the sustainability of the natural active ingredients, each individual product from our DERMA SKIN line has an intensive cell rejuvenating property, even sensitive skin has been taken into account in this line, so that even skin prone to redness receives excellent skin care and well-being.'}
+              ? 'Die HAUT und das WOHLBEFINDEN partizipieren von der Nachhaltigkeit der natürlichen Wirkstoffe, jedes einzelne Produkt aus unserer Pure Beauty Biological Linie besitzt eine intensive Zell verjüngende Eigenschaft, selbst auf die sensible Haut wurde bei dieser Linie geachtet, so das auch eine zu Rötungen neigende Haut eine hervorragende Hautpflege und Wohlbefinden erhält.'
+              : 'The SKIN and the WELL-BEING benefit from the sustainability of the natural active ingredients, each individual product from our Pure Beauty Biological line has an intensive cell rejuvenating property, even sensitive skin has been taken into account in this line, so that even skin prone to redness receives excellent skin care and well-being.'}
           </p>
           
           <div className='border-l-4 border-[oklch(0.52_0.12_195)] pl-6 py-4 my-8 bg-[oklch(0.97_0.02_195)]'>
             <p className='text-gray-900 text-lg font-bold mb-4'>
               {language === 'de'
-                ? 'CLEAN BEAUTY ist in unserer DERMA SKIN Linie selbstverständlich, grossen Wert legen wir auf Sicherheit, Transparenz, hochwertige Natürliche Wirkstoffe, belegbare Studien.'
-                : 'CLEAN BEAUTY is a matter of course in our DERMA SKIN line, we place great value on safety, transparency, high-quality natural active ingredients, and verifiable studies.'}
+                ? 'CLEAN BEAUTY ist in unserer Pure Beauty Biological Linie selbstverständlich, grossen Wert legen wir auf Sicherheit, Transparenz, hochwertige Natürliche Wirkstoffe, belegbare Studien.'
+                : 'CLEAN BEAUTY is a matter of course in our Pure Beauty Biological line, we place great value on safety, transparency, high-quality natural active ingredients, and verifiable studies.'}
             </p>
             <p className='text-gray-900 text-lg font-semibold mb-2'>
               {language === 'de'
@@ -85,8 +85,8 @@ export default function AboutPage() {
 
           <p className='text-gray-700 text-lg leading-relaxed'>
             {language === 'de'
-              ? 'SCHÖNHEIT ist ein Teil ganzheitlicher Gesundheit, DERMA SKIN ist nicht nur PFLEGE, es sind Produkte mit echtem Wirkstoff nutzen, SKINCARE FIRST Philosophie, Echter GLOW entsteht durch eine gestärkte Hautbarriere und mit echter Wirkstoffpflege entsteht die Transformation, die Jugendlichkeit bewahrt.'
-              : 'BEAUTY is part of holistic health, DERMA SKIN is not just CARE, these are products with real active ingredient benefits, SKINCARE FIRST philosophy, Real GLOW comes from a strengthened skin barrier and with real active ingredient care, transformation occurs that preserves youthfulness.'}
+              ? 'SCHÖNHEIT ist ein Teil ganzheitlicher Gesundheit, Pure Beauty Biological ist nicht nur PFLEGE, es sind Produkte mit echtem Wirkstoff nutzen, SKINCARE FIRST Philosophie, Echter GLOW entsteht durch eine gestärkte Hautbarriere und mit echter Wirkstoffpflege entsteht die Transformation, die Jugendlichkeit bewahrt.'
+              : 'BEAUTY is part of holistic health, Pure Beauty Biological is not just CARE, these are products with real active ingredient benefits, SKINCARE FIRST philosophy, Real GLOW comes from a strengthened skin barrier and with real active ingredient care, transformation occurs that preserves youthfulness.'}
           </p>
           
           <p className='text-2xl font-bold text-[oklch(0.52_0.12_195)] italic text-center mt-8'>

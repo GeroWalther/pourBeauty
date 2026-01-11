@@ -39,8 +39,8 @@ export function HeroSection() {
               </Link>
             </div>
           </div>
-          <div className="relative aspect-square lg:aspect-auto lg:h-[600px]">
-            <img src="/elegant-dermatology-skincare-products-on-clean-whi.jpg" alt="PureBeauty Products" className="object-cover w-full h-full" />
+          <div className="relative aspect-square lg:aspect-auto lg:h-[650px]">
+            <img src="/HeroCollage.jpeg" alt="PureBeauty Products" className="object-contain w-full h-full" />
           </div>
         </div>
       </div>

@@ -53,7 +53,7 @@ export async function POST(
       await resend.emails.send({
         from: `PURE BEAUTY BIOLOGICAL <${process.env.SENDER_EMAIL}>`,
         to: email.toString().trim() as string,
-        subject: 'PURE BEAUTY DermaSkin Newsletter Einschreibung',
+        subject: 'PURE BEAUTY BIOLOGICAL Newsletter Einschreibung',
         react: <Subscribed name={name} />,
       });
     } catch (emailError) {
