@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Star, ShieldCheck, Truck, ArrowLeft } from "@phosphor-icons/react"
 import { useCart } from "@/hooks/use-cart-hook"
 import { useLanguage } from "@/contexts/LanguageProvider"
-import { formatCurrency } from "@/lib/formatters"
+import { formatCurrency, formatDescription } from "@/lib/formatters"
 import Link from "next/link"
 import { useState } from "react"
 import ImageSlider from "../../../_components/ImageSlider"
@@ -140,12 +140,10 @@ export default function ProductPageClient({ product, relatedProducts }: ProductP
             <h2 className="text-3xl font-bold text-foreground mb-6">
               {language === 'de' ? 'Detaillierte Produktbeschreibung' : 'Detailed Product Description'}
             </h2>
-            <div className="space-y-6 text-muted-foreground leading-relaxed">
-              <p>
-                {language === 'de' 
-                  ? product.description.de
-                  : product.description.en}
-              </p>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              {formatDescription(language === 'de'
+                ? product.description.de
+                : product.description.en)}
               <div className="grid md:grid-cols-2 gap-6 pt-6">
                 <div>
                   <h3 className="font-semibold text-foreground mb-3">

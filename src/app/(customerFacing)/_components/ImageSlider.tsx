@@ -37,7 +37,7 @@ const ImageSlider = ({ urls, alt }: ImageSliderProps) => {
   const inactiveStyles = ' text-stone-400';
 
   return (
-    <div className='group relative bg-stone-100 aspect-square overflow-hidden rounded-xl'>
+    <div className='group relative bg-stone-100 aspect-square overflow-hidden rounded-xl w-full max-h-[70vh]'>
       {urls.length > 1 && (
         <div className='absolute z-10 inset-0 opacity-0 group-hover:opacity-100 transition'>
           {activeIndex !== urls.length - 1 && (
@@ -91,8 +91,8 @@ const ImageSlider = ({ urls, alt }: ImageSliderProps) => {
                 className='-z-10 h-full w-full object-cover object-center'
                 src={url}
                 alt={alt}
-                width={200}
-                height={200}
+                width={800}
+                height={800}
               />
             )}
           </SwiperSlide>

@@ -32,8 +32,8 @@ export default function ShopPage() {
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               {language === 'de'
-                ? 'Entdecken Sie unsere komplette Kollektion pharmazeutischer Hautpflege'
-                : 'Explore our complete collection of pharmaceutical-grade skincare'}
+                ? 'Entdecken Sie unsere komplette Kollektion clean and green Hautpflege'
+                : 'Explore our complete collection of clean and green skincare'}
             </p>
           </div>
           

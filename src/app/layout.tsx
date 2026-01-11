@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ),
   title: 'PureBeauty - Professional Dermatology Skincare',
   description:
-    'Premium pharmaceutical-grade skincare products for radiant, healthy skin',
+    'Premium skincare products for radiant, healthy skin',
   keywords: [
     'cosmetics',
     'beauty products',
@@ -106,7 +106,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'PureBeauty - Professional Dermatology Skincare',
     description:
-      'Premium pharmaceutical-grade skincare products for radiant, healthy skin',
+      'Premium skincare products for radiant, healthy skin',
     url: `${process.env.NEXT_PUBLIC_SERVER_URL}`,
     images: [
       {

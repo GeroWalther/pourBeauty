@@ -9,16 +9,16 @@ const testimonials = [
     name: "Sarah Baier",
     role: { de: "Verifizierter Kunde", en: "Verified Customer" },
     content: {
-      de: "DERMA SKIN hat meine Haut komplett verwandelt! Nach Jahren des Kampfes mit Trockenheit und feinen Linien gab mir das Revitalisierende Serum in nur drei Wochen sichtbare Ergebnisse. Meine Haut hat noch nie besser ausgesehen.",
-      en: "DERMA SKIN transformed my skin completely! After years of struggling with dryness and fine lines, the Revitalizing Serum gave me visible results in just three weeks. My skin has never looked better."
+      de: "Pure Beauty Biological hat meine Haut komplett verwandelt! Nach Jahren des Kampfes mit Trockenheit und feinen Linien gab mir das Revitalisierende Serum in nur drei Wochen sichtbare Ergebnisse. Meine Haut hat noch nie besser ausgesehen.",
+      en: "Pure Beauty Biological transformed my skin completely! After years of struggling with dryness and fine lines, the Revitalizing Serum gave me visible results in just three weeks. My skin has never looked better."
     },
-  },
+  },  
   {
     name: "Emily Rodriguez",
     role: { de: "Verifizierter Kunde", en: "Verified Customer" },
     content: {
-      de: "Ich habe extrem empfindliche Haut und die meisten Produkte reizen sie. DERMA SKIN Produkte sind sanft und dennoch wirksam. Die Hydrierende Tagescreme ist jetzt ein fester Bestandteil meiner täglichen Routine.",
-      en: "I have extremely sensitive skin and most products irritate it. DERMA SKIN products are gentle yet effective. The Hydrating Day Cream is now a staple in my daily routine."
+      de: "Ich habe extrem empfindliche Haut und die meisten Produkte reizen sie. Pure Beauty Biological Produkte sind sanft und dennoch wirksam. Die Hydrierende Tagescreme ist jetzt ein fester Bestandteil meiner täglichen Routine.",
+      en: "I have extremely sensitive skin and most products irritate it. Pure Beauty Biological products are gentle yet effective. The Hydrating Day Cream is now a staple in my daily routine."
     },
   },
   {
@@ -50,8 +50,8 @@ export function TestimonialsSection() {
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {language === 'de'
-              ? 'Echte Ergebnisse von echten Kunden, die ihre Haut mit DERMA SKIN verwandelt haben'
-              : 'Real results from real customers who transformed their skin with DERMA SKIN'}
+              ? 'Echte Ergebnisse von echten Kunden, die ihre Haut mit Pure Beauty Biological verwandelt haben'
+              : 'Real results from real customers who transformed their skin with Pure Beauty Biological'}
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">

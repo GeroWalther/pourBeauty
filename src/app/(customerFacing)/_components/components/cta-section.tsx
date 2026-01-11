@@ -15,9 +15,9 @@ export function CTASection() {
           </h2>
           <p className="text-lg text-primary-foreground/90 mb-8 leading-relaxed">
             {language === 'de' ?
-            "Schließen Sie sich Tausenden zufriedener Kunden an und erleben Sie den Unterschied mit DERMA SKIN. Professionelle Ergebnisse, unterstützt durch Wissenschaft."
+            "Schließen Sie sich Tausenden zufriedener Kunden an und erleben Sie den Unterschied mit Pure Beauty Biological. Professionelle Ergebnisse, unterstützt durch Wissenschaft."
             :
-            "Join thousands of satisfied customers and experience the DERMA SKIN difference. Professional results, backed by science."}
+            "Join thousands of satisfied customers and experience the Pure Beauty Biological difference. Professional results, backed by science."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <Link href="/shop">
