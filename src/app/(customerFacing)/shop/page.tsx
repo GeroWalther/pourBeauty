@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Star } from "@phosphor-icons/react"
 import Link from "next/link"
 import Image from "next/image"
-import { formatCurrency } from "@/lib/formatters"
+import { formatCurrency, formatShortDescription } from "@/lib/formatters"
 import { useLanguage } from "@/contexts/LanguageProvider"
 import { useState, useEffect } from "react"
 import type { Product } from "@/config/products"
@@ -59,7 +59,7 @@ export default function ShopPage() {
                   </div>
                   <h3 className="text-xl font-semibold text-card-foreground mb-2">{product.name}</h3>
                   <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                    {language === 'de' ? product.shortDescription.de : product.shortDescription.en}
+                    {formatShortDescription(language === 'de' ? product.shortDescription.de : product.shortDescription.en)}
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-primary">

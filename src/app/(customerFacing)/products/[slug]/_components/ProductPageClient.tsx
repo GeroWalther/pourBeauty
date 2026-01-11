@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Star, ShieldCheck, Truck, ArrowLeft } from "@phosphor-icons/react"
 import { useCart } from "@/hooks/use-cart-hook"
 import { useLanguage } from "@/contexts/LanguageProvider"
-import { formatCurrency, formatDescription } from "@/lib/formatters"
+import { formatCurrency, formatDescription, formatShortDescription } from "@/lib/formatters"
 import Link from "next/link"
 import { useState } from "react"
 import ImageSlider from "../../../_components/ImageSlider"
@@ -70,7 +70,7 @@ export default function ProductPageClient({ product, relatedProducts }: ProductP
 
             <div className="prose prose-sm">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                {language === 'de' ? product.shortDescription.de : product.shortDescription.en}
+                {formatShortDescription(language === 'de' ? product.shortDescription.de : product.shortDescription.en)}
               </p>
             </div>
 
@@ -216,7 +216,7 @@ export default function ProductPageClient({ product, relatedProducts }: ProductP
                         {relatedProduct.name}
                       </h3>
                       <p className="text-sm text-muted-foreground mb-4 line-clamp-2 flex-1">
-                        {language === 'de' ? relatedProduct.shortDescription.de : relatedProduct.shortDescription.en}
+                        {formatShortDescription(language === 'de' ? relatedProduct.shortDescription.de : relatedProduct.shortDescription.en)}
                       </p>
                       <div className="flex items-center justify-between mt-auto">
                         <span className="text-2xl font-bold text-primary">

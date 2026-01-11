@@ -17,6 +17,40 @@ export function formatNumber(number: number) {
 }
 
 /**
+ * Formats short description with bold text
+ * Auto-bolds specific keywords like BEAUTY SUPPLEMENT
+ * Returns inline content suitable for use in a <p> tag
+ */
+export function formatShortDescription(text: string): React.ReactNode {
+  // Keywords to auto-bold
+  const autoBoldKeywords = [
+    'SCHÖNHEITS-NAHRUNGSERGÄNZUNGSMITTEL',
+    'BEAUTY SUPPLEMENT',
+  ];
+
+  // Create a regex pattern that matches any of the keywords
+  const pattern = autoBoldKeywords
+    .map(k => k.replace(/[-]/g, '\\-'))
+    .join('|');
+  const regex = new RegExp(`(${pattern})`, 'gi');
+
+  // Split text by keywords
+  const parts = text.split(regex);
+
+  return parts.map((part, index) => {
+    // Check if this part matches any keyword (case-insensitive)
+    const isKeyword = autoBoldKeywords.some(
+      keyword => part.toUpperCase() === keyword.toUpperCase()
+    );
+
+    if (isKeyword) {
+      return <strong key={index} className="font-bold">{part}</strong>;
+    }
+    return part;
+  });
+}
+
+/**
  * Formats a product description with:
  * - Paragraphs (split on double newlines \n\n)
  * - Bold text (wrapped in **text**)

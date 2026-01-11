@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Star } from "@phosphor-icons/react"
 import { useCart } from "@/hooks/use-cart-hook"
 import { useLanguage } from "@/contexts/LanguageProvider"
-import { formatCurrency } from "@/lib/formatters"
+import { formatCurrency, formatShortDescription } from "@/lib/formatters"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import type { Product } from "@/config/products"
@@ -71,7 +71,7 @@ export function ProductGallery() {
                   </h3>
                 </Link>
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-1">
-                  {language === 'de' ? product.shortDescription.de : product.shortDescription.en}
+                  {formatShortDescription(language === 'de' ? product.shortDescription.de : product.shortDescription.en)}
                 </p>
                 <div className="mt-auto space-y-3">
                   <div className="flex items-center justify-between">
