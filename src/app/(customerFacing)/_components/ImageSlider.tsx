@@ -37,7 +37,7 @@ const ImageSlider = ({ urls, alt }: ImageSliderProps) => {
   const inactiveStyles = ' text-stone-400';
 
   return (
-    <div className='group relative bg-stone-100 aspect-square overflow-hidden rounded-xl w-full max-h-[70vh]'>
+    <div className='group relative bg-stone-100 aspect-square overflow-hidden rounded-xl w-full max-w-full max-h-[70vh]'>
       {urls.length > 1 && (
         <div className='absolute z-10 inset-0 opacity-0 group-hover:opacity-100 transition'>
           {activeIndex !== urls.length - 1 && (
@@ -80,10 +80,10 @@ const ImageSlider = ({ urls, alt }: ImageSliderProps) => {
           },
         }}
         onSwiper={(swiper: any) => setSwiper(swiper)}
-        spaceBetween={50}
+        spaceBetween={0}
         modules={[Pagination]}
         slidesPerView={1}
-        className='h-full w-full'>
+        className='h-full w-full max-w-full overflow-hidden'>
         {urls.map((url, i) => (
           <SwiperSlide key={i} className='-z-10 relative h-full w-full'>
             {url && url.trim() !== '' && (

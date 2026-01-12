@@ -47,7 +47,7 @@ export default function ProductPageClient({ product, relatedProducts }: ProductP
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Product Image Gallery */}
-          <div>
+          <div className="overflow-hidden max-w-full">
             <ImageSlider urls={product.images} alt={product.name} />
           </div>
 
