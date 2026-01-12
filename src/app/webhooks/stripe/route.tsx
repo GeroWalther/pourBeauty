@@ -5,61 +5,44 @@ import Stripe from 'stripe';
 import { Resend } from 'resend';
 import PurchaseReceiptEmail from '@/email/PurchaseReceipt';
 
-// console.log('process.env.RESEND_API_KEY', process.env.RESEND_API_KEY);
-// console.log('process.env.STRIPE_SECRET_KEY', process.env.STRIPE_SECRET_KEY);
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_dummy');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_dummy', {
+  apiVersion: '2024-06-20',
+});
 const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy');
 
 export async function POST(req: NextRequest) {
   try {
+    const body = await req.text();
+    const sig = req.headers.get('stripe-signature') as string;
+
     const event = stripe.webhooks.constructEvent(
-      await req.text(),
-      req.headers.get('stripe-signature') as string,
+      body,
+      sig,
       process.env.STRIPE_WEBHOOK_SECRET as string
     );
-    if (event.type !== 'charge.succeeded') {
-      return new NextResponse('Event type not supported', { status: 400 });
-    }
 
-    if (event.type === 'charge.succeeded') {
-      const charge = event.data.object;
-      const productsAsString = charge.metadata.products;
-      const products = JSON.parse(productsAsString);
-      //console.log('PRODUCTS:', products);
+    // Helper to send emails + save order
+    const processOrder = async (params: {
+      products: any[];
+      email: string;
+      customerName: string;
+      address: string;
+      pricePaidInCents: number;
+      discountCode?: string;
+    }) => {
+      const { products, email, customerName, address, pricePaidInCents, discountCode } = params;
 
-      const email = charge.billing_details.email;
-      const pricePaidInCents = charge.amount;
-      const customerName = charge.billing_details.name;
-      const discountCode = charge.metadata.discountCode;
-
-      const city = charge.shipping?.address?.city;
-      const country = charge.shipping?.address?.country;
-      const line1 = charge.shipping?.address?.line1;
-      const line2 = charge.shipping?.address?.line2;
-      const postalCode = charge.shipping?.address?.postal_code;
-      const state = charge.shipping?.address?.state;
-      const address = `${line1}, ${
-        line2 ? line2 + ', ' : ''
-      } ${city}, ${state}, ${postalCode}, ${country}`;
-
-      if (email == null || address == null || customerName == null) {
-        return new NextResponse('Bad Request', { status: 400 });
-      }
-
-      //  Save order in DB
       const { order } = await saveOrder(
         address,
         customerName,
-        email!,
+        email,
         products,
         pricePaidInCents,
-        discountCode
+        discountCode || '-'
       );
 
       try {
-        // email to admin
-        console.log('EMAIL DISCOCODE: ', order.discountCode);
-        const sendEmail = await resend.emails.send({
+        await resend.emails.send({
           from: `BESTELLUNGSEINGANG <${process.env.SENDER_EMAIL}>`,
           to: process.env.SHOP_EMAIL as string,
           subject: 'Neue Bestellung eingegangen',
@@ -84,7 +67,6 @@ export async function POST(req: NextRequest) {
       }
 
       try {
-        // send email to customer
         await resend.emails.send({
           from: `Bestellung PUREBEAUTY <${process.env.SENDER_EMAIL}>`,
           to: email,
@@ -109,10 +91,94 @@ export async function POST(req: NextRequest) {
       } catch (e) {
         console.error('Error to customer email:', e);
       }
+    };
+
+    switch (event.type) {
+      case 'payment_intent.succeeded': {
+        const pi = event.data.object as Stripe.PaymentIntent;
+        const productsStr = pi.metadata?.products || '';
+        const products = productsStr ? JSON.parse(productsStr) : [];
+
+        const pricePaidInCents = pi.amount_received ?? pi.amount;
+        const email = pi.receipt_email || pi.charges?.data?.[0]?.billing_details?.email || '';
+        const customerName =
+          pi.shipping?.name || pi.charges?.data?.[0]?.billing_details?.name || '';
+        const addr = pi.shipping?.address || pi.charges?.data?.[0]?.shipping?.address;
+        const address = addr
+          ? `${addr.line1 || ''}${addr.line2 ? ', ' + addr.line2 : ''}, ${addr.city || ''}, ${
+              addr.state || ''
+            }, ${addr.postal_code || ''}, ${addr.country || ''}`
+          : '';
+
+        if (!email || !customerName || !products.length) {
+          console.warn('Missing data on payment_intent.succeeded – skipping.');
+          break;
+        }
+
+        await processOrder({
+          products,
+          email,
+          customerName,
+          address,
+          pricePaidInCents,
+          discountCode: pi.metadata?.discountCode,
+        });
+        break;
+      }
+      case 'charge.succeeded': {
+        const charge = event.data.object as Stripe.Charge;
+
+        // Try to read products directly from charge, else fetch PI metadata
+        let products: any[] = [];
+        let discountCode: string | undefined;
+        if (charge.metadata?.products) {
+          products = JSON.parse(charge.metadata.products);
+          discountCode = charge.metadata.discountCode;
+        } else if (charge.payment_intent) {
+          const pi = await stripe.paymentIntents.retrieve(
+            typeof charge.payment_intent === 'string'
+              ? charge.payment_intent
+              : charge.payment_intent.id
+          );
+          const productsStr = pi.metadata?.products || '';
+          products = productsStr ? JSON.parse(productsStr) : [];
+          discountCode = pi.metadata?.discountCode;
+        }
+
+        const pricePaidInCents = charge.amount;
+        const email = charge.billing_details?.email || '';
+        const customerName = charge.billing_details?.name || '';
+        const addr = charge.shipping?.address || charge.billing_details?.address;
+        const address = addr
+          ? `${addr.line1 || ''}${addr.line2 ? ', ' + addr.line2 : ''}, ${addr.city || ''}, ${
+              addr.state || ''
+            }, ${addr.postal_code || ''}, ${addr.country || ''}`
+          : '';
+
+        if (!email || !customerName || !products.length) {
+          console.warn('Missing data on charge.succeeded – skipping.');
+          break;
+        }
+
+        await processOrder({
+          products,
+          email,
+          customerName,
+          address,
+          pricePaidInCents,
+          discountCode,
+        });
+        break;
+      }
+      default: {
+        // Ignore other events to avoid 4xx in Stripe dashboard
+        break;
+      }
     }
-    return new NextResponse('Webhook processed successfully!', { status: 200 });
+
+    return new NextResponse('ok', { status: 200 });
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Stripe webhook error:', error);
     return new NextResponse('Internal Server Error!', { status: 500 });
   }
 }
