@@ -78,7 +78,7 @@ export default async function SuccessPage({
         </div>
 
         <Image
-          src={'/thankyou2.jpg'}
+          src={'/HeroCollage.jpeg'}
           alt='thanks for your purchase image'
           height={500}
           width={500}
@@ -87,7 +87,7 @@ export default async function SuccessPage({
       </div>
       <div>
         <h2 className='text-2xl max-w-prose text-stone-900 font-light mb-4 md:mb-10 mx-20'>
-          <span className='font-bold text-pink-500'>The Glow Look!</span>
+          <span className='font-bold text-pink-500'>Clean and Green!</span>
         </h2>
         <ProductDisplay />
       </div>
