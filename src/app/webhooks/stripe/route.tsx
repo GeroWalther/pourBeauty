@@ -94,37 +94,6 @@ export async function POST(req: NextRequest) {
     };
 
     switch (event.type) {
-      case 'payment_intent.succeeded': {
-        const pi = event.data.object as Stripe.PaymentIntent;
-        const productsStr = pi.metadata?.products || '';
-        const products = productsStr ? JSON.parse(productsStr) : [];
-
-        const pricePaidInCents = pi.amount_received ?? pi.amount;
-        const email = pi.receipt_email || pi.charges?.data?.[0]?.billing_details?.email || '';
-        const customerName =
-          pi.shipping?.name || pi.charges?.data?.[0]?.billing_details?.name || '';
-        const addr = pi.shipping?.address || pi.charges?.data?.[0]?.shipping?.address;
-        const address = addr
-          ? `${addr.line1 || ''}${addr.line2 ? ', ' + addr.line2 : ''}, ${addr.city || ''}, ${
-              addr.state || ''
-            }, ${addr.postal_code || ''}, ${addr.country || ''}`
-          : '';
-
-        if (!email || !customerName || !products.length) {
-          console.warn('Missing data on payment_intent.succeeded – skipping.');
-          break;
-        }
-
-        await processOrder({
-          products,
-          email,
-          customerName,
-          address,
-          pricePaidInCents,
-          discountCode: pi.metadata?.discountCode,
-        });
-        break;
-      }
       case 'charge.succeeded': {
         const charge = event.data.object as Stripe.Charge;
 
