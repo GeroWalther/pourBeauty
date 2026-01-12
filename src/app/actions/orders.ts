@@ -2,7 +2,7 @@
 
 import db from '@/db';
 import { Product } from '@/hooks/use-cart-hook';
-import { SHIPPING } from '../../../consts';
+import { SHIPPING, FREE_SHIPPING_THRESHOLD } from '../../../consts';
 
 export async function saveOrder(
   address: string,
@@ -12,22 +12,20 @@ export async function saveOrder(
   pricePaidInCents: number,
   discountCode: string
 ) {
-  // Create the order first
-  // console.log(
-  //   'CREATE ORDER: ',
-  //   customerName,
-  //   email,
-  //   address,
-  //   items,
-  //   pricePaidInCents,
-  //   discountCode
-  // );
+  // Calculate subtotal to determine shipping
+  const subTotal = items.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+  // Apply discount if present in discountCode? We don't have the % here, so shipping is based on subtotal.
+  const shippingCost = subTotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING;
+
   const order = await db.order.create({
     data: {
       address,
       email,
       pricePaidInCents,
-      shippingCost: SHIPPING,
+      shippingCost,
       customerName,
       discountCode,
     },

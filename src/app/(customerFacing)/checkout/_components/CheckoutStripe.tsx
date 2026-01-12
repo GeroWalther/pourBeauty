@@ -181,7 +181,7 @@ function Form({ toPay, items }: { toPay: number; items: CartItem[] }) {
           <Button
             disabled={stripe === null || elements === null || isLoading}
             className={buttonVariants({
-              className: 'w-full bg-pink-500 mt-4 font-semibold text-lg',
+              className: 'w-full bg-teal-600 to-teal-500 mt-4 font-semibold text-lg',
             })}>
             {isLoading
               ? 'Ladevorgang...'

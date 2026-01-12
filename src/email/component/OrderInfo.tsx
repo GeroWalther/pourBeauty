@@ -97,16 +97,18 @@ export function OrderInfo({ order, products }: OrderInfoProps) {
             </Row>
           );
         })}
-        <Row>
-          <Column>
-            <Text>Versandkosten</Text>
-          </Column>
-          <Column>
-            <Text className='text-right'>
-              {formatCurrency(order.shippingCost)}
-            </Text>
-          </Column>
-        </Row>
+        {order.shippingCost > 0 && (
+          <Row>
+            <Column>
+              <Text>Versandkosten</Text>
+            </Column>
+            <Column>
+              <Text className='text-right'>
+                {formatCurrency(order.shippingCost)}
+              </Text>
+            </Column>
+          </Row>
+        )}
         <Row>
           <Column>
             <Text className='font-bold'>Bezahlter Gesamtbetrag:</Text>

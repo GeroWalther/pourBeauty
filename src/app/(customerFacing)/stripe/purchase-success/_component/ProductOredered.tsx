@@ -1,25 +1,30 @@
 'use client';
 import CartItem from '@/app/(customerFacing)/_components/CartItem';
 import { useLanguage } from '@/contexts/LanguageProvider';
-import { Product, useCart } from '@/hooks/use-cart-hook';
+import { Product } from '@/hooks/use-cart-hook';
 import { formatCurrency } from '@/lib/formatters';
 import { Separator } from '@radix-ui/react-dropdown-menu';
-import React, { useEffect } from 'react';
-import { SHIPPING } from '../../../../../../consts';
+import React from 'react';
+import { SHIPPING, FREE_SHIPPING_THRESHOLD } from '../../../../../../consts';
 
-export default function ProductOredered({ products }: { products: Product[] }) {
+export default function ProductOredered({
+  products,
+  pricePaidInCents,
+}: {
+  products: Product[];
+  pricePaidInCents: number;
+}) {
   const { language } = useLanguage();
-  const { clearCart, discount } = useCart();
 
-  useEffect(() => {
-    clearCart();
-  }, []);
-  const qty = products.map((p) => p.quantity);
   const subTotal = products.reduce(
-    (total, p, index) => total + p.price * qty[index],
+    (total, p) => total + p.price * p.quantity,
     0
   );
-  const afterdiscount = subTotal * (1 - discount / 100);
+
+  const totalPaid = pricePaidInCents / 100;
+  // Derive shipping shown on thank-you page: totalPaid - subTotal (assumes no tax)
+  const derivedShipping = Math.max(0, totalPaid - subTotal);
+  const shippingCost = derivedShipping > 0 ? derivedShipping : (subTotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING);
 
   return (
     <section className='flex w-full flex-col pr-0 sm:max-w-lg'>
@@ -38,30 +43,18 @@ export default function ProductOredered({ products }: { products: Product[] }) {
               <span className='flex-1'>Subtotal</span>
               <span>{formatCurrency(subTotal)}</span>
             </div>
-            <div className='flex'>
-              <span className='flex-1'>
-                {language == 'de' && 'Rabatt'}
-                {language == 'en' && 'Discount'}
-              </span>
-              <span>- {discount}%</span>
-            </div>
-            <div className='flex'>
-              <span className='flex-1'>
-                {language == 'de' && ''}
-                {language == 'en' && ''}
-              </span>
-              <span>{formatCurrency(afterdiscount)}</span>
-            </div>
-            <div className='flex'>
-              <span className='flex-1'>
-                {language == 'de' && ' Versand'}
-                {language == 'en' && 'Shipping'}
-              </span>
-              <span>{formatCurrency(SHIPPING)}</span>
-            </div>
+            {shippingCost > 0 && (
+              <div className='flex'>
+                <span className='flex-1'>
+                  {language == 'de' && 'Versand'}
+                  {language == 'en' && 'Shipping'}
+                </span>
+                <span>{formatCurrency(shippingCost)}</span>
+              </div>
+            )}
             <div className='flex'>
               <span className='flex-1'>Total</span>
-              <span>{formatCurrency(afterdiscount + SHIPPING)}</span>
+              <span>{formatCurrency(totalPaid)}</span>
             </div>
           </div>
         </div>

@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 import { SHIPPING } from '../../consts';
 import { CartItem } from './use-cart-hook';
 
+import { FREE_SHIPPING_THRESHOLD } from '../../consts';
+
 const useCartTotals = (items: CartItem[], discount: number) => {
   const itemCount = useMemo(() => {
     return items.reduce((acc, item) => acc + item.product.quantity, 0);
@@ -19,7 +21,10 @@ const useCartTotals = (items: CartItem[], discount: number) => {
   const discountedPrice =
     discount == 0 ? totalCart : totalCart - (discount / 100) * totalCart;
 
-  const toPay = useMemo(() => discountedPrice + SHIPPING, [discountedPrice]);
+  // Free shipping threshold is based on subtotal after discount
+  const shippingCost = discountedPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING;
+
+  const toPay = useMemo(() => discountedPrice + shippingCost, [discountedPrice, shippingCost]);
 
   return {
     itemCount,
@@ -27,6 +32,7 @@ const useCartTotals = (items: CartItem[], discount: number) => {
     totalCart,
     toPay,
     discountedPrice,
+    shippingCost,
   };
 };
 

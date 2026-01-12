@@ -2,6 +2,7 @@ import React from 'react';
 import Stripe from 'stripe';
 import { notFound } from 'next/navigation';
 import ProductOredered from './_component/ProductOredered';
+import ClearCart from './_component/ClearCart';
 import Image from 'next/image';
 import ProductDisplay from '../../_components/ProductDisplay';
 
@@ -45,6 +46,7 @@ export default async function SuccessPage({
 
   return (
     <main className='flex-col justify-around md:mt-14 pb-20'>
+      <ClearCart />
       <div className='flex justify-around md:mt-14 pb-20'>
         <div className='md:p-4 px-6'>
           {isSuccess ? (
@@ -73,7 +75,7 @@ export default async function SuccessPage({
             <p className=' font-semibold text-pink-900 mb-2'>
               Deine Bestellung / Order Summary :{' '}
             </p>
-            <ProductOredered products={products} />
+            <ProductOredered products={products} pricePaidInCents={paymentIntent.amount_received ?? paymentIntent.amount} />
           </div>
         </div>
 
@@ -87,7 +89,7 @@ export default async function SuccessPage({
       </div>
       <div>
         <h2 className='text-2xl max-w-prose text-stone-900 font-light mb-4 md:mb-10 mx-20'>
-          <span className='font-bold text-pink-500'>Clean and Green!</span>
+          <span className='font-bold text-teal-500'>Clean and Green!</span>
         </h2>
         <ProductDisplay />
       </div>

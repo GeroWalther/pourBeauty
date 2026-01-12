@@ -28,7 +28,7 @@ import DiscountCodeInput from './DiscountCodeInput';
 export default function Cart() {
   const { items, discount, isOpen, setIsOpen } = useCart();
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  const { itemCount, totalCart, discountedPrice } = useCartTotals(
+  const { itemCount, totalCart, discountedPrice, shippingCost } = useCartTotals(
     items,
     discount
   );
@@ -113,12 +113,12 @@ export default function Cart() {
                     {language == 'de' && 'Versand'}
                     {language == 'en' && 'Shipping'}
                   </span>
-                  <span>{formatCurrency(SHIPPING)}</span>
+                  <span>{shippingCost === 0 ? 'Kostenlos' : formatCurrency(shippingCost)}</span>
                 </div>
 
                 <div className='flex'>
                   <span className='flex-1'>Total</span>
-                  <span>{formatCurrency(discountedPrice + SHIPPING)}</span>
+                  <span>{formatCurrency(discountedPrice + shippingCost)}</span>
                 </div>
               </div>
               <SheetFooter>
